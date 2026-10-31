@@ -1,0 +1,877 @@
+{
+ "started": "2026-10-31T22:49+03:00",
+ "snapshots": {
+  "0x015354106478dda69c4aae3c0cf801290b738052": {
+   "equity": 10668614.124914,
+   "positions": {
+    "ZEC": {
+     "szi": -3698.18,
+     "entry": 1307.8245,
+     "lev": 1.0,
+     "liq": 2505.4667653597,
+     "value": 4714439.864
+    }
+   }
+  },
+  "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d": {
+   "equity": 4620923.88303633,
+   "positions": {
+    "BSV": {
+     "szi": 332.09,
+     "entry": 15.4558,
+     "lev": 3.0,
+     "liq": null,
+     "value": 5680.73154
+    },
+    "ORDI": {
+     "szi": 413.96,
+     "entry": 2.963,
+     "lev": 3.0,
+     "liq": null,
+     "value": 1445.589716
+    },
+    "TNSR": {
+     "szi": 862794.4,
+     "entry": 0.03649,
+     "lev": 3.0,
+     "liq": null,
+     "value": 24563.756568
+    },
+    "xyz:GOOGL": {
+     "szi": 42.182,
+     "entry": 343.187,
+     "lev": 10.0,
+     "liq": null,
+     "value": 11931.60052
+    },
+    "xyz:SKHX": {
+     "szi": 2107.974,
+     "entry": 1431.724,
+     "lev": 10.0,
+     "liq": null,
+     "value": 2193768.5418
+    },
+    "xyz:SKHY": {
+     "szi": -14387.48,
+     "entry": 198.3187,
+     "lev": 10.0,
+     "liq": 441.2483854458,
+     "value": 2155676.1284
+    }
+   }
+  },
+  "0xd70c9e61ba506a8cf1c25b54d14b25abdc048fd4": {
+   "equity": 309961.25139843,
+   "positions": {}
+  },
+  "0x69b05701f8175c276ecd0138387a197948e240bb": {
+   "equity": 474542.7577041,
+   "positions": {
+    "BTC": {
+     "szi": -8.19624,
+     "entry": 79869.9,
+     "lev": 20.0,
+     "liq": 133423.6592556202,
+     "value": 635520.05712
+    }
+   }
+  },
+  "0x5db22b067c3ec6a8435ec37555abeab44cd58a21": {
+   "equity": 397415.00527103,
+   "positions": {
+    "xyz:XYZ100": {
+     "szi": -10.0,
+     "entry": 29531.0,
+     "lev": 20.0,
+     "liq": 60944.3906679344,
+     "value": 284510.0
+    },
+    "xyz:NVDA": {
+     "szi": -2000.0,
+     "entry": 210.823,
+     "lev": 20.0,
+     "liq": 365.0260838005,
+     "value": 407760.0
+    },
+    "xyz:AMD": {
+     "szi": -200.0,
+     "entry": 539.961,
+     "lev": 10.0,
+     "liq": 638.580640619,
+     "value": 101452.0
+    }
+   }
+  },
+  "0xe79d69fd1ed52dd14d7f55155259519ea20d0534": {
+   "equity": 1293017.94536956,
+   "positions": {
+    "BTC": {
+     "szi": 3.2826,
+     "entry": 79053.7,
+     "lev": 20.0,
+     "liq": null,
+     "value": 254526.2388
+    },
+    "BNB": {
+     "szi": -479.325,
+     "entry": 700.393,
+     "lev": 10.0,
+     "liq": 3024.1899817352,
+     "value": 338413.0365
+    },
+    "HYPE": {
+     "szi": -3615.54,
+     "entry": 93.6538,
+     "lev": 10.0,
+     "liq": 395.1030413148,
+     "value": 317354.0235
+    },
+    "SPX": {
+     "szi": -414355.2,
+     "entry": 0.36712,
+     "lev": 5.0,
+     "liq": 2.9137595928,
+     "value": 146681.7408
+    },
+    "TRUMP": {
+     "szi": -13106.1,
+     "entry": 2.14472,
+     "lev": 10.0,
+     "liq": 86.3556533137,
+     "value": 20629.0014
+    },
+    "LIT": {
+     "szi": 17924.0,
+     "entry": 2.907986,
+     "lev": 5.0,
+     "liq": null,
+     "value": 55100.1684
+    },
+    "xyz:META": {
+     "szi": 562.336,
+     "entry": 668.666,
+     "lev": 20.0,
+     "liq": null,
+     "value": 345094.35648
+    },
+    "xyz:MU": {
+     "szi": 101.027,
+     "entry": 866.518,
+     "lev": 10.0,
+     "liq": null,
+     "value": 90645.46548
+    },
+    "xyz:SNDK": {
+     "szi": 142.154,
+     "entry": 1271.081,
+     "lev": 10.0,
+     "liq": null,
+     "value": 163860.9158
+    },
+    "xyz:SKHX": {
+     "szi": 80.094,
+     "entry": 965.705,
+     "lev": 10.0,
+     "liq": null,
+     "value": 83353.8258
+    },
+    "xyz:SPCX": {
+     "szi": -722.46,
+     "entry": 168.8795,
+     "lev": 10.0,
+     "liq": 181.9517569726,
+     "value": 99258.7794
+    },
+    "xyz:CXMT": {
+     "szi": 7204.1,
+     "entry": 6.0567,
+     "lev": 10.0,
+     "liq": 5.7946021454,
+     "value": 44751.8692
+    }
+   }
+  },
+  "0x2396bc99feedc162af809314257571bb7ff07a36": {
+   "equity": 298446.28985586995,
+   "positions": {
+    "NEAR": {
+     "szi": -22196.0,
+     "entry": 4.55706,
+     "lev": 7.0,
+     "liq": 4.9646867714,
+     "value": 98667.8788
+    },
+    "TRUMP": {
+     "szi": -107100.0,
+     "entry": 1.89737,
+     "lev": 7.0,
+     "liq": 2.0686700769,
+     "value": 168575.4
+    },
+    "xyz:NVDA": {
+     "szi": -292.182,
+     "entry": 215.293,
+     "lev": 10.0,
+     "liq": 231.0889612973,
+     "value": 59570.06616
+    },
+    "xyz:PLTR": {
+     "szi": -367.69,
+     "entry": 193.953,
+     "lev": 7.0,
+     "liq": 211.1695948865,
+     "value": 68140.3108
+    },
+    "xyz:CL": {
+     "szi": 852.08,
+     "entry": 98.996,
+     "lev": 10.0,
+     "liq": 91.3440578602,
+     "value": 87184.8256
+    }
+   }
+  },
+  "0x9221a960277fe388b899f58117aa9bd298463002": {
+   "equity": 306896.64201613,
+   "positions": {
+    "BTC": {
+     "szi": 2.85818,
+     "entry": 77014.3,
+     "lev": 20.0,
+     "liq": null,
+     "value": 221617.56084
+    },
+    "ETH": {
+     "szi": -89.2976,
+     "entry": 2239.7,
+     "lev": 20.0,
+     "liq": 5231.3108958575,
+     "value": 201041.937712
+    },
+    "RUNE": {
+     "szi": 93844.9,
+     "entry": 0.64128,
+     "lev": 5.0,
+     "liq": null,
+     "value": 63121.956638
+    },
+    "HYPE": {
+     "szi": 0.01,
+     "entry": 61.2731,
+     "lev": 10.0,
+     "liq": null,
+     "value": 0.87775
+    },
+    "KAITO": {
+     "szi": -17.0,
+     "entry": 0.864999,
+     "lev": 5.0,
+     "liq": 14514.8709486631,
+     "value": 4.07745
+    },
+    "LIT": {
+     "szi": -3850.0,
+     "entry": 4.07623,
+     "lev": 5.0,
+     "liq": 67.1646788772,
+     "value": 11835.285
+    },
+    "xyz:NVDA": {
+     "szi": 0.001,
+     "entry": 207.559,
+     "lev": 20.0,
+     "liq": null,
+     "value": 0.20388
+    },
+    "xyz:GOLD": {
+     "szi": -0.0001,
+     "entry": 4307.0,
+     "lev": 20.0,
+     "liq": 2661007709.9019604,
+     "value": 0.38855
+    },
+    "xyz:META": {
+     "szi": 85.245,
+     "entry": 609.997,
+     "lev": 10.0,
+     "liq": null,
+     "value": 52313.1516
+    },
+    "xyz:MSFT": {
+     "szi": 1.686,
+     "entry": 396.903,
+     "lev": 4.0,
+     "liq": null,
+     "value": 882.57042
+    },
+    "xyz:GOOGL": {
+     "szi": 24.801,
+     "entry": 322.574,
+     "lev": 20.0,
+     "liq": null,
+     "value": 7015.21086
+    },
+    "xyz:AMD": {
+     "szi": 0.001,
+     "entry": 451.744,
+     "lev": 10.0,
+     "liq": 245.6905263158,
+     "value": 0.50726
+    },
+    "xyz:CRCL": {
+     "szi": 55.011,
+     "entry": 71.811,
+     "lev": 1.0,
+     "liq": 2.839228671,
+     "value": 4000.784997
+    },
+    "xyz:BABA": {
+     "szi": 6.235,
+     "entry": 95.099,
+     "lev": 10.0,
+     "liq": 94.417621576,
+     "value": 614.852055
+    },
+    "xyz:EWY": {
+     "szi": 7.007,
+     "entry": 143.63,
+     "lev": 7.0,
+     "liq": 92.2664232471,
+     "value": 1071.30023
+    },
+    "xyz:DRAM": {
+     "szi": 0.1,
+     "entry": 50.17275,
+     "lev": 20.0,
+     "liq": null,
+     "value": 4.8429
+    },
+    "xyz:SPCX": {
+     "szi": 411.12,
+     "entry": 145.9433,
+     "lev": 5.0,
+     "liq": 120.5515905843,
+     "value": 56483.7768
+    },
+    "xyz:BB": {
+     "szi": 1052.9,
+     "entry": 9.56134,
+     "lev": 10.0,
+     "liq": 4.5631703146,
+     "value": 8874.26236
+    },
+    "xyz:NET": {
+     "szi": 71.5,
+     "entry": 279.69,
+     "lev": 10.0,
+     "liq": 264.8789822451,
+     "value": 20102.225
+    }
+   }
+  },
+  "0xa3bd669bbb7fc764ea941587466ac710bb9e3609": {
+   "equity": 390569.481835,
+   "positions": {}
+  },
+  "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d": {
+   "equity": 258080.46544039,
+   "positions": {}
+  },
+  "0x708f713637e28c014705fec1bab002992f53d4ea": {
+   "equity": 3325024.335097,
+   "positions": {
+    "xyz:TSLA": {
+     "szi": -0.503,
+     "entry": 377.711,
+     "lev": 2.0,
+     "liq": 604.1738117636,
+     "value": 200.77245
+    },
+    "xyz:INTC": {
+     "szi": -3065.79,
+     "entry": 85.014,
+     "lev": 2.0,
+     "liq": 95.3767447614,
+     "value": 198693.8499
+    },
+    "xyz:GOOGL": {
+     "szi": -383.128,
+     "entry": 291.365,
+     "lev": 2.0,
+     "liq": 426.716956208,
+     "value": 108371.58608
+    },
+    "xyz:SNDK": {
+     "szi": -552.451,
+     "entry": 1256.591,
+     "lev": 2.0,
+     "liq": 1671.7172353713,
+     "value": 636810.2677
+    },
+    "xyz:MSTR": {
+     "szi": -3326.807,
+     "entry": 149.322,
+     "lev": 2.0,
+     "liq": 193.6229692744,
+     "value": 444594.48748
+    },
+    "xyz:CRCL": {
+     "szi": -5397.486,
+     "entry": 75.065,
+     "lev": 2.0,
+     "liq": 107.9046422388,
+     "value": 392542.964322
+    },
+    "xyz:SKHX": {
+     "szi": -980.26,
+     "entry": 1201.705,
+     "lev": 3.0,
+     "liq": 1568.5057294323,
+     "value": 1020156.582
+    },
+    "xyz:BABA": {
+     "szi": -6241.149,
+     "entry": 107.839,
+     "lev": 2.0,
+     "liq": 147.1954526778,
+     "value": 615458.426337
+    },
+    "xyz:URNM": {
+     "szi": -6022.76,
+     "entry": 52.2693,
+     "lev": 2.0,
+     "liq": 66.2345116093,
+     "value": 256027.5276
+    },
+    "xyz:SOFTBANK": {
+     "szi": -300.0,
+     "entry": 28.721,
+     "lev": 2.0,
+     "liq": 44.1621183968,
+     "value": 8260.5
+    },
+    "xyz:KIOXIA": {
+     "szi": -299.85,
+     "entry": 91.167,
+     "lev": 2.0,
+     "liq": 126.9628539825,
+     "value": 23359.81425
+    },
+    "xyz:LITE": {
+     "szi": -15.633,
+     "entry": 878.439,
+     "lev": 2.0,
+     "liq": 1358.2978091522,
+     "value": 13205.82042
+    },
+    "xyz:DRAM": {
+     "szi": -7286.5,
+     "entry": 51.20878,
+     "lev": 3.0,
+     "liq": 121.16608216,
+     "value": 352870.622
+    },
+    "xyz:CBRS": {
+     "szi": -1444.1,
+     "entry": 142.6878,
+     "lev": 2.0,
+     "liq": 158.6955575151,
+     "value": 157204.726
+    },
+    "xyz:EWZ": {
+     "szi": -10924.25,
+     "entry": 33.8338,
+     "lev": 2.0,
+     "liq": 49.5349907173,
+     "value": 356054.08025
+    },
+    "xyz:SPCX": {
+     "szi": -3401.48,
+     "entry": 150.1581,
+     "lev": 2.0,
+     "liq": 205.9171269734,
+     "value": 467329.3372
+    },
+    "xyz:MINIMAX": {
+     "szi": -16179.99,
+     "entry": 41.4198,
+     "lev": 2.0,
+     "liq": 28.8929058382,
+     "value": 325217.799
+    },
+    "xyz:AVGO": {
+     "szi": -125.23,
+     "entry": 353.2297,
+     "lev": 2.0,
+     "liq": 508.6223926033,
+     "value": 40940.1916
+    },
+    "xyz:ZHIPU": {
+     "szi": -13214.96,
+     "entry": 99.321,
+     "lev": 2.0,
+     "liq": 89.0616381327,
+     "value": 808081.58904
+    },
+    "xyz:BOT": {
+     "szi": -2249.44,
+     "entry": 26.0385,
+     "lev": 2.0,
+     "liq": 30.1061015305,
+     "value": 47152.76128
+    },
+    "xyz:NET": {
+     "szi": -291.67,
+     "entry": 327.4994,
+     "lev": 2.0,
+     "liq": 435.3243861278,
+     "value": 82003.0205
+    }
+   }
+  },
+  "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0": {
+   "equity": 20129651.34650595,
+   "positions": {
+    "xyz:XYZ100": {
+     "szi": -273.9851,
+     "entry": 29562.48,
+     "lev": 6.0,
+     "liq": 97387.1137585135,
+     "value": 7795150.0801
+    },
+    "xyz:GOLD": {
+     "szi": -523.4278,
+     "entry": 4149.69,
+     "lev": 4.0,
+     "liq": 39851.7674967461,
+     "value": 2033778.7169
+    },
+    "xyz:META": {
+     "szi": -10730.0,
+     "entry": 705.451,
+     "lev": 4.0,
+     "liq": 2359.617686035,
+     "value": 6584786.4
+    },
+    "xyz:AAPL": {
+     "szi": 18550.0,
+     "entry": 344.376,
+     "lev": 4.0,
+     "liq": null,
+     "value": 6389733.0
+    },
+    "xyz:MSFT": {
+     "szi": 350.0,
+     "entry": 521.388,
+     "lev": 4.0,
+     "liq": null,
+     "value": 183214.5
+    },
+    "xyz:GOOGL": {
+     "szi": -30900.0,
+     "entry": 309.818,
+     "lev": 5.0,
+     "liq": 889.1354489047,
+     "value": 8740374.0
+    },
+    "xyz:AMZN": {
+     "szi": -14400.0,
+     "entry": 255.109,
+     "lev": 4.0,
+     "liq": 1541.3560674413,
+     "value": 3461616.0
+    },
+    "xyz:SILVER": {
+     "szi": -131753.16,
+     "entry": 61.4606,
+     "lev": 3.0,
+     "liq": 192.3014724765,
+     "value": 6510582.4014
+    },
+    "xyz:SP500": {
+     "szi": 686.123,
+     "entry": 7628.57,
+     "lev": 8.0,
+     "liq": null,
+     "value": 5205134.9149
+    },
+    "xyz:ANT": {
+     "szi": 260.29,
+     "entry": 111.532,
+     "lev": 2.0,
+     "liq": 58.704428429,
+     "value": 29157.6858
+    }
+   }
+  },
+  "0xd487e26c62ed8c28ce3cc70b5791e501c2934982": {
+   "equity": 1398676.9273536901,
+   "positions": {
+    "ZRO": {
+     "szi": 200004.0,
+     "entry": 1.20389,
+     "lev": 5.0,
+     "liq": null,
+     "value": 361707.234
+    },
+    "ZEC": {
+     "szi": 6.0,
+     "entry": 1286.1166,
+     "lev": 10.0,
+     "liq": null,
+     "value": 7649.4
+    }
+   }
+  },
+  "0xda744273f80b22412417f7cfe0503f3d721f987d": {
+   "equity": 4787062.74864213,
+   "positions": {
+    "BTC": {
+     "szi": 60.0,
+     "entry": 66958.1,
+     "lev": 20.0,
+     "liq": 20146.7811475105,
+     "value": 4652280.0
+    },
+    "CASHCAT": {
+     "szi": -1616041.0,
+     "entry": 0.202788,
+     "lev": 3.0,
+     "liq": 0.5517711187,
+     "value": 149083.014332
+    },
+    "xyz:NVDA": {
+     "szi": -10000.0,
+     "entry": 223.512,
+     "lev": 20.0,
+     "liq": 535.6292406839,
+     "value": 2038800.0
+    },
+    "xyz:INTC": {
+     "szi": 2500.0,
+     "entry": 64.75,
+     "lev": 10.0,
+     "liq": null,
+     "value": 162025.0
+    },
+    "xyz:MSFT": {
+     "szi": -500.0,
+     "entry": 490.748,
+     "lev": 20.0,
+     "liq": 7158.454813678,
+     "value": 261735.0
+    },
+    "xyz:AMD": {
+     "szi": -500.0,
+     "entry": 547.103,
+     "lev": 10.0,
+     "liq": 805.6402125219,
+     "value": 253630.0
+    },
+    "xyz:SPCX": {
+     "szi": -8000.0,
+     "entry": 151.5415,
+     "lev": 20.0,
+     "liq": 552.0765508549,
+     "value": 1099120.0
+    },
+    "xyz:DELL": {
+     "szi": -500.0,
+     "entry": 536.1899,
+     "lev": 10.0,
+     "liq": 733.2744016571,
+     "value": 211670.0
+    }
+   }
+  },
+  "0xe81309ec9b79309e4d108ae3a92d1aa618cd6d74": {
+   "equity": 22655619.796131,
+   "positions": {}
+  },
+  "0x378defc39d5dcdfbecd4f1673a5e228f992fc08e": {
+   "equity": 111687.32798487,
+   "positions": {
+    "xyz:NVDA": {
+     "szi": 1481.608,
+     "entry": 202.797,
+     "lev": 20.0,
+     "liq": 134.8503693575,
+     "value": 302070.23904
+    },
+    "xyz:KIOXIA": {
+     "szi": -51.619,
+     "entry": 77.377,
+     "lev": 10.0,
+     "liq": 81.0907239398,
+     "value": 4021.378195
+    },
+    "xyz:BOT": {
+     "szi": -1603.77,
+     "entry": 21.1,
+     "lev": 10.0,
+     "liq": 22.1072163025,
+     "value": 33618.22674
+    }
+   }
+  }
+ },
+ "subs": {
+  "0x015354106478dda69c4aae3c0cf801290b738052": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xd70c9e61ba506a8cf1c25b54d14b25abdc048fd4": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x69b05701f8175c276ecd0138387a197948e240bb": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x5db22b067c3ec6a8435ec37555abeab44cd58a21": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xe79d69fd1ed52dd14d7f55155259519ea20d0534": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x2396bc99feedc162af809314257571bb7ff07a36": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x9221a960277fe388b899f58117aa9bd298463002": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xa3bd669bbb7fc764ea941587466ac710bb9e3609": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x708f713637e28c014705fec1bab002992f53d4ea": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xd487e26c62ed8c28ce3cc70b5791e501c2934982": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xda744273f80b22412417f7cfe0503f3d721f987d": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0xe81309ec9b79309e4d108ae3a92d1aa618cd6d74": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  },
+  "0x378defc39d5dcdfbecd4f1673a5e228f992fc08e": {
+   "capital": 300.0,
+   "realized": 0.0,
+   "fees": 0.0,
+   "trades": 0,
+   "skipped": 0,
+   "positions": {},
+   "followed": []
+  }
+ },
+ "watch_events": {},
+ "history": [
+  [
+   "2026-10-31T22:49+03:00",
+   4800.0
+  ]
+ ],
+ "last_report": {
+  "week": null,
+  "equity": 4800
+ },
+ "tg_offset": 0,
+ "fail_count": 0
+}
