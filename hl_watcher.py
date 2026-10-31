@@ -327,7 +327,7 @@ def trader_line(label: str, ev: str, prev: dict | None, now: dict | None, equity
 
 def summary_text(state: dict, cfg: dict, mids: dict, title: str) -> str:
     eq = total_equity(state, mids)
-    cap = cfg["paper_capital_usd"]
+    cap = sum(s["capital"] for s in state["subs"].values()) or cfg["paper_capital_usd"]
     realized = sum(s["realized"] for s in state["subs"].values())
     fees = sum(s["fees"] for s in state["subs"].values())
     upnl = eq - cap - realized + fees
@@ -351,7 +351,7 @@ def summary_text(state: dict, cfg: dict, mids: dict, title: str) -> str:
 
 def weekly_report(state: dict, cfg: dict, mids: dict) -> str:
     eq = total_equity(state, mids)
-    last = state["last_report"].get("equity") or cfg["paper_capital_usd"]
+    last = state["last_report"].get("equity") or sum(s["capital"] for s in state["subs"].values())
     text = summary_text(state, cfg, mids, "Haftalık rapor")
     text = text.replace("\n", f"\nBu hafta: {pct(eq / last - 1)}\n", 1) if last else text
     w = state.get("watch_events", {})
@@ -371,16 +371,30 @@ def run(cfg: dict, state: dict, tg: Telegram) -> None:
     traders = cfg["traders"]
     first_run = not state["snapshots"]
 
-    # Yeni eklenen kopya trader'lar için alt portföy aç (mevcut sermayeye dokunmadan)
-    for t in traders:
-        a = t["address"].lower()
-        if t.get("copy", True) and a not in state["subs"]:
-            per = cfg["paper_capital_usd"] / max(1, sum(1 for x in traders if x.get("copy", True)))
+    # Alt portföyleri listeyle eşitle: çıkarılan trader'ları sil, yeni eklenenlere sermaye ver
+    copy_addrs = {t["address"].lower() for t in traders if t.get("copy", True)}
+    all_addrs = {t["address"].lower() for t in traders}
+    changed = False
+    for a in list(state["subs"]):
+        if a not in copy_addrs:
+            del state["subs"][a]
+            changed = True
+    for a in list(state["snapshots"]):
+        if a not in all_addrs:
+            del state["snapshots"][a]
+    state["watch_events"] = {a: n for a, n in state.get("watch_events", {}).items() if a in all_addrs}
+    per = cfg["paper_capital_usd"] / max(1, len(copy_addrs))
+    for a in copy_addrs:
+        if a not in state["subs"]:
             state["subs"][a] = {"capital": per, "realized": 0.0, "fees": 0.0, "trades": 0,
                                 "skipped": 0, "positions": {}, "followed": []}
+            changed = True
 
     snaps = {t["address"].lower(): fetch_account(t["address"].lower(), dexes) for t in traders}
     mids = fetch_mids(dexes)
+    if changed and not first_run:
+        # Liste değişti: haftalık karşılaştırma tabanını yeni portföye göre güncelle
+        state["last_report"]["equity"] = round(total_equity(state, mids), 2)
 
     if first_run:
         lines = ["🤖 <b>Hyperliquid takip botu başladı</b>",
