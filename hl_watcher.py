@@ -153,15 +153,25 @@ class Telegram:
     def __init__(self, token: str, chat_id: str):
         self.url = f"https://api.telegram.org/bot{token}"
         self.chat_id = str(chat_id)
+        self.errors: list[str] = []
+        self.sent = 0
 
     def send(self, text: str) -> None:
         for chunk in [text[i:i + 3900] for i in range(0, len(text), 3900)]:
             try:
-                session.post(self.url + "/sendMessage", json={
+                r = session.post(self.url + "/sendMessage", json={
                     "chat_id": self.chat_id, "text": chunk, "parse_mode": "HTML",
                     "disable_web_page_preview": True}, timeout=20)
+                body = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
+                if r.status_code != 200 or not body.get("ok"):
+                    err = f"HTTP {r.status_code}: {body.get('description', r.text[:120])}"
+                    self.errors.append(err)
+                    print(f"[hata] Telegram mesajı reddedildi: {err}", file=sys.stderr)
+                else:
+                    self.sent += 1
             except requests.RequestException as ex:
-                print(f"[uyarı] Telegram gönderilemedi: {ex}", file=sys.stderr)
+                self.errors.append(str(ex))
+                print(f"[hata] Telegram'a ulaşılamadı: {ex}", file=sys.stderr)
             time.sleep(0.5)
 
     def commands(self, offset: int) -> tuple[list[str], int]:
@@ -520,6 +530,11 @@ def main() -> int:
         after = json.dumps(state, sort_keys=True)
         if after != before:
             STATE_PATH.write_text(json.dumps(state, indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"Telegram: {getattr(tg, 'sent', 0)} mesaj gönderildi, {len(getattr(tg, 'errors', []))} hata.")
+    if getattr(tg, "errors", None):
+        print("Telegram mesajları gönderilemedi. TELEGRAM_BOT_TOKEN ve TELEGRAM_CHAT_ID secret'larını kontrol et "
+              "(token yenilendiyse GitHub'daki secret'ı da güncellemek gerekir).", file=sys.stderr)
+        return 1
     return 0
 
 
