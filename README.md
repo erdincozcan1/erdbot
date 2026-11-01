@@ -14,8 +14,10 @@ alır, düzelenleri geri getirir, boş yerlere Hyperliquid'den yeni aday bulur.
 | --- | --- |
 | `hl_watcher.py` | Ana bot (takip, sanal portföy, Telegram, kadro kararları) |
 | `hl_rotation.py` | Kadro kuralları (ölçümler, risk/performans kontrolü, aday inceleme) |
+| `hl_scanner.py` | Aday veritabanı (100 bin $ üstü bütün hesapları haftada bir tarar) |
 | `hl_traders.json` | Ayarlar ve trader listesi |
 | `hl_state.json` | Botun hafızası (kendisi tutar, elle düzenleme) |
+| `hl_db.json` | Aday veritabanı; depoda görünmez, GitHub Actions önbelleğinde saklanır |
 | `.github/workflows/hl_watch.yml` | GitHub Actions zamanlayıcısı |
 | `cloudflare_worker.js` | Anlık komut cevabı + 5 dakikalık tetikleyici (isteğe bağlı) |
 
@@ -51,7 +53,19 @@ alır, düzelenleri geri getirir, boş yerlere Hyperliquid'den yeni aday bulur.
 kendi hesabı son dönemde kârda ve hiçbir risk işareti yok. Boş yer açıldığında önce
 bunlara bakılır.
 
-**Yeni aday:** Boş yer kalır ve gözlemde hazır kimse yoksa bot Hyperliquid sıralama
+**Aday veritabanı:** Bot arka planda, her çalışmanın kalan birkaç dakikasında Hyperliquid
+sıralama listesindeki hesap değeri 100 bin $ üstü bütün hesapları (~15.000) tarar:
+1. Her hesabın aylık geçmişi okunur (kârlı ay oranı, en kötü ay, en iyi ayın payı, 12 aylık getiri, düşüşler).
+2. Bu ölçümlere göre en iyi 200 hesabın işlem kayıtları ve açık pozisyonları ayrıntılı incelenir.
+3. Aşağıdaki kriterleri geçenler puana göre sıralanır (`/adaylar` ile görebilirsin).
+
+İlk tam tarama yaklaşık 10 saat sürer (Hyperliquid'in hız sınırı: dakikada ~50 hesap), sonra her hafta
+kendini yeniler; yenileme sırasında önceki sıralama kullanılmaya devam eder. Tarama bitince Telegram'a
+"📚 Aday veritabanı güncellendi" mesajı gelir. Veritabanı depoya yazılmaz (depoyu şişirmesin diye);
+GitHub Actions önbelleğinde tutulur. Önbellek silinirse bot taramayı baştan yapar.
+
+**Yeni aday:** Boş yer kalır ve gözlemde hazır kimse yoksa bot önce aday veritabanındaki sıralamaya bakar
+ve en iyi adayı güncel veriyle yeniden kontrol edip alır. Veritabanı henüz hazır değilse bot Hyperliquid sıralama
 listesinden ön eleme yapar (100 bin $–20 milyon $ hesap, toplamda ve son ayda kârda,
 son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değil) ve en fazla
 80 hesabı ayrıntılı inceler:
@@ -77,7 +91,8 @@ değişikliği kendin yaparsın.
 2. **Kadro değişiklikleri** (nedenleriyle).
 3. **Haftalık rapor** (her pazartesi 09:00'dan sonra): portföy değeri, haftalık ve toplam
    getiri, en büyük düşüş, trader bazında sıralama, haftanın kadro değişiklikleri, gözlem listesi.
-4. **Komutlar:** `/durum` (anlık özet), `/rapor` (haftalık rapor), `/gozlem` (gözlem listesi).
+4. **Komutlar:** `/durum` (anlık özet), `/rapor` (haftalık rapor), `/gozlem` (gözlem listesi),
+   `/adaylar` (aday veritabanının en iyi 15'i ve tarama durumu).
 
 ## Ayarlar (`hl_traders.json`)
 

@@ -25,6 +25,7 @@ Dosyalar: hl_traders.json (ayarlar), hl_state.json (bot tarafından tutulur), hl
 
 from __future__ import annotations
 
+import collections
 import datetime as dt
 import html
 import json
@@ -38,10 +39,12 @@ from pathlib import Path
 import requests
 
 import hl_rotation as rot_mod
+import hl_scanner as scan_mod
 
 HERE = Path(__file__).resolve().parent
 CONFIG_PATH = HERE / "hl_traders.json"
 STATE_PATH = HERE / "hl_state.json"
+DB_PATH = HERE / "hl_db.json"          # aday veritabanı (GitHub Actions önbelleğinde tutulur)
 API = "https://api.hyperliquid.xyz/info"
 IST = dt.timezone(dt.timedelta(hours=3))
 SIZE_TOL = 0.001          # %0,1'den küçük boyut değişimlerini yok say
@@ -51,6 +54,23 @@ LIGHT_TYPES = {"clearinghouseState", "spotClearinghouseState", "allMids", "l2Boo
 session = requests.Session()
 WEIGHT = {"used": 0}
 _wlock = threading.Lock()
+RATE_PER_MIN = 1000          # Hyperliquid sınırı dakikada 1200 ağırlık; payı bırakıyoruz
+_recent = collections.deque()  # (zaman, ağırlık)
+
+
+def _throttle(w: int) -> None:
+    """Son 60 saniyedeki toplam ağırlık sınırı aşmayacak şekilde bekler."""
+    while True:
+        with _wlock:
+            now = time.time()
+            while _recent and now - _recent[0][0] > 60:
+                _recent.popleft()
+            used = sum(x[1] for x in _recent)
+            if used + w <= RATE_PER_MIN or not _recent:
+                _recent.append((now, w))
+                return
+            wait = 60 - (now - _recent[0][0]) + 0.05
+        time.sleep(max(0.05, wait))
 
 
 # --------------------------------------------------------------------------- #
@@ -114,6 +134,8 @@ def link(addr: str, label: str) -> str:
 
 def post(body: dict):
     last = None
+    t = body.get("type")
+    _throttle(2 if t in LIGHT_TYPES else 120 if t in {"userFills", "userFillsByTime"} else 20)
     for attempt in range(3):
         try:
             r = session.post(API, json=body, timeout=30)
@@ -679,7 +701,7 @@ def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now
     return notes
 
 
-def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> list[str]:
+def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, db: dict | None = None) -> list[str]:
     rs = state["rotation"]
     d = rs.get("discovery")
     if not d:
@@ -688,12 +710,19 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -
     dexes = cfg.get("dexes", [""])
     if d["queue"] is None:
         recent_drop = {a for a, t in rs["dropped"].items() if days_since(t) < 180}
-        try:
-            rows = fetch_leaderboard()
-        except Exception as ex:
-            print(f"[uyarı] sıralama listesi alınamadı: {ex}", file=sys.stderr)
-            return []
-        d["queue"] = rot_mod.prefilter_leaderboard(rows, set(state["roles"]) | recent_drop, disc)
+        exclude = set(state["roles"]) | recent_drop
+        ranked = []
+        if db and db.get("last_finished_ms") and now_ms - db["last_finished_ms"] < 14 * rot_mod.DAY_MS:
+            ranked = [a for a in db.get("ranking", []) if a not in exclude]
+        if ranked:                       # aday veritabanındaki hazır sıralama (güncel verilerle yeniden kontrol edilir)
+            d["queue"], d["source"] = ranked[: disc["candidates"]], "db"
+        else:
+            try:
+                rows = fetch_leaderboard()
+            except Exception as ex:
+                print(f"[uyarı] sıralama listesi alınamadı: {ex}", file=sys.stderr)
+                return []
+            d["queue"], d["source"] = rot_mod.prefilter_leaderboard(rows, exclude, disc), "leaderboard"
     need = free_slots(cfg, state) + disc["extra_to_bench"]
     while d["queue"] and budget_left(rot) >= 180 and len(d["found"]) < need:
         a = d["queue"].pop(0)
@@ -803,6 +832,29 @@ def bench_text(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> st
             + "\n".join(r for _, r in sorted(rows, reverse=True)))
 
 
+def candidates_text(state: dict, limit: int = 15) -> str:
+    c = state.get("candidates") or {}
+    if not c or not (c.get("total") or c.get("last_finished_ms")):
+        return "📚 Aday veritabanı henüz oluşturuluyor. İlk tam tarama yaklaşık 1 gün sürer."
+    lines = ["📚 <b>Aday veritabanı</b>"]
+    if c.get("last_finished_ms"):
+        d = dt.datetime.fromtimestamp(c["last_finished_ms"] / 1000, IST)
+        lines.append(f"Son tam tarama: {d:%d.%m %H:%M} · {c.get('n_ranked', 0)} uygun aday")
+    if c.get("phase") == "scan":
+        lines.append(f"Tarama sürüyor: {c['scanned']:,}/{c['total']:,} hesap")
+    elif c.get("phase") == "deep":
+        lines.append(f"Ayrıntılı inceleme sürüyor: {c['deep_done']}/{c['deep_total']} hesap")
+    top = c.get("top") or []
+    if not top:
+        lines.append("Henüz sıralama yok (ilk tarama bitince oluşur).")
+    for i, x in enumerate(top[:limit], 1):
+        role = (state["roles"].get(x["a"]) or {}).get("role")
+        tag = " · <b>ana kopyada</b>" if role == "active" else " · gözlemde" if role == "bench" else ""
+        lines.append(f"{i}. {link(x['a'], x['a'][:6])}{tag}\n   {e(x.get('desc') or '')}")
+    lines.append("\n<i>Kadroda yer açıldığında bot önce bu listeye bakar; seçmeden önce güncel veriyle yeniden kontrol eder.</i>")
+    return "\n".join(lines)
+
+
 def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> str:
     eq = total_equity(state, mids, cfg)
     last = state["last_report"].get("equity") or total_capital(state, cfg)
@@ -817,6 +869,12 @@ def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) ->
             f"• {c[0][5:10]} {e(c[3] if len(c) > 3 else label_of(state, c[2]))}: {kinds.get(c[1], c[1])}" for c in ch)
     if state["shadow"]:
         text += "\n\n" + bench_text(state, cfg, rot, mids, now_ms)
+    c = state.get("candidates") or {}
+    if c.get("last_finished_ms") or c.get("total"):
+        best = ", ".join(x["a"][:6] for x in (c.get("top") or [])
+                         if (state["roles"].get(x["a"]) or {}).get("role") is None)[:60]
+        text += (f"\n\n📚 Aday veritabanı: {c.get('n_ranked', 0)} uygun aday"
+                 + (f" (en iyileri: {best})" if best else "") + " · ayrıntı: /adaylar")
     return text + "\n\n" + DISCLAIMER
 
 
@@ -868,7 +926,7 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
                 tg.send("\n".join(lines) + "\n   👁 gözlem listesi (gölge portföy)")
 
 
-def run(cfg: dict, state: dict, tg: Telegram) -> None:
+def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: float | None = None) -> None:
     rot = cfg["_rot"]
     dexes = cfg.get("dexes", [""])
     now_ms = int(time.time() * 1000)
@@ -903,7 +961,7 @@ def run(cfg: dict, state: dict, tg: Telegram) -> None:
             poss = ", ".join(f"{c} {side(p['szi'])} {usd(p['value'])}" for c, p in s["positions"].items()) or "pozisyon yok"
             tag = "ana kopya" if state["roles"][a]["role"] == "active" else "gözlem"
             lines.append(f"<b>{e(label_of(state, a))}</b> ({tag}) · {usd(s['equity'])}\n   {e(poss)}")
-        lines.append("\nKomutlar: /durum · /rapor · /gozlem")
+        lines.append("\nKomutlar: /durum · /rapor · /gozlem · /adaylar")
         tg.send("\n".join(lines))
         state["snapshots"] = snaps
         state["history"].append([iso(), round(total_equity(state, mids, cfg), 2)])
@@ -919,9 +977,22 @@ def run(cfg: dict, state: dict, tg: Telegram) -> None:
     if rot["enabled"]:
         refresh_metrics(state, rot, now_ms)
         notes += daily_review(state, cfg, rot, snaps, mids, now_ms)
-        notes += discovery_step(state, cfg, rot, mids, now_ms)
+        notes += discovery_step(state, cfg, rot, mids, now_ms, db)
     if notes:
         tg.send(change_message(notes))
+
+    # Aday veritabanı: kalan sürede taramaya devam et
+    if rot["enabled"] and db is not None:
+        api = type("Api", (), {})()
+        api.leaderboard = lambda: fetch_leaderboard()
+        api.portfolio = lambda a: fetch_portfolio(a)
+        api.fills = lambda a: fetch_fills(a)
+        api.account = lambda a: fetch_account(a, dexes)
+        sc = scan_mod.merged(rot)
+        scan_notes = scan_mod.step(db, rot, api, now_ms, deadline or (time.time() + sc["run_seconds"]))
+        state["candidates"] = scan_mod.summary(db, state["roles"], sc)
+        for n in scan_notes:
+            tg.send(n)
 
     # Saatlik değer kaydı
     eq = total_equity(state, mids, cfg)
@@ -939,8 +1010,10 @@ def run(cfg: dict, state: dict, tg: Telegram) -> None:
             tg.send(weekly_report(state, cfg, rot, mids, now_ms))
         elif c in {"/gozlem", "/gözlem"}:
             tg.send(bench_text(state, cfg, rot, mids, now_ms))
+        elif c == "/adaylar":
+            tg.send(candidates_text(state))
         elif c in {"/start", "/yardim", "/help"}:
-            tg.send("Komutlar: /durum · /rapor · /gozlem")
+            tg.send("Komutlar: /durum · /rapor · /gozlem · /adaylar")
 
     # Haftalık rapor: pazartesi 09:00 İstanbul sonrası ilk çalışma
     n = now_ist()
@@ -967,12 +1040,14 @@ def main() -> int:
         print("TELEGRAM_BOT_TOKEN ve TELEGRAM_CHAT_ID gerekli.", file=sys.stderr)
         return 1
 
+    started = time.time()
     tg = Telegram(token, chat)
     state = load_json(STATE_PATH, None) or init_state(cfg)
     migrate(state, cfg)
+    db = scan_mod.load(DB_PATH) if scan_mod.merged(cfg["_rot"])["enabled"] else None
     before = json.dumps(state, sort_keys=True)
     try:
-        run(cfg, state, tg)
+        run(cfg, state, tg, db, started + scan_mod.merged(cfg["_rot"])["run_seconds"])
         if state["fail_count"] >= 4:
             tg.send("✅ Hyperliquid bağlantısı yeniden kuruldu, takip sürüyor.")
         state["fail_count"] = 0
@@ -982,6 +1057,11 @@ def main() -> int:
         if state["fail_count"] == 4:
             tg.send(f"⚠️ Son 4 çalışma başarısız oldu: {e(str(ex)[:200])}\nBot denemeye devam ediyor.")
     finally:
+        if db is not None:
+            try:
+                scan_mod.save(DB_PATH, db)
+            except Exception as ex:
+                print(f"[uyarı] aday veritabanı kaydedilemedi: {ex}", file=sys.stderr)
         after = json.dumps(state, sort_keys=True)
         if after != before:
             STATE_PATH.write_text(json.dumps(state, indent=1, ensure_ascii=False), encoding="utf-8")
