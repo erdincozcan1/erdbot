@@ -1,5 +1,5 @@
 {
-  "paper_capital_usd": 4800,
+  "paper_capital_usd": 6000,
   "max_leverage": 5,
   "fee_pct": 0.095,
   "slippage_pct": 0.05,
@@ -7,21 +7,25 @@
   "dexes": ["", "xyz"],
 
   "traders": [
-    { "address": "0x015354106478dda69c4aae3c0cf801290b738052", "label": "0x0153 (düşük kaldıraç)" },
-    { "address": "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d", "label": "0x8bae (piyasa nötr)" },
-    { "address": "0xd70c9e61ba506a8cf1c25b54d14b25abdc048fd4", "label": "0xd70c (29 ay)" },
-    { "address": "0x69b05701f8175c276ecd0138387a197948e240bb", "label": "0x69b0 (puan 95)" },
-    { "address": "0x5db22b067c3ec6a8435ec37555abeab44cd58a21", "label": "0x5db2 (puan 96)" },
-    { "address": "0xe79d69fd1ed52dd14d7f55155259519ea20d0534", "label": "0xe79d" },
-    { "address": "0x2396bc99feedc162af809314257571bb7ff07a36", "label": "0x2396" },
-    { "address": "0x9221a960277fe388b899f58117aa9bd298463002", "label": "0x9221" },
-    { "address": "0xa3bd669bbb7fc764ea941587466ac710bb9e3609", "label": "0xa3bd" },
-    { "address": "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d", "label": "0xb362" },
-    { "address": "0x708f713637e28c014705fec1bab002992f53d4ea", "label": "0x708f" },
-    { "address": "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0", "label": "0xd8c5 (hisse)" },
-    { "address": "0xd487e26c62ed8c28ce3cc70b5791e501c2934982", "label": "0xd487" },
-    { "address": "0xda744273f80b22412417f7cfe0503f3d721f987d", "label": "Flood" },
-    { "address": "0xe81309ec9b79309e4d108ae3a92d1aa618cd6d74", "label": "Fiyopi" },
-    { "address": "0x378defc39d5dcdfbecd4f1673a5e228f992fc08e", "label": "0x378d" }
+    {"address": "0x015354106478dda69c4aae3c0cf801290b738052", "label": "0x0153 (düşük kaldıraç)"},
+    {"address": "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d", "label": "0x8bae (piyasa nötr)"},
+    {"address": "0xd70c9e61ba506a8cf1c25b54d14b25abdc048fd4", "label": "0xd70c (29 ay)"},
+    {"address": "0x69b05701f8175c276ecd0138387a197948e240bb", "label": "0x69b0 (puan 95)"},
+    {"address": "0x5db22b067c3ec6a8435ec37555abeab44cd58a21", "label": "0x5db2 (puan 96)"},
+    {"address": "0xe79d69fd1ed52dd14d7f55155259519ea20d0534", "label": "0xe79d"},
+    {"address": "0x2396bc99feedc162af809314257571bb7ff07a36", "label": "0x2396"},
+    {"address": "0x9221a960277fe388b899f58117aa9bd298463002", "label": "0x9221"},
+    {"address": "0xa3bd669bbb7fc764ea941587466ac710bb9e3609", "label": "0xa3bd"},
+    {"address": "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d", "label": "0xb362"},
+    {"address": "0x708f713637e28c014705fec1bab002992f53d4ea", "label": "0x708f"},
+    {"address": "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0", "label": "0xd8c5 (hisse)"},
+    {"address": "0xd487e26c62ed8c28ce3cc70b5791e501c2934982", "label": "0xd487"},
+    {"address": "0xda744273f80b22412417f7cfe0503f3d721f987d", "label": "Flood"},
+    {"address": "0xe81309ec9b79309e4d108ae3a92d1aa618cd6d74", "label": "Fiyopi"},
+    {"address": "0x378defc39d5dcdfbecd4f1673a5e228f992fc08e", "label": "0x378d"},
+    {"address": "0xc0b2a1ce425d0cd8bc321c445fa6ae0eaed2e688", "label": "0xc0b2 (puan 96)"},
+    {"address": "0x9db82c502472d76742fdd69609dfcc6e01327401", "label": "0x9db8 (istikrarlı)"},
+    {"address": "0x166866a2845506f6b4c817482fe53b4985882ea6", "label": "0x1668"},
+    {"address": "0x649156ebf0a350deb18a1e4835873defd4dc5349", "label": "0x6491 (çift işlem)"}
   ]
 }
