@@ -291,7 +291,7 @@ def paper_trade(sub: dict, coin: str, target_sz: float, mid: float, cfg: dict) -
     cur = pos["sz"] if pos else 0.0
     delta = target_sz - cur
     if abs(delta) * mid < 1e-9:
-        return "skip", {"reason": "pozisyon zaten hedefte"}
+        return "noop", {"reason": "pozisyon zaten hedefte"}
     if target_sz != 0 and abs(delta) * mid < cfg["min_order_usd"]:
         return "skip", {"reason": f"emir {usd(abs(delta) * mid)}; Hyperliquid asgarisi {cfg['min_order_usd']:g}$"}
 
@@ -847,7 +847,9 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
             status, info = paper_trade(sub, coin, target, mid, cfg)
             if note:
                 lines.append(f"   ⚠ {e(note)}")
-            if status == "skip":
+            if status == "noop":
+                lines.append("   📒 Sanal: değişiklik yok" + (" (toplam kaldıraç sınırı dolu)" if note else ""))
+            elif status == "skip":
                 sub["skipped"] += 1
                 lines.append(f"   📒 Sanal: atlandı ({e(info['reason'])})")
             else:
@@ -958,7 +960,7 @@ def main() -> int:
     cfg.setdefault("max_leverage", 5)
     cfg.setdefault("fee_pct", 0.095)
     cfg.setdefault("slippage_pct", 0.05)
-    cfg.setdefault("min_order_usd", 10)
+    cfg.setdefault("min_order_usd", 0)
     cfg["_rot"] = rot_mod.merged_config(cfg)
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat:
