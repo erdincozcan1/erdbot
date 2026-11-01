@@ -5,6 +5,7 @@
   "slippage_pct": 0.05,
   "min_order_usd": 10,
   "dexes": ["", "xyz"],
+  "rotation": {"slots": 20},
 
   "traders": [
     {"address": "0x015354106478dda69c4aae3c0cf801290b738052", "label": "0x0153 (düşük kaldıraç)"},
@@ -26,6 +27,8 @@
     {"address": "0xc0b2a1ce425d0cd8bc321c445fa6ae0eaed2e688", "label": "0xc0b2 (puan 96)"},
     {"address": "0x9db82c502472d76742fdd69609dfcc6e01327401", "label": "0x9db8 (istikrarlı)"},
     {"address": "0x166866a2845506f6b4c817482fe53b4985882ea6", "label": "0x1668"},
-    {"address": "0x649156ebf0a350deb18a1e4835873defd4dc5349", "label": "0x6491 (çift işlem)"}
+    {"address": "0x649156ebf0a350deb18a1e4835873defd4dc5349", "label": "0x6491 (çift işlem)"},
+    {"address": "0x2312171890250347dbf1b082bdf7950504909e92", "label": "0x2312 (yedek)", "copy": false},
+    {"address": "0xa844d7ac9fa3424c4fd38a25baa23e460ec3e802", "label": "0xa844 (yedek)", "copy": false}
   ]
 }
