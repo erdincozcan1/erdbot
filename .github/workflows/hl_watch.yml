@@ -15,7 +15,7 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -26,11 +26,26 @@ jobs:
       - name: Bağımlılık
         run: pip install requests
 
+      # Aday veritabanı (hl_db.json) depoya yazılmaz; çalışmalar arasında GitHub önbelleğinde saklanır
+      - name: Aday veritabanını yükle
+        uses: actions/cache/restore@v4
+        with:
+          path: hl_db.json
+          key: hl-db-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: hl-db-
+
       - name: Takip et
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python hl_watcher.py
+
+      - name: Aday veritabanını sakla
+        if: always() && hashFiles('hl_db.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: hl_db.json
+          key: hl-db-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Durumu kaydet
         if: always()
