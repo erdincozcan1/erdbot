@@ -169,6 +169,29 @@ def drawdowns(pnl: Series, av: Series):
     return cur, hist_before
 
 
+def since_return(pnl: Series, av: Series, since_ms):
+    """Trader'ın belirli bir tarihten (listeye girdiği an) bu yana kendi getirisi."""
+    if since_ms is None or not len(pnl):
+        return None
+    p0, a0 = pnl.at_or_first(since_ms), av.at_or_first(since_ms)
+    if p0 is None or not a0 or a0 < MIN_BASE:
+        return None
+    return (pnl.v[-1] - p0) / a0
+
+
+def since_return_best(portfolio, since_ms):
+    """Başlangıç tarihini kapsayan en sık örneklenmiş seriyle (hafta → ay → tüm zamanlar) hesaplar."""
+    if since_ms is None:
+        return None
+    for pk, ak in (("perpWeek", "week"), ("perpMonth", "month"), ("perpAllTime", "allTime")):
+        pnl = Series(_period(portfolio, pk).get("pnlHistory"))
+        av = Series(_period(portfolio, ak).get("accountValueHistory"))
+        if len(pnl) and pnl.t[0] <= since_ms:
+            return since_return(pnl, av, since_ms)
+    pnl = Series(_period(portfolio, "perpAllTime").get("pnlHistory"))
+    return since_return(pnl, av=Series(_period(portfolio, "allTime").get("accountValueHistory")), since_ms=since_ms)
+
+
 def max_drawdown_in(pnl: Series, av: Series):
     if len(pnl) < 2:
         return None
@@ -276,7 +299,7 @@ def style_name(median_hold_h) -> str:
 # Ölçümler
 # --------------------------------------------------------------------------- #
 
-def analyze(portfolio, fills, now_ms: int) -> dict:
+def analyze(portfolio, fills, now_ms: int, since_ms: int | None = None) -> dict:
     """Bir trader'ın kural kontrolünde kullanılan bütün ölçümleri hesaplar."""
     pnl = Series(_period(portfolio, "perpAllTime").get("pnlHistory"))
     av = Series(_period(portfolio, "allTime").get("accountValueHistory"))
@@ -318,6 +341,7 @@ def analyze(portfolio, fills, now_ms: int) -> dict:
         "dd_30": max_drawdown_in(m_pnl, m_av),
         "recent_3m_share": recent_share(91),
         "recent_6m_share": recent_share(182),
+        "trader_ret_since": since_return_best(portfolio, since_ms),
     }
     if ms:
         out.update({"months": ms["months"], "profitable_share": ms["profitable_share"],

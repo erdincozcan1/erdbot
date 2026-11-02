@@ -204,6 +204,19 @@ def fetch_mids(dexes: list[str]) -> dict[str, float]:
     return out
 
 
+def fetch_funding(dexes: list[str]) -> dict[str, float]:
+    """Her varlığın anlık saatlik fonlama oranı (long pozisyon pozitif oranda öder)."""
+    out = {}
+    for dex in dexes:
+        meta, ctxs = post({"type": "metaAndAssetCtxs", "dex": dex})
+        for u, c in zip(meta.get("universe", []), ctxs):
+            try:
+                out[u["name"]] = float(c.get("funding") or 0)
+            except (TypeError, ValueError, KeyError):
+                pass
+    return out
+
+
 def fetch_portfolio(address: str):
     return post({"type": "portfolio", "user": address})
 
@@ -298,7 +311,18 @@ def new_sub(capital: float) -> dict:
 
 def sub_equity(sub: dict, mids: dict) -> float:
     upnl = sum(p["sz"] * (mids.get(c, p["entry"]) - p["entry"]) for c, p in sub["positions"].items())
-    return sub["capital"] + sub["realized"] - sub["fees"] + upnl
+    return sub["capital"] + sub["realized"] - sub["fees"] - sub.get("funding", 0.0) + upnl
+
+
+def accrue_funding(sub: dict, rates: dict, mids: dict, hours: float) -> float:
+    """Açık sanal pozisyonlara geçen süre boyunca fonlama işler; ödenen tutarı döndürür (alınan negatif)."""
+    paid = 0.0
+    for c, p in sub["positions"].items():
+        r = rates.get(c)
+        if r:
+            paid += p["sz"] * (mids.get(c) or p["entry"]) * r * hours
+    sub["funding"] = sub.get("funding", 0.0) + paid
+    return paid
 
 
 def sub_return(sub: dict, mids: dict) -> float:
@@ -585,7 +609,10 @@ def refresh_metrics(state: dict, rot: dict, now_ms: int) -> None:
         if budget_left(rot) < 160:
             break
         try:
-            state["metrics"][a] = rot_mod.analyze(fetch_portfolio(a), fetch_fills(a), now_ms)
+            since = (state["roles"].get(a) or {}).get("since")
+            since_ms = int(dt.datetime.fromisoformat(since).timestamp() * 1000) if since else None
+            state["metrics"][a] = rot_mod.analyze(fetch_portfolio(a), fetch_fills(a), now_ms, since_ms)
+            state["metrics"][a]["since"] = since
         except Exception as ex:
             print(f"[uyarı] {a[:8]} ölçümü alınamadı: {ex}", file=sys.stderr)
             break
@@ -796,12 +823,14 @@ def summary_text(state: dict, cfg: dict, mids: dict, title: str) -> str:
     cap = total_capital(state, cfg)
     realized = sum(s["realized"] for s in state["subs"].values())
     fees = sum(s["fees"] for s in state["subs"].values())
-    upnl = sum(sub_equity(s, mids) - s["capital"] - s["realized"] + s["fees"] for s in state["subs"].values())
+    funding = sum(s.get("funding", 0.0) for s in state["subs"].values())
+    upnl = sum(sub_equity(s, mids) - s["capital"] - s["realized"] + s["fees"] + s.get("funding", 0.0)
+               for s in state["subs"].values())
     mdd = max_drawdown(state["history"], eq)
     lines = [f"📊 <b>{title}</b>",
              f"Başlangıç {e(state['started'][:10])} · sermaye {usd(cap)}",
              f"<b>Sanal portföy: {usd(eq)} ({pct(eq / cap - 1)})</b>",
-             f"Gerçekleşen {usd(realized, True)} · açık {usd(upnl, True)} · ücret {usd(-fees)}"]
+             f"Gerçekleşen {usd(realized, True)} · açık {usd(upnl, True)} · ücret {usd(-fees)} · fonlama {usd(-funding, True)}"]
     if state.get("closed_pnl"):
         lines.append(f"Listeden çıkarılanların sonucu: {usd(state['closed_pnl'], True)}")
     if free_slots(cfg, state):
@@ -858,11 +887,30 @@ def candidates_text(state: dict, limit: int = 15) -> str:
     return "\n".join(lines)
 
 
+def copy_gap(state: dict, mids: dict) -> dict | None:
+    """Ana listedeki trader'ların kendi getirisi ile kopya alt portföylerinin getirisi (eşit ağırlık)."""
+    pairs = []
+    for a, s in state["subs"].items():
+        m = state["metrics"].get(a) or {}
+        if m.get("trader_ret_since") is not None and m.get("since") == (state["roles"].get(a) or {}).get("since"):
+            pairs.append((m["trader_ret_since"], sub_return(s, mids)))
+    if not pairs:
+        return None
+    return {"n": len(pairs), "trader": sum(p[0] for p in pairs) / len(pairs), "copy": sum(p[1] for p in pairs) / len(pairs)}
+
+
 def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> str:
     eq = total_equity(state, mids, cfg)
     last = state["last_report"].get("equity") or total_capital(state, cfg)
     text = summary_text(state, cfg, mids, "Haftalık rapor")
-    text = text.replace("\n", f"\nBu hafta: {pct(eq / last - 1)}\n", 1) if last else text
+    btc_now, btc_last = mids.get("BTC"), state["last_report"].get("btc")
+    bench = f" · BTC {pct(btc_now / btc_last - 1)}" if btc_now and btc_last else ""
+    text = text.replace("\n", f"\nBu hafta: {pct(eq / last - 1)}{bench}\n", 1) if last else text
+    cl = copy_gap(state, mids)
+    if cl:
+        text += (f"\n\n<b>Kopyalama farkı</b> ({cl['n']} trader, listeye girdiklerinden beri)\n"
+                 f"Trader'ların kendi getirisi ort. {pct(cl['trader'])} · kopyaların ort. {pct(cl['copy'])} · "
+                 f"fark {pct(cl['copy'] - cl['trader'])}\n<i>Fark; gecikme, ücret, kayma, fonlama ve 5x sınırının toplam etkisidir.</i>")
     week_ago = now_ist() - dt.timedelta(days=7)
     ch = [c for c in state["rotation"]["changes"] if dt.datetime.fromisoformat(c[0]) >= week_ago]
     if ch:
@@ -939,7 +987,20 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     first_run = not state["snapshots"]
 
     mids = fetch_mids(dexes)
+    if state["last_report"].get("btc") is None and mids.get("BTC"):
+        state["last_report"]["btc"] = mids["BTC"]           # BTC karşılaştırmasının başlangıcı
     notes = sync_config(state, cfg, mids)
+
+    # Fonlama: son çalışmadan bu yana açık kalan sanal pozisyonlara işle (en fazla 24 saat)
+    if state.get("last_run") and cfg.get("simulate_funding", True):
+        hours = min(24.0, max(0.0, (now_ist() - dt.datetime.fromisoformat(state["last_run"])).total_seconds() / 3600))
+        if hours > 0 and any(s["positions"] for s in list(state["subs"].values()) + list(state["shadow"].values())):
+            try:
+                rates = fetch_funding(dexes)
+                for s in list(state["subs"].values()) + list(state["shadow"].values()):
+                    accrue_funding(s, rates, mids, hours)
+            except Exception as ex:
+                print(f"[uyarı] fonlama oranları alınamadı: {ex}", file=sys.stderr)
 
     # Sermaye ayarı değiştiyse haftalık karşılaştırma tabanını yenile
     sig = [cfg["paper_capital_usd"], n_slots(cfg, state)]
@@ -967,7 +1028,9 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
         lines.append("\nKomutlar: /durum · /rapor · /gozlem · /adaylar")
         tg.send("\n".join(lines))
         state["snapshots"] = snaps
-        state["history"].append([iso(), round(total_equity(state, mids, cfg), 2), round(total_capital(state, cfg), 2)])
+        state["history"].append([iso(), round(total_equity(state, mids, cfg), 2), round(total_capital(state, cfg), 2),
+                                 mids.get("BTC")])
+        state["last_report"]["btc"] = mids.get("BTC")
         return
 
     for a in addrs:
@@ -1001,7 +1064,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     eq = total_equity(state, mids, cfg)
     last_t = dt.datetime.fromisoformat(state["history"][-1][0]) if state["history"] else None
     if not last_t or (now_ist() - last_t) >= dt.timedelta(minutes=55):
-        state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2)])
+        state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2), mids.get("BTC")])
         state["history"] = state["history"][-3000:]
 
     # Komutlar (Cloudflare Worker kuruluysa komutlara o cevap verir)
@@ -1025,7 +1088,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     week = f"{n.isocalendar()[0]}-W{n.isocalendar()[1]:02d}"
     if n.weekday() == 0 and n.hour >= 9 and state["last_report"]["week"] != week:
         tg.send(weekly_report(state, cfg, rot, mids, now_ms))
-        state["last_report"] = {"week": week, "equity": round(eq, 2)}
+        state["last_report"] = {"week": week, "equity": round(eq, 2), "btc": mids.get("BTC")}
         state["watch_events"] = {}
 
 

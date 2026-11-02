@@ -154,11 +154,17 @@ anahtar) eklenmeli; sayfa ilk açılışta bu anahtarı sorar ve tarayıcıda sa
 | Asgari emir | Yok | Her hamle, ne kadar küçük olursa olsun kopyalanır (`min_order_usd: 0`). Gerçek Hyperdash kopyasında 10 $ altı emirler gerçekleşmez; gerçekçi sonuç için 10 yapılabilir |
 | Ücret | %0,095 | Hyperliquid işlem ücreti (%0,045) + Hyperdash ücreti (%0,05) |
 | Kayma | %0,05 | Her emirde aleyhe fiyat farkı |
+| Fonlama | Anlık oran | Açık sanal pozisyonlara her çalışmada Hyperliquid'in o anki saatlik fonlama oranı işlenir (long öder, short alır). Kapatmak için `"simulate_funding": false` |
+
+**Karşılaştırmalar:** Haftalık raporda ve panelde portföy getirisi aynı dönemde BTC'yi elde tutmakla
+karşılaştırılır. "Kopyalama farkı", ana listedeki trader'ların listeye girdiklerinden beri kendi
+hesaplarının getirisi ile kopya alt portföylerinin getirisi arasındaki farktır; gecikme, ücret, kayma,
+fonlama ve kaldıraç sınırının toplam etkisini gösterir.
 
 ## Sınırlamalar
 
 - İki kontrol arasında açılıp kapanan işlemler görülmez.
-- Fonlama ücretleri ve likidasyon simüle edilmez.
+- Likidasyon simüle edilmez; fonlama o anki oranla yaklaşık hesaplanır.
 - Hyperdash'in kendi büyüklük hesabı farklı olabilir (bot her trader için ayrı alt portföy tutar).
 - Trader ölçümleri Hyperliquid'in herkese açık verisinden hesaplanır; Hyperdash'in
   "copy score" değeri dışarıdan alınamadığı için kullanılmaz.
