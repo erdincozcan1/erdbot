@@ -61,6 +61,12 @@ DEFAULTS = {
         "max_leverage": 3,
         "max_fills_per_hour": 10,
         "max_fills_per_hour_unknown_hold": 3,  # pozisyon süresi ölçülemeyenlerde (uzun tutup ekleme yapanlar)
+        "max_recent_3m_share": 0.50,   # toplam getirinin (yüzde olarak) en fazla bu kadarı son 3 aydan gelebilir
+        "max_recent_6m_share": 0.70,   # ... son 6 aydan (yalnızca en az 18 aylık geçmişi olanlarda)
+        "recent_6m_min_history_days": 540,
+        "max_position_to_equity": 2.0, # tek bir pozisyon hesabın en fazla 2 katı olabilir
+        "min_liq_distance": 0.20,      # likidasyona bundan yakın pozisyonlar riskli sayılır:
+        "max_near_liq_margin": 0.10,   #   çapraz teminatlıysa hemen; izole olanların teminatı hesabın %10'unu aşarsa
         "max_equity": 20_000_000,
         "max_volume_ratio": 500,   # toplam hacim / hesap değeri (piyasa yapıcı ve botları eler)
         "max_month_turnover": 30,  # son ay hacmi / hesap değeri
@@ -278,6 +284,21 @@ def analyze(portfolio, fills, now_ms: int) -> dict:
     m_av = Series(_period(portfolio, "month").get("accountValueHistory"))
     hs = hold_stats(fills, now_ms)
     win = window_days_for(hs["median_hold_h"])
+    # Dönem getirileri (yaklaşık 11 günlük aralıklar): kâr / dönem başındaki hesap değeri.
+    # Dolar yerine yüzde kullanılır; böylece zamanla büyüyen hesaplar haksız yere "kârı son aylara yığılmış" görünmez.
+    rets = []
+    for i in range(1, len(pnl)):
+        base = av.at_or_first(pnl.t[i - 1]) or 0
+        if base >= MIN_BASE:
+            rets.append((pnl.t[i], (pnl.v[i] - pnl.v[i - 1]) / base))
+    total_ret = sum(r for _, r in rets)
+
+    def recent_share(days):
+        """Toplam getirinin son 'days' günde elde edilen payı (toplam getiri artı değilse None)."""
+        if total_ret <= 0 or not rets:
+            return None
+        return sum(r for t, r in rets if t > now_ms - int(days * DAY_MS)) / total_ret
+
     cur_dd, hist_dd = drawdowns(pnl, av)
     ms = monthly_stats(pnl, av)
     out = {
@@ -295,11 +316,73 @@ def analyze(portfolio, fills, now_ms: int) -> dict:
         "dd_now": cur_dd,
         "dd_hist": hist_dd,
         "dd_30": max_drawdown_in(m_pnl, m_av),
+        "recent_3m_share": recent_share(91),
+        "recent_6m_share": recent_share(182),
     }
     if ms:
         out.update({"months": ms["months"], "profitable_share": ms["profitable_share"],
                     "worst_month": ms["worst_month"], "best_month_share": ms["best_month_share"]})
     return {k: (round(v, 5) if isinstance(v, float) else v) for k, v in out.items()}
+
+
+def max_position_ratio(snap: dict) -> float:
+    """En büyük tek pozisyonun hesap değerine oranı."""
+    eq = snap.get("equity") or 0
+    vals = [p["value"] for p in snap.get("positions", {}).values()]
+    if not vals:
+        return 0.0
+    return max(vals) / eq if eq > 0 else float("inf")
+
+
+def liquidation_risk(snap: dict, max_dist: float):
+    """Likidasyona max_dist'ten yakın pozisyonlar.
+    Döndürür: (en yakın çapraz pozisyon (ad, uzaklık) veya None,
+               yakın izole pozisyonların teminat toplamı / hesap değeri, yakın izole pozisyon adları)."""
+    eq = snap.get("equity") or 0
+    cross, iso_margin, iso_names = None, 0.0, []
+    for c, p in snap.get("positions", {}).items():
+        liq, szi = p.get("liq"), p.get("szi")
+        if not liq or not szi or not p.get("value"):
+            continue
+        mark = p["value"] / abs(szi)
+        d = abs(mark - liq) / mark if mark > 0 else 0.0
+        if d >= max_dist:
+            continue
+        name = c.replace("xyz:", "")
+        if p.get("iso"):
+            # izole pozisyon likide olursa yalnızca kendi teminatı kaybedilir
+            iso_margin += p.get("margin") or p["value"] / max(p.get("lev") or 1, 1)
+            iso_names.append(name)
+        elif cross is None or d < cross[1]:
+            cross = (name, d)            # çapraz teminat: likidasyon bütün hesabı etkiler
+    return cross, (iso_margin / eq if eq > 0 else 0.0), iso_names
+
+
+def position_risks(snap: dict, disc: dict) -> list[str]:
+    """Açık pozisyonlardan kaynaklanan riskler (aday ve geri dönüş kontrolünde kullanılır)."""
+    out = []
+    r = max_position_ratio(snap)
+    if r > disc["max_position_to_equity"]:
+        out.append(f"tek pozisyon hesabın {r:.1f} katı (sınır {disc['max_position_to_equity']:g})")
+    cross, iso_share, iso_names = liquidation_risk(snap, disc["min_liq_distance"])
+    if cross:
+        out.append(f"{cross[0]} pozisyonu likidasyona %{cross[1] * 100:.0f} uzakta (çapraz teminat, bütün hesap risk altında)")
+    if iso_share > disc["max_near_liq_margin"]:
+        out.append(f"likidasyona yakın izole pozisyonların ({', '.join(iso_names[:4])}) teminatı "
+                   f"hesap değerinin %{iso_share * 100:.0f} kadarı")
+    return out
+
+
+def recent_profit_fails(m: dict, disc: dict) -> list[str]:
+    """Kâr son aylara yığılmış mı?"""
+    out = []
+    s3, s6 = m.get("recent_3m_share"), m.get("recent_6m_share")
+    if s3 is not None and s3 > disc["max_recent_3m_share"]:
+        out.append(f"son 3 ayın toplam getirideki payı %{s3 * 100:.0f}")
+    if (s6 is not None and s6 > disc["max_recent_6m_share"]
+            and (m.get("history_days") or 0) >= disc["recent_6m_min_history_days"]):
+        out.append(f"son 6 ayın toplam getirideki payı %{s6 * 100:.0f}")
+    return out
 
 
 def account_leverage(snap: dict) -> float:
@@ -323,7 +406,7 @@ def risk_reasons(m: dict | None, snap: dict, eq0: float | None, now_ms: int, rot
     if lev > rot["risk_max_leverage"]:
         out.append(f"hesap kaldıracı {lev:.1f}x (sınır {rot['risk_max_leverage']:g}x)")
     if eq0 and snap.get("equity") is not None and snap["equity"] < rot["risk_withdraw"] * eq0:
-        out.append(f"hesap değeri listeye girdiğindeki seviyenin %{snap['equity'] / eq0 * 100:.0f}'ine indi "
+        out.append(f"hesap değeri, listeye girdiği andakinin %{snap['equity'] / eq0 * 100:.0f} seviyesine indi "
                    f"(para çekme veya büyük zarar)")
     if m:
         if m.get("dd_30") is not None and m["dd_30"] > rot["risk_dd30"]:
@@ -431,6 +514,8 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
     r365 = m.get("ret_365")
     if r365 is None or r365 <= 0:
         fails.append("son 12 ay kârda değil")
+    fails += recent_profit_fails(m, disc)
+    fails += position_risks(snap, disc)
     if fails:
         return False, 0.0, ", ".join(fails)
     score = r365 / max(0.05, abs(wm))

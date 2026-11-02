@@ -24,7 +24,8 @@ from pathlib import Path
 import hl_rotation as R
 
 FIELDS = ("t", "history_days", "profitable_share", "worst_month", "best_month_share",
-          "ret_365", "ret_90", "dd_now", "dd_hist", "months", "lb_eq")
+          "ret_365", "ret_90", "dd_now", "dd_hist", "months", "lb_eq", "recent_3m_share", "recent_6m_share")
+RULES_VERSION = 3   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
 
 DEFAULTS = {
     "enabled": True,
@@ -76,6 +77,8 @@ def portfolio_check(m: dict, disc: dict) -> tuple[bool, float]:
         return False, 0.0
     if r365 is None or r365 <= 0:
         return False, 0.0
+    if R.recent_profit_fails(m, disc):
+        return False, 0.0
     return True, r365 / max(0.05, abs(wm))
 
 
@@ -111,9 +114,11 @@ def step(db: dict, rot: dict, api, now_ms: int, deadline: float, clock=None) -> 
     disc = rot["discovery"]
     notes = []
     cyc = db.get("cycle")
-    if not cyc or (cyc["phase"] == "done" and now_ms - cyc["started_ms"] >= sc["refresh_days"] * R.DAY_MS):
+    if (not cyc or db.get("rules") != RULES_VERSION
+            or (cyc["phase"] == "done" and now_ms - cyc["started_ms"] >= sc["refresh_days"] * R.DAY_MS)):
         try:
             start_cycle(db, api.leaderboard(), sc, now_ms)
+            db["rules"] = RULES_VERSION
         except Exception as ex:
             print(f"[uyarı] aday taraması başlatılamadı: {ex}")
             return []

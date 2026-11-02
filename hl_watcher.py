@@ -174,6 +174,8 @@ def fetch_account(address: str, dexes: list[str]) -> dict:
                 "lev": float((p.get("leverage") or {}).get("value") or 1),
                 "liq": float(p["liquidationPx"]) if p.get("liquidationPx") else None,
                 "value": abs(float(p.get("positionValue") or 0)),
+                "iso": (p.get("leverage") or {}).get("type") == "isolated",
+                "margin": float(p.get("marginUsed") or 0),
             }
     try:
         spot = post({"type": "spotClearinghouseState", "user": address})
@@ -597,7 +599,8 @@ def fresh_metrics(state: dict, a: str, now_ms: int, max_h: float = 48):
 def bench_status(state: dict, a: str, mids: dict, snaps: dict, now_ms: int, rot: dict) -> tuple[bool, str]:
     m = fresh_metrics(state, a, now_ms)
     r = state["roles"][a]
-    risk = rot_mod.risk_reasons(m, snaps.get(a) or {"equity": 0, "positions": {}}, r.get("eq0"), now_ms, rot)
+    snap = snaps.get(a) or {"equity": 0, "positions": {}}
+    risk = rot_mod.risk_reasons(m, snap, r.get("eq0"), now_ms, rot) + rot_mod.position_risks(snap, rot["discovery"])
     sh = state["shadow"].get(a)
     return rot_mod.promotion_check(m, sub_return(sh, mids) if sh else None, days_since(r["since"]), risk, rot)
 

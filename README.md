@@ -72,6 +72,16 @@ son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değ
 - en az 12 ay geçmiş, ayların en az %60'ı kârlı, en kötü ay −%25'ten iyi
 - kârın yarısından fazlası tek bir aydan gelmemiş, son 12 ay kârda
 - pozisyonları ortalama en az 4 saat tutuyor, sık işlem yapmıyor, kaldıraç en fazla 3x
+- kazanç son aylara yığılmamış: son 3 ayın toplam getirideki payı en fazla %50; en az 18 aylık
+  geçmişi olanlarda son 6 ayın payı en fazla %70. Dolar değil yüzde getiri üzerinden ölçülür,
+  böylece hesabı zamanla büyüyen trader'lar haksız yere elenmez. (Hyperliquid verisi en fazla
+  ~30 ay, 2024 ortasına kadar geriye gidiyor.)
+- tek bir pozisyon hesabın 2 katından büyük değil
+- likidasyona %20'den yakın çapraz teminatlı pozisyon yok; likidasyona yakın izole pozisyonların
+  teminatı toplamda hesabın %10'unu aşmıyor (izole pozisyon likide olursa yalnızca kendi teminatı gider)
+
+Son iki pozisyon kuralı gözlemden ana listeye geri dönüşte de uygulanır. Ana listedeki trader'lar bu
+kurallar yüzünden çıkarılmaz; onlar için risk ve performans kontrolleri geçerlidir.
 
 Gerçek veride yaklaşık her 30 hesaptan biri bu kriterleri geçiyor; tarama birkaç
 çalışmaya yayılır (yaklaşık 1–2 saat). Bulunamazsa 3 gün sonra tekrar denenir; o arada
