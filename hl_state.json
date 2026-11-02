@@ -2,39 +2,39 @@
  "started": "2026-10-31T22:49+03:00",
  "snapshots": {
   "0x015354106478dda69c4aae3c0cf801290b738052": {
-   "equity": 11125108.606012,
+   "equity": 11170522.256412,
    "positions": {
     "ZEC": {
      "szi": -3698.18,
      "entry": 1307.8245,
      "lev": 1.0,
      "liq": 2506.3597222551,
-     "value": 4261412.814,
+     "value": 4215999.1636,
      "iso": true,
-     "margin": 5471005.053532
+     "margin": 5516418.703932
     }
    }
   },
   "0x8bae3527e5a33fa0cf184f37bc112d071463ab6d": {
-   "equity": 4689245.238259331,
+   "equity": 4686725.05319733,
    "positions": {
     "BSV": {
      "szi": 332.09,
      "entry": 15.4558,
      "lev": 3.0,
      "liq": null,
-     "value": 5525.944391,
+     "value": 5507.71265,
      "iso": false,
-     "margin": 1841.981463
+     "margin": 1835.904216
     },
     "ORDI": {
      "szi": 413.96,
      "entry": 2.963,
      "lev": 3.0,
      "liq": null,
-     "value": 1403.53138,
+     "value": 1401.751352,
      "iso": false,
-     "margin": 467.843793
+     "margin": 467.25045
     },
     "TNSR": {
      "szi": 862794.4,
@@ -50,27 +50,27 @@
      "entry": 343.187,
      "lev": 10.0,
      "liq": null,
-     "value": 11822.34914,
+     "value": 11833.73828,
      "iso": false,
-     "margin": 1182.234914
+     "margin": 1183.373828
     },
     "xyz:SKHX": {
      "szi": 2107.974,
      "entry": 1431.724,
      "lev": 10.0,
      "liq": null,
-     "value": 2222858.583,
+     "value": 2222015.3934,
      "iso": false,
-     "margin": 222285.8583
+     "margin": 222201.53934
     },
     "xyz:SKHY": {
      "szi": -14387.48,
      "entry": 198.3187,
      "lev": 10.0,
-     "liq": 443.3094747718,
-     "value": 2152798.6324,
+     "liq": 443.2560816442,
+     "value": 2153230.2568,
      "iso": false,
-     "margin": 215279.86324
+     "margin": 215323.02568
     }
    }
   },
@@ -83,405 +83,405 @@
    "positions": {}
   },
   "0x5db22b067c3ec6a8435ec37555abeab44cd58a21": {
-   "equity": 389389.94938203,
+   "equity": 387485.44938203,
    "positions": {
     "xyz:XYZ100": {
      "szi": -10.0,
      "entry": 29531.0,
      "lev": 20.0,
-     "liq": 61166.7240248852,
-     "value": 280840.0,
+     "liq": 61100.1830412787,
+     "value": 281210.0,
      "iso": false,
-     "margin": 14042.0
+     "margin": 14060.5
     },
     "xyz:NVDA": {
      "szi": -2000.0,
      "entry": 210.823,
      "lev": 20.0,
-     "liq": 367.5287939449,
-     "value": 406920.0,
+     "liq": 367.3452980098,
+     "value": 407580.0,
      "iso": false,
-     "margin": 20346.0
+     "margin": 20379.0
     },
     "xyz:ANT": {
      "szi": -900.0,
      "entry": 110.7,
      "lev": 9.0,
      "liq": 145.7109462825,
-     "value": 97380.0,
+     "value": 97173.0,
      "iso": true,
-     "margin": 40316.844237
+     "margin": 40523.844237
     }
    }
   },
   "0xe79d69fd1ed52dd14d7f55155259519ea20d0534": {
-   "equity": 1140630.14621956,
+   "equity": 1142666.93255256,
    "positions": {
     "BTC": {
      "szi": 2.42914,
      "entry": 79053.7,
      "lev": 20.0,
      "liq": null,
-     "value": 186633.25534,
+     "value": 186710.98782,
      "iso": false,
-     "margin": 9331.662767
+     "margin": 9335.549391
     },
     "BNB": {
      "szi": -407.42,
      "entry": 700.393,
      "lev": 10.0,
-     "liq": 3114.5183006959,
-     "value": 284692.8734,
+     "liq": 3117.2503079892,
+     "value": 284741.7638,
      "iso": false,
-     "margin": 28469.28734
+     "margin": 28474.17638
     },
     "HYPE": {
      "szi": -1429.17,
      "entry": 93.6538,
      "lev": 10.0,
-     "liq": 773.0333688218,
-     "value": 120571.92705,
+     "liq": 773.5699856354,
+     "value": 120274.65969,
      "iso": false,
-     "margin": 12057.192705
+     "margin": 12027.465969
     },
     "SPX": {
      "szi": -466116.4,
      "entry": 0.36729,
      "lev": 5.0,
-     "liq": 2.3717624438,
-     "value": 166030.66168,
+     "liq": 2.3732517535,
+     "value": 165709.041364,
      "iso": false,
-     "margin": 33206.132336
+     "margin": 33141.808272
     },
     "TRUMP": {
      "szi": -13106.1,
      "entry": 2.14472,
      "lev": 10.0,
-     "liq": 76.7006475664,
-     "value": 21022.1844,
+     "liq": 76.7803451775,
+     "value": 21002.52525,
      "iso": false,
-     "margin": 2102.21844
+     "margin": 2100.252525
     },
     "LIT": {
      "szi": 17924.0,
      "entry": 2.907986,
      "lev": 5.0,
      "liq": null,
-     "value": 55157.5252,
+     "value": 55057.1508,
      "iso": false,
-     "margin": 11031.50504
+     "margin": 11011.43016
     },
     "xyz:META": {
      "szi": 562.336,
      "entry": 668.666,
      "lev": 20.0,
      "liq": null,
-     "value": 342434.5072,
+     "value": 342524.48096,
      "iso": false,
-     "margin": 17121.72536
+     "margin": 17126.224048
     },
     "xyz:MU": {
      "szi": 101.027,
      "entry": 866.518,
      "lev": 10.0,
      "liq": null,
-     "value": 85450.65714,
+     "value": 85579.9717,
      "iso": false,
-     "margin": 8545.065714
+     "margin": 8557.99717
     },
     "xyz:SNDK": {
      "szi": 142.154,
      "entry": 1271.081,
      "lev": 10.0,
      "liq": null,
-     "value": 156298.323,
+     "value": 156625.2772,
      "iso": false,
-     "margin": 15629.8323
+     "margin": 15662.52772
     },
     "xyz:SKHX": {
      "szi": 80.094,
      "entry": 965.705,
      "lev": 10.0,
      "liq": null,
-     "value": 84459.123,
+     "value": 84427.0854,
      "iso": false,
-     "margin": 8445.9123
+     "margin": 8442.70854
     },
     "xyz:SPCX": {
      "szi": -722.46,
      "entry": 168.8795,
      "lev": 10.0,
      "liq": 182.0068414381,
-     "value": 99143.1858,
+     "value": 99294.9024,
      "iso": true,
-     "margin": 35636.793432
+     "margin": 35485.076832
     },
     "xyz:CXMT": {
      "szi": 7204.1,
      "entry": 6.0567,
      "lev": 10.0,
      "liq": 5.8022714197,
-     "value": 44159.69218,
+     "value": 44135.19824,
      "iso": true,
-     "margin": 4449.555822
+     "margin": 4425.061882
     }
    }
   },
   "0x2396bc99feedc162af809314257571bb7ff07a36": {
-   "equity": 315051.1097723,
+   "equity": 314165.89156564,
    "positions": {
     "NEAR": {
      "szi": -24418.0,
      "entry": 4.53512,
      "lev": 7.0,
      "liq": 4.9418553287,
-     "value": 94561.1468,
+     "value": 94500.1018,
      "iso": true,
-     "margin": 32142.587787
+     "margin": 32203.632787
     },
     "TRUMP": {
      "szi": -120000.0,
      "entry": 1.87338,
      "lev": 7.0,
      "liq": 2.0425502744,
-     "value": 192480.0,
+     "value": 192288.0,
      "iso": true,
-     "margin": 64881.33457
+     "margin": 65073.33457
     },
     "xyz:NVDA": {
      "szi": -292.182,
      "entry": 215.293,
      "lev": 10.0,
      "liq": 231.1554733794,
-     "value": 59447.34972,
+     "value": 59543.76978,
      "iso": true,
-     "margin": 9780.605516
+     "margin": 9684.185456
     },
     "xyz:PLTR": {
      "szi": -839.744,
      "entry": 188.754,
      "lev": 7.0,
      "liq": 205.478520489,
-     "value": 145074.17344,
+     "value": 146073.4688,
      "iso": true,
-     "margin": 36102.649005
+     "margin": 35103.353645
     },
     "xyz:CL": {
      "szi": 852.08,
      "entry": 98.996,
      "lev": 10.0,
      "liq": 91.364995899,
-     "value": 82154.14528,
+     "value": 82111.54128,
      "iso": true,
-     "margin": 6250.116717
+     "margin": 6207.512717
     }
    }
   },
   "0x9221a960277fe388b899f58117aa9bd298463002": {
-   "equity": 300153.05419913,
+   "equity": 301134.42036913,
    "positions": {
     "BTC": {
      "szi": 7.3629,
      "entry": 77446.2,
      "lev": 20.0,
-     "liq": 41696.2053845391,
-     "value": 565698.9699,
+     "liq": 41666.9504702244,
+     "value": 565934.5827,
      "iso": false,
-     "margin": 28284.948495
+     "margin": 28296.729135
     },
     "ETH": {
      "szi": -308.7304,
      "entry": 2267.17,
      "lev": 20.0,
-     "liq": 3065.9297297393,
-     "value": 696094.43288,
+     "liq": 3066.7440487387,
+     "value": 695909.19464,
      "iso": false,
-     "margin": 34804.721644
+     "margin": 34795.459732
     },
     "RUNE": {
      "szi": 0.1,
      "entry": 0.64128,
      "lev": 5.0,
      "liq": null,
-     "value": 0.055129,
+     "value": 0.055136,
      "iso": false,
-     "margin": 0.011025
+     "margin": 0.011027
     },
     "ZRO": {
      "szi": 5527.6,
      "entry": 1.81006,
      "lev": 5.0,
      "liq": null,
-     "value": 9518.5272,
+     "value": 9505.26096,
      "iso": false,
-     "margin": 1903.70544
+     "margin": 1901.052192
     },
     "GRASS": {
      "szi": 24782.8,
      "entry": 0.60525,
      "lev": 3.0,
      "liq": null,
-     "value": 13844.415564,
+     "value": 13834.254616,
      "iso": false,
-     "margin": 4614.805188
+     "margin": 4611.418205
     },
     "HYPE": {
      "szi": 0.01,
      "entry": 61.2731,
      "lev": 10.0,
      "liq": null,
-     "value": 0.84365,
+     "value": 0.84156,
      "iso": false,
-     "margin": 0.084365
+     "margin": 0.084156
     },
     "KAITO": {
      "szi": -17.0,
      "entry": 0.864999,
      "lev": 5.0,
-     "liq": 13661.2112220856,
-     "value": 3.95029,
+     "liq": 13685.027977754,
+     "value": 3.94774,
      "iso": false,
-     "margin": 0.790058
+     "margin": 0.789548
     },
     "LIT": {
      "szi": -3850.0,
      "entry": 4.07623,
      "lev": 5.0,
-     "liq": 63.3985053209,
-     "value": 11847.605,
+     "liq": 63.4980708784,
+     "value": 11826.045,
      "iso": false,
-     "margin": 2369.521
+     "margin": 2365.209
     },
     "xyz:NVDA": {
      "szi": 0.001,
      "entry": 207.559,
      "lev": 20.0,
      "liq": null,
-     "value": 0.20346,
+     "value": 0.20379,
      "iso": false,
-     "margin": 0.010173
+     "margin": 0.010189
     },
     "xyz:GOLD": {
      "szi": -0.0001,
      "entry": 4307.0,
      "lev": 20.0,
-     "liq": 2504516734.3431373,
-     "value": 0.39448,
+     "liq": 2508883168.352941,
+     "value": 0.39461,
      "iso": false,
-     "margin": 0.019724
+     "margin": 0.01973
     },
     "xyz:META": {
      "szi": 85.245,
      "entry": 609.997,
      "lev": 10.0,
      "liq": null,
-     "value": 51909.94275,
+     "value": 51923.58195,
      "iso": false,
-     "margin": 5190.994275
+     "margin": 5192.358195
     },
     "xyz:MSFT": {
      "szi": 1.686,
      "entry": 396.903,
      "lev": 4.0,
      "liq": null,
-     "value": 856.72404,
+     "value": 857.36472,
      "iso": false,
-     "margin": 214.18101
+     "margin": 214.34118
     },
     "xyz:GOOGL": {
      "szi": 24.801,
      "entry": 322.574,
      "lev": 20.0,
      "liq": null,
-     "value": 6950.97627,
+     "value": 6957.67254,
      "iso": false,
-     "margin": 347.548813
+     "margin": 347.883627
     },
     "xyz:AMD": {
      "szi": 0.001,
      "entry": 451.744,
      "lev": 10.0,
      "liq": 245.9473684211,
-     "value": 0.47374,
+     "value": 0.47576,
      "iso": true,
-     "margin": 0.24009
+     "margin": 0.24211
     },
     "xyz:CRCL": {
      "szi": 55.011,
      "entry": 71.811,
      "lev": 1.0,
      "liq": 2.8862556675,
-     "value": 3978.065454,
+     "value": 3981.421125,
      "iso": true,
-     "margin": 3827.228434
+     "margin": 3830.584105
     },
     "xyz:BABA": {
      "szi": 6.235,
      "entry": 95.099,
      "lev": 10.0,
      "liq": 94.4764534673,
-     "value": 634.78535,
+     "value": 635.03475,
      "iso": true,
-     "margin": 75.177697
+     "margin": 75.427097
     },
     "xyz:EWY": {
      "szi": 7.007,
      "entry": 143.63,
      "lev": 7.0,
      "liq": 92.3894444018,
-     "value": 1080.4794,
+     "value": 1079.7787,
      "iso": true,
-     "margin": 449.290884
+     "margin": 448.590184
     },
     "xyz:DRAM": {
      "szi": 0.1,
      "entry": 50.17275,
      "lev": 20.0,
      "liq": null,
-     "value": 4.724,
+     "value": 4.7279,
      "iso": false,
-     "margin": 0.2362
+     "margin": 0.236395
     },
     "xyz:SPCX": {
      "szi": 411.12,
      "entry": 145.9433,
      "lev": 5.0,
      "liq": 120.6094998728,
-     "value": 56417.9976,
+     "value": 56504.3328,
      "iso": true,
-     "margin": 8072.644452
+     "margin": 8158.979652
     },
     "xyz:BB": {
      "szi": 1052.9,
      "entry": 9.56134,
      "lev": 10.0,
      "liq": 4.5701526701,
-     "value": 8494.58662,
+     "value": 8503.32569,
      "iso": true,
-     "margin": 3923.268561
+     "margin": 3932.007631
     }
    }
   },
   "0xa3bd669bbb7fc764ea941587466ac710bb9e3609": {
-   "equity": 381329.021519,
+   "equity": 381523.01231900003,
    "positions": {
     "xyz:INTC": {
      "szi": 1536.61,
      "entry": 65.078,
      "lev": 2.0,
      "liq": null,
-     "value": 93014.07652,
+     "value": 93155.44464,
      "iso": false,
-     "margin": 46507.03826
+     "margin": 46577.72232
     },
     "xyz:SILVER": {
      "szi": 2006.82,
      "entry": 49.8278,
      "lev": 2.0,
      "liq": null,
-     "value": 101653.46028,
+     "value": 101641.41936,
      "iso": false,
-     "margin": 50826.73014
+     "margin": 50820.70968
     }
    }
   },
@@ -490,178 +490,178 @@
    "positions": {}
   },
   "0x708f713637e28c014705fec1bab002992f53d4ea": {
-   "equity": 2817535.403962,
+   "equity": 2815434.191399,
    "positions": {
     "xyz:TSLA": {
      "szi": -0.503,
      "entry": 377.711,
      "lev": 3.0,
      "liq": 604.3152034137,
-     "value": 203.715,
+     "value": 203.84075,
      "iso": true,
-     "margin": 107.854811
+     "margin": 107.729061
     },
     "xyz:INTC": {
      "szi": -13.76,
      "entry": 85.014,
      "lev": 2.0,
      "liq": 95.4167076412,
-     "value": 832.92032,
+     "value": 834.18624,
      "iso": true,
-     "margin": 545.660272
+     "margin": 544.394352
     },
     "xyz:GOOGL": {
      "szi": -380.128,
      "entry": 291.365,
      "lev": 3.0,
      "liq": 393.7369423804,
-     "value": 106538.47456,
+     "value": 106641.10912,
      "iso": true,
-     "margin": 46873.722784
+     "margin": 46771.088224
     },
     "xyz:SNDK": {
-     "szi": -461.293,
+     "szi": -460.971,
      "entry": 1256.307,
      "lev": 3.0,
-     "liq": 1663.8347030939,
-     "value": 507191.6535,
+     "liq": 1663.8346811136,
+     "value": 507897.8478,
      "iso": true,
-     "margin": 298699.413279
+     "margin": 297430.665827
     },
     "xyz:MSTR": {
      "szi": -2158.124,
      "entry": 144.183,
      "lev": 3.0,
      "liq": 186.7233363456,
-     "value": 283728.56228,
+     "value": 284009.1184,
      "iso": true,
-     "margin": 139392.156924
+     "margin": 139111.600804
     },
     "xyz:CRCL": {
      "szi": -0.676,
      "entry": 72.351,
      "lev": 3.0,
      "liq": 91.8922118907,
-     "value": 48.884264,
+     "value": 48.9255,
      "iso": true,
-     "margin": 16.340828
+     "margin": 16.299592
     },
     "xyz:SKHX": {
      "szi": -634.26,
      "entry": 1201.705,
      "lev": 3.0,
-     "liq": 2461.4633663482,
-     "value": 668827.17,
+     "liq": 2461.7433106748,
+     "value": 668573.466,
      "iso": false,
-     "margin": 222942.39
+     "margin": 222857.822
     },
     "xyz:BABA": {
      "szi": -3836.557,
      "entry": 107.839,
      "lev": 3.0,
      "liq": 139.3858713812,
-     "value": 390599.86817,
+     "value": 390753.33045,
      "iso": true,
-     "margin": 170900.064406
+     "margin": 170746.602126
     },
     "xyz:URNM": {
      "szi": -5801.43,
      "entry": 52.2693,
      "lev": 3.0,
      "liq": 59.2853425895,
-     "value": 242383.7454,
+     "value": 241832.60955,
      "iso": true,
-     "margin": 118753.007912
+     "margin": 119304.143762
     },
     "xyz:SOFTBANK": {
      "szi": -300.0,
      "entry": 28.721,
      "lev": 2.0,
      "liq": 44.2056585524,
-     "value": 8185.2,
+     "value": 8173.8,
      "iso": true,
-     "margin": 5739.582444
+     "margin": 5750.982444
     },
     "xyz:KIOXIA": {
      "szi": -299.85,
      "entry": 91.167,
      "lev": 2.0,
      "liq": 126.9382385256,
-     "value": 20237.17635,
+     "value": 20223.98295,
      "iso": true,
-     "margin": 19728.376013
+     "margin": 19741.569413
     },
     "xyz:LITE": {
      "szi": -0.903,
      "entry": 878.439,
      "lev": 3.0,
      "liq": 1496.2757369615,
-     "value": 626.61879,
+     "value": 627.96426,
      "iso": true,
-     "margin": 792.07505
+     "margin": 790.72958
     },
     "xyz:DRAM": {
      "szi": -530.3,
      "entry": 51.20878,
      "lev": 3.0,
-     "liq": 1771.0679556018,
-     "value": 25051.372,
+     "liq": 1771.9400313343,
+     "value": 25072.0537,
      "iso": false,
-     "margin": 8350.457333
+     "margin": 8357.351233
     },
     "xyz:CBRS": {
      "szi": -130.65,
      "entry": 142.6878,
      "lev": 2.0,
      "liq": 158.7615095147,
-     "value": 12652.27665,
+     "value": 12667.0401,
      "iso": true,
-     "margin": 9127.024129
+     "margin": 9112.260679
     },
     "xyz:EWZ": {
      "szi": -10299.28,
      "entry": 33.8338,
      "lev": 3.0,
      "liq": 45.0694221447,
-     "value": 333346.49648,
+     "value": 333387.6936,
      "iso": true,
-     "margin": 142440.666579
+     "margin": 142399.469459
     },
     "xyz:SPCX": {
      "szi": -3029.81,
      "entry": 150.1581,
      "lev": 3.0,
      "liq": 191.5070378381,
-     "value": 415780.8263,
+     "value": 416417.0864,
      "iso": true,
-     "margin": 178954.86047
+     "margin": 178318.60037
     },
     "xyz:MINIMAX": {
      "szi": -14400.0,
      "entry": 41.4198,
      "lev": 2.0,
      "liq": 30.3773018933,
-     "value": 307252.8,
+     "value": 307339.2,
      "iso": true,
-     "margin": 152052.004626
+     "margin": 151965.604626
     },
     "xyz:AVGO": {
      "szi": -125.23,
      "entry": 353.2297,
      "lev": 2.0,
      "liq": 508.8276258541,
-     "value": 40550.7263,
+     "value": 40630.8735,
      "iso": true,
-     "margin": 26355.781465
+     "margin": 26275.634265
     },
     "xyz:ZHIPU": {
      "szi": -13214.96,
      "entry": 99.321,
      "lev": 2.0,
      "liq": 90.9384788239,
-     "value": 790968.21584,
+     "value": 791377.8796,
      "iso": true,
-     "margin": 470867.562284
+     "margin": 470457.898524
     },
     "xyz:BOT": {
      "szi": -1957.93,
@@ -677,213 +677,213 @@
      "entry": 327.3497,
      "lev": 3.0,
      "liq": 399.5271483482,
-     "value": 77496.219,
+     "value": 77537.2068,
      "iso": true,
-     "margin": 45321.822383
+     "margin": 45280.834583
     }
    }
   },
   "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0": {
-   "equity": 19556188.771319948,
+   "equity": 19591087.859242953,
    "positions": {
     "xyz:XYZ100": {
      "szi": -308.0387,
      "entry": 29455.28,
      "lev": 6.0,
-     "liq": 87285.0314870347,
-     "value": 8650958.8508,
+     "liq": 87398.8882972449,
+     "value": 8662356.2827,
      "iso": false,
-     "margin": 1441826.475133
+     "margin": 1443726.047116
     },
     "xyz:NVDA": {
      "szi": 28500.0,
      "entry": 207.735,
      "lev": 5.0,
      "liq": null,
-     "value": 5798610.0,
+     "value": 5808015.0,
      "iso": false,
-     "margin": 1159722.0
+     "margin": 1161603.0
     },
     "xyz:GOLD": {
      "szi": -595.1007,
      "entry": 4125.84,
      "lev": 4.0,
-     "liq": 34488.5606179975,
-     "value": 2347553.24136,
+     "liq": 34529.5135759607,
+     "value": 2348326.87227,
      "iso": false,
-     "margin": 586888.31034
+     "margin": 587081.718067
     },
     "xyz:META": {
      "szi": -10730.0,
      "entry": 705.451,
      "lev": 4.0,
-     "liq": 2294.6859662575,
-     "value": 6534033.5,
+     "liq": 2297.0344465249,
+     "value": 6535750.3,
      "iso": false,
-     "margin": 1633508.375
+     "margin": 1633937.575
     },
     "xyz:AAPL": {
      "szi": 17750.0,
      "entry": 344.376,
      "lev": 4.0,
      "liq": null,
-     "value": 5833182.5,
+     "value": 5870102.5,
      "iso": false,
-     "margin": 1458295.625
+     "margin": 1467525.625
     },
     "xyz:MSFT": {
      "szi": 350.0,
      "entry": 521.388,
      "lev": 4.0,
      "liq": null,
-     "value": 177849.0,
+     "value": 177982.0,
      "iso": false,
-     "margin": 44462.25
+     "margin": 44495.5
     },
     "xyz:GOOGL": {
      "szi": -32200.0,
      "entry": 308.672,
      "lev": 5.0,
-     "liq": 842.0074819237,
-     "value": 9024694.0,
+     "liq": 843.0067487954,
+     "value": 9033388.0,
      "iso": false,
-     "margin": 1804938.8
+     "margin": 1806677.6
     },
     "xyz:AMZN": {
      "szi": -11900.0,
      "entry": 255.109,
      "lev": 4.0,
-     "liq": 1766.4055393229,
-     "value": 2932279.0,
+     "liq": 1768.6488496817,
+     "value": 2935492.0,
      "iso": false,
-     "margin": 733069.75
+     "margin": 733873.0
     },
     "xyz:SILVER": {
      "szi": -120434.16,
      "entry": 61.4606,
      "lev": 3.0,
-     "liq": 201.5797284179,
-     "value": 6100471.94064,
+     "liq": 201.7696653767,
+     "value": 6099749.33568,
      "iso": false,
-     "margin": 2033490.64688
+     "margin": 2033249.77856
     },
     "xyz:SP500": {
      "szi": 701.737,
      "entry": 7621.402,
      "lev": 8.0,
      "liq": null,
-     "value": 5294465.3176,
+     "value": 5298886.2607,
      "iso": false,
-     "margin": 661808.1647
+     "margin": 662360.782587
     },
     "xyz:ANT": {
      "szi": 843.71,
      "entry": 109.8872,
      "lev": 2.0,
      "liq": 57.8374187863,
-     "value": 91289.422,
+     "value": 91095.3687,
      "iso": true,
-     "margin": 44931.313826
+     "margin": 44737.260526
     }
    }
   },
   "0xd487e26c62ed8c28ce3cc70b5791e501c2934982": {
-   "equity": 1365123.27730169,
+   "equity": 1364120.1800216897,
    "positions": {
     "ZRO": {
      "szi": 200004.0,
      "entry": 1.20389,
      "lev": 5.0,
      "liq": null,
-     "value": 344406.888,
+     "value": 343926.8784,
      "iso": false,
-     "margin": 68881.3776
+     "margin": 68785.37568
     },
     "ZEC": {
      "szi": 6.0,
      "entry": 1286.1166,
      "lev": 10.0,
      "liq": null,
-     "value": 6913.8,
+     "value": 6840.6,
      "iso": false,
-     "margin": 691.38
+     "margin": 684.06
     }
    }
   },
   "0xda744273f80b22412417f7cfe0503f3d721f987d": {
-   "equity": 4706530.48717713,
+   "equity": 4698667.3257551305,
    "positions": {
     "BTC": {
      "szi": 60.0,
      "entry": 66958.1,
      "lev": 20.0,
-     "liq": 18407.0623031392,
-     "value": 4609860.0,
+     "liq": 18492.8133579916,
+     "value": 4611780.0,
      "iso": false,
-     "margin": 230493.0
+     "margin": 230589.0
     },
     "CASHCAT": {
      "szi": -1416041.0,
      "entry": 0.202788,
      "lev": 3.0,
      "liq": 0.5518684442,
-     "value": 143966.056388,
+     "value": 143600.71781,
      "iso": true,
-     "margin": 767747.011116
+     "margin": 768112.349694
     },
     "xyz:NVDA": {
      "szi": -10000.0,
      "entry": 223.512,
      "lev": 20.0,
-     "liq": 541.1788593697,
-     "value": 2034600.0,
+     "liq": 541.1981520526,
+     "value": 2037900.0,
      "iso": false,
-     "margin": 101730.0
+     "margin": 101895.0
     },
     "xyz:INTC": {
      "szi": 2500.0,
      "entry": 64.75,
      "lev": 10.0,
      "liq": null,
-     "value": 151330.0,
+     "value": 151560.0,
      "iso": false,
-     "margin": 15133.0
+     "margin": 15156.0
     },
     "xyz:MSFT": {
      "szi": -500.0,
      "entry": 490.748,
      "lev": 20.0,
-     "liq": 7262.5171873932,
-     "value": 254070.0,
+     "liq": 7256.6830410517,
+     "value": 254260.0,
      "iso": false,
-     "margin": 12703.5
+     "margin": 12713.0
     },
     "xyz:AMD": {
      "szi": -500.0,
      "entry": 547.103,
      "lev": 10.0,
      "liq": 805.8879054533,
-     "value": 236870.0,
+     "value": 237880.0,
      "iso": true,
-     "margin": 186221.150363
+     "margin": 185211.150363
     },
     "xyz:SPCX": {
      "szi": -8000.0,
      "entry": 151.5415,
      "lev": 20.0,
-     "liq": 559.3785742121,
-     "value": 1097840.0,
+     "liq": 559.2001900657,
+     "value": 1099520.0,
      "iso": false,
-     "margin": 54892.0
+     "margin": 54976.0
     },
     "xyz:DELL": {
      "szi": -500.0,
      "entry": 536.1899,
      "lev": 10.0,
      "liq": 733.5017867524,
-     "value": 197520.0,
+     "value": 198225.0,
      "iso": true,
-     "margin": 187568.438045
+     "margin": 186863.438045
     }
    }
   },
@@ -896,534 +896,534 @@
    "positions": {}
   },
   "0xc0b2a1ce425d0cd8bc321c445fa6ae0eaed2e688": {
-   "equity": 687336.6799511401,
+   "equity": 687255.37371814,
    "positions": {
     "SOL": {
      "szi": 40.0,
      "entry": 91.3265,
      "lev": 20.0,
      "liq": null,
-     "value": 3678.64,
+     "value": 3674.88,
      "iso": false,
-     "margin": 183.932
+     "margin": 183.744
     },
     "WLD": {
      "szi": 5000.0,
      "entry": 0.37641,
      "lev": 10.0,
      "liq": null,
-     "value": 1906.95,
+     "value": 1900.65,
      "iso": false,
-     "margin": 190.695
+     "margin": 190.065
     },
     "NEAR": {
      "szi": 1000.0,
      "entry": 3.8654,
      "lev": 10.0,
      "liq": null,
-     "value": 3872.6,
+     "value": 3870.1,
      "iso": false,
-     "margin": 387.26
+     "margin": 387.01
     },
     "ENA": {
      "szi": 10000.0,
      "entry": 0.17383,
      "lev": 5.0,
      "liq": null,
-     "value": 1712.3,
+     "value": 1708.5,
      "iso": false,
-     "margin": 342.46
+     "margin": 341.7
     },
     "PURR": {
-     "szi": -350471.0,
-     "entry": 0.122451,
+     "szi": -350671.0,
+     "entry": 0.122447,
      "lev": 3.0,
-     "liq": 1.741841224,
-     "value": 40185.00486,
+     "liq": 1.7405809388,
+     "value": 40148.32279,
      "iso": false,
-     "margin": 13395.00162
+     "margin": 13382.774263
     },
     "HYPE": {
      "szi": 600.0,
      "entry": 87.9419,
      "lev": 3.0,
      "liq": null,
-     "value": 50619.0,
+     "value": 50493.6,
      "iso": false,
-     "margin": 16873.0
+     "margin": 16831.2
     },
     "VVV": {
      "szi": 200.0,
      "entry": 21.8575,
      "lev": 3.0,
      "liq": null,
-     "value": 4280.6,
+     "value": 4278.4,
      "iso": false,
-     "margin": 1426.866666
+     "margin": 1426.133333
     },
     "PUMP": {
      "szi": 1000000.0,
      "entry": 0.003982,
      "lev": 3.0,
      "liq": null,
-     "value": 3984.0,
+     "value": 3967.0,
      "iso": false,
-     "margin": 1328.0
+     "margin": 1322.333333
     },
     "AERO": {
      "szi": 6000.0,
      "entry": 0.608892,
      "lev": 3.0,
      "liq": null,
-     "value": 3616.68,
+     "value": 3613.992,
      "iso": false,
-     "margin": 1205.56
+     "margin": 1204.664
     },
     "LIT": {
      "szi": 1000.0,
      "entry": 3.072286,
      "lev": 5.0,
      "liq": null,
-     "value": 3077.3,
+     "value": 3071.7,
      "iso": false,
-     "margin": 615.46
+     "margin": 614.34
     },
     "XMR": {
      "szi": 5.0,
      "entry": 623.214,
      "lev": 5.0,
      "liq": null,
-     "value": 3040.0,
+     "value": 3034.8,
      "iso": false,
-     "margin": 608.0
+     "margin": 606.96
     },
     "PONS": {
      "szi": 8000.0,
      "entry": 0.210417,
      "lev": 3.0,
      "liq": null,
-     "value": 1645.68,
+     "value": 1643.92,
      "iso": false,
-     "margin": 548.56
+     "margin": 547.973333
     },
     "xyz:GOLD": {
      "szi": 5.0,
      "entry": 4020.85,
      "lev": 4.0,
      "liq": 3085.4523210204,
-     "value": 19724.0,
+     "value": 19730.5,
      "iso": true,
-     "margin": 4605.283627
+     "margin": 4611.783627
     },
     "xyz:INTC": {
      "szi": 40.0,
      "entry": 60.141,
      "lev": 3.0,
      "liq": null,
-     "value": 2421.28,
+     "value": 2424.96,
      "iso": false,
-     "margin": 807.093333
+     "margin": 808.32
     },
     "xyz:MU": {
      "szi": 2.0,
      "entry": 839.753,
      "lev": 2.0,
      "liq": 441.9829947368,
-     "value": 1691.64,
+     "value": 1694.2,
      "iso": true,
-     "margin": 851.87231
+     "margin": 854.43231
     },
     "xyz:SNDK": {
      "szi": 14.0,
      "entry": 1105.485,
      "lev": 3.0,
      "liq": null,
-     "value": 15393.0,
+     "value": 15425.2,
      "iso": false,
-     "margin": 5131.0
+     "margin": 5141.733333
     },
     "xyz:SMSN": {
      "szi": 20.0,
      "entry": 164.072,
      "lev": 10.0,
      "liq": 125.414491,
-     "value": 3292.0,
+     "value": 3290.2,
      "iso": true,
-     "margin": 909.124671
+     "margin": 907.324671
     },
     "xyz:NBIS": {
      "szi": 20.0,
      "entry": 143.917,
      "lev": 3.0,
      "liq": 13.4651364737,
-     "value": 2897.0,
+     "value": 2904.0,
      "iso": true,
-     "margin": 2641.162407
+     "margin": 2648.162407
     }
    }
   },
   "0x9db82c502472d76742fdd69609dfcc6e01327401": {
-   "equity": 448359.81254235003,
+   "equity": 448513.64228135,
    "positions": {
     "ETH": {
      "szi": 0.3888,
      "entry": 2572.61,
      "lev": 5.0,
      "liq": null,
-     "value": 876.62736,
+     "value": 876.39408,
      "iso": false,
-     "margin": 175.325472
+     "margin": 175.278816
     },
     "LDO": {
      "szi": 9242.9,
      "entry": 0.44092,
      "lev": 5.0,
      "liq": null,
-     "value": 3043.594541,
+     "value": 3042.577822,
      "iso": false,
-     "margin": 608.718908
+     "margin": 608.515564
     },
     "LINK": {
      "szi": 5.8,
      "entry": 20.66188,
      "lev": 10.0,
      "liq": null,
-     "value": 64.583,
+     "value": 64.6033,
      "iso": false,
-     "margin": 6.4583
+     "margin": 6.46033
     },
     "NEAR": {
      "szi": 13.1,
      "entry": 3.86967,
      "lev": 10.0,
      "liq": null,
-     "value": 50.73106,
+     "value": 50.69831,
      "iso": false,
-     "margin": 5.073106
+     "margin": 5.069831
     },
     "TAO": {
      "szi": 0.034,
      "entry": 247.548,
      "lev": 5.0,
      "liq": null,
-     "value": 7.62212,
+     "value": 7.61056,
      "iso": false,
-     "margin": 1.524424
+     "margin": 1.522112
     },
     "ENA": {
      "szi": 470.0,
      "entry": 0.20885,
      "lev": 5.0,
      "liq": null,
-     "value": 80.4781,
+     "value": 80.2995,
      "iso": false,
-     "margin": 16.09562
+     "margin": 16.0599
     },
     "MNT": {
      "szi": 34005.6,
      "entry": 0.60684,
      "lev": 5.0,
      "liq": null,
-     "value": 16025.479056,
+     "value": 16048.94292,
      "iso": false,
-     "margin": 3205.095811
+     "margin": 3209.788584
     },
     "PURR": {
      "szi": 22.0,
      "entry": 0.125476,
      "lev": 3.0,
      "liq": null,
-     "value": 2.52252,
+     "value": 2.51878,
      "iso": false,
-     "margin": 0.84084
+     "margin": 0.839593
     },
     "HYPE": {
      "szi": 0.19,
      "entry": 56.174,
      "lev": 3.0,
      "liq": null,
-     "value": 16.02935,
+     "value": 15.98964,
      "iso": false,
-     "margin": 5.343116
+     "margin": 5.32988
     },
     "TRUMP": {
      "szi": 10.0,
      "entry": 7.53577,
      "lev": 3.0,
      "liq": null,
-     "value": 16.04,
+     "value": 16.024,
      "iso": false,
-     "margin": 5.346666
+     "margin": 5.341333
     },
     "VVV": {
      "szi": 3.64,
      "entry": 22.5546,
      "lev": 3.0,
      "liq": null,
-     "value": 77.90692,
+     "value": 77.86688,
      "iso": false,
-     "margin": 25.968973
+     "margin": 25.955626
     },
     "NIL": {
      "szi": 189.0,
      "entry": 0.043031,
      "lev": 3.0,
      "liq": null,
-     "value": 12.134745,
+     "value": 12.147975,
      "iso": false,
-     "margin": 4.044915
+     "margin": 4.049325
     },
     "XPL": {
      "szi": 4378.0,
      "entry": 0.07594,
      "lev": 1.0,
      "liq": 0.0007509129,
-     "value": 292.249012,
+     "value": 291.285852,
      "iso": true,
-     "margin": 289.12589
+     "margin": 288.16273
     },
     "ZEC": {
      "szi": 0.19,
      "entry": 1136.4947,
      "lev": 5.0,
      "liq": null,
-     "value": 218.937,
+     "value": 216.619,
      "iso": false,
-     "margin": 43.7874
+     "margin": 43.3238
     },
     "MEGA": {
      "szi": 508.0,
      "entry": 0.126092,
      "lev": 1.0,
      "liq": null,
-     "value": 22.93874,
+     "value": 22.911308,
      "iso": true,
-     "margin": 28.518541
+     "margin": 28.491109
     },
     "CC": {
      "szi": -53.0,
      "entry": 0.161604,
      "lev": 1.0,
-     "liq": 6154.6165910135,
-     "value": 4.986293,
+     "liq": 6158.4623656496,
+     "value": 4.990109,
      "iso": false,
-     "margin": 4.986293
+     "margin": 4.990109
     },
     "AERO": {
      "szi": 439.0,
      "entry": 0.666801,
      "lev": 3.0,
      "liq": null,
-     "value": 264.62042,
+     "value": 264.423748,
      "iso": false,
-     "margin": 88.206806
+     "margin": 88.141249
     },
     "CASHCAT": {
      "szi": 28128.0,
      "entry": 0.123325,
      "lev": 1.0,
      "liq": null,
-     "value": 2859.717504,
+     "value": 2852.46048,
      "iso": true,
-     "margin": 3517.849301
+     "margin": 3510.592277
     },
     "PONS": {
      "szi": -80.0,
      "entry": 0.741014,
      "lev": 3.0,
-     "liq": 4077.5768728929,
-     "value": 16.4568,
+     "liq": 4080.1244308821,
+     "value": 16.4392,
      "iso": false,
-     "margin": 5.4856
+     "margin": 5.479733
     },
     "xyz:INTC": {
-     "szi": 790.73,
+     "szi": 787.09,
      "entry": 62.8432,
      "lev": 1.0,
-     "liq": 0.0419267952,
-     "value": 47864.46836,
+     "liq": 0.0419342829,
+     "value": 47716.54416,
      "iso": true,
-     "margin": 47832.973224
+     "margin": 47685.188408
     },
     "xyz:MU": {
      "szi": 0.044,
      "entry": 867.841,
      "lev": 1.0,
      "liq": 16.854138756,
-     "value": 37.21608,
+     "value": 37.2724,
      "iso": true,
-     "margin": 36.511577
+     "margin": 36.567897
     },
     "xyz:SKHX": {
      "szi": 0.492,
      "entry": 1127.6,
      "lev": 2.0,
      "liq": 590.6274090715,
-     "value": 518.814,
+     "value": 518.6172,
      "iso": true,
-     "margin": 242.754749
+     "margin": 242.557949
     },
     "xyz:SILVER": {
      "szi": 0.84,
      "entry": 58.7662,
      "lev": 2.0,
      "liq": 31.9625242954,
-     "value": 42.54936,
+     "value": 42.54432,
      "iso": true,
-     "margin": 16.23781
+     "margin": 16.23277
     },
     "xyz:BABA": {
      "szi": 0.586,
      "entry": 119.352,
      "lev": 2.0,
      "liq": 65.4932710616,
-     "value": 59.66066,
+     "value": 59.6841,
      "iso": true,
-     "margin": 23.200556
+     "margin": 23.223996
     },
     "xyz:CL": {
      "szi": -9.21,
      "entry": 96.652,
      "lev": 1.0,
      "liq": 186.89650719,
-     "value": 887.99136,
+     "value": 887.53086,
      "iso": true,
-     "margin": 876.358392
+     "margin": 876.818892
     },
     "xyz:SMSN": {
      "szi": -0.125,
      "entry": 222.066,
      "lev": 1.0,
      "liq": 431.0808152381,
-     "value": 20.575,
+     "value": 20.56375,
      "iso": true,
-     "margin": 36.004357
+     "margin": 36.015607
     },
     "xyz:USAR": {
      "szi": 511.73,
      "entry": 10.9154,
      "lev": 1.0,
      "liq": 0.0586109204,
-     "value": 4551.83835,
+     "value": 4564.6316,
      "iso": true,
-     "margin": 4523.345032
+     "margin": 4536.138282
     },
     "xyz:CRWV": {
      "szi": 140.38,
      "entry": 52.4274,
      "lev": 2.0,
      "liq": 25.4940482675,
-     "value": 7138.46338,
+     "value": 7159.09924,
      "iso": true,
-     "margin": 3738.551609
+     "margin": 3759.187469
     },
     "xyz:GME": {
      "szi": 3.55,
      "entry": 24.0967,
      "lev": 1.0,
      "liq": 3.0169654559,
-     "value": 85.6615,
+     "value": 85.65795,
      "iso": true,
-     "margin": 75.486784
+     "margin": 75.483234
     },
     "xyz:EWY": {
      "szi": -0.253,
      "entry": 175.386,
      "lev": 1.0,
      "liq": 346.87654102,
-     "value": 39.0126,
+     "value": 38.9873,
      "iso": true,
-     "margin": 50.941159
+     "margin": 50.966459
     },
     "xyz:HIMS": {
      "szi": 10.08,
      "entry": 33.1887,
      "lev": 2.0,
      "liq": 9.6556775272,
-     "value": 255.63888,
+     "value": 255.6288,
      "iso": true,
-     "margin": 163.176112
+     "margin": 163.166032
     },
     "xyz:SP500": {
      "szi": -0.572,
      "entry": 7108.602,
      "lev": 2.0,
      "liq": 11095.9745603406,
-     "value": 4315.6256,
+     "value": 4319.2292,
      "iso": true,
-     "margin": 2094.740823
+     "margin": 2091.137223
     },
     "xyz:PURRDAT": {
      "szi": 1.0,
      "entry": 6.716097,
      "lev": 2.0,
      "liq": 3.8168673684,
-     "value": 9.7439,
+     "value": 9.765,
      "iso": true,
-     "margin": 6.117876
+     "margin": 6.138976
     },
     "xyz:MRVL": {
      "szi": 0.35,
      "entry": 255.9935,
      "lev": 2.0,
      "liq": 144.0163879699,
-     "value": 61.18,
+     "value": 61.3165,
      "iso": true,
-     "margin": 13.294551
+     "margin": 13.431051
     },
     "xyz:RKLB": {
      "szi": 1.59,
      "entry": 116.9534,
      "lev": 1.0,
      "liq": 4.1103409467,
-     "value": 83.41617,
+     "value": 83.7135,
      "iso": true,
-     "margin": 77.2075
+     "margin": 77.50483
     },
     "xyz:BIRD": {
      "szi": 2.2,
      "entry": 5.5223,
      "lev": 1.0,
      "liq": 0.6219143541,
-     "value": 3.64892,
+     "value": 3.64738,
      "iso": true,
-     "margin": 2.349119
+     "margin": 2.347579
     },
     "xyz:CBRS": {
      "szi": 262.32,
      "entry": 145.8805,
      "lev": 2.0,
      "liq": 40.8126232564,
-     "value": 25403.33112,
+     "value": 25432.97328,
      "iso": true,
-     "margin": 15232.662154
+     "margin": 15262.304314
     },
     "xyz:SPCX": {
      "szi": 10.7,
      "entry": 135.8815,
      "lev": 2.0,
      "liq": 69.8293852864,
-     "value": 1468.361,
+     "value": 1470.608,
      "iso": true,
-     "margin": 739.865938
+     "margin": 742.112938
     },
     "xyz:QNT": {
      "szi": 2.4,
      "entry": 59.6973,
      "lev": 1.0,
      "liq": 1.2806438596,
-     "value": 75.588,
+     "value": 75.6216,
      "iso": true,
-     "margin": 72.668132
+     "margin": 72.701732
     },
     "xyz:NBIS": {
      "szi": 0.09,
      "entry": 152.7465,
      "lev": 2.0,
      "liq": 85.520994152,
-     "value": 13.0365,
+     "value": 13.068,
      "iso": true,
-     "margin": 5.724455
+     "margin": 5.755955
     },
     "xyz:BOT": {
      "szi": 121.81,
@@ -1439,119 +1439,119 @@
      "entry": 10.75151,
      "lev": 1.0,
      "liq": 0.0167380033,
-     "value": 5904.5424,
+     "value": 5896.3704,
      "iso": true,
-     "margin": 5895.879479
+     "margin": 5887.707479
     },
     "xyz:MRNA": {
      "szi": -0.04,
      "entry": 178.9301,
      "lev": 1.0,
      "liq": 341.5671428571,
-     "value": 8.8324,
+     "value": 8.8364,
      "iso": true,
-     "margin": 5.51342
+     "margin": 5.50942
     }
    }
   },
   "0x166866a2845506f6b4c817482fe53b4985882ea6": {
-   "equity": 994865.06042712,
+   "equity": 994034.75120105,
    "positions": {
     "xyz:MU": {
      "szi": 327.337,
      "entry": 1069.605,
      "lev": 5.0,
      "liq": null,
-     "value": 276868.18134,
+     "value": 277287.1727,
      "iso": false,
-     "margin": 55373.636268
+     "margin": 55457.43454
     },
     "xyz:SILVER": {
      "szi": 4056.75,
      "entry": 49.3162,
      "lev": 3.0,
      "liq": null,
-     "value": 205490.6145,
+     "value": 205466.274,
      "iso": false,
-     "margin": 68496.8715
+     "margin": 68488.758
     }
    }
   },
   "0x649156ebf0a350deb18a1e4835873defd4dc5349": {
-   "equity": 821166.4725494201,
+   "equity": 819099.25748942,
    "positions": {
     "xyz:SKHX": {
      "szi": 1873.895,
      "entry": 1239.226,
      "lev": 10.0,
-     "liq": 699.0955425998,
-     "value": 1976022.2775,
+     "liq": 699.2761556684,
+     "value": 1975272.7195,
      "iso": false,
-     "margin": 197602.22775
+     "margin": 197527.27195
     },
     "xyz:SKHY": {
      "szi": -10207.22,
      "entry": 192.1592,
      "lev": 10.0,
-     "liq": 208.6630135051,
-     "value": 1527306.3286,
+     "liq": 208.5965731302,
+     "value": 1527612.5452,
      "iso": false,
-     "margin": 152730.63286
+     "margin": 152761.25452
     }
    }
   },
   "0x2312171890250347dbf1b082bdf7950504909e92": {
-   "equity": 670924.86691435,
+   "equity": 671098.17261035,
    "positions": {
     "BTC": {
      "szi": 1.42082,
      "entry": 77420.0,
      "lev": 20.0,
      "liq": null,
-     "value": 109163.02142,
+     "value": 109208.48766,
      "iso": false,
-     "margin": 5458.151071
+     "margin": 5460.424383
     },
     "ETH": {
      "szi": -68.984,
      "entry": 2245.63,
      "lev": 20.0,
-     "liq": 11746.3724371721,
-     "value": 155538.2248,
+     "liq": 11747.0105207971,
+     "value": 155496.8344,
      "iso": false,
-     "margin": 7776.91124
+     "margin": 7774.84172
     }
    }
   },
   "0xa844d7ac9fa3424c4fd38a25baa23e460ec3e802": {
-   "equity": 336360.32154,
+   "equity": 336400.79642,
    "positions": {
     "BTC": {
      "szi": 0.25889,
      "entry": 77250.0,
      "lev": 4.0,
      "liq": null,
-     "value": 19890.77759,
+     "value": 19899.06207,
      "iso": false,
-     "margin": 4972.694397
+     "margin": 4974.765517
     },
     "SOL": {
      "szi": -315.6,
      "entry": 95.0718,
      "lev": 20.0,
-     "liq": 1127.2005177934,
-     "value": 29024.4696,
+     "liq": 1127.2332196513,
+     "value": 28994.8032,
      "iso": false,
-     "margin": 1451.22348
+     "margin": 1449.74016
     },
     "PAXG": {
      "szi": 2.524,
      "entry": 3960.7,
      "lev": 2.0,
      "liq": null,
-     "value": 9961.2184,
+     "value": 9963.7424,
      "iso": false,
-     "margin": 4980.6092
+     "margin": 4981.8712
     }
    }
   },
@@ -1560,102 +1560,102 @@
    "positions": {}
   },
   "0x3e6805e8694bb2b717a828c1bfa32df5d6580cc9": {
-   "equity": 619539.6332035,
+   "equity": 618486.6701354999,
    "positions": {
     "INJ": {
      "szi": -3000.0,
      "entry": 7.12662,
      "lev": 2.0,
-     "liq": 109.7905055397,
-     "value": 20908.8,
+     "liq": 109.7285106303,
+     "value": 20845.8,
      "iso": false,
-     "margin": 10454.4
+     "margin": 10422.9
     },
     "kPEPE": {
      "szi": -5000000.0,
      "entry": 0.005195,
      "lev": 10.0,
-     "liq": 0.0693902835,
-     "value": 23800.0,
+     "liq": 0.0693585153,
+     "value": 23770.0,
      "iso": false,
-     "margin": 2380.0
+     "margin": 2377.0
     },
     "ZRO": {
      "szi": -10000.0,
      "entry": 1.69763,
      "lev": 1.0,
      "liq": 3.091586591,
-     "value": 17220.0,
+     "value": 17196.0,
      "iso": true,
-     "margin": 16787.452501
+     "margin": 16811.452501
     },
     "ENA": {
      "szi": -150000.0,
      "entry": 0.188782,
      "lev": 10.0,
-     "liq": 2.3255727827,
-     "value": 25684.5,
+     "liq": 2.3243338418,
+     "value": 25627.5,
      "iso": false,
-     "margin": 2568.45
+     "margin": 2562.75
     },
     "HYPE": {
      "szi": -200.0,
      "entry": 91.2887,
      "lev": 3.0,
-     "liq": 1700.1220870524,
-     "value": 16873.0,
+     "liq": 1699.2688813333,
+     "value": 16831.2,
      "iso": false,
-     "margin": 5624.333333
+     "margin": 5610.4
     },
     "PUMP": {
      "szi": -5000000.0,
      "entry": 0.004024,
      "lev": 1.0,
      "liq": 0.0076728992,
-     "value": 19920.0,
+     "value": 19835.0,
      "iso": true,
-     "margin": 20362.720898
+     "margin": 20447.720898
     },
     "xyz:NVDA": {
      "szi": -1004.651,
      "entry": 210.0,
      "lev": 20.0,
-     "liq": 532.9606517667,
-     "value": 204406.29246,
+     "liq": 533.1592791701,
+     "value": 204737.82729,
      "iso": false,
-     "margin": 10220.314623
+     "margin": 10236.891364
     },
     "xyz:AMD": {
      "szi": -200.0,
      "entry": 532.554,
      "lev": 2.0,
      "liq": 761.3499242,
-     "value": 94748.0,
+     "value": 95152.0,
      "iso": true,
-     "margin": 65135.484082
+     "margin": 64731.484082
     },
     "xyz:CBRS": {
      "szi": -850.0,
      "entry": 110.2903,
      "lev": 2.0,
      "liq": 157.6926371597,
-     "value": 82314.85,
+     "value": 82410.9,
      "iso": true,
-     "margin": 58425.828665
+     "margin": 58329.778665
     },
     "xyz:SPCX": {
      "szi": -2000.0,
      "entry": 140.8769,
      "lev": 3.0,
      "liq": 183.451971879,
-     "value": 274460.0,
+     "value": 274880.0,
      "iso": true,
-     "margin": 101616.542352
+     "margin": 101196.542352
     }
    }
   },
   "0xcefd7652228a8619d0af5b95389cd49387cd30e0": {
-   "equity": 1216285.42692578,
+   "equity": 1215186.69809239,
    "positions": {}
   }
  },
@@ -1715,7 +1715,7 @@
    "followed": [
     "xyz:ANT"
    ],
-   "funding": -4.2309822941252514e-05
+   "funding": -4.253424204213343e-05
   },
   "0xe79d69fd1ed52dd14d7f55155259519ea20d0534": {
    "capital": 300.0,
@@ -1757,7 +1757,7 @@
     "GRASS",
     "ZRO"
    ],
-   "funding": 0.0007479959062907847
+   "funding": 0.000761699805277745
   },
   "0xa3bd669bbb7fc764ea941587466ac710bb9e3609": {
    "capital": 300.0,
@@ -1779,7 +1779,7 @@
     "xyz:SILVER",
     "xyz:INTC"
    ],
-   "funding": 0.005696010714530049
+   "funding": 0.005831022619704948
   },
   "0x708f713637e28c014705fec1bab002992f53d4ea": {
    "capital": 300.0,
@@ -1796,7 +1796,7 @@
    "followed": [
     "xyz:CRCL"
    ],
-   "funding": -7.034561442578789e-07
+   "funding": -7.083327943429349e-07
   },
   "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0": {
    "capital": 300.0,
@@ -1813,7 +1813,7 @@
    "followed": [
     "xyz:NVDA"
    ],
-   "funding": 0.0014205510879280276
+   "funding": 0.0014291874775453734
   },
   "0xd487e26c62ed8c28ce3cc70b5791e501c2934982": {
    "capital": 300.0,
@@ -1925,7 +1925,7 @@
     "PUMP",
     "xyz:SMSN"
    ],
-   "funding": 0.0005184127608201624
+   "funding": 0.000567798190737542
   },
   "0x9db82c502472d76742fdd69609dfcc6e01327401": {
    "capital": 300.0,
@@ -2177,7 +2177,7 @@
    "followed": [
     "PAXG"
    ],
-   "funding": 9.316866534530179e-05
+   "funding": 9.833300547233731e-05
   },
   "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d": {
    "capital": 300.0,
@@ -3035,7 +3035,7 @@
  "version": 2,
  "candidates": {
   "phase": "scan",
-  "scanned": 9030,
+  "scanned": 9171,
   "total": 14689,
   "deep_done": 0,
   "deep_total": 0,
@@ -3226,5 +3226,5 @@
    }
   ]
  },
- "last_run": "2026-11-03T02:18+03:00"
+ "last_run": "2026-11-03T02:23+03:00"
 }
