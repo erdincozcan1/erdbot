@@ -452,7 +452,7 @@ def total_equity(state: dict, mids: dict, cfg: dict) -> float:
 
 def max_drawdown(history: list, current: float) -> float:
     peak, mdd = 0.0, 0.0
-    for _, v in history + [[None, current]]:
+    for v in [h[1] for h in history] + [current]:
         peak = max(peak, v)
         if peak > 0:
             mdd = max(mdd, 1 - v / peak)
@@ -967,7 +967,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
         lines.append("\nKomutlar: /durum · /rapor · /gozlem · /adaylar")
         tg.send("\n".join(lines))
         state["snapshots"] = snaps
-        state["history"].append([iso(), round(total_equity(state, mids, cfg), 2)])
+        state["history"].append([iso(), round(total_equity(state, mids, cfg), 2), round(total_capital(state, cfg), 2)])
         return
 
     for a in addrs:
@@ -1001,7 +1001,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     eq = total_equity(state, mids, cfg)
     last_t = dt.datetime.fromisoformat(state["history"][-1][0]) if state["history"] else None
     if not last_t or (now_ist() - last_t) >= dt.timedelta(minutes=55):
-        state["history"].append([iso(), round(eq, 2)])
+        state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2)])
         state["history"] = state["history"][-3000:]
 
     # Komutlar (Cloudflare Worker kuruluysa komutlara o cevap verir)
@@ -1017,6 +1017,8 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
             tg.send(candidates_text(state))
         elif c in {"/start", "/yardim", "/help"}:
             tg.send("Komutlar: /durum · /rapor · /gozlem · /adaylar")
+
+    state["last_run"] = iso()           # panel "son güncelleme" için
 
     # Haftalık rapor: pazartesi 09:00 İstanbul sonrası ilk çalışma
     n = now_ist()

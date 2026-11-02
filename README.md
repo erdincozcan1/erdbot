@@ -104,6 +104,14 @@ değişikliği kendin yaparsın.
 4. **Komutlar:** `/durum` (anlık özet), `/rapor` (haftalık rapor), `/gozlem` (gözlem listesi),
    `/adaylar` (aday veritabanının en iyi 15'i ve tarama durumu).
 
+## Panel (tarayıcıdan)
+
+Cloudflare Worker, botun bütün verilerini gösteren bir sayfa sunar: `https://<worker-adresi>/panel`.
+Portföy değeri ve getirisi, getiri grafiği (sermaye değişiklikleri ayıklanmış), trader'lar ve
+açık sanal pozisyonları, gözlem listesi, kadro değişiklikleri ve aday veritabanı. Her dakika kendini
+yeniler; telefonda da çalışır. Açmak için Worker'a `PANEL_KEY` değişkeni (kendi belirlediğin bir
+anahtar) eklenmeli; sayfa ilk açılışta bu anahtarı sorar ve tarayıcıda saklar.
+
 ## Ayarlar (`hl_traders.json`)
 
 ```json
