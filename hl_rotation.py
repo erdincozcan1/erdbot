@@ -54,8 +54,8 @@ DEFAULTS = {
         "enabled": True,
         "min_equity": 100_000,
         "min_history_days": 365,
-        "min_profitable_share": 0.60,
-        "worst_month": -0.25,
+        "min_profitable_share": 0.70,   # geçmiş veri testi: en kötü ay kuralıyla birlikte kâra geçme oranını artırıyor
+        "worst_month": -0.15,            # geçmiş veri testinin en güçlü kuralı; sıkılaştıkça ağır kayıp oranı düşüyor
         "max_best_month_share": 0.50,
         "min_hold_h": 4,
         "max_leverage": 3,
@@ -472,15 +472,22 @@ def prefilter_leaderboard(rows: list, exclude: set, disc: dict) -> list[str]:
             roi, mo_roi = float(at.get("roi") or 0), float(mo.get("roi") or 0)
         except (TypeError, ValueError):
             continue
-        if not (disc["min_equity"] <= eq <= disc["max_equity"]) or at_pnl <= 0 or mo_pnl <= 0 or wk_pnl < 0:
+        # Not: "son ay / son hafta kârda" şartı geçmiş veri testinde etkisiz çıktığı için kaldırıldı
+        if not (disc["min_equity"] <= eq <= disc["max_equity"]) or at_pnl <= 0:
             continue
         if vlm / eq > disc["max_volume_ratio"] or not (1 <= mo_vlm / eq <= disc["max_month_turnover"]):
             continue          # piyasa yapıcı/botlar ve son ay işlem yapmayanlar (ör. sadece spot tutanlar)
-        if not (0.3 <= roi <= 10) or not (0 < mo_roi <= 0.3):
+        if not (0.3 <= roi <= 10) or mo_roi > 0.3:
             continue          # piyango kazancı gibi aşırı getiriler hariç
         picked.append((at_pnl, addr))
     picked.sort(reverse=True)
     return [a for _, a in picked[: disc["candidates"]]]
+
+
+def candidate_score(m: dict) -> float:
+    """Aday sıralaması: geçmiş veri testine göre en iyi ileri göstergeler en kötü ay ve kârlı ay oranı.
+    (Eski "12 aylık getiri / en kötü ay" puanının sonraki 6 ayla ilişkisi sıfır çıktı.)"""
+    return (m.get("worst_month") or -1.0) * 100 + (m.get("profitable_share") or 0.0)
 
 
 def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
@@ -511,15 +518,15 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
     lev = account_leverage(snap)
     if lev > disc["max_leverage"]:
         fails.append(f"kaldıraç {lev:.1f}x")
+    # Not: "son 12 ay kârda" şartı geçmiş veri testinde riski azaltmadığı için kaldırıldı
     r365 = m.get("ret_365")
-    if r365 is None or r365 <= 0:
-        fails.append("son 12 ay kârda değil")
     fails += recent_profit_fails(m, disc)
     fails += position_risks(snap, disc)
     if fails:
         return False, 0.0, ", ".join(fails)
-    score = r365 / max(0.05, abs(wm))
+    score = candidate_score(m)
     desc = (f"{m['history_days'] / 30:.0f} ay geçmiş, kârlı ay %{ps * 100:.0f}, en kötü ay {_p(wm)}, "
-            f"12 ay {_p(r365)}, {style_name(mh) + f' ({mh:.0f} saat)' if mh is not None else 'uzun vadeli'}, "
+            + (f"12 ay {_p(r365)}, " if r365 is not None else "")
+            + f"{style_name(mh) + f' ({mh:.0f} saat)' if mh is not None else 'uzun vadeli'}, "
             f"kaldıraç {lev:.1f}x")
     return True, score, desc

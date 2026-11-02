@@ -25,7 +25,7 @@ import hl_rotation as R
 
 FIELDS = ("t", "history_days", "profitable_share", "worst_month", "best_month_share",
           "ret_365", "ret_90", "dd_now", "dd_hist", "months", "lb_eq", "recent_3m_share", "recent_6m_share")
-RULES_VERSION = 3   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
+RULES_VERSION = 4   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
 
 DEFAULTS = {
     "enabled": True,
@@ -66,7 +66,7 @@ def unpack(row: list) -> dict:
 
 def portfolio_check(m: dict, disc: dict) -> tuple[bool, float]:
     """Yalnızca aylık geçmişe dayanan ön kontrol (işlem kaydı gerektirmez)."""
-    ps, wm, bs, r365 = m.get("profitable_share"), m.get("worst_month"), m.get("best_month_share"), m.get("ret_365")
+    ps, wm, bs = m.get("profitable_share"), m.get("worst_month"), m.get("best_month_share")
     if (m.get("history_days") or 0) < disc["min_history_days"]:
         return False, 0.0
     if ps is None or ps < disc["min_profitable_share"]:
@@ -75,11 +75,9 @@ def portfolio_check(m: dict, disc: dict) -> tuple[bool, float]:
         return False, 0.0
     if bs is None or bs > disc["max_best_month_share"]:
         return False, 0.0
-    if r365 is None or r365 <= 0:
-        return False, 0.0
     if R.recent_profit_fails(m, disc):
         return False, 0.0
-    return True, r365 / max(0.05, abs(wm))
+    return True, R.candidate_score(m)
 
 
 def start_cycle(db: dict, rows: list, sc: dict, now_ms: int) -> None:

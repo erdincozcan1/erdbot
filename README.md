@@ -69,8 +69,8 @@ ve en iyi adayı güncel veriyle yeniden kontrol edip alır. Veritabanı henüz 
 listesinden ön eleme yapar (100 bin $–20 milyon $ hesap, toplamda ve son ayda kârda,
 son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değil) ve en fazla
 80 hesabı ayrıntılı inceler:
-- en az 12 ay geçmiş, ayların en az %60'ı kârlı, en kötü ay −%25'ten iyi
-- kârın yarısından fazlası tek bir aydan gelmemiş, son 12 ay kârda
+- en az 12 ay geçmiş, ayların en az %70'i kârlı, en kötü ay −%15'ten iyi
+- kârın yarısından fazlası tek bir aydan gelmemiş
 - pozisyonları ortalama en az 4 saat tutuyor, sık işlem yapmıyor, kaldıraç en fazla 3x
 - kazanç son aylara yığılmamış: son 3 ayın toplam getirideki payı en fazla %50; en az 18 aylık
   geçmişi olanlarda son 6 ayın payı en fazla %70. Dolar değil yüzde getiri üzerinden ölçülür,
@@ -79,6 +79,13 @@ son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değ
 - tek bir pozisyon hesabın 2 katından büyük değil
 - likidasyona %20'den yakın çapraz teminatlı pozisyon yok; likidasyona yakın izole pozisyonların
   teminatı toplamda hesabın %10'unu aşmıyor (izole pozisyon likide olursa yalnızca kendi teminatı gider)
+
+Adaylar önce en kötü aylarına (en az kötü olan önde), sonra kârlı ay oranlarına göre sıralanır.
+
+Bu eşikler 3.741 hesaplık geçmiş veri testine dayanır: kriterler iki ayrı tarihte (Kasım 2025, Mayıs 2026)
+yalnızca o güne kadarki veriyle uygulanıp sonraki 6 ay ölçüldü. En güçlü kural "en kötü ay" çıktı
+(sonraki 6 ayda %20'den fazla kaybedenlerin oranını %38'den %21'e indiriyor); "son 12 ay kârda" ve
+"son ay / son hafta kârda" şartları etkisiz bulunduğu için kaldırıldı.
 
 Son iki pozisyon kuralı gözlemden ana listeye geri dönüşte de uygulanır. Ana listedeki trader'lar bu
 kurallar yüzünden çıkarılmaz; onlar için risk ve performans kontrolleri geçerlidir.
