@@ -910,7 +910,7 @@ def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) ->
     if cl:
         text += (f"\n\n<b>Kopyalama farkı</b> ({cl['n']} trader, listeye girdiklerinden beri)\n"
                  f"Trader'ların kendi getirisi ort. {pct(cl['trader'])} · kopyaların ort. {pct(cl['copy'])} · "
-                 f"fark {pct(cl['copy'] - cl['trader'])}\n<i>Fark; gecikme, ücret, kayma, fonlama ve 5x sınırının toplam etkisidir.</i>")
+                 f"fark {pct(cl['copy'] - cl['trader'])}\n<i>Fark; gecikme, ücret, kayma, fonlama ve kaldıraç sınırının toplam etkisidir.</i>")
     week_ago = now_ist() - dt.timedelta(days=7)
     ch = [c for c in state["rotation"]["changes"] if dt.datetime.fromisoformat(c[0]) >= week_ago]
     if ch:

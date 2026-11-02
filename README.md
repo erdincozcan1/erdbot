@@ -149,7 +149,7 @@ anahtar) eklenmeli; sayfa ilk açılışta bu anahtarı sorar ve tarayıcıda sa
 | Ayar | Değer | Açıklama |
 | --- | --- | --- |
 | Büyüklük | Hesap oranında | Trader hesabının 0,5 katı pozisyon açarsa sen de alt portföyünün 0,5 katını açarsın |
-| Kaldıraç sınırı | 5x | Her alt portföyün toplam pozisyonu, değerinin 5 katını geçemez |
+| Kaldıraç sınırı | 10x | Her alt portföyün toplam pozisyonu, değerinin 10 katını geçemez (günlük risk kuralındaki 10x sınırıyla aynı) |
 | Yalnızca yeni pozisyonlar | Açık | Takip başladığında açık olan pozisyonlar kopyalanmaz |
 | Asgari emir | Yok | Her hamle, ne kadar küçük olursa olsun kopyalanır (`min_order_usd: 0`). Gerçek Hyperdash kopyasında 10 $ altı emirler gerçekleşmez; gerçekçi sonuç için 10 yapılabilir |
 | Ücret | %0,095 | Hyperliquid işlem ücreti (%0,045) + Hyperdash ücreti (%0,05) |
