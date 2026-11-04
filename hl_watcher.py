@@ -514,6 +514,71 @@ def max_drawdown(history: list, current: float) -> float:
     return mdd
 
 
+ALERT_DEFAULTS = {"enabled": True, "dd_levels": [0.05, 0.10, 0.15], "day_loss": 0.03, "coin_share": 0.10}
+
+
+def coin_exposure(state: dict, mids: dict) -> dict[str, float]:
+    """Ana kopyadaki bütün alt portföylerin varlık bazında net pozisyonu ($, long artı)."""
+    out: dict[str, float] = {}
+    for sub in state["subs"].values():
+        for c, p in sub["positions"].items():
+            out[c] = out.get(c, 0.0) + p["sz"] * (mids.get(c) or p["entry"])
+    return out
+
+
+def portfolio_alerts(state: dict, cfg: dict, mids: dict, eq: float, now_ms: int) -> list[str]:
+    """Portföy geneli uyarılar: zirveden düşüş, 24 saatlik kayıp, tek varlıkta yoğunlaşma.
+    Yalnızca haber verir; hiçbir pozisyonu kapatmaz. Getiri, sermaye değişimlerinden arındırılmış
+    zincirleme endeksle ölçülür (trader eklenip çıkarılması kazanç/kayıp sayılmaz)."""
+    al = {**ALERT_DEFAULTS, **(cfg.get("alerts") or {})}
+    if not al["enabled"]:
+        return []
+    cap = total_capital(state, cfg)
+    st = state.setdefault("alerts", {})
+    msgs = []
+    if not st.get("prev_eq"):
+        st.update({"idx": 1.0, "peak": 1.0, "prev_eq": eq, "prev_cap": cap, "dd_sent": 0.0, "hist": [[now_ms, 1.0]],
+                   "day_sent_ms": 0, "conc": []})
+        return []
+    base = st["prev_eq"]
+    if base > 0:
+        st["idx"] *= (eq - (cap - st["prev_cap"])) / base
+    st["prev_eq"], st["prev_cap"] = eq, cap
+    idx = st["idx"]
+    # 1) zirveden düşüş seviyeleri
+    if idx >= st["peak"]:
+        st["peak"], st["dd_sent"] = idx, 0.0
+    dd = 1 - idx / st["peak"]
+    hit = [lv for lv in al["dd_levels"] if dd >= lv and lv > st["dd_sent"]]
+    if hit:
+        st["dd_sent"] = max(hit)
+        worst = sorted(state["subs"].items(), key=lambda kv: sub_return(kv[1], mids))[:3]
+        msgs.append(f"🚨 <b>Portföy uyarısı:</b> zirveden {pct(-dd)} düşüş (eşik {pct(-max(hit))}).\n"
+                    f"Portföy {usd(eq)}. En zayıf alt portföyler: "
+                    + ", ".join(f"{e(label_of(state, a))} {pct(sub_return(sb, mids))}" for a, sb in worst)
+                    + "\n<i>Bot pozisyon kapatmaz; yalnızca haber verir.</i>")
+    # 2) son 24 saatteki kayıp
+    st["hist"] = [h for h in st.get("hist", []) if h[0] >= now_ms - 26 * 3_600_000] + [[now_ms, idx]]
+    old = [h for h in st["hist"] if h[0] <= now_ms - 23 * 3_600_000]
+    if old:
+        chg = idx / old[-1][1] - 1
+        if chg <= -al["day_loss"] and now_ms - st.get("day_sent_ms", 0) > 12 * 3_600_000:
+            st["day_sent_ms"] = now_ms
+            msgs.append(f"⚠️ <b>Portföy son 24 saatte {pct(chg)}</b> (eşik {pct(-al['day_loss'])}). Portföy {usd(eq)}.")
+    # 3) tek varlıkta yoğunlaşma (eşiği aşınca bir kez; eşiğin %80'inin altına inince sıfırlanır)
+    exp = coin_exposure(state, mids)
+    conc = set(st.get("conc", []))
+    for c, v in exp.items():
+        share = abs(v) / eq if eq > 0 else 0
+        if share > al["coin_share"] and c not in conc:
+            conc.add(c)
+            n = sum(1 for sb in state["subs"].values() if c in sb["positions"])
+            msgs.append(f"⚠️ <b>Yoğunlaşma:</b> {e(c)} net {side(v)} {usd(abs(v))}, portföyün {pct(share).lstrip('+')} "
+                        f"(eşik {pct(al['coin_share']).lstrip('+')}, {n} trader).")
+    st["conc"] = sorted(c for c in conc if abs(exp.get(c, 0.0)) / eq > al["coin_share"] * 0.8) if eq > 0 else []
+    return msgs
+
+
 def label_of(state: dict, a: str) -> str:
     return (state["roles"].get(a) or {}).get("label") or a[:8]
 
@@ -1134,6 +1199,8 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
 
     # Saatlik değer kaydı
     eq = total_equity(state, mids, cfg)
+    for m in portfolio_alerts(state, cfg, mids, eq, now_ms):
+        tg.send(m + "\n\n" + DISCLAIMER)
     last_t = dt.datetime.fromisoformat(state["history"][-1][0]) if state["history"] else None
     if not last_t or (now_ist() - last_t) >= dt.timedelta(minutes=55):
         state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2), mids.get("BTC")])

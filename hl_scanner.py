@@ -25,7 +25,7 @@ import hl_rotation as R
 
 FIELDS = ("t", "history_days", "profitable_share", "worst_month", "best_month_share",
           "ret_365", "ret_90", "dd_now", "dd_hist", "months", "lb_eq", "recent_3m_share", "recent_6m_share")
-RULES_VERSION = 4   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
+RULES_VERSION = 5   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
 
 DEFAULTS = {
     "enabled": True,

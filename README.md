@@ -167,6 +167,23 @@ fiyatıyla karşılaştırır. Fark Telegram mesajında, panelde (özet ve trade
 dolar ve baz puan (bps) olarak gösterilir. Sanal portföyün sonucunu değiştirmez; yalnızca ölçer.
 Kapatmak için `"measure_delay": false`.
 
+**Portföy uyarıları:** Bot hiçbir pozisyonu kendiliğinden kapatmaz, yalnızca Telegram'a haber verir:
+
+| Uyarı | Varsayılan | Ne zaman |
+|---|---|---|
+| Zirveden düşüş | %5, %10, %15 | Ana portföy zirvesinden bu seviyelerin altına indiğinde, her seviye için bir kez (yeni zirvede sıfırlanır) |
+| Günlük kayıp | %3 | Son 24 saatte bu kadar düştüğünde (en fazla 12 saatte bir) |
+| Yoğunlaşma | %10 | Bir varlıktaki net pozisyon portföyün bu kadarını aştığında, bir kez (eşiğin %80'inin altına inince sıfırlanır) |
+
+Getiri, trader ekleme/çıkarmadan kaynaklanan sermaye değişimlerinden arındırılarak ölçülür. Eşikleri
+`hl_traders.json` içinde `"alerts": {"dd_levels": [0.05, 0.1, 0.15], "day_loss": 0.03, "coin_share": 0.1}`
+ile değiştirebilir, `"alerts": {"enabled": false}` ile kapatabilirsin.
+
+**Panel:** "Risk ölçümleri" kartı portföyün günlük getirilerinden yıllık oynaklık, Sharpe, Sortino, en
+kötü/en iyi gün ve BTC ile korelasyon/betayı gösterir (en az 8 günlük veri gerekir; 2–3 aydan kısa
+veriyle bu oranlar güvenilir değildir). "Açık pozisyonlar" sekmesindeki "Yoğunlaşma" kartı varlık bazında
+net pozisyonu ve zıt yönde açılıp birbirini götüren pozisyonları gösterir.
+
 ## Sınırlamalar
 
 - İki kontrol arasında açılıp kapanan işlemler görülmez.
