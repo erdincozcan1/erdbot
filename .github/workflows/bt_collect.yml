@@ -1,0 +1,34 @@
+name: Test verisi topla
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: bt-collect
+  cancel-in-progress: true
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Veri topla
+        run: python bt_collect.py
+      # Veri ana dala değil, ayrı bir "bt-data" dalına yazılır; bot bundan etkilenmez.
+      - name: Veriyi ayrı dala kaydet
+        run: |
+          mv bt_data.json.gz /tmp/
+          git config user.name "hl-watch-bot"
+          git config user.email "hl-watch-bot@users.noreply.github.com"
+          git checkout --orphan bt-data
+          git rm -rf --cached . > /dev/null
+          cp /tmp/bt_data.json.gz .
+          git add bt_data.json.gz
+          git commit -m "test verisi $(date -u +%F_%H%M)"
+          git push -f origin bt-data
