@@ -1,0 +1,121 @@
+{
+ "addr": "0x6e032f0f84004d2d0e3e534cd04b92151e1e5b19",
+ "t": 1793819993101,
+ "equity": 140722.475573,
+ "leverage": 0.0,
+ "max_pos": 0.0,
+ "metrics": {
+  "t": 1793819993101,
+  "history_days": 699.8652,
+  "median_hold_h": 1644.27159,
+  "median_hold_30d_h": null,
+  "fills_per_hour": 0.01399,
+  "last_fill_ms": 1744721125097,
+  "window_days": 150,
+  "ret_window": 0.0,
+  "worst_past_window": 0.0,
+  "ret_90": 0.0,
+  "ret_365": 0.0,
+  "dd_now": 0.0,
+  "dd_hist": 0.00929,
+  "dd_30": 0.0,
+  "recent_3m_share": 0.0,
+  "recent_6m_share": 0.0,
+  "trader_ret_since": null,
+  "months": 5,
+  "profitable_share": 1.0,
+  "worst_month": 0.0,
+  "best_month_share": 0.31274
+ },
+ "rules": [
+  [
+   true,
+   "Hesap değeri 140.7K$ (en az 100.0K$)"
+  ],
+  [
+   true,
+   "Geçmiş 700 gün (en az 365)"
+  ],
+  [
+   true,
+   "Kârlı ay oranı %100 (en az %70, 5 ay)"
+  ],
+  [
+   true,
+   "En kötü ay %0.0 (en kötü −%15.0)"
+  ],
+  [
+   true,
+   "En iyi ayın toplam kârdaki payı %31 (en fazla %50)"
+  ],
+  [
+   true,
+   "Pozisyon tutma süresi (medyan) 1644.3 saat (en az 4)"
+  ],
+  [
+   true,
+   "İşlem sıklığı saatte 0.0 (en fazla 10)"
+  ],
+  [
+   true,
+   "Toplam kaldıraç 0.00x (en fazla 3x)"
+  ],
+  [
+   true,
+   "Son 3 ayın getirideki payı %0 (en fazla %50)"
+  ],
+  [
+   true,
+   "Son 6 ayın getirideki payı %0 (en fazla %70)"
+  ],
+  [
+   true,
+   "En büyük pozisyon hesabın 0.00 katı (en fazla 2)"
+  ],
+  [
+   true,
+   "Çapraz teminatlı pozisyon likidasyona %20'den yakın değil"
+  ],
+  [
+   true,
+   "Likidasyona yakın izole pozisyon teminatı hesabın %0 kadarı (en fazla %10)"
+  ]
+ ],
+ "passed": true,
+ "score": 1.0,
+ "risks": [
+  "30 gündür işlem yok ve açık pozisyonu yok"
+ ],
+ "role": null,
+ "roster_scores": [
+  1.0,
+  -2.35738,
+  -2.9782200000000003,
+  -3.73133,
+  -5.356000000000001,
+  -5.62811,
+  -6.476329999999999,
+  -7.2682899999999995,
+  -10.325259999999998,
+  -12.336,
+  -13.846570000000002,
+  -14.967999999999998,
+  -15.037000000000003,
+  -16.73694,
+  -18.624329999999997,
+  -23.611859999999997,
+  -29.38435,
+  -39.086,
+  -111.82529
+ ],
+ "positions": {},
+ "extra": {
+  "fills": 46,
+  "episodes": 6,
+  "last_fill_ms": 1744721125097,
+  "spot": [],
+  "vaults": [],
+  "pnl_all": 39722.475573,
+  "pnl_perp": 39722.475573
+ }
+}
