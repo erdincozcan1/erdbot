@@ -159,7 +159,7 @@ def step(db: dict, rot: dict, api, now_ms: int, deadline: float, clock=None) -> 
                 snap = api.account(a)
                 hs = R.hold_stats(api.fills(a), now_ms)
                 m = {**unpack(db["accounts"][a]), "median_hold_h": hs["median_hold_h"],
-                     "fills_per_hour": hs["fills_per_hour"]}
+                     "fills_per_hour": hs["fills_per_hour"], "last_fill_ms": hs["last_fill_ms"]}
                 ok, score, desc = R.candidate_check(m, snap, disc)
                 db["deep"][a] = {"t": now_ms, "ok": ok, "score": round(score, 4), "desc": desc,
                                  "eq": round(snap.get("equity") or 0), "lev": round(R.account_leverage(snap), 2),

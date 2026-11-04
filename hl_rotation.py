@@ -24,6 +24,7 @@ from __future__ import annotations
 import bisect
 import datetime as dt
 import statistics
+import time
 
 DAY_MS = 86_400_000
 HOUR_MS = 3_600_000
@@ -59,6 +60,7 @@ DEFAULTS = {
         "max_best_month_share": 0.50,
         "min_hold_h": 4,
         "max_leverage": 3,
+        "max_inactive_days": 30,       # son işlemi bundan eski ve açık pozisyonu olmayan aday alınmaz
         "max_fills_per_hour": 10,
         "max_fills_per_hour_unknown_hold": 3,  # pozisyon süresi ölçülemeyenlerde (uzun tutup ekleme yapanlar)
         "max_recent_3m_share": 0.50,   # toplam getirinin (yüzde olarak) en fazla bu kadarı son 3 aydan gelebilir
@@ -231,10 +233,13 @@ def monthly_stats(pnl: Series, av: Series):
     neg = [m[2] for m in active if m[1] < 0 and m[2] is not None]
     # Hesabı kurtarmak için para eklenen aylarda kayıp, ay başı hesaptan büyük çıkar: en kötü ay olarak sayılır
     best = max(active, key=lambda m: m[1])
+    # Zararlı ay var ama hiçbiri ölçülemiyorsa (ay başında hesap çok küçük) en kötü ay bilinmiyor demektir;
+    # 0 sayılırsa hesap "hiç zarar etmemiş" gibi görünür. (İlk ay hiçbir zaman ölçülemez, o hariç.)
+    hidden_loss = any(m[1] < 0 and m[2] is None for m in active if m[0] != keys[0])
     return {
         "months": len(active),
         "profitable_share": sum(1 for m in active if m[1] > 0) / len(active),
-        "worst_month": min(neg) if neg else 0.0,
+        "worst_month": min(neg) if neg else (None if hidden_loss else 0.0),
         "best_month_share": best[1] / total if total > 0 else None,
         "total": total,
     }
@@ -511,7 +516,9 @@ def prefilter_leaderboard(rows: list, exclude: set, disc: dict) -> list[str]:
 def candidate_score(m: dict) -> float:
     """Aday sıralaması: geçmiş veri testine göre en iyi ileri göstergeler en kötü ay ve kârlı ay oranı.
     (Eski "12 aylık getiri / en kötü ay" puanının sonraki 6 ayla ilişkisi sıfır çıktı.)"""
-    return (m.get("worst_month") or -1.0) * 100 + (m.get("profitable_share") or 0.0)
+    # Not: hiç zararlı ayı olmayan trader'ın en kötü ayı 0'dır; bu "veri yok" sayılmamalı
+    wm = m.get("worst_month")
+    return (wm if wm is not None else -1.0) * 100 + (m.get("profitable_share") or 0.0)
 
 
 def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
@@ -526,7 +533,7 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
         fails.append(f"kârlı ay oranı {0 if ps is None else ps * 100:.0f}%")
     wm = m.get("worst_month")
     if wm is None or wm < disc["worst_month"]:
-        fails.append(f"en kötü ay {_p(wm or 0)}")
+        fails.append("en kötü ay ölçülemiyor" if wm is None else f"en kötü ay {_p(wm)}")
     bs = m.get("best_month_share")
     if bs is None or bs > disc["max_best_month_share"]:
         fails.append("kâr tek aya yığılmış")
@@ -542,6 +549,11 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
     lev = account_leverage(snap)
     if lev > disc["max_leverage"]:
         fails.append(f"kaldıraç {lev:.1f}x")
+    # Günlük risk kuralıyla aynı: uzun süredir işlem yapmayan ve pozisyonu olmayan hesap kopyalanamaz
+    # (ör. işlem kaydı hiç olmayan, kârı başka yerden gelen hesaplar)
+    lf = m.get("last_fill_ms")
+    if (lf is None or lf < (m.get("t") or int(time.time() * 1000)) - disc["max_inactive_days"] * DAY_MS) and not snap.get("positions"):
+        fails.append(f"{disc['max_inactive_days']} gündür işlem yok")
     # Not: "son 12 ay kârda" şartı geçmiş veri testinde riski azaltmadığı için kaldırıldı
     r365 = m.get("ret_365")
     fails += recent_profit_fails(m, disc)

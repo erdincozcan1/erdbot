@@ -29,9 +29,7 @@ def p(x) -> str:
 
 
 def cscore(m: dict) -> float:
-    """Aday puanı (en kötü ay 0 olan, yani hiç zararlı ayı olmayan hesaplar doğru puanlanır)."""
-    wm = m.get("worst_month")
-    return (wm if wm is not None else -1.0) * 100 + (m.get("profitable_share") or 0.0)
+    return R.candidate_score(m)
 
 
 def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
@@ -74,7 +72,10 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
         (hist >= disc["min_history_days"], f"Geçmiş {hist:.0f} gün (en az {disc['min_history_days']})"),
         (ps is not None and ps >= disc["min_profitable_share"],
          f"Kârlı ay oranı %{(ps or 0) * 100:.0f} (en az %{disc['min_profitable_share'] * 100:.0f}, {m.get('months') or 0} ay)"),
-        (wm is not None and wm >= disc["worst_month"], f"En kötü ay {p(wm)} (en kötü {p(disc['worst_month'])})"),
+        (wm is not None and wm >= disc["worst_month"],
+         (f"En kötü ay {p(wm)}" if wm is not None else "En kötü ay ölçülemiyor (zararlı ay var ama o ay hesap çok küçüktü)"
+          if ps is not None else "En kötü ay: aylık veri yok")
+         + f" (en kötü {p(disc['worst_month'])})"),
         (bs is not None and bs <= disc["max_best_month_share"],
          f"En iyi ayın toplam kârdaki payı " + ("-" if bs is None else f"%{bs * 100:.0f}")
          + f" (en fazla %{disc['max_best_month_share'] * 100:.0f})"),
@@ -87,6 +88,11 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
     rules += [
         (fph <= disc["max_fills_per_hour"], f"İşlem sıklığı saatte {fph:.1f} (en fazla {disc['max_fills_per_hour']})"),
         (lev <= disc["max_leverage"], f"Toplam kaldıraç {lev:.2f}x (en fazla {disc['max_leverage']}x)"),
+        (not ((m.get("last_fill_ms") is None or m["last_fill_ms"] < now_ms - disc["max_inactive_days"] * R.DAY_MS)
+              and not snap.get("positions")),
+         "Son işlem " + ("yok" if m.get("last_fill_ms") is None else f"{max(0.0, (now_ms - m['last_fill_ms']) / R.DAY_MS):.0f} gün önce")
+         + (f", {len(snap.get('positions') or {})} açık pozisyon" if snap.get("positions") else "")
+         + f" (en fazla {disc['max_inactive_days']} gün, açık pozisyon yoksa)"),
         (not (s3 is not None and s3 > disc["max_recent_3m_share"]),
          f"Son 3 ayın getirideki payı " + ("-" if s3 is None else f"%{s3 * 100:.0f}") + f" (en fazla %{disc['max_recent_3m_share'] * 100:.0f})"),
     ]
