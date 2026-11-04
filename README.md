@@ -161,6 +161,12 @@ karşılaştırılır. "Kopyalama farkı", ana listedeki trader'ların listeye g
 hesaplarının getirisi ile kopya alt portföylerinin getirisi arasındaki farktır; gecikme, ücret, kayma,
 fonlama ve kaldıraç sınırının toplam etkisini gösterir.
 
+**Gecikme etkisi:** Ana kopyada her sanal işlemden sonra bot, trader'ın o aralıktaki gerçek işlemlerini
+(`userFillsByTime`) okur ve kopyanın girdiği fiyatı (kayma hariç) trader'ın aynı yöndeki ortalama işlem
+fiyatıyla karşılaştırır. Fark Telegram mesajında, panelde (özet ve trader ayrıntısı) ve haftalık raporda
+dolar ve baz puan (bps) olarak gösterilir. Sanal portföyün sonucunu değiştirmez; yalnızca ölçer.
+Kapatmak için `"measure_delay": false`.
+
 ## Sınırlamalar
 
 - İki kontrol arasında açılıp kapanan işlemler görülmez.

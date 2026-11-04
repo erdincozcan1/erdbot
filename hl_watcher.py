@@ -135,7 +135,8 @@ def link(addr: str, label: str) -> str:
 def post(body: dict):
     last = None
     t = body.get("type")
-    _throttle(2 if t in LIGHT_TYPES else 120 if t in {"userFills", "userFillsByTime"} else 20)
+    # userFills 2000 kayda kadar döndüğü için pahalıdır; kısa aralıklı userFillsByTime ucuzdur
+    _throttle(2 if t in LIGHT_TYPES else 120 if t == "userFills" else 40 if t == "userFillsByTime" else 20)
     for attempt in range(3):
         try:
             r = session.post(API, json=body, timeout=30)
@@ -223,6 +224,10 @@ def fetch_portfolio(address: str):
 
 def fetch_fills(address: str):
     return post({"type": "userFills", "user": address, "aggregateByTime": True})
+
+
+def fetch_fills_since(address: str, start_ms: int):
+    return post({"type": "userFillsByTime", "user": address, "startTime": int(start_ms), "aggregateByTime": True})
 
 
 def fetch_leaderboard() -> list:
@@ -367,6 +372,32 @@ def paper_trade(sub: dict, coin: str, target_sz: float, mid: float, cfg: dict) -
     sub["fees"] += fee
     sub["trades"] += 1
     return "ok", {"price": price, "fee": fee, "realized": realized, "delta": delta}
+
+
+def trader_vwap(fills: list | None, coin: str, buy: bool) -> float | None:
+    """Trader'ın bu varlıktaki gerçek işlemlerinin (aynı yönde) ortalama fiyatı."""
+    num = den = 0.0
+    for f in fills or []:
+        if f.get("coin") != coin or (f.get("side") == "B") != buy:
+            continue
+        try:
+            sz = float(f["sz"])
+            num += float(f["px"]) * sz
+            den += sz
+        except (KeyError, TypeError, ValueError):
+            continue
+    return num / den if den > 0 else None
+
+
+def record_delay(sub: dict, delta: float, mid: float, vwap: float) -> float:
+    """Gecikme maliyeti: kopyanın girdiği fiyat (kayma hariç) ile trader'ın gerçek fiyatı arasındaki fark.
+    Artı değer kopyanın daha kötü fiyattan işlem yaptığı anlamına gelir."""
+    cost = (mid - vwap) * delta
+    d = sub.setdefault("delay", {"cost": 0.0, "ntl": 0.0, "n": 0})
+    d["cost"] += cost
+    d["ntl"] += abs(delta) * vwap
+    d["n"] += 1
+    return cost
 
 
 def close_all(sub: dict, mids: dict, cfg: dict) -> None:
@@ -899,6 +930,17 @@ def copy_gap(state: dict, mids: dict) -> dict | None:
     return {"n": len(pairs), "trader": sum(p[0] for p in pairs) / len(pairs), "copy": sum(p[1] for p in pairs) / len(pairs)}
 
 
+def delay_summary(state: dict) -> dict | None:
+    """Ana kopyadaki gecikme maliyetinin toplamı ve en çok etkilenen trader'lar (en az 3 ölçüm)."""
+    rows = [(a, s["delay"]) for a, s in state["subs"].items() if (s.get("delay") or {}).get("n")]
+    if not rows:
+        return None
+    cost = sum(d["cost"] for _, d in rows)
+    ntl = sum(d["ntl"] for _, d in rows)
+    per = sorted(((a, -d["cost"] / d["ntl"] * 1e4) for a, d in rows if d["n"] >= 3 and d["ntl"] > 0), key=lambda x: x[1])
+    return {"n": sum(d["n"] for _, d in rows), "cost": cost, "bps": cost / ntl * 1e4 if ntl else 0.0, "worst": per[:3]}
+
+
 def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> str:
     eq = total_equity(state, mids, cfg)
     last = state["last_report"].get("equity") or total_capital(state, cfg)
@@ -911,6 +953,12 @@ def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) ->
         text += (f"\n\n<b>Kopyalama farkı</b> ({cl['n']} trader, listeye girdiklerinden beri)\n"
                  f"Trader'ların kendi getirisi ort. {pct(cl['trader'])} · kopyaların ort. {pct(cl['copy'])} · "
                  f"fark {pct(cl['copy'] - cl['trader'])}\n<i>Fark; gecikme, ücret, kayma, fonlama ve kaldıraç sınırının toplam etkisidir.</i>")
+    dl = delay_summary(state)
+    if dl:
+        worst = ", ".join(f"{e(label_of(state, a))} {b:+.0f}" for a, b in dl["worst"])
+        text += (f"\n\n<b>Gecikme maliyeti</b> (trader'ların gerçek işlem fiyatlarına göre, {dl['n']} işlem)\n"
+                 f"Toplam {usd(-dl['cost'], True)} · ortalama {-dl['bps']:+.0f} bps"
+                 + (f"\nEn çok etkilenen (bps): {worst}" if worst else ""))
     week_ago = now_ist() - dt.timedelta(days=7)
     ch = [c for c in state["rotation"]["changes"] if dt.datetime.fromisoformat(c[0]) >= week_ago]
     if ch:
@@ -933,11 +981,13 @@ def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) ->
 # Ana akış
 # --------------------------------------------------------------------------- #
 
-def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: dict, tg: Telegram) -> None:
+def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: dict, tg: Telegram,
+                   since_ms: int | None = None) -> None:
     r = state["roles"][a]
     active = r["role"] == "active"
     sub = state["subs"][a] if active else state["shadow"][a]
     cfg_t = next((t for t in cfg["traders"] if t["address"].lower() == a), {})
+    fills = None      # trader'ın son çalışmadan bu yana gerçek işlemleri (gerekirse bir kez alınır)
     for coin in sorted(set(old["positions"]) | set(new["positions"])):
         prev, now = old["positions"].get(coin), new["positions"].get(coin)
         ev = classify(prev["szi"] if prev else 0.0, now["szi"] if now else 0.0)
@@ -967,6 +1017,19 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
                 rr = f" · gerçekleşen {usd(info['realized'], True)}" if info["realized"] else ""
                 se = sub_equity(sub, mids)
                 lines.append(f"   📒 Sanal: {act}{rr}\n   alt portföy {usd(se)} ({pct(se / sub['capital'] - 1)})")
+                # Gecikme ölçümü: trader'ın gerçek işlem fiyatıyla karşılaştır (yalnızca ana kopya)
+                if active and since_ms and cfg.get("measure_delay", True):
+                    if fills is None:
+                        try:
+                            fills = fetch_fills_since(a, since_ms) or []
+                        except Exception as ex:
+                            print(f"[uyarı] {a[:8]} işlem kaydı alınamadı: {ex}", file=sys.stderr)
+                            fills = []
+                    vwap = trader_vwap(fills, coin, info["delta"] > 0)
+                    if vwap:
+                        cost = record_delay(sub, info["delta"], mid, vwap)
+                        bps = cost / (abs(info["delta"]) * vwap) * 1e4
+                        lines.append(f"   ⏱ Trader'ın fiyatı {px(vwap)} · gecikme etkisi {usd(-cost, True)} ({-bps:+.0f} bps)")
         if ev == "CLOSE" and coin in sub["followed"]:
             sub["followed"].remove(coin)
         if active:
@@ -1033,11 +1096,20 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
         state["last_report"]["btc"] = mids.get("BTC")
         return
 
+    # Gerçek işlemleri aramak için aralık: son çalışmadan 2 dk önce (en fazla 6 saat geriye)
+    # (önceki anlık görüntünün alındığı an; eski kayıtlarda son çalışma zamanı)
+    since_ms = None
+    if state.get("snap_ms"):
+        since_ms = max(state["snap_ms"] - 60_000, now_ms - 6 * 3_600_000)
+    elif state.get("last_run"):
+        lr = int(dt.datetime.fromisoformat(state["last_run"]).timestamp() * 1000)
+        since_ms = max(lr - 15 * 60_000, now_ms - 6 * 3_600_000)
     for a in addrs:
         old, new = state["snapshots"].get(a), snaps[a]
         if old is not None:                 # sonradan eklenen trader'ın ilk kaydı: sadece başlangıç
-            process_events(state, cfg, a, old, new, mids, tg)
+            process_events(state, cfg, a, old, new, mids, tg, since_ms)
         state["snapshots"][a] = new
+    state["snap_ms"] = now_ms
 
     # Kadro yönetimi
     if rot["enabled"]:
