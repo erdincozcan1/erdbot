@@ -1,0 +1,49 @@
+name: Test verisi topla
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: bt-collect
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      # Daha önce toplanan veri "bt-data" dalından alınır; o hesaplar tekrar indirilmez.
+      - name: Önceki veriyi al
+        run: |
+          mkdir -p /tmp/old
+          if git fetch -q origin bt-data; then
+            git archive FETCH_HEAD | tar -x -C /tmp/old
+          fi
+          ls -la /tmp/old
+      - name: Veri topla
+        run: |
+          N=$(ls /tmp/old/bt_data*.json.gz 2>/dev/null | wc -l)
+          OUT="bt_data$((N + 1)).json.gz"
+          [ "$N" = "0" ] && OUT="bt_data.json.gz"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python bt_collect.py "$OUT" 320 /tmp/old/bt_data*.json.gz
+      # Veri ana dala değil, ayrı bir "bt-data" dalına yazılır; bot bundan etkilenmez.
+      - name: Veriyi ayrı dala kaydet
+        if: always()
+        run: |
+          [ -f "$OUT" ] || exit 0
+          mv "$OUT" /tmp/old/
+          git config user.name "hl-watch-bot"
+          git config user.email "hl-watch-bot@users.noreply.github.com"
+          git checkout -q --orphan bt-data-new
+          git rm -rfq --cached .
+          cp /tmp/old/bt_data*.json.gz .
+          git add bt_data*.json.gz
+          git commit -qm "test verisi $(date -u +%F_%H%M)"
+          git push -f origin bt-data-new:bt-data
