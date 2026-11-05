@@ -850,7 +850,21 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, d
                 return []
             d["queue"], d["source"] = rot_mod.prefilter_leaderboard(rows, exclude, disc), "leaderboard"
     need = free_slots(cfg, state) + disc["extra_to_bench"]
-    while d["queue"] and budget_left(rot) >= 180 and len(d["found"]) < need:
+
+    def n_risky():      # ana kopyada çekirdek grubu dışında kalan trader sayısı
+        return sum(1 for x in actives(state)
+                   if rot_mod.risk_group(state["metrics"].get(x) or {}, disc) != "çekirdek")
+
+    def enough():
+        if len(d["found"]) < need:
+            return False
+        if n_risky() < disc["max_wide"]:
+            return True
+        # Geniş grup dolu: boş yerler için yeterince çekirdek aday bulunana kadar aramaya devam (en fazla 3 kat)
+        core = sum(1 for f in d["found"] if f.get("g") == "çekirdek")
+        return core >= free_slots(cfg, state) or len(d["found"]) >= 3 * need
+
+    while d["queue"] and budget_left(rot) >= 180 and not enough():
         a = d["queue"].pop(0)
         try:
             snap = fetch_account(a, dexes)
@@ -861,25 +875,28 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, d
         d["checked"] += 1
         ok, score, desc = rot_mod.candidate_check(m, snap, disc)
         if ok:
-            d["found"].append({"a": a, "score": round(score, 4), "desc": desc})
+            d["found"].append({"a": a, "score": round(score, 4), "desc": desc, "g": rot_mod.risk_group(m, disc)})
             state["metrics"][a] = m
-    if d["queue"] and len(d["found"]) < need:
+    if d["queue"] and not enough():
         return []            # sonraki çalışmada devam
 
     # Sonuç
     notes = []
     found = sorted(d["found"], key=lambda x: -x["score"])
+    bench_left = max(disc["extra_to_bench"], 4)     # gözleme en fazla bu kadar yeni aday
     for f in found:
         a = f["a"]
         if a in state["roles"]:
             continue
-        if free_slots(cfg, state) > 0:
+        wide = rot_mod.risk_group(state["metrics"].get(a) or {}, disc) != "çekirdek"
+        if free_slots(cfg, state) > 0 and not (wide and n_risky() >= disc["max_wide"]):
             add_role(state, a, f"{a[:6]} (oto)", "active", "auto", cfg, {})
             state["rotation"]["changes"].append([iso(), "new", a, f"{a[:6]} (oto)"])
             notes.append(f"⬆️ Yeni trader {link(a, a[:6] + ' (oto)')} <b>ana kopyaya</b> alındı "
                          f"({usd(per_slot(cfg, state))})\n   {e(f['desc'])}\n"
                          f"   Mevcut pozisyonları kopyalanmaz; yeni hareketleri kopyalanır")
-        elif len(benches(state)) < rot["bench_max"]:
+        elif len(benches(state)) < rot["bench_max"] and bench_left > 0:
+            bench_left -= 1
             add_role(state, a, f"{a[:6]} (oto)", "bench", "auto", cfg, {})
             notes.append(f"👁 Yeni aday {link(a, a[:6] + ' (oto)')} <b>gözleme</b> alındı\n   {e(f['desc'])}")
     if not found:

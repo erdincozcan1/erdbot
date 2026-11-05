@@ -69,7 +69,8 @@ ve en iyi adayı güncel veriyle yeniden kontrol edip alır. Veritabanı henüz 
 listesinden ön eleme yapar (100 bin $–20 milyon $ hesap, toplamda ve son ayda kârda,
 son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değil) ve en fazla
 80 hesabı ayrıntılı inceler:
-- en az 12 ay geçmiş, ayların en az %70'i kârlı, en kötü ay −%15'ten iyi
+- en az 12 ay geçmiş, ayların en az %60'ı kârlı, en kötü ay −%40'tan iyi (geniş grup sınırı; aşağıya bak)
+- son 12 ayın Sharpe oranı ölçülebiliyor, son 30 günde işlem yapmış ya da açık pozisyonu var
 - kârın yarısından fazlası tek bir aydan gelmemiş
 - pozisyonları ortalama en az 4 saat tutuyor, sık işlem yapmıyor, kaldıraç en fazla 3x
 - kazanç son aylara yığılmamış: son 3 ayın toplam getirideki payı en fazla %50; en az 18 aylık
@@ -80,7 +81,23 @@ son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değ
 - likidasyona %20'den yakın çapraz teminatlı pozisyon yok; likidasyona yakın izole pozisyonların
   teminatı toplamda hesabın %10'unu aşmıyor (izole pozisyon likide olursa yalnızca kendi teminatı gider)
 
-Adaylar önce en kötü aylarına (en az kötü olan önde), sonra kârlı ay oranlarına göre sıralanır.
+**Risk grupları ve sıralama:** Kadro bir "trader fonu" gibi iki risk grubundan oluşur:
+
+| Grup | Kural | Ana kopyada |
+|---|---|---|
+| Çekirdek | En kötü ay ≥ −%15 ve ayların en az %70'i kârlı | Sınırsız |
+| Geniş (yüksek risk) | En kötü ay ≥ −%40 ve ayların en az %60'ı kârlı | Çekirdek dışından toplam en fazla 4 trader (`"max_wide"`) |
+
+Kurallardan geçen adaylar **son 12 ayın Sharpe oranına** göre sıralanır (getiri ÷ oynaklık, yıllık).
+Geniş grup doluysa yeni geniş adaylar gözleme alınır, boş yerlere çekirdek adaylar girer. Panelde her
+trader'ın grubu etiket olarak görünür (12 aydan kısa geçmişi olanlar "dışında" sayılır).
+
+Kasım 2026 testi (2.508 hesap, 7 başlangıç tarihi, sonraki 6 ay): kurallardan geçen adaylardan Sharpe'a
+göre seçilen 10'luk portföyler hiçbir dönemde zararda bitmedi (ortalama +%18, eski puanla +%10); Sharpe'a
+göre sıralandığında en kötü ay sınırını −%15'ten −%40'a gevşetmek sonucu bozmadı (+%19) ve aday havuzunu
+yaklaşık 3 katına çıkardı. En kötü ay kuralı ise büyük kayıpları elemede hâlâ en güçlü ölçüm, bu yüzden
+sınır olarak kalıyor. Riske göre pay vermek (oynaklığın tersiyle) tutarlı bir iyileşme göstermediği için
+her trader'a eşit pay verilmeye devam ediyor.
 
 Bu eşikler 3.741 hesaplık geçmiş veri testine dayanır: kriterler iki ayrı tarihte (Kasım 2025, Mayıs 2026)
 yalnızca o güne kadarki veriyle uygulanıp sonraki 6 ay ölçüldü. En güçlü kural "en kötü ay" çıktı

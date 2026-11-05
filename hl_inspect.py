@@ -76,6 +76,8 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
          (f"En kötü ay {p(wm)}" if wm is not None else "En kötü ay ölçülemiyor (zararlı ay var ama o ay hesap çok küçüktü)"
           if ps is not None else "En kötü ay: aylık veri yok")
          + f" (en kötü {p(disc['worst_month'])})"),
+        (m.get("sharpe") is not None, "Sharpe (son 12 ay) " + ("ölçülemedi" if m.get("sharpe") is None else f"{m['sharpe']:.2f}")
+         + " · adaylar bununla sıralanır"),
         (bs is not None and bs <= disc["max_best_month_share"],
          f"En iyi ayın toplam kârdaki payı " + ("-" if bs is None else f"%{bs * 100:.0f}")
          + f" (en fazla %{disc['max_best_month_share'] * 100:.0f})"),
@@ -116,9 +118,9 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
     # Kadrodaki trader'ların puanları (karşılaştırma için)
     roster_scores = sorted((cscore(mm) for a, mm in (state.get("metrics") or {}).items()
                             if (state.get("roles") or {}).get(a, {}).get("role") == "active"
-                            and mm.get("worst_month") is not None and mm.get("profitable_share") is not None),
+                            and mm.get("sharpe") is not None),
                            reverse=True)
-    my_score = cscore(m) if wm is not None and ps is not None else None
+    my_score = m.get("sharpe")
     lf = extra["last_fill_ms"]
     lf_days = max(0.0, (now_ms - lf) / R.DAY_MS) if lf else None
 
@@ -146,14 +148,17 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
             liq = f" · likidasyon {w.px(q['liq'])}" if q.get("liq") else ""
             lines.append(f"• {w.e(c)} {w.side(q['szi'])} {w.usd(q['value'])} ({q['value'] / eq if eq else 0:.2f}x hesap) · "
                          f"{q['lev']:g}x {'izole' if q.get('iso') else 'çapraz'}{liq}")
-    lines += ["", "<b>Sonuç</b>"]
+    grp = R.risk_group(m, disc)
+    lines += ["", f"<b>Risk grubu:</b> {grp} (çekirdek: en kötü ay ≥ {p(disc['core_worst_month'])} ve kârlı ay ≥ "
+              f"%{disc['core_min_profitable_share'] * 100:.0f}; geniş: en kötü ay ≥ {p(disc['worst_month'])} ve kârlı ay ≥ "
+              f"%{disc['min_profitable_share'] * 100:.0f})", "", "<b>Sonuç</b>"]
     if passed:
         rank = sum(1 for s in roster_scores if s > score) + 1
-        lines.append(f"✅ Bütün aday kurallarını geçiyor. Puan {score:.2f}; kadrodaki {len(roster_scores)} trader arasında "
-                     f"{rank}. sıraya girerdi.")
+        lines.append(f"✅ Bütün aday kurallarını geçiyor ({grp} grup). Sharpe {score:.2f}; kadrodaki {len(roster_scores)} "
+                     f"trader arasında {rank}. sıraya girerdi.")
     else:
         n_fail = sum(1 for b, _ in rules if not b)
-        lines.append(f"❌ Aday olamaz: {n_fail} kuralı geçemiyor." + (f" (Puanı {my_score:.2f})" if my_score is not None else ""))
+        lines.append(f"❌ Aday olamaz: {n_fail} kuralı geçemiyor." + (f" (Sharpe {my_score:.2f})" if my_score is not None else ""))
     if role:
         lines.append(f"Not: bu adres zaten botta ({'ana kadro' if role == 'active' else 'gözlem'}).")
     elif addr in ranking:

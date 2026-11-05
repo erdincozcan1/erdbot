@@ -55,8 +55,13 @@ DEFAULTS = {
         "enabled": True,
         "min_equity": 100_000,
         "min_history_days": 365,
-        "min_profitable_share": 0.70,   # geçmiş veri testi: en kötü ay kuralıyla birlikte kâra geçme oranını artırıyor
-        "worst_month": -0.15,            # geçmiş veri testinin en güçlü kuralı; sıkılaştıkça ağır kayıp oranı düşüyor
+        # İki risk grubu (geçmiş veri testi, 2.508 hesap): adaylar Sharpe ile sıralanınca en kötü ay sınırını
+        # -%40'a gevşetmek sonucu bozmuyor, aday havuzunu büyütüyor. Çekirdek grup eski sıkı kurallardır.
+        "min_profitable_share": 0.60,   # geniş grubun alt sınırı
+        "worst_month": -0.40,            # geniş grubun alt sınırı
+        "core_min_profitable_share": 0.70,
+        "core_worst_month": -0.15,
+        "max_wide": 4,                   # ana kopyada çekirdek grubu dışından en fazla bu kadar trader (temkinli başlangıç)
         "max_best_month_share": 0.50,
         "min_hold_h": 4,
         "max_leverage": 3,
@@ -314,11 +319,12 @@ def analyze(portfolio, fills, now_ms: int, since_ms: int | None = None) -> dict:
     win = window_days_for(hs["median_hold_h"])
     # Dönem getirileri (yaklaşık 11 günlük aralıklar): kâr / dönem başındaki hesap değeri.
     # Dolar yerine yüzde kullanılır; böylece zamanla büyüyen hesaplar haksız yere "kârı son aylara yığılmış" görünmez.
-    rets = []
+    rets, gaps = [], []
     for i in range(1, len(pnl)):
         base = av.at_or_first(pnl.t[i - 1]) or 0
         if base >= MIN_BASE:
             rets.append((pnl.t[i], (pnl.v[i] - pnl.v[i - 1]) / base))
+            gaps.append((pnl.t[i] - pnl.t[i - 1]) / DAY_MS)
     total_ret = sum(r for _, r in rets)
 
     def recent_share(days):
@@ -347,11 +353,38 @@ def analyze(portfolio, fills, now_ms: int, since_ms: int | None = None) -> dict:
         "recent_3m_share": recent_share(91),
         "recent_6m_share": recent_share(182),
         "trader_ret_since": since_return_best(portfolio, since_ms),
+        "sharpe": sharpe_12m(rets, gaps, now_ms),
     }
     if ms:
         out.update({"months": ms["months"], "profitable_share": ms["profitable_share"],
                     "worst_month": ms["worst_month"], "best_month_share": ms["best_month_share"]})
     return {k: (round(v, 5) if isinstance(v, float) else v) for k, v in out.items()}
+
+
+def sharpe_12m(rets: list, gaps: list, now_ms: int) -> float | None:
+    """Son 12 ayın dönem getirilerinden (yaklaşık 11 günlük) yıllık Sharpe oranı; en az 8 dönem gerekir.
+    Geçmiş veri testinde botun aday havuzu içinde sonraki 6 ayı en iyi sıralayan ölçüm buydu."""
+    xs = [(r, g) for (t, r), g in zip(rets, gaps) if t > now_ms - 365 * DAY_MS]
+    if len(xs) < 8:
+        return None
+    r = [x[0] for x in xs]
+    gap = sum(x[1] for x in xs) / len(xs)
+    sd = statistics.stdev(r)
+    if sd <= 1e-9 or gap <= 0:
+        return None
+    return statistics.mean(r) / sd * (365 / gap) ** 0.5
+
+
+def risk_group(m: dict, disc: dict) -> str:
+    """'çekirdek' (eski sıkı kurallar), 'geniş' (yüksek risk grubu) ya da 'dışında'."""
+    wm, ps = m.get("worst_month"), m.get("profitable_share")
+    if wm is None or ps is None or (m.get("history_days") or 0) < disc["min_history_days"]:
+        return "dışında"
+    if wm >= disc["core_worst_month"] and ps >= disc["core_min_profitable_share"]:
+        return "çekirdek"
+    if wm >= disc["worst_month"] and ps >= disc["min_profitable_share"]:
+        return "geniş"
+    return "dışında"
 
 
 def max_position_ratio(snap: dict) -> float:
@@ -514,11 +547,12 @@ def prefilter_leaderboard(rows: list, exclude: set, disc: dict) -> list[str]:
 
 
 def candidate_score(m: dict) -> float:
-    """Aday sıralaması: geçmiş veri testine göre en iyi ileri göstergeler en kötü ay ve kârlı ay oranı.
-    (Eski "12 aylık getiri / en kötü ay" puanının sonraki 6 ayla ilişkisi sıfır çıktı.)"""
-    # Not: hiç zararlı ayı olmayan trader'ın en kötü ayı 0'dır; bu "veri yok" sayılmamalı
-    wm = m.get("worst_month")
-    return (wm if wm is not None else -1.0) * 100 + (m.get("profitable_share") or 0.0)
+    """Aday sıralaması: son 12 ayın Sharpe oranı. Geçmiş veri testi (2.508 hesap, 7 dönem): kurallardan geçen
+    adaylar arasında Sharpe'a göre seçilen portföyler hiçbir dönemde zararda bitmedi; eski puan (en kötü ay)
+    kural olarak büyük kayıpları en iyi eliyor ama havuz içinde sıralama gücü yok.
+    Sharpe ölçülemeyen hesap en sona düşer."""
+    sh = m.get("sharpe")
+    return sh if sh is not None else -99.0
 
 
 def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
@@ -534,6 +568,8 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
     wm = m.get("worst_month")
     if wm is None or wm < disc["worst_month"]:
         fails.append("en kötü ay ölçülemiyor" if wm is None else f"en kötü ay {_p(wm)}")
+    if m.get("sharpe") is None:
+        fails.append("Sharpe ölçülemedi (son 12 ayda yeterli veri yok)")
     bs = m.get("best_month_share")
     if bs is None or bs > disc["max_best_month_share"]:
         fails.append("kâr tek aya yığılmış")
@@ -561,7 +597,8 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
     if fails:
         return False, 0.0, ", ".join(fails)
     score = candidate_score(m)
-    desc = (f"{m['history_days'] / 30:.0f} ay geçmiş, kârlı ay %{ps * 100:.0f}, en kötü ay {_p(wm)}, "
+    desc = (f"{risk_group(m, disc)} grup, Sharpe {m['sharpe']:.2f}, "
+            f"{m['history_days'] / 30:.0f} ay geçmiş, kârlı ay %{ps * 100:.0f}, en kötü ay {_p(wm)}, "
             + (f"12 ay {_p(r365)}, " if r365 is not None else "")
             + f"{style_name(mh) + f' ({mh:.0f} saat)' if mh is not None else 'uzun vadeli'}, "
             f"kaldıraç {lev:.1f}x")
