@@ -1,0 +1,48 @@
+name: Aylık sistem testi
+# Her ayın 1'inde (İstanbul 04:15) güncel veriyi baştan toplar, botun kurallarını geçmişte test eder,
+# sonucu Telegram'a gönderir. Botun çalışmasına ve kurallarına dokunmaz.
+on:
+  schedule:
+    - cron: "15 1 1 * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: bt-collect
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests numpy
+      - name: Güncel veriyi topla (en fazla 290 dk)
+        run: python bt_collect.py bt_fresh.json.gz 290
+      - name: Test et ve Telegram'a gönder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bt_monthly.py bt_fresh.json.gz
+      # Veri ve rapor ayrı "bt-data" dalına yazılır (önceki dosyalar korunur, eski aylık veri yenisiyle değişir)
+      - name: Veriyi ve raporu ayrı dala kaydet
+        if: always()
+        run: |
+          [ -f bt_fresh.json.gz ] || exit 0
+          mkdir -p /tmp/old /tmp/new
+          mv bt_fresh.json.gz /tmp/new/
+          [ -f bt_rapor.txt ] && cp bt_rapor.txt "/tmp/new/bt_rapor_$(date -u +%Y-%m).txt"
+          if git fetch -q origin bt-data; then git archive FETCH_HEAD | tar -x -C /tmp/old; fi
+          cp /tmp/new/* /tmp/old/
+          git config user.name "hl-watch-bot"
+          git config user.email "hl-watch-bot@users.noreply.github.com"
+          git checkout -q --orphan bt-data-new
+          git rm -rfq --cached .
+          for f in /tmp/old/*; do cp "$f" .; git add "$(basename "$f")"; done
+          git commit -qm "aylık test $(date -u +%F_%H%M)"
+          git push -f origin bt-data-new:bt-data
