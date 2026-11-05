@@ -210,6 +210,12 @@ Getiri, trader ekleme/çıkarmadan kaynaklanan sermaye değişimlerinden arınd�
 `hl_traders.json` içinde `"alerts": {"dd_levels": [0.05, 0.1, 0.15], "day_loss": 0.03, "coin_share": 0.1}`
 ile değiştirebilir, `"alerts": {"enabled": false}` ile kapatabilirsin.
 
+**Karşılaştırma:** Paneldeki portföy getirisi grafiğinde BTC, Nasdaq-100 (Hyperliquid'deki `xyz:XYZ100`
+kontratı) ve altın (`xyz:GOLD`) aynı aralıkta %0'dan başlayan kesikli çizgilerle gösterilir; lejanttan
+açılıp kapatılabilir. Bot bunları saatlik değer kaydına yazar; daha önceki saatler Hyperliquid mum verisinden
+doldurulur. Nasdaq-100 ve altın kontratları 7/24 işlem görür; borsa kapalıyken fiyatları gerçek endeksten
+biraz sapabilir.
+
 **Panel:** "Risk ölçümleri" kartı portföyün günlük getirilerinden yıllık oynaklık, Sharpe, Sortino, en
 kötü/en iyi gün ve BTC ile korelasyon/betayı gösterir (en az 8 günlük veri gerekir; 2–3 aydan kısa
 veriyle bu oranlar güvenilir değildir). "Açık pozisyonlar" sekmesindeki "Yoğunlaşma" kartı varlık bazında

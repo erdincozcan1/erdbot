@@ -49,6 +49,8 @@ API = "https://api.hyperliquid.xyz/info"
 IST = dt.timezone(dt.timedelta(hours=3))
 SIZE_TOL = 0.001          # %0,1'den küçük boyut değişimlerini yok say
 DISCLAIMER = "<i>Simülasyondur, yatırım tavsiyesi değildir.</i>"
+BENCH_NDX = "xyz:XYZ100"   # Nasdaq-100'ü izleyen Hyperliquid kontratı (karşılaştırma için)
+BENCH_GOLD = "xyz:GOLD"    # altın
 LIGHT_TYPES = {"clearinghouseState", "spotClearinghouseState", "allMids", "l2Book", "orderStatus"}
 
 session = requests.Session()
@@ -1192,7 +1194,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
         tg.send("\n".join(lines))
         state["snapshots"] = snaps
         state["history"].append([iso(), round(total_equity(state, mids, cfg), 2), round(total_capital(state, cfg), 2),
-                                 mids.get("BTC")])
+                                 mids.get("BTC"), mids.get(BENCH_NDX), mids.get(BENCH_GOLD)])
         state["last_report"]["btc"] = mids.get("BTC")
         return
 
@@ -1238,7 +1240,8 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
         tg.send(m + "\n\n" + DISCLAIMER)
     last_t = dt.datetime.fromisoformat(state["history"][-1][0]) if state["history"] else None
     if not last_t or (now_ist() - last_t) >= dt.timedelta(minutes=55):
-        state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2), mids.get("BTC")])
+        state["history"].append([iso(), round(eq, 2), round(total_capital(state, cfg), 2), mids.get("BTC"),
+                                 mids.get(BENCH_NDX), mids.get(BENCH_GOLD)])
         state["history"] = state["history"][-3000:]
 
     # Komutlar (Cloudflare Worker kuruluysa komutlara o cevap verir)
