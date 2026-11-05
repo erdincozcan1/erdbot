@@ -76,8 +76,9 @@ def inspect(addr: str, cfg: dict, state: dict) -> tuple[str, dict]:
          (f"En kötü ay {p(wm)}" if wm is not None else "En kötü ay ölçülemiyor (zararlı ay var ama o ay hesap çok küçüktü)"
           if ps is not None else "En kötü ay: aylık veri yok")
          + f" (en kötü {p(disc['worst_month'])})"),
-        (m.get("sharpe") is not None, "Sharpe (son 12 ay) " + ("ölçülemedi" if m.get("sharpe") is None else f"{m['sharpe']:.2f}")
-         + " · adaylar bununla sıralanır"),
+        (m.get("sharpe") is not None and m["sharpe"] >= disc["min_sharpe"],
+         "Sharpe (son 12 ay) " + ("ölçülemedi" if m.get("sharpe") is None else f"{m['sharpe']:.2f}")
+         + f" (en az {disc['min_sharpe']:g}; adaylar bununla sıralanır)"),
         (bs is not None and bs <= disc["max_best_month_share"],
          f"En iyi ayın toplam kârdaki payı " + ("-" if bs is None else f"%{bs * 100:.0f}")
          + f" (en fazla %{disc['max_best_month_share'] * 100:.0f})"),

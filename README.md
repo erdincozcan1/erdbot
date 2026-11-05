@@ -70,7 +70,7 @@ listesinden ön eleme yapar (100 bin $–20 milyon $ hesap, toplamda ve son ayda
 son ay aktif işlem yapmış, piyasa yapıcı/bot değil, aşırı getirili değil) ve en fazla
 80 hesabı ayrıntılı inceler:
 - en az 12 ay geçmiş, ayların en az %60'ı kârlı, en kötü ay −%40'tan iyi (geniş grup sınırı; aşağıya bak)
-- son 12 ayın Sharpe oranı ölçülebiliyor, son 30 günde işlem yapmış ya da açık pozisyonu var
+- son 12 ayın Sharpe oranı en az 2 (kalite eşiği; `"min_sharpe"`), son 30 günde işlem yapmış ya da açık pozisyonu var
 - kârın yarısından fazlası tek bir aydan gelmemiş
 - pozisyonları ortalama en az 4 saat tutuyor, sık işlem yapmıyor, kaldıraç en fazla 3x
 - kazanç son aylara yığılmamış: son 3 ayın toplam getirideki payı en fazla %50; en az 18 aylık
@@ -92,12 +92,26 @@ Kurallardan geçen adaylar **son 12 ayın Sharpe oranına** göre sıralanır (g
 Geniş grup doluysa yeni geniş adaylar gözleme alınır, boş yerlere çekirdek adaylar girer. Panelde her
 trader'ın grubu etiket olarak görünür (12 aydan kısa geçmişi olanlar "dışında" sayılır).
 
+**Kendini besleme:**
+- **Kalite eşiği:** Ana kopyaya (ve gözlemden geri dönüşe) yalnızca Sharpe ≥ 2 olan trader girer. Eşiği geçen
+  aday yoksa yer nakit bekler; kadro kendiliğinden küçülür, yeni aday çıktıkça yeniden dolar.
+- **Kalite yenilemesi:** Her ayın ilk günlük kontrolünde, ana kopyada en az 56 gündür olan ve Sharpe'ı 1'in
+  altına düşen trader'lar, aday listesinde Sharpe ≥ 2 olan daha iyileri varsa gözleme alınır (aylık en fazla
+  3 değişiklik sınırı performans çıkarmalarıyla ortak).
+- **Aylık sistem testi:** Her ayın 1'inde "Aylık sistem testi" iş akışı güncel veriyi baştan toplar (~5 saat),
+  botun bugünkü kurallarını geçmişte 7 tarihte uygular ve Telegram'a rapor gönderir: kaç trader en iyisi,
+  Sharpe eşiği hâlâ ayrıştırıyor mu, botun seçimi rastgele seçimden iyi mi. Kurallar otomatik değişmez;
+  rapor öneri verir. Rapor ve veri `bt-data` dalına kaydedilir.
+
 Kasım 2026 testi (2.508 hesap, 7 başlangıç tarihi, sonraki 6 ay): kurallardan geçen adaylardan Sharpe'a
 göre seçilen 10'luk portföyler hiçbir dönemde zararda bitmedi (ortalama +%18, eski puanla +%10); Sharpe'a
 göre sıralandığında en kötü ay sınırını −%15'ten −%40'a gevşetmek sonucu bozmadı (+%19) ve aday havuzunu
 yaklaşık 3 katına çıkardı. En kötü ay kuralı ise büyük kayıpları elemede hâlâ en güçlü ölçüm, bu yüzden
 sınır olarak kalıyor. Riske göre pay vermek (oynaklığın tersiyle) tutarlı bir iyileşme göstermediği için
-her trader'a eşit pay verilmeye devam ediyor.
+her trader'a eşit pay verilmeye devam ediyor. Sharpe dilimlerine göre sonraki 6 ay (medyan): 1'in altı +%0,1,
+1–2 arası +%0,9, 2–3 arası +%8,1, 3 üstü +%19,3; kalite eşiği buna dayanır. Kadro büyüklüğü testinde en iyi
+sonuç, tüm piyasa ölçeğinde yaklaşık 18–22 trader'la alındı (daha fazlasında sıralamada geride kalan zayıf
+adaylar ortalamayı düşürüyor).
 
 Bu eşikler 3.741 hesaplık geçmiş veri testine dayanır: kriterler iki ayrı tarihte (Kasım 2025, Mayıs 2026)
 yalnızca o güne kadarki veriyle uygulanıp sonraki 6 ay ölçüldü. En güçlü kural "en kötü ay" çıktı

@@ -61,6 +61,12 @@ DEFAULTS = {
         "worst_month": -0.40,            # geniş grubun alt sınırı
         "core_min_profitable_share": 0.70,
         "core_worst_month": -0.15,
+        # Kalite eşiği (geçmiş veri testi): Sharpe ≥ 2 olan adayların sonraki 6 ayı medyan +%9…+%21, sert kayıp
+        # %0-8; Sharpe 1-2 arası medyan ~%0-3,5, sert kayıp ~%18-20. Eşiği geçen aday yoksa yer nakit bekler
+        # (kadro kendiliğinden küçülür); yeni aday çıktıkça yeniden dolar.
+        "min_sharpe": 2.0,
+        "keep_sharpe": 1.0,              # ana kopyada 56 günü dolduran ve Sharpe'ı bunun altına düşen, daha iyi aday
+                                         # varsa ay başında gözleme alınır (aylık değişiklik sınırı içinde)
         "max_wide": 4,                   # ana kopyada çekirdek grubu dışından en fazla bu kadar trader (temkinli başlangıç)
         "max_best_month_share": 0.50,
         "min_hold_h": 4,
@@ -514,6 +520,9 @@ def promotion_check(m: dict | None, shadow_return: float | None, bench_days: flo
     r = (m or {}).get("ret_window")
     if r is None or r <= 0:
         return False, "kendi hesabı son dönemde kârda değil"
+    sh = (m or {}).get("sharpe")
+    if sh is None or sh < rot["discovery"]["min_sharpe"]:
+        return False, "Sharpe " + ("ölçülemedi" if sh is None else f"{sh:.2f}") + f" (gereken {rot['discovery']['min_sharpe']:g})"
     return True, (f"gözlemde {bench_days:.0f} gün, gölge portföy {_p(shadow_return)}, "
                   f"son {m.get('window_days', 90)} gün {_p(r)}")
 
@@ -570,6 +579,8 @@ def candidate_check(m: dict, snap: dict, disc: dict) -> tuple[bool, float, str]:
         fails.append("en kötü ay ölçülemiyor" if wm is None else f"en kötü ay {_p(wm)}")
     if m.get("sharpe") is None:
         fails.append("Sharpe ölçülemedi (son 12 ayda yeterli veri yok)")
+    elif m["sharpe"] < disc["min_sharpe"]:
+        fails.append(f"Sharpe {m['sharpe']:.2f} (en az {disc['min_sharpe']:g})")
     bs = m.get("best_month_share")
     if bs is None or bs > disc["max_best_month_share"]:
         fails.append("kâr tek aya yığılmış")

@@ -25,7 +25,7 @@ import hl_rotation as R
 
 FIELDS = ("t", "history_days", "profitable_share", "worst_month", "best_month_share",
           "ret_365", "ret_90", "dd_now", "dd_hist", "months", "lb_eq", "recent_3m_share", "recent_6m_share", "sharpe")
-RULES_VERSION = 6   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
+RULES_VERSION = 7   # kurallar değişince tarama yeniden başlar (eski sıralama yenisi hazır olana kadar kullanılır)
 
 DEFAULTS = {
     "enabled": True,
@@ -77,7 +77,7 @@ def portfolio_check(m: dict, disc: dict) -> tuple[bool, float]:
         return False, 0.0
     if R.recent_profit_fails(m, disc):
         return False, 0.0
-    if m.get("sharpe") is None:
+    if m.get("sharpe") is None or m["sharpe"] < disc["min_sharpe"]:
         return False, 0.0
     return True, R.candidate_score(m)
 

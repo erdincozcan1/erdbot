@@ -755,7 +755,7 @@ def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now
     month = n.strftime("%Y-%m")
     if rs["last_monthly"] != month:
         rs["last_monthly"] = month
-        left = rot["max_changes_per_month"] - changes_this_month(state, {"perf", "swap"})
+        left = rot["max_changes_per_month"] - changes_this_month(state, {"perf", "swap", "quality"})
         cands = []
         for a in actives(state):
             r = state["roles"][a]
@@ -771,6 +771,24 @@ def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now
                              f"değişiklik sınırı ({rot['max_changes_per_month']}) doldu; ana listede kalıyor")
                 continue
             notes.append(demote(state, a, "performans: " + "; ".join(reasons), "perf", mids, cfg, snaps))
+            left -= 1
+        # Kalite yenilemesi: Sharpe'ı düşen trader, aday listesinde eşiği geçen daha iyi biri varsa gözleme alınır
+        disc = rot["discovery"]
+        better = [x for x in ((state.get("candidates") or {}).get("top") or [])
+                  if x.get("a") not in state["roles"] and (x.get("score") or -99) >= disc["min_sharpe"]]
+        low = []
+        for a in actives(state):
+            r = state["roles"][a]
+            m = fresh_metrics(state, a, now_ms)
+            if r.get("pin") or days_since(r["since"]) < rot["min_active_days"] or not m:
+                continue
+            sh = m.get("sharpe")
+            if sh is None or sh < disc["keep_sharpe"]:
+                low.append((-99 if sh is None else sh, a))
+        for sh, a in sorted(low)[: min(left, len(better))]:
+            notes.append(demote(state, a, f"kalite: Sharpe {'ölçülemedi' if sh == -99 else f'{sh:.2f}'} (en az "
+                                f"{disc['keep_sharpe']:g}); aday listesinde Sharpe ≥ {disc['min_sharpe']:g} olan "
+                                f"daha iyi trader'lar var", "quality", mids, cfg, snaps))
             left -= 1
         # Yer değiştirme: dolu listede, gözlemde çok daha iyi biri varsa
         if left > 0 and free_slots(cfg, state) == 0:
@@ -1044,7 +1062,7 @@ def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) ->
     week_ago = now_ist() - dt.timedelta(days=7)
     ch = [c for c in state["rotation"]["changes"] if dt.datetime.fromisoformat(c[0]) >= week_ago]
     if ch:
-        kinds = {"risk": "risk", "perf": "performans", "swap": "yer değiştirme", "swap-in": "yer değiştirme",
+        kinds = {"risk": "risk", "perf": "performans", "quality": "kalite (Sharpe)", "swap": "yer değiştirme", "swap-in": "yer değiştirme",
                  "promote": "geri döndü", "new": "yeni aday", "manual": "elle", "remove": "silindi"}
         text += "\n\n<b>Bu haftaki kadro değişiklikleri</b>\n" + "\n".join(
             f"• {c[0][5:10]} {e(c[3] if len(c) > 3 else label_of(state, c[2]))}: {kinds.get(c[1], c[1])}" for c in ch)
