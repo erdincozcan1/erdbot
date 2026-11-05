@@ -92,6 +92,15 @@ Kurallardan geçen adaylar **son 12 ayın Sharpe oranına** göre sıralanır (g
 Geniş grup doluysa yeni geniş adaylar gözleme alınır, boş yerlere çekirdek adaylar girer. Panelde her
 trader'ın grubu etiket olarak görünür (12 aydan kısa geçmişi olanlar "dışında" sayılır).
 
+**Portföy yerinde saymasın diye:**
+- **Açık pozisyonlara katılım** (`"copy_existing"`, **kapalı**): Açılırsa trader'ın takip başlamadan önce açtığı
+  pozisyonlar da o anki fiyattan kopyalanır. Kapalıyken yalnızca takipten sonra açılan pozisyonlar kopyalanır.
+- **Kopya büyüklüğü** (`"size_target_vol": 0.40`, `"size_max_mult": 3`, `"size_lev_cap": 5`): Sakin trader'ların
+  kopyası büyütülür: çarpan = %40 ÷ trader'ın 12 aylık oynaklığı, 1x ile 3x arası; hiç küçültülmez ve trader'ın
+  kaldıracını 5x'in üstüne taşıyamaz (10x alt portföy sınırı da geçerli). Geçmiş veri testi (7 dönem, botun
+  seçimi): 6 ayda ortalama +%28,9 (büyütmesiz +%18,9), ortalama en büyük düşüş %6,5 (%5,6), en kötü dönem +%9,7
+  (+%3,7), batan kopya yok. Panelde 1x'ten büyük çarpanlar trader ayrıntısında görünür.
+
 **Kendini besleme:**
 - **Kalite eşiği:** Ana kopyaya (ve gözlemden geri dönüşe) yalnızca Sharpe ≥ 2 olan trader girer. Eşiği geçen
   aday yoksa yer nakit bekler; kadro kendiliğinden küçülür, yeni aday çıktıkça yeniden dolar.

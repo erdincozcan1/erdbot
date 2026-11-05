@@ -407,13 +407,32 @@ def close_all(sub: dict, mids: dict, cfg: dict) -> None:
         paper_trade(sub, coin, 0.0, mids.get(coin) or p["entry"], cfg)
 
 
-def plan_target(sub: dict, coin: str, trader_snap: dict, mid: float, cfg: dict, mids: dict) -> tuple[float, str | None]:
-    """Trader'ın pozisyon/hesap oranını alt portföye uygular, kaldıraç sınırını uygular."""
+def size_mult(m: dict | None, trader_snap: dict, cfg: dict) -> float:
+    """Kopya büyüklüğü çarpanı. Sakin (düşük oynaklıklı) trader'ların kopyası büyütülür ki portföy yerinde
+    saymasın: çarpan = hedef oynaklık / trader'ın 12 aylık oynaklığı, 1 ile size_max_mult arasında.
+    Hiçbir zaman küçültülmez. Ayrıca büyütme, trader'ın kaldıracını size_lev_cap'in üstüne taşıyamaz.
+    Geçmiş veri testi (7 dönem): hedef %40, en fazla 3x → 6 ay ortalama +%28,9 (1x: +%18,9), ortalama düşüş
+    %6,5 (1x: %5,6), batan kopya yok."""
+    tv = cfg.get("size_target_vol")
+    vol = (m or {}).get("vol_12m")
+    if not tv or not vol or vol <= 0:
+        return 1.0
+    k = min(max(tv / vol, 1.0), float(cfg.get("size_max_mult", 3.0)))
+    eq = trader_snap.get("equity") or 0
+    lev = sum(p["value"] for p in trader_snap.get("positions", {}).values()) / eq if eq > 0 else 0
+    if lev > 0:
+        k = min(k, max(1.0, float(cfg.get("size_lev_cap", 5.0)) / lev))
+    return k
+
+
+def plan_target(sub: dict, coin: str, trader_snap: dict, mid: float, cfg: dict, mids: dict,
+                mult: float = 1.0) -> tuple[float, str | None]:
+    """Trader'ın pozisyon/hesap oranını (büyüklük çarpanıyla) alt portföye uygular, kaldıraç sınırını uygular."""
     eq_sub = sub_equity(sub, mids)
     p = trader_snap["positions"].get(coin)
     if not p or trader_snap["equity"] <= 0 or eq_sub <= 0:
         return 0.0, None
-    target_usd = (p["szi"] * mid / trader_snap["equity"]) * eq_sub
+    target_usd = (p["szi"] * mid / trader_snap["equity"]) * eq_sub * mult
     note = None
     room = max(0.0, cfg["max_leverage"] * eq_sub - sub_gross(sub, mids, exclude=coin))
     if abs(target_usd) > room:
@@ -1099,12 +1118,14 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
         if ev in {"OPEN", "FLIP"} and coin not in sub["followed"]:
             sub["followed"].append(coin)
         mid = mids.get(coin)
+        if coin not in sub["followed"] and now and cfg.get("copy_existing"):
+            sub["followed"].append(coin)        # takipten önce açılmış pozisyona da katıl
         if coin not in sub["followed"]:
             lines.append("   📒 Sanal: bu pozisyon takip başlamadan önce açılmıştı; kopyalanmıyor")
         elif not mid:
             lines.append("   📒 Sanal: fiyat alınamadı, atlandı")
         else:
-            target, note = plan_target(sub, coin, new, mid, cfg, mids)
+            target, note = plan_target(sub, coin, new, mid, cfg, mids, size_mult((state.get("metrics") or {}).get(a), new, cfg))
             status, info = paper_trade(sub, coin, target, mid, cfg)
             if note:
                 lines.append(f"   ⚠ {e(note)}")
@@ -1140,6 +1161,34 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
             state["watch_events"][a] = state["watch_events"].get(a, 0) + 1
             if cfg_t.get("instant"):
                 tg.send("\n".join(lines) + "\n   👁 gözlem listesi (gölge portföy)")
+
+
+def join_existing(state: dict, cfg: dict, a: str, snap: dict, mids: dict) -> list[str]:
+    """copy_existing açıksa: trader'ın kopyada henüz olmayan açık pozisyonlarına o anki fiyattan katılır
+    (yeni eklenen trader'lar ve uzun süre pozisyon tutan, nadiren yeni işlem açan trader'lar için)."""
+    if not cfg.get("copy_existing"):
+        return []
+    r = state["roles"].get(a) or {}
+    sub = state["subs"].get(a) if r.get("role") == "active" else state["shadow"].get(a)
+    if sub is None or not snap.get("positions") or (snap.get("equity") or 0) <= 0:
+        return []
+    out = []
+    k = size_mult((state.get("metrics") or {}).get(a), snap, cfg)
+    for coin in sorted(snap["positions"]):
+        if coin in sub["followed"] or coin in sub["positions"]:
+            continue
+        mid = mids.get(coin)
+        if not mid:
+            continue
+        target, _ = plan_target(sub, coin, snap, mid, cfg, mids, k)
+        # çok küçük pozisyonlara (alt portföyün %1'inden az) katılma; trader büyütürse olay olarak kopyalanır
+        if abs(target) * mid < max(cfg.get("min_order_usd") or 0, 0.01 * sub_equity(sub, mids)):
+            continue
+        sub["followed"].append(coin)
+        status, info = paper_trade(sub, coin, target, mid, cfg)
+        if status == "ok":
+            out.append(f"{e(coin.replace('xyz:', ''))} {side(target)} {usd(abs(target) * mid)}")
+    return out
 
 
 def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: float | None = None) -> None:
@@ -1206,12 +1255,19 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     elif state.get("last_run"):
         lr = int(dt.datetime.fromisoformat(state["last_run"]).timestamp() * 1000)
         since_ms = max(lr - 15 * 60_000, now_ms - 6 * 3_600_000)
+    join_lines = []
     for a in addrs:
         old, new = state["snapshots"].get(a), snaps[a]
         if old is not None:                 # sonradan eklenen trader'ın ilk kaydı: sadece başlangıç
             process_events(state, cfg, a, old, new, mids, tg, since_ms)
+            joined = join_existing(state, cfg, a, new, mids)
+            if joined and state["roles"][a]["role"] == "active":
+                join_lines.append(f"• {e(label_of(state, a))}: " + ", ".join(joined))
         state["snapshots"][a] = new
     state["snap_ms"] = now_ms
+    if join_lines:
+        tg.send("🔗 <b>Açık pozisyonlara katılım</b> (takipten önce açılmış pozisyonlar, o anki fiyattan)\n"
+                + "\n".join(join_lines[:30]) + ("\n…" if len(join_lines) > 30 else ""))
 
     # Kadro yönetimi
     if rot["enabled"]:

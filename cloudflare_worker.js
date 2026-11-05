@@ -413,6 +413,17 @@ function riskGroup(m, cfg) {
   return "dışında";
 }
 
+// Kopya büyüklüğü çarpanı (hl_watcher.size_mult ile aynı)
+function sizeMult(m, snap, cfg) {
+  const tv = cfg.size_target_vol, vol = (m || {}).vol_12m;
+  if (!tv || !vol || vol <= 0) return 1;
+  let k = Math.min(Math.max(tv / vol, 1), cfg.size_max_mult ?? 3);
+  const eq = (snap || {}).equity || 0;
+  const lev = eq > 0 ? Object.values((snap || {}).positions || {}).reduce((t, p) => t + p.value, 0) / eq : 0;
+  if (lev > 0) k = Math.min(k, Math.max(1, (cfg.size_lev_cap ?? 5) / lev));
+  return k;
+}
+
 function panelData(state, cfg, mids, candles) {
   const pos = (s) => Object.entries(s.positions || {}).map(([c, p]) => {
     const m = mids[c] ?? p.entry;
@@ -433,7 +444,8 @@ function panelData(state, cfg, mids, candles) {
     return { a, label: r.label || a.slice(0, 8), since: r.since || null, source: r.source || "config", pin: !!r.pin,
              capital: s.capital, equity: se, ret: s.capital ? se / s.capital - 1 : 0, trades: s.trades, skipped: s.skipped,
              realized: s.realized, fees: s.fees, funding: s.funding || 0, delay: s.delay || null, positions: pos(s), metrics: met(a),
-             trader_equity: ((state.snapshots || {})[a] || {}).equity ?? null, moves: (state.watch_events || {})[a] || 0 };
+             trader_equity: ((state.snapshots || {})[a] || {}).equity ?? null,
+             mult: sizeMult((state.metrics || {})[a], (state.snapshots || {})[a], cfg), moves: (state.watch_events || {})[a] || 0 };
   };
   const subs = Object.values(state.subs || {});
   const eq = totalEquity(state, mids), cap = totalCapital(state);
@@ -911,6 +923,7 @@ footer { color: var(--muted); font-size: 12.5px; padding-block: 0 30px; }
     var m = t.metrics, f = [];
     if (t.since) f.push('Listede <b>' + Math.floor(days(t.since)) + ' gün</b>');
     if (t.trader_equity != null) f.push('Trader hesabı <b>' + usd(t.trader_equity) + '</b>');
+    if (t.mult && t.mult > 1.005) f.push('Kopya büyüklüğü <b>' + num(t.mult, 2) + 'x</b>');
     f.push('Gerçekleşen <b>' + usd(t.realized, true) + '</b>'); f.push('Ücret <b>' + usd(-t.fees) + '</b>');
     if (t.funding) f.push('Fonlama <b class="' + cls(-t.funding) + '">' + usd(-t.funding, true) + '</b>');
     if (t.delay && t.delay.n) { var db = bps(t.delay);

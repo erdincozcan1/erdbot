@@ -360,6 +360,7 @@ def analyze(portfolio, fills, now_ms: int, since_ms: int | None = None) -> dict:
         "recent_6m_share": recent_share(182),
         "trader_ret_since": since_return_best(portfolio, since_ms),
         "sharpe": sharpe_12m(rets, gaps, now_ms),
+        "vol_12m": vol_12m(rets, gaps, now_ms),
     }
     if ms:
         out.update({"months": ms["months"], "profitable_share": ms["profitable_share"],
@@ -379,6 +380,16 @@ def sharpe_12m(rets: list, gaps: list, now_ms: int) -> float | None:
     if sd <= 1e-9 or gap <= 0:
         return None
     return statistics.mean(r) / sd * (365 / gap) ** 0.5
+
+
+def vol_12m(rets: list, gaps: list, now_ms: int) -> float | None:
+    """Son 12 ayın yıllık oynaklığı (hesap getirisinin standart sapması); kopya büyüklüğü ayarında kullanılır."""
+    xs = [(r, g) for (t, r), g in zip(rets, gaps) if t > now_ms - 365 * DAY_MS]
+    if len(xs) < 8:
+        return None
+    gap = sum(x[1] for x in xs) / len(xs)
+    sd = statistics.stdev([x[0] for x in xs])
+    return sd * (365 / gap) ** 0.5 if gap > 0 and sd > 1e-9 else None
 
 
 def risk_group(m: dict, disc: dict) -> str:
