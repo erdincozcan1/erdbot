@@ -1,0 +1,25 @@
+🧪 Aylık sistem testi (15,475 hesap, sıralama listesinin %40'i)
+Botun bugünkü kuralları geçmişte 7 tarihte uygulandı, sonraki 6 ay ölçüldü.
+Uygun aday sayısı (dönem başına): 32, 28, 32, 39, 51, 50, 55 · Sharpe ≥ 2: 15, 10, 11, 17, 15, 14, 13
+
+1) Kaç trader? (örneklemdeki N, tüm piyasada yaklaşık N ÷ örneklem oranı)
+N= 5 (~12 gerçek): ort −%0.2 · en kötü dönem −%47.8 · ort düşüş −%14.3 · 7/7 dönem
+N= 8 (~20 gerçek): ort −%1.0 · en kötü dönem −%28.3 · ort düşüş −%12.1 · 7/7 dönem
+N=10 (~25 gerçek): ort +%3.5 · en kötü dönem −%11.0 · ort düşüş −%11.1 · 6/7 dönem
+N=12: yeterli aday yok (3/7 dönem)
+N=15: yeterli aday yok (1/7 dönem)
+N=20: yeterli aday yok (0/7 dönem)
+
+2) Sharpe dilimlerine göre sonraki 6 ay
+Sharpe < 1: n=63 · medyan −%0.3 · zararda %51 · %20+ kayıp %24
+Sharpe 1–2: n=129 · medyan +%0.3 · zararda %46 · %20+ kayıp %18
+Sharpe 2–3: n=69 · medyan +%3.6 · zararda %42 · %20+ kayıp %14
+Sharpe ≥ 3: n=26 · medyan +%10.8 · zararda %31 · %20+ kayıp %23
+
+3) Botun seçimi (Sharpe eşiği + sıralama), kurallardan geçen havuzdan rastgele seçilen aynı sayıda trader'a göre ortalama +%3.3 (5/7 dönem daha iyi)
+
+Öneri
+• Kadro büyüklüğü (20) test sonucuyla uyumlu (~25).
+• Sharpe ≥ 2 eşiği hâlâ ayrıştırıyor; değişiklik gerekmiyor.
+Kurallar otomatik değişmez. Geçmiş sonuç geleceği garanti etmez.
+Simülasyondur, yatırım tavsiyesi değildir.
