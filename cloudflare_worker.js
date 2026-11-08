@@ -520,15 +520,18 @@ button { font: inherit; color: inherit; }
 
 header.top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-header.top .wrap { display: flex; align-items: center; gap: 12px; padding-block: 12px; }
-.brand { font: 600 18px/1.1 var(--f-display); letter-spacing: -0.01em; }
-.brand .mark { color: var(--accent); margin-right: 6px; font-size: 0.9em; }
-.brand small { display: block; font: 400 12px/1.3 var(--f-body); color: var(--muted); letter-spacing: 0; }
+header.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding-block: 14px; }
+.brand { font: 600 32px/1.05 var(--f-display); letter-spacing: -0.02em; text-align: center; }
+.brand .mark { color: var(--accent); margin-right: 8px; font-size: 0.8em; vertical-align: 0.06em; }
+.brand small { display: block; margin-top: 4px; font: 400 12px/1.3 var(--f-body); color: var(--muted); letter-spacing: 0; }
+.top-r { display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 0; }
+.login .brand { font-size: 36px; margin-bottom: 6px; }
 .spacer { flex: 1; }
 .fresh { font-size: 12.5px; color: var(--muted); text-align: right; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--up); margin-right: 6px; vertical-align: 1px; }
 .dot.stale { background: var(--warn); } .dot.dead { background: var(--down); }
-@media (max-width: 640px) { .fresh { white-space: nowrap; } header.top .brand small { display: none; } .hide-sm { display: none; } }
+@media (max-width: 640px) { .fresh { white-space: nowrap; } header.top .brand small { display: none; } .hide-sm { display: none; }
+  .brand { font-size: 26px; } .fresh .lbl { display: none; } header.top .wrap { gap: 8px; padding-block: 10px; } }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 7px 12px; cursor: pointer; font-size: 13.5px; }
 .btn:hover { border-color: var(--accent); }
 
@@ -712,9 +715,9 @@ footer { color: var(--muted); font-size: 12.5px; padding-block: 0 30px; }
     var dot = mins < 15 ? "" : mins < 90 ? " stale" : " dead";
     var tabs = [["traders", "Trader'lar", d.traders.length], ["positions", "Açık pozisyonlar", d.traders.reduce(function (t, x) { return t + x.positions.length; }, 0)],
                 ["bench", "Gözlem", d.bench.length], ["changes", "Değişiklikler", d.changes.length], ["cands", "Adaylar", d.candidates ? (d.candidates.n_ranked || 0) : 0]];
-    var h = '<header class="top"><div class="wrap"><div class="brand"><span class="mark" aria-hidden="true">✦</span>Astral<small>Kopya portföyü · ' + m.slots + ' ana kopya yeri · her biri ' + usd(m.per_slot) + ' · kaldıraç sınırı ' + m.max_leverage + 'x</small></div>' +
-      '<div class="spacer"></div><div class="fresh"><span class="dot' + dot + '"></span>Bot ' + (ago(lr) || "henüz çalışmadı") +
-      '<span class="hide-sm"><br><span class="num">' + when(lr) + '</span></span></div><button class="btn" id="rf" title="Yenile">Yenile</button></div></header>';
+    var h = '<header class="top"><div class="wrap"><div></div><div class="brand"><span class="mark" aria-hidden="true">✦</span>Astral<small>Kopya portföyü · ' + m.slots + ' ana kopya yeri · her biri ' + usd(m.per_slot) + ' · kaldıraç sınırı ' + m.max_leverage + 'x</small></div>' +
+      '<div class="top-r"><div class="fresh"><span class="dot' + dot + '"></span><span class="lbl">Bot ' + (ago(lr) || "henüz çalışmadı") +
+      '</span><span class="hide-sm"><br><span class="num">' + when(lr) + '</span></span></div><button class="btn" id="rf" title="Yenile">Yenile</button></div></div></header>';
     h += '<main class="wrap">';
     // Özet
     h += '<section class="hero"><div class="panel"><div class="eyebrow">Sanal portföy</div>' +
