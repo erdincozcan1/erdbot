@@ -95,11 +95,12 @@ trader'ın grubu etiket olarak görünür (12 aydan kısa geçmişi olanlar "dı
 **Portföy yerinde saymasın diye:**
 - **Açık pozisyonlara katılım** (`"copy_existing"`, **kapalı**): Açılırsa trader'ın takip başlamadan önce açtığı
   pozisyonlar da o anki fiyattan kopyalanır. Kapalıyken yalnızca takipten sonra açılan pozisyonlar kopyalanır.
-- **Kopya büyüklüğü** (`"size_target_vol": 0.40`, `"size_max_mult": 3`, `"size_lev_cap": 5`): Sakin trader'ların
-  kopyası büyütülür: çarpan = %40 ÷ trader'ın 12 aylık oynaklığı, 1x ile 3x arası; hiç küçültülmez ve trader'ın
+- **Kopya büyüklüğü** (`"size_target_vol": 0.50`, `"size_max_mult": 3`, `"size_lev_cap": 5`): Sakin trader'ların
+  kopyası büyütülür: çarpan = %50 ÷ trader'ın 12 aylık oynaklığı, 1x ile 3x arası; hiç küçültülmez ve trader'ın
   kaldıracını 5x'in üstüne taşıyamaz (10x alt portföy sınırı da geçerli). Geçmiş veri testi (7 dönem, botun
   seçimi): 6 ayda ortalama +%28,9 (büyütmesiz +%18,9), ortalama en büyük düşüş %6,5 (%5,6), en kötü dönem +%9,7
-  (+%3,7), batan kopya yok. Panelde 1x'ten büyük çarpanlar trader ayrıntısında görünür.
+  (+%3,7), batan kopya yok. Kasım 2026 duyarlılık testinde hedef %50, 7 dönemin hepsinde %40'tan iyi çıktı
+  (+%31,1 / +%28,9; ortalama düşüş %6,8 / %6,5); bu yüzden %50 kullanılıyor. Panelde 1x'ten büyük çarpanlar trader ayrıntısında görünür.
 
 **Kendini besleme:**
 - **Kalite eşiği:** Ana kopyaya (ve gözlemden geri dönüşe) yalnızca Sharpe ≥ 2 olan trader girer. Eşiği geçen
