@@ -1,0 +1,49 @@
+name: Altın tarayıcı
+on:
+  workflow_dispatch:
+    inputs:
+      min_hesap:
+        description: "En küçük hesap değeri ($)"
+        required: false
+        default: "100000"
+permissions:
+  contents: write
+concurrency:
+  group: hl-inspect
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Tara
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALTIN_MIN_HESAP: ${{ github.event.inputs.min_hesap }}
+        run: python hl_gold_scan.py
+      # Sonuçlar ayrı "inceleme" dalına yazılır; bot bundan etkilenmez.
+      - name: Sonucu ayrı dala kaydet
+        if: always()
+        run: |
+          [ -d inceleme ] || exit 0
+          mkdir -p /tmp/out && cp inceleme/* /tmp/out/
+          git config user.name "hl-watch-bot"
+          git config user.email "hl-watch-bot@users.noreply.github.com"
+          if git fetch -q origin inceleme; then
+            git checkout -q -B inceleme FETCH_HEAD
+          else
+            git checkout -q --orphan inceleme
+            git rm -rfq --cached .
+          fi
+          cp /tmp/out/* .
+          for f in /tmp/out/*; do git add "$(basename "$f")"; done
+          git commit -qm "altın taraması $(date -u +%F_%H%M)" || true
+          git push -q origin inceleme
