@@ -1,0 +1,6980 @@
+{
+ "t": 1794251736460,
+ "min_eq": 100000.0,
+ "scanned": 14243,
+ "found": [
+  {
+   "a": "0x5b5d51203a0f9079f8aeb098a6523a13f298c060",
+   "eq": 182030098.84646,
+   "gold_value": 26337689.84763,
+   "gold_net": -26337689.84763,
+   "gold_share": 0.05036641372034448,
+   "gold_to_eq": 0.14468865322017704,
+   "gross_lev": 2.872720976791187,
+   "n_pos": 29,
+   "coins": {
+    "xyz:GOLD": [
+     -6416.1587,
+     26337690,
+     4.0
+    ]
+   },
+   "pnl_all": 249876879.674826,
+   "roi_month": 0.5709193109
+  },
+  {
+   "a": "0xb83de012dba672c76a7dbbbf3e459cb59d7d6e36",
+   "eq": 183618818.852998,
+   "gold_value": 25127556.29685,
+   "gold_net": -25127556.29685,
+   "gold_share": 0.06015647633518171,
+   "gold_to_eq": 0.13684630177785143,
+   "gross_lev": 2.274839054989973,
+   "n_pos": 34,
+   "coins": {
+    "xyz:GOLD": [
+     -6121.3565,
+     25127556,
+     5.0
+    ]
+   },
+   "pnl_all": 188579504.045695,
+   "roi_month": 0.4844252027
+  },
+  {
+   "a": "0xec0b9ebf2a304c99cafe85c548c14dd7783cb078",
+   "eq": 8275924.030703,
+   "gold_value": 19825560.16864,
+   "gold_net": 19825560.16864,
+   "gold_share": 0.49149859728236267,
+   "gold_to_eq": 2.3955705846366877,
+   "gross_lev": 4.8740130651084,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     4828.9069,
+     19825560,
+     25.0
+    ]
+   },
+   "pnl_all": -14991018.879297,
+   "roi_month": -0.5739639436,
+   "pass": false,
+   "desc": "kârlı ay oranı 42%, en kötü ay −%77.8, Sharpe -0.02 (en az 2), kâr tek aya yığılmış, kaldıraç 4.7x, tek pozisyon hesabın 2.3 katı (sınır 2)",
+   "group": "dışında",
+   "sharpe": -0.02479,
+   "ret_365": -0.7098,
+   "worst_month": -0.77766,
+   "history_days": 543.87195,
+   "hold_h": 20.00951
+  },
+  {
+   "a": "0x7a6d5fc57f6906f337c48fe2763c3a501304f79c",
+   "eq": 2913962.409327,
+   "gold_value": 16145069.378800001,
+   "gold_net": -16145069.378800001,
+   "gold_share": 0.795115079745458,
+   "gold_to_eq": 5.540589448622578,
+   "gross_lev": 6.968286213860136,
+   "n_pos": 7,
+   "coins": {
+    "PAXG": [
+     -636.604,
+     2603519,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -3300.0,
+     13541550,
+     25.0
+    ]
+   },
+   "pnl_all": 16646915.879327,
+   "roi_month": 0.650025068,
+   "pass": false,
+   "desc": "en kötü ay −%160.0, Sharpe 1.51 (en az 2), pozisyon süresi kısa, çok sık işlem, kaldıraç 9.3x, tek pozisyon hesabın 6.2 katı (sınır 2), GOLD pozisyonu likidasyona %7 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 1.51273,
+   "ret_365": 2.59745,
+   "worst_month": -1.60022,
+   "history_days": 690.90945,
+   "hold_h": 1.19769
+  },
+  {
+   "a": "0x36784a2d9d952e6d4fd6abfa25aea218a5ceb209",
+   "eq": 2554602.196865,
+   "gold_value": 9027920.0,
+   "gold_net": 9027920.0,
+   "gold_share": 0.3950870135655912,
+   "gold_to_eq": 3.53398271209468,
+   "gross_lev": 8.944821243809317,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     2200.0,
+     9027920,
+     25.0
+    ]
+   },
+   "pnl_all": -1448340.583135,
+   "roi_month": -0.3561795427,
+   "pass": false,
+   "desc": "geçmiş 40 gün, kârlı ay oranı 33%, en kötü ay −%49.6, Sharpe -0.93 (en az 2), kâr tek aya yığılmış, pozisyon süresi ölçülemedi ve sık işlem yapıyor, kaldıraç 9.8x, tek pozisyon hesabın 3.9 katı (sınır 2), GOLD pozisyonu likidasyona %19 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -0.93379,
+   "ret_365": null,
+   "worst_month": -0.49608,
+   "history_days": 39.88445,
+   "hold_h": null
+  },
+  {
+   "a": "0x41e503e3a8870a391ffdb1d4c3e8d794bc400825",
+   "eq": 708590.076144,
+   "gold_value": 9027040.0,
+   "gold_net": -9027040.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 12.739438927967035,
+   "gross_lev": 12.739438927967035,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -2200.0,
+     9027040,
+     20.0
+    ]
+   },
+   "pnl_all": 173719.096144,
+   "roi_month": 0.1687547642,
+   "pass": false,
+   "desc": "geçmiş 103 gün, kârlı ay oranı 40%, en kötü ay −%77.3, Sharpe 0.06 (en az 2), kâr tek aya yığılmış, pozisyon süresi ölçülemedi ve sık işlem yapıyor, kaldıraç 11.4x, son 3 ayın toplam getirideki payı %1811, tek pozisyon hesabın 11.4 katı (sınır 2), GOLD pozisyonu likidasyona %6 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 0.05713,
+   "ret_365": null,
+   "worst_month": -0.77335,
+   "history_days": 102.86778,
+   "hold_h": null
+  },
+  {
+   "a": "0xacb66d1996501bcc82a0e7819c9e041599f5efbd",
+   "eq": 5386227.959152,
+   "gold_value": 8957545.19506,
+   "gold_net": -8957545.19506,
+   "gold_share": 0.3762527025711407,
+   "gold_to_eq": 1.6630460617322744,
+   "gross_lev": 4.420024229375019,
+   "n_pos": 16,
+   "coins": {
+    "PAXG": [
+     -207.668,
+     849445,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -1975.3691,
+     8108100,
+     6.0
+    ]
+   },
+   "pnl_all": 3341973.049152,
+   "roi_month": 0.4324761397,
+   "pass": false,
+   "desc": "geçmiş 271 gün, kârlı ay oranı 50%, en kötü ay −%56.0, Sharpe 0.53 (en az 2), kâr tek aya yığılmış, kaldıraç 4.6x, son 3 ayın toplam getirideki payı %99, tek pozisyon hesabın 2.1 katı (sınır 2)",
+   "group": "dışında",
+   "sharpe": 0.53481,
+   "ret_365": null,
+   "worst_month": -0.56009,
+   "history_days": 270.93306,
+   "hold_h": null
+  },
+  {
+   "a": "0xdfb690eaae46e19c459d7a79af4844bc0d57294d",
+   "eq": 1300975.001158,
+   "gold_value": 7825798.16811,
+   "gold_net": 7825798.16811,
+   "gold_share": 1.0,
+   "gold_to_eq": 6.0153332394121675,
+   "gross_lev": 6.0153332394121675,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     1907.0103,
+     7825798,
+     6.0
+    ]
+   },
+   "pnl_all": -1415284.878842,
+   "roi_month": -0.4349742259,
+   "pass": false,
+   "desc": "geçmiş 54 gün, kârlı ay oranı 33%, en kötü ay −%137.6, Sharpe -3.44 (en az 2), kâr tek aya yığılmış, kaldıraç 6.1x, tek pozisyon hesabın 6.1 katı (sınır 2), GOLD pozisyonu likidasyona %15 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -3.4384,
+   "ret_365": null,
+   "worst_month": -1.37586,
+   "history_days": 53.93167,
+   "hold_h": null
+  },
+  {
+   "a": "0x044ab66014ae8c747ea89313c9400953bc65464a",
+   "eq": 1167247.856054,
+   "gold_value": 7272099.05895,
+   "gold_net": 7272099.05895,
+   "gold_share": 1.0,
+   "gold_to_eq": 6.230124151638256,
+   "gross_lev": 6.230124151638256,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     1772.0835,
+     7272099,
+     10.0
+    ]
+   },
+   "pnl_all": -1328672.014988,
+   "roi_month": -0.3503837625,
+   "pass": false,
+   "desc": "geçmiş 89 gün, kârlı ay oranı 25%, en kötü ay −%128.0, Sharpe -1.72 (en az 2), kâr tek aya yığılmış, kaldıraç 6.3x, tek pozisyon hesabın 6.3 katı (sınır 2), GOLD pozisyonu likidasyona %14 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -1.72154,
+   "ret_365": null,
+   "worst_month": -1.27987,
+   "history_days": 88.85667,
+   "hold_h": 60.98547
+  },
+  {
+   "a": "0xf3dcaeb909d3d17318c0908a1ec0ca31321e1672",
+   "eq": 2616078.003152,
+   "gold_value": 6475260.95883,
+   "gold_net": 6475260.95883,
+   "gold_share": 0.5525239021110142,
+   "gold_to_eq": 2.4751788559164662,
+   "gross_lev": 4.479767927612928,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     1577.4467,
+     6475261,
+     20.0
+    ]
+   },
+   "pnl_all": 919741.413152,
+   "roi_month": 0.2646738386,
+   "pass": false,
+   "desc": "Sharpe 1.62 (en az 2), pozisyon süresi kısa, çok sık işlem, kaldıraç 5.0x, son 6 ayın toplam getirideki payı %107, tek pozisyon hesabın 2.8 katı (sınır 2)",
+   "group": "geniş",
+   "sharpe": 1.61599,
+   "ret_365": null,
+   "worst_month": -0.24869,
+   "history_days": 634.90667,
+   "hold_h": 0.25162
+  },
+  {
+   "a": "0x3e4ca2a9f6614732f00072dcac194932a1bdb6c6",
+   "eq": 1336411.035234,
+   "gold_value": 5705394.0,
+   "gold_net": 5705394.0,
+   "gold_share": 0.8745776679406567,
+   "gold_to_eq": 4.2691910269964275,
+   "gross_lev": 4.881431556615174,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     1390.0,
+     5705394,
+     10.0
+    ]
+   },
+   "pnl_all": 143210.915234,
+   "roi_month": 0.2091280444,
+   "pass": false,
+   "desc": "geçmiş 355 gün, en kötü ay −%308.6, Sharpe -0.69 (en az 2), kâr tek aya yığılmış, kaldıraç 5.0x, tek pozisyon hesabın 4.4 katı (sınır 2), GOLD pozisyonu likidasyona %18 uzakta (çapraz teminat, bütün hesap risk altında), likidasyona yakın izole pozisyonların (BTC, HYPE) teminatı hesap değerinin %12 kadarı",
+   "group": "dışında",
+   "sharpe": -0.69311,
+   "ret_365": null,
+   "worst_month": -3.08589,
+   "history_days": 354.89139,
+   "hold_h": 27.3491
+  },
+  {
+   "a": "0xbcd420d13362532756c968f663f96ba95e240dd2",
+   "eq": 2035952.81284,
+   "gold_value": 3982676.14182,
+   "gold_net": 3982676.14182,
+   "gold_share": 0.17194673525037876,
+   "gold_to_eq": 1.95617310809108,
+   "gross_lev": 11.376622564206382,
+   "n_pos": 24,
+   "coins": {
+    "xyz:GOLD": [
+     970.5086,
+     3982676,
+     25.0
+    ]
+   },
+   "pnl_all": 2787208.179854,
+   "roi_month": 0.1581288844
+  },
+  {
+   "a": "0xa7426f2c5b90a81bfa7f8e3570fe0e745a97e390",
+   "eq": 375424.171158,
+   "gold_value": 3695478.4246,
+   "gold_net": -3695478.4246,
+   "gold_share": 1.0,
+   "gold_to_eq": 9.843474950484024,
+   "gross_lev": 9.843474950484024,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -900.0191,
+     3695478,
+     20.0
+    ]
+   },
+   "pnl_all": 784206.605146,
+   "roi_month": 0.4804407712,
+   "pass": false,
+   "desc": "geçmiş 320 gün, en kötü ay −%482.4, Sharpe -0.63 (en az 2), kâr tek aya yığılmış, kaldıraç 9.5x, tek pozisyon hesabın 9.5 katı (sınır 2), GOLD pozisyonu likidasyona %8 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -0.63144,
+   "ret_365": null,
+   "worst_month": -4.82368,
+   "history_days": 319.8525,
+   "hold_h": null
+  },
+  {
+   "a": "0x4a20b9496610941053858bd0b7e92493f44c3c26",
+   "eq": 2929633.181778,
+   "gold_value": 3440037.9676,
+   "gold_net": 3440037.9676,
+   "gold_share": 0.09381593894045111,
+   "gold_to_eq": 1.1742213970665891,
+   "gross_lev": 12.516224964842237,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     837.3997,
+     3440038,
+     20.0
+    ]
+   },
+   "pnl_all": -10653722.018222,
+   "roi_month": -0.7968872844
+  },
+  {
+   "a": "0xd8c5228c515db3043dfa0c8cd6f22450ee9a99b0",
+   "eq": 20544867.501918,
+   "gold_value": 3210561.74259,
+   "gold_net": -3210561.74259,
+   "gold_share": 0.05589023031045216,
+   "gold_to_eq": 0.1562707446173733,
+   "gross_lev": 2.7960297130525285,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     -782.1291,
+     3210562,
+     4.0
+    ]
+   },
+   "pnl_all": 7304735.221918,
+   "roi_month": 0.3131174005
+  },
+  {
+   "a": "0x9c062c0575c30a3b7614d0c6ea8de67faab00560",
+   "eq": 5297089.595866,
+   "gold_value": 3041387.9356,
+   "gold_net": -3041387.9356,
+   "gold_share": 0.13191030682591673,
+   "gold_to_eq": 0.5741620715597459,
+   "gross_lev": 4.352670275549226,
+   "n_pos": 32,
+   "coins": {
+    "xyz:GOLD": [
+     -740.9345,
+     3041388,
+     25.0
+    ]
+   },
+   "pnl_all": 2132731.635866,
+   "roi_month": 0.1883647434
+  },
+  {
+   "a": "0x0facac3bd128fe6d799898a059d3634b877c7a0a",
+   "eq": 1170458.4325989997,
+   "gold_value": 2816785.252,
+   "gold_net": 2816785.252,
+   "gold_share": 0.1912217722687092,
+   "gold_to_eq": 2.4065658151954494,
+   "gross_lev": 12.585208193833118,
+   "n_pos": 60,
+   "coins": {
+    "xyz:GOLD": [
+     686.485,
+     2816785,
+     25.0
+    ]
+   },
+   "pnl_all": 1264661.2325990002,
+   "roi_month": -0.3809195147
+  },
+  {
+   "a": "0xf58acdc969b08639ef752d4e3056d046bb869e8b",
+   "eq": 123051.81381,
+   "gold_value": 2589052.94808,
+   "gold_net": 2589052.94808,
+   "gold_share": 1.0,
+   "gold_to_eq": 21.040347703266413,
+   "gross_lev": 21.040347703266413,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     630.8916,
+     2589053,
+     25.0
+    ]
+   },
+   "pnl_all": -75248.18619,
+   "roi_month": -0.3794663953,
+   "pass": false,
+   "desc": "geçmiş 4 gün, kârlı ay oranı 0%, Sharpe -15.83 (en az 2), kâr tek aya yığılmış, pozisyon süresi ölçülemedi ve sık işlem yapıyor, kaldıraç 21.4x, tek pozisyon hesabın 21.4 katı (sınır 2), GOLD pozisyonu likidasyona %3 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -15.82648,
+   "ret_365": null,
+   "worst_month": 0.0,
+   "history_days": 3.65528,
+   "hold_h": null
+  },
+  {
+   "a": "0x625ecd6f45d13b367c7c7883d8264adccfa6a354",
+   "eq": 184525.79769,
+   "gold_value": 2545472.0,
+   "gold_net": -2545472.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 13.794667368279566,
+   "gross_lev": 13.794667368279566,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -620.0,
+     2545472,
+     20.0
+    ]
+   },
+   "pnl_all": 166424.57769,
+   "roi_month": 0.4042757951,
+   "pass": false,
+   "desc": "geçmiş 47 gün, en kötü ay −%55.5, kâr tek aya yığılmış, kaldıraç 12.7x, son 3 ayın toplam getirideki payı %100, tek pozisyon hesabın 12.7 katı (sınır 2), GOLD pozisyonu likidasyona %5 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 2.19655,
+   "ret_365": null,
+   "worst_month": -0.55491,
+   "history_days": 46.86639,
+   "hold_h": null
+  },
+  {
+   "a": "0xeae359d81a2f265aac3fb613000b42fcf6cce8ad",
+   "eq": 177704.679653,
+   "gold_value": 2463540.0,
+   "gold_net": -2463540.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 13.86311269242037,
+   "gross_lev": 13.86311269242037,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -600.0,
+     2463540,
+     20.0
+    ]
+   },
+   "pnl_all": 187953.499653,
+   "roi_month": 0.5339393417,
+   "pass": false,
+   "desc": "geçmiş 47 gün, kâr tek aya yığılmış, pozisyon süresi ölçülemedi ve sık işlem yapıyor, kaldıraç 12.6x, son 3 ayın toplam getirideki payı %100, tek pozisyon hesabın 12.6 katı (sınır 2), GOLD pozisyonu likidasyona %5 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 3.0391,
+   "ret_365": null,
+   "worst_month": -0.32293,
+   "history_days": 46.89973,
+   "hold_h": null
+  },
+  {
+   "a": "0x9aa589355bf745db9784c8ef3c646360f11b58af",
+   "eq": 11077860.67158,
+   "gold_value": 2271012.20696,
+   "gold_net": 2271012.20696,
+   "gold_share": 0.07801747822696449,
+   "gold_to_eq": 0.2050045829504094,
+   "gross_lev": 2.6276750749879465,
+   "n_pos": 40,
+   "coins": {
+    "xyz:GOLD": [
+     553.2577,
+     2271012,
+     20.0
+    ]
+   },
+   "pnl_all": 3112541.09158,
+   "roi_month": 0.2769939341
+  },
+  {
+   "a": "0x24fb52e17e3d4fd62a119b8f53c1a3f3bfe65c2f",
+   "eq": 708035.924453,
+   "gold_value": 2079509.34837,
+   "gold_net": 2079509.34837,
+   "gold_share": 0.507111417831186,
+   "gold_to_eq": 2.937011070415029,
+   "gross_lev": 5.791648476336892,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     506.7401,
+     2079509,
+     10.0
+    ]
+   },
+   "pnl_all": 1273174.454453,
+   "roi_month": 0.8062107536,
+   "pass": false,
+   "desc": "geçmiş 89 gün, kaldıraç 5.8x, son 3 ayın toplam getirideki payı %100, tek pozisyon hesabın 2.9 katı (sınır 2)",
+   "group": "dışında",
+   "sharpe": 5.08057,
+   "ret_365": null,
+   "worst_month": 0.0,
+   "history_days": 88.89556,
+   "hold_h": 24.01559
+  },
+  {
+   "a": "0xf285dc9b67fca63006646fb3664861d2be2ffa82",
+   "eq": 145565.970131,
+   "gold_value": 1965376.316,
+   "gold_net": 1965376.316,
+   "gold_share": 1.0,
+   "gold_to_eq": 13.501619329238062,
+   "gross_lev": 13.501619329238062,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     478.4848,
+     1965376,
+     25.0
+    ]
+   },
+   "pnl_all": -179558.929869,
+   "roi_month": -0.3121335215,
+   "pass": false,
+   "desc": "geçmiş 89 gün, kârlı ay oranı 25%, en kötü ay −%105.5, Sharpe -0.21 (en az 2), kâr tek aya yığılmış, kaldıraç 9.3x, tek pozisyon hesabın 9.3 katı (sınır 2), GOLD pozisyonu likidasyona %5 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": -0.20522,
+   "ret_365": null,
+   "worst_month": -1.0554,
+   "history_days": 88.92195,
+   "hold_h": 48.23998
+  },
+  {
+   "a": "0x781e95fdc049433565cf8e05265361b8402196b7",
+   "eq": 3648832.024725,
+   "gold_value": 1953633.7446,
+   "gold_net": -1953633.7446,
+   "gold_share": 0.18139133007379385,
+   "gold_to_eq": 0.5354134504854985,
+   "gross_lev": 2.9517036468483964,
+   "n_pos": 10,
+   "coins": {
+    "PAXG": [
+     -477.591,
+     1953634,
+     10.0
+    ]
+   },
+   "pnl_all": -3474093.165275,
+   "roi_month": 0.5114575082
+  },
+  {
+   "a": "0x4c926934f5d1b42e2226c2fe3b516890886c4f17",
+   "eq": 740618.754473,
+   "gold_value": 1947127.52988,
+   "gold_net": -1947127.52988,
+   "gold_share": 0.783075272976625,
+   "gold_to_eq": 2.62905512197772,
+   "gross_lev": 3.3573466213332956,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     -474.4116,
+     1947128,
+     20.0
+    ]
+   },
+   "pnl_all": -13386.225473,
+   "roi_month": 0.0188076742,
+   "pass": false,
+   "desc": "geçmiş 166 gün, kârlı ay oranı 40%, en kötü ay −%68.4, Sharpe -1.08 (en az 2), kâr tek aya yığılmış, pozisyon süresi ölçülemedi ve sık işlem yapıyor, çok sık işlem, kaldıraç 3.3x, tek pozisyon hesabın 2.6 katı (sınır 2)",
+   "group": "dışında",
+   "sharpe": -1.08113,
+   "ret_365": null,
+   "worst_month": -0.68413,
+   "history_days": 165.85112,
+   "hold_h": null
+  },
+  {
+   "a": "0xecb63caa47c7c4e77f60f1ce858cf28dc2b82b00",
+   "eq": 89984828.477076,
+   "gold_value": 1907771.21736,
+   "gold_net": 1781369.85264,
+   "gold_share": 0.022789432514437775,
+   "gold_to_eq": 0.02120103188112441,
+   "gross_lev": 0.9303010010316375,
+   "n_pos": 132,
+   "coins": {
+    "PAXG": [
+     450.885,
+     1844571,
+     5.0
+    ],
+    "xyz:GOLD": [
+     -15.3964,
+     63201,
+     3.0
+    ]
+   },
+   "pnl_all": 224732329.727076,
+   "roi_month": 0.3115062214
+  },
+  {
+   "a": "0x72c2509fb0bc0284c0a5ec3d57c75ec40f519b37",
+   "eq": 333824.32992,
+   "gold_value": 1906477.09608,
+   "gold_net": 1906477.09608,
+   "gold_share": 1.0,
+   "gold_to_eq": 5.7110190157106935,
+   "gross_lev": 5.7110190157106935,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     464.2697,
+     1906477,
+     12.0
+    ]
+   },
+   "pnl_all": 43332.71992,
+   "roi_month": 0.1491702976,
+   "pass": false,
+   "desc": "geçmiş 17 gün, kârlı ay oranı 50%, Sharpe 1.09 (en az 2), kâr tek aya yığılmış, kaldıraç 5.8x, son 3 ayın toplam getirideki payı %100, tek pozisyon hesabın 5.8 katı (sınır 2), likidasyona yakın izole pozisyonların (GOLD) teminatı hesap değerinin %78 kadarı",
+   "group": "dışında",
+   "sharpe": 1.09254,
+   "ret_365": null,
+   "worst_month": 0.0,
+   "history_days": 16.88167,
+   "hold_h": null
+  },
+  {
+   "a": "0xead5b7d86c681c036c59cd00a0390541061c69f2",
+   "eq": 8666889.020379,
+   "gold_value": 1862192.99043,
+   "gold_net": 1862192.99043,
+   "gold_share": 0.8180387566772037,
+   "gold_to_eq": 0.2148629094074366,
+   "gross_lev": 0.2626561488115667,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     453.7839,
+     1862193,
+     5.0
+    ]
+   },
+   "pnl_all": 10273680.890378999,
+   "roi_month": -0.1544517765,
+   "pass": false,
+   "desc": "kârlı ay oranı 35%, en kötü ay −%124.0, Sharpe -2.36 (en az 2), kâr tek aya yığılmış, kaldıraç 4.1x, tek pozisyon hesabın 3.3 katı (sınır 2), likidasyona yakın izole pozisyonların (GOLD, JPY) teminatı hesap değerinin %58 kadarı",
+   "group": "dışında",
+   "sharpe": -2.36217,
+   "ret_365": -0.47432,
+   "worst_month": -1.23982,
+   "history_days": 921.85528,
+   "hold_h": 168.84307
+  },
+  {
+   "a": "0xee02fd4a30098447215ec0052e4236e077a7309d",
+   "eq": 117410.730923,
+   "gold_value": 1643280.0,
+   "gold_net": -1643280.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 13.995994974920066,
+   "gross_lev": 13.995994974920066,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -400.0,
+     1643280,
+     25.0
+    ]
+   },
+   "pnl_all": -434137.553881,
+   "roi_month": 0.406666614,
+   "pass": false,
+   "desc": "kârlı ay oranı 50%, en kötü ay −%325.7, Sharpe -0.80 (en az 2), kâr tek aya yığılmış, kaldıraç 13.8x, tek pozisyon hesabın 13.8 katı (sınır 2), likidasyona yakın izole pozisyonların (GOLD) teminatı hesap değerinin %100 kadarı",
+   "group": "dışında",
+   "sharpe": -0.79852,
+   "ret_365": null,
+   "worst_month": -3.25715,
+   "history_days": 585.84834,
+   "hold_h": 109.39494
+  },
+  {
+   "a": "0x6d15b96f2e0355f4f636635b29b169625964d374",
+   "eq": 185815.433047,
+   "gold_value": 1642080.0,
+   "gold_net": 1642080.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 8.837156166595989,
+   "gross_lev": 8.837156166595989,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     400.0,
+     1642080,
+     25.0
+    ]
+   },
+   "pnl_all": 347738.463047,
+   "roi_month": -0.1775012752,
+   "pass": false,
+   "desc": "kârlı ay oranı 56%, en kötü ay −%93.7, Sharpe 0.01 (en az 2), kâr tek aya yığılmış, kaldıraç 8.5x, tek pozisyon hesabın 8.5 katı (sınır 2), GOLD pozisyonu likidasyona %9 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 0.00621,
+   "ret_365": null,
+   "worst_month": -0.93705,
+   "history_days": 473.8525,
+   "hold_h": 75.69196
+  },
+  {
+   "a": "0x02a75d2b721c68163dfaa7c00839228c08adfe9f",
+   "eq": 129479.728436,
+   "gold_value": 1602159.0,
+   "gold_net": -1602159.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 12.373821132872738,
+   "gross_lev": 12.373821132872738,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -390.0,
+     1602159,
+     25.0
+    ]
+   },
+   "pnl_all": -6046.891564,
+   "roi_month": 0.0087091047,
+   "pass": false,
+   "desc": "geçmiş 166 gün, kârlı ay oranı 50%, en kötü ay −%150.4, Sharpe 0.07 (en az 2), kâr tek aya yığılmış, kaldıraç 11.4x, tek pozisyon hesabın 11.4 katı (sınır 2), GOLD pozisyonu likidasyona %6 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 0.06575,
+   "ret_365": null,
+   "worst_month": -1.5044,
+   "history_days": 165.8525,
+   "hold_h": 315.7761
+  },
+  {
+   "a": "0x51f63885534cb494f4592a0311551f369bff2b39",
+   "eq": 1619650.311111,
+   "gold_value": 1579199.051978,
+   "gold_net": 1579199.051978,
+   "gold_share": 0.1532069643679567,
+   "gold_to_eq": 0.975024695852247,
+   "gross_lev": 6.36410165735373,
+   "n_pos": 44,
+   "coins": {
+    "PAXG": [
+     386.123,
+     1579199,
+     10.0
+    ]
+   },
+   "pnl_all": -5015689.808889,
+   "roi_month": 0.6288380748
+  },
+  {
+   "a": "0x7e77c0b51e27d8a32f7c19747ff1c71cba41b8d2",
+   "eq": 116706.424908,
+   "gold_value": 1560090.0,
+   "gold_net": -1560090.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 13.367644508259279,
+   "gross_lev": 13.367644508259279,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     -380.0,
+     1560090,
+     20.0
+    ]
+   },
+   "pnl_all": 114658.544908,
+   "roi_month": 0.481335586,
+   "pass": false,
+   "desc": "geçmiş 96 gün, kârlı ay oranı 50%, en kötü ay −%54.5, kâr tek aya yığılmış, kaldıraç 12.3x, son 3 ayın toplam getirideki payı %100, tek pozisyon hesabın 12.3 katı (sınır 2), GOLD pozisyonu likidasyona %5 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 2.1935,
+   "ret_365": null,
+   "worst_month": -0.54519,
+   "history_days": 95.87056,
+   "hold_h": null
+  },
+  {
+   "a": "0x7fdafde5cfb5465924316eced2d3715494c517d1",
+   "eq": 29891049.076049,
+   "gold_value": 1500097.1076,
+   "gold_net": -1500097.1076,
+   "gold_share": 0.011082801713677756,
+   "gold_to_eq": 0.05018549545663129,
+   "gross_lev": 4.528231827399316,
+   "n_pos": 50,
+   "coins": {
+    "xyz:GOLD": [
+     -365.4495,
+     1500097,
+     20.0
+    ]
+   },
+   "pnl_all": 165203129.586049,
+   "roi_month": 0.5053981347
+  },
+  {
+   "a": "0xefffa330cbae8d916ad1d33f0eeb16cfa711fa91",
+   "eq": 889231.836317,
+   "gold_value": 1432946.7588,
+   "gold_net": 1432946.7588,
+   "gold_share": 0.5005976930234299,
+   "gold_to_eq": 1.6114433832406923,
+   "gross_lev": 3.219038772448499,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     348.9545,
+     1432947,
+     9.0
+    ]
+   },
+   "pnl_all": -1341056.653683,
+   "roi_month": 0.2906199926,
+   "pass": false,
+   "desc": "en kötü ay −%82.0, Sharpe 0.49 (en az 2), kâr tek aya yığılmış, son 3 ayın toplam getirideki payı %64",
+   "group": "dışında",
+   "sharpe": 0.49279,
+   "ret_365": -8.06423,
+   "worst_month": -0.8199,
+   "history_days": 368.90251,
+   "hold_h": 151.67073
+  },
+  {
+   "a": "0x668cec05549105e5b05bcc779a43186735d7ea2e",
+   "eq": 6064091.17535,
+   "gold_value": 1354320.0,
+   "gold_net": 1354320.0,
+   "gold_share": 0.5380221037493743,
+   "gold_to_eq": 0.2233343729238756,
+   "gross_lev": 0.4151025977696838,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     330.0,
+     1354320,
+     5.0
+    ]
+   },
+   "pnl_all": 4612663.76535,
+   "roi_month": 0.1255925568,
+   "pass": false,
+   "desc": "kârlı ay oranı 44%, en kötü ay −%72.1, Sharpe 0.85 (en az 2), kâr tek aya yığılmış",
+   "group": "dışında",
+   "sharpe": 0.84928,
+   "ret_365": 1.10799,
+   "worst_month": -0.72126,
+   "history_days": 739.91778,
+   "hold_h": 10.09038
+  },
+  {
+   "a": "0xa41f6abca0cb06a105f12a682e1995efa0c1d50a",
+   "eq": 193770.060524,
+   "gold_value": 1350586.79776,
+   "gold_net": 1350586.79776,
+   "gold_share": 0.890254211327329,
+   "gold_to_eq": 6.970048902847501,
+   "gross_lev": 7.829279338600905,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     328.9621,
+     1350587,
+     15.0
+    ]
+   },
+   "pnl_all": 149112.65162,
+   "roi_month": -0.3671720614,
+   "pass": false,
+   "desc": "kârlı ay oranı 58%, en kötü ay −%56.0, Sharpe 1.68 (en az 2), kâr tek aya yığılmış, kaldıraç 14.0x, tek pozisyon hesabın 12.5 katı (sınır 2), GOLD pozisyonu likidasyona %6 uzakta (çapraz teminat, bütün hesap risk altında)",
+   "group": "dışında",
+   "sharpe": 1.67729,
+   "ret_365": 0.856,
+   "worst_month": -0.55973,
+   "history_days": 627.89834,
+   "hold_h": 10.82606
+  },
+  {
+   "a": "0xf220c9b7b4c0e5e785ebe4b40b17576ce24473e0",
+   "eq": 1922732.324756,
+   "gold_value": 1272147.0,
+   "gold_net": 1272147.0,
+   "gold_share": 0.21617113065678012,
+   "gold_to_eq": 0.6616349991210758,
+   "gross_lev": 3.0607000902982224,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     310.0,
+     1272147,
+     20.0
+    ]
+   },
+   "pnl_all": 4535013.274756,
+   "roi_month": 0.608117203
+  },
+  {
+   "a": "0xee3e30da5ee723f367ccb31afcf40822126b7b7a",
+   "eq": 814233.605609,
+   "gold_value": 1197227.97546,
+   "gold_net": -1197227.97546,
+   "gold_share": 0.5155462822648633,
+   "gold_to_eq": 1.4703740636749356,
+   "gross_lev": 2.8520699581333164,
+   "n_pos": 2,
+   "coins": {
+    "PAXG": [
+     -292.38,
+     1197228,
+     10.0
+    ]
+   },
+   "pnl_all": 84956.381668,
+   "roi_month": 0.2235385712
+  },
+  {
+   "a": "0x50e24348905d4a8ad53d953524264016d28ad770",
+   "eq": 229250.815241,
+   "gold_value": 1110615.20572,
+   "gold_net": 1110615.20572,
+   "gold_share": 1.0,
+   "gold_to_eq": 4.8445420119988025,
+   "gross_lev": 4.8445420119988025,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     270.3674,
+     1110615,
+     20.0
+    ]
+   },
+   "pnl_all": 137264.428766,
+   "roi_month": -0.1446601938
+  },
+  {
+   "a": "0xd34645cc6b2bf7b83baa86a3fd57cad53855c4f3",
+   "eq": 258228.193944,
+   "gold_value": 1048432.59206,
+   "gold_net": 1048432.59206,
+   "gold_share": 0.9288074249593379,
+   "gold_to_eq": 4.060101168842027,
+   "gross_lev": 4.3713056762221445,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     255.1738,
+     1048433,
+     5.0
+    ]
+   },
+   "pnl_all": 76287.781938,
+   "roi_month": -0.1031530078
+  },
+  {
+   "a": "0x82c4426b73929c9b2a373b3a902ae7471abf0914",
+   "eq": 280891.921506,
+   "gold_value": 994763.019,
+   "gold_net": 994763.019,
+   "gold_share": 0.44399270823233233,
+   "gold_to_eq": 3.5414440318062024,
+   "gross_lev": 7.976356291763777,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     242.43,
+     994763,
+     25.0
+    ]
+   },
+   "pnl_all": 78462.101506,
+   "roi_month": -0.2532132272
+  },
+  {
+   "a": "0x320366a4e93026784583a29458827313605b2887",
+   "eq": 621963.960672,
+   "gold_value": 975424.6535,
+   "gold_net": 975424.6535,
+   "gold_share": 0.4885168569791015,
+   "gold_to_eq": 1.5682977072274478,
+   "gross_lev": 3.210324648622184,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     237.7345,
+     975425,
+     20.0
+    ]
+   },
+   "pnl_all": 178079.230672,
+   "roi_month": -0.1462224769
+  },
+  {
+   "a": "0x07fd993f0fa3a185f7207adccd29f7a87404689d",
+   "eq": 9796976.45564,
+   "gold_value": 943695.3462,
+   "gold_net": 943695.3462,
+   "gold_share": 0.03212826001959012,
+   "gold_to_eq": 0.09632516220417435,
+   "gross_lev": 2.998144379603512,
+   "n_pos": 60,
+   "coins": {
+    "PAXG": [
+     230.738,
+     943695,
+     5.0
+    ]
+   },
+   "pnl_all": 2450886.67564,
+   "roi_month": 0.2045207239
+  },
+  {
+   "a": "0x675462411d40a169c3397ac1dc00786dc9c7d3a1",
+   "eq": 517038.021478,
+   "gold_value": 940365.6,
+   "gold_net": 940365.6,
+   "gold_share": 0.26984221285845156,
+   "gold_to_eq": 1.8187552190298883,
+   "gross_lev": 6.740069315929953,
+   "n_pos": 25,
+   "coins": {
+    "xyz:GOLD": [
+     229.0,
+     940366,
+     25.0
+    ]
+   },
+   "pnl_all": 814945.6976450001,
+   "roi_month": 0.6501877122
+  },
+  {
+   "a": "0xfc27136e42af1732ddc9ce2605ea9bff1b959d9d",
+   "eq": 43970438.485793,
+   "gold_value": 873280.60176,
+   "gold_net": -873280.60176,
+   "gold_share": 0.005101196805364943,
+   "gold_to_eq": 0.019860629819331,
+   "gross_lev": 3.8933275027623955,
+   "n_pos": 87,
+   "coins": {
+    "xyz:GOLD": [
+     -212.7462,
+     873281,
+     25.0
+    ]
+   },
+   "pnl_all": 22841219.335793,
+   "roi_month": 0.5134108601
+  },
+  {
+   "a": "0xa6e2dc44418f5ad213c86db4dbb203a59d13c49f",
+   "eq": 496476.351613,
+   "gold_value": 853380.94184,
+   "gold_net": 853380.94184,
+   "gold_share": 0.2880164920965972,
+   "gold_to_eq": 1.7188753080936365,
+   "gross_lev": 5.967975290516167,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     207.8983,
+     853381,
+     24.0
+    ]
+   },
+   "pnl_all": 3187298.9016130003,
+   "roi_month": -0.3693779295
+  },
+  {
+   "a": "0xf1245033de5669c24b7915256afb598ac3245bf1",
+   "eq": 993269.047192,
+   "gold_value": 821500.0,
+   "gold_net": 821500.0,
+   "gold_share": 0.3125224690910903,
+   "gold_to_eq": 0.8270669486000838,
+   "gross_lev": 2.646423954749379,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     200.0,
+     821500,
+     10.0
+    ]
+   },
+   "pnl_all": 258742.387192,
+   "roi_month": -0.088257795
+  },
+  {
+   "a": "0xa243ecc646b1ce99c8c2810b6581cce76ec6f989",
+   "eq": 312814.276318,
+   "gold_value": 820760.0,
+   "gold_net": 820760.0,
+   "gold_share": 0.16652994773569713,
+   "gold_to_eq": 2.6237932924954928,
+   "gross_lev": 15.755684356904775,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     200.0,
+     820760,
+     20.0
+    ]
+   },
+   "pnl_all": 405599.046318,
+   "roi_month": -0.5645003754
+  },
+  {
+   "a": "0x9751cec58be43e0e27d57ba49ac3d68ec269a97e",
+   "eq": 7232914.784514001,
+   "gold_value": 772717.227,
+   "gold_net": -772717.227,
+   "gold_share": 0.08045577767289015,
+   "gold_to_eq": 0.10683344820464671,
+   "gross_lev": 1.3278530305057832,
+   "n_pos": 43,
+   "coins": {
+    "PAXG": [
+     -188.97,
+     772717,
+     2.0
+    ]
+   },
+   "pnl_all": 2232034.064514,
+   "roi_month": 0.2935943055
+  },
+  {
+   "a": "0x518a8792dc1c9633dd0637aa195f8e6dcba0f90f",
+   "eq": 564947.991491,
+   "gold_value": 733886.07417,
+   "gold_net": 733886.07417,
+   "gold_share": 0.21053897914330896,
+   "gold_to_eq": 1.299032982192116,
+   "gross_lev": 6.170035532032739,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     178.7481,
+     733886,
+     10.0
+    ]
+   },
+   "pnl_all": -84921.454888,
+   "roi_month": -0.3086730797
+  },
+  {
+   "a": "0x2cd2e7c7a41fa5e8b4e546ddd27ad6bab9988713",
+   "eq": 915447.075452,
+   "gold_value": 683008.70016,
+   "gold_net": 683008.70016,
+   "gold_share": 0.6009237308636196,
+   "gold_to_eq": 0.7460930494783283,
+   "gross_lev": 1.2415769442256475,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     166.2307,
+     683009,
+     3.0
+    ]
+   },
+   "pnl_all": -376440.124548,
+   "roi_month": -0.0936776108
+  },
+  {
+   "a": "0x1c2c96e78a42958892e637bdc0d94ce259f109fe",
+   "eq": 974493.398929,
+   "gold_value": 665708.0088,
+   "gold_net": 665708.0088,
+   "gold_share": 0.13535772644519403,
+   "gold_to_eq": 0.6831323942590424,
+   "gross_lev": 5.0468666414520555,
+   "n_pos": 58,
+   "coins": {
+    "xyz:GOLD": [
+     162.024,
+     665708,
+     20.0
+    ]
+   },
+   "pnl_all": 701444.808929,
+   "roi_month": 0.2787528611
+  },
+  {
+   "a": "0xfc667adba8d4837586078f4fdcdc29804337ca06",
+   "eq": 78357234.236664,
+   "gold_value": 662834.49523,
+   "gold_net": 42069.35077000002,
+   "gold_share": 0.00544752380976062,
+   "gold_to_eq": 0.008459135926467581,
+   "gross_lev": 1.5528405605700877,
+   "n_pos": 64,
+   "coins": {
+    "PAXG": [
+     86.153,
+     352452,
+     8.0
+    ],
+    "xyz:GOLD": [
+     -75.6127,
+     310383,
+     8.0
+    ]
+   },
+   "pnl_all": 47474601.046664,
+   "roi_month": 0.2225720759
+  },
+  {
+   "a": "0x96a7923964dbfc5010079619e8af33ce240f79df",
+   "eq": 2369726.666134,
+   "gold_value": 653771.496,
+   "gold_net": 653771.496,
+   "gold_share": 0.08916140786930665,
+   "gold_to_eq": 0.2758847698948211,
+   "gross_lev": 3.094217290727561,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     159.27,
+     653771,
+     25.0
+    ]
+   },
+   "pnl_all": 1512190.616859,
+   "roi_month": -0.351137393
+  },
+  {
+   "a": "0x3e6a7bed98d237b5344e83dca13d7018c3dfe95f",
+   "eq": 189534.7608,
+   "gold_value": 644351.6023,
+   "gold_net": 644351.6023,
+   "gold_share": 0.6896538592839864,
+   "gold_to_eq": 3.399648695470325,
+   "gross_lev": 4.929499994388365,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     156.8147,
+     644352,
+     8.0
+    ]
+   },
+   "pnl_all": -195531.0292,
+   "roi_month": -0.1582674258
+  },
+  {
+   "a": "0xc2b14fde015fe4da3a238aa0e6fb7365af32760b",
+   "eq": 1519482.31718,
+   "gold_value": 613785.0,
+   "gold_net": -613785.0,
+   "gold_share": 0.17751818138040967,
+   "gold_to_eq": 0.4039434964528713,
+   "gross_lev": 2.275504927505128,
+   "n_pos": 11,
+   "coins": {
+    "PAXG": [
+     -150.0,
+     613785,
+     10.0
+    ]
+   },
+   "pnl_all": 425557.66718,
+   "roi_month": 1.5196889775
+  },
+  {
+   "a": "0x766337d18e12df977b5f54516b2333e39e7dcb5a",
+   "eq": 1171735.077253,
+   "gold_value": 589529.3391,
+   "gold_net": 589529.3391,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.5031251095444583,
+   "gross_lev": 0.5031251095444583,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     143.637,
+     589529,
+     4.0
+    ]
+   },
+   "pnl_all": -714630.519757,
+   "roi_month": 0.0605439673
+  },
+  {
+   "a": "0x40a632026febd007b0e4431a29170507f7aa3896",
+   "eq": 1013221.844686,
+   "gold_value": 574798.0,
+   "gold_net": 574798.0,
+   "gold_share": 0.3668364836009131,
+   "gold_to_eq": 0.5672972834277288,
+   "gross_lev": 1.5464581871984686,
+   "n_pos": 19,
+   "coins": {
+    "xyz:GOLD": [
+     140.0,
+     574798,
+     20.0
+    ]
+   },
+   "pnl_all": 282657.084686,
+   "roi_month": 0.0789813075
+  },
+  {
+   "a": "0x2a27a1a85b7bff3432fb58b3cce3c3f0f14e5ff7",
+   "eq": 136999.747839,
+   "gold_value": 549826.123,
+   "gold_net": 549826.123,
+   "gold_share": 1.0,
+   "gold_to_eq": 4.013336751875976,
+   "gross_lev": 4.013336751875976,
+   "n_pos": 1,
+   "coins": {
+    "PAXG": [
+     134.33,
+     549826,
+     3.0
+    ]
+   },
+   "pnl_all": -113010.262161,
+   "roi_month": -0.1003302076
+  },
+  {
+   "a": "0xeaad1c358354a51ef09265f1b64d6c562d943c26",
+   "eq": 7294789.550434,
+   "gold_value": 519022.62,
+   "gold_net": -519022.62,
+   "gold_share": 0.09421643369766544,
+   "gold_to_eq": 0.07114977291827713,
+   "gross_lev": 0.7551737008704048,
+   "n_pos": 17,
+   "coins": {
+    "xyz:GOLD": [
+     -126.4675,
+     519023,
+     2.0
+    ]
+   },
+   "pnl_all": 1294774.550434,
+   "roi_month": 0.1816008771
+  },
+  {
+   "a": "0xab59fb979ae9042ae23bfbe5bd1eb89b7f5659b5",
+   "eq": 701150.751122,
+   "gold_value": 490411.62,
+   "gold_net": 490411.62,
+   "gold_share": 0.15567048804871966,
+   "gold_to_eq": 0.6994382010077438,
+   "gross_lev": 4.49306872339761,
+   "n_pos": 8,
+   "coins": {
+    "xyz:GOLD": [
+     119.4,
+     490412,
+     20.0
+    ]
+   },
+   "pnl_all": 79273.431122,
+   "roi_month": -0.2237055361
+  },
+  {
+   "a": "0x3286cd2bd1b67afbcbb6988bebd50229120092e1",
+   "eq": 621755.819445,
+   "gold_value": 484362.244,
+   "gold_net": 484362.244,
+   "gold_share": 0.4911153891937691,
+   "gold_to_eq": 0.7790232577675877,
+   "gross_lev": 1.5862326347509847,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     118.045,
+     484362,
+     20.0
+    ]
+   },
+   "pnl_all": 1123411.619445,
+   "roi_month": 0.0827197531
+  },
+  {
+   "a": "0xea9e2c238d19f0c92847f7ebae6126da894f61a9",
+   "eq": 135670.797524,
+   "gold_value": 478429.0168,
+   "gold_net": 478429.0168,
+   "gold_share": 0.6774442160551696,
+   "gold_to_eq": 3.5263964355731487,
+   "gross_lev": 5.20544179431885,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     116.599,
+     478429,
+     10.0
+    ]
+   },
+   "pnl_all": -127142.322476,
+   "roi_month": -0.4044183595
+  },
+  {
+   "a": "0xf517639a8872e756ac98d3c65507d2ebc25cc032",
+   "eq": 10472616.784796,
+   "gold_value": 477886.074,
+   "gold_net": 477886.074,
+   "gold_share": 0.005661709003547506,
+   "gold_to_eq": 0.0456319641805082,
+   "gross_lev": 8.059750890043304,
+   "n_pos": 25,
+   "coins": {
+    "PAXG": [
+     116.814,
+     477886,
+     10.0
+    ]
+   },
+   "pnl_all": 31005363.244795997,
+   "roi_month": 0.1420727214
+  },
+  {
+   "a": "0x0c51fe7923bee4c22a84c5b4109e0c5336d8fde2",
+   "eq": 283532.082512,
+   "gold_value": 472699.69164,
+   "gold_net": 472699.69164,
+   "gold_share": 0.4827717527569862,
+   "gold_to_eq": 1.6671823782763413,
+   "gross_lev": 3.4533552734920563,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     115.1634,
+     472700,
+     20.0
+    ]
+   },
+   "pnl_all": 1164000.142512,
+   "roi_month": -0.1919918243
+  },
+  {
+   "a": "0x3eb6bed67d046fbffb8ada21167e592f3fef5470",
+   "eq": 4805844.343751,
+   "gold_value": 458633.20533,
+   "gold_net": -458633.20533,
+   "gold_share": 0.04664405491153647,
+   "gold_to_eq": 0.09543238867616613,
+   "gross_lev": 2.0459711072967384,
+   "n_pos": 45,
+   "coins": {
+    "xyz:GOLD": [
+     -111.7609,
+     458633,
+     5.0
+    ]
+   },
+   "pnl_all": 1050414.41888,
+   "roi_month": 0.3845976374
+  },
+  {
+   "a": "0x1a34227804c280126502eb32505460949466889b",
+   "eq": 684038.746798,
+   "gold_value": 457060.83025,
+   "gold_net": 457060.83025,
+   "gold_share": 0.2719692010210735,
+   "gold_to_eq": 0.6681797374629895,
+   "gross_lev": 2.4568213421019527,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     111.2747,
+     457061,
+     3.0
+    ]
+   },
+   "pnl_all": 268391.026798,
+   "roi_month": -0.0353158575
+  },
+  {
+   "a": "0xf89248882f7d6aef148b68937f7e7d7c02cbe9f9",
+   "eq": 149932.763468,
+   "gold_value": 457048.2585,
+   "gold_net": 457048.2585,
+   "gold_share": 0.2666067010252675,
+   "gold_to_eq": 3.048354795364973,
+   "gross_lev": 11.433901637288804,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     111.315,
+     457048,
+     10.0
+    ]
+   },
+   "pnl_all": -8391.338617,
+   "roi_month": 0.0007601368
+  },
+  {
+   "a": "0x4180847debea25583c4dc0b925c6b1c750d34bf7",
+   "eq": 646213.749873,
+   "gold_value": 455521.8,
+   "gold_net": -455521.8,
+   "gold_share": 0.46241064489136385,
+   "gold_to_eq": 0.7049088634983757,
+   "gross_lev": 1.5244217910770261,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -111.0,
+     455522,
+     20.0
+    ]
+   },
+   "pnl_all": 258645.359873,
+   "roi_month": 0.4727328212
+  },
+  {
+   "a": "0x37841dcdd8c60d6af2e92aecb404b590803096f6",
+   "eq": 145396.884624,
+   "gold_value": 444392.8833,
+   "gold_net": 444392.8833,
+   "gold_share": 1.0,
+   "gold_to_eq": 3.056412690335224,
+   "gross_lev": 3.056412690335224,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     108.159,
+     444393,
+     5.0
+    ]
+   },
+   "pnl_all": -14169.515376,
+   "roi_month": -0.04601892
+  },
+  {
+   "a": "0xacb1258c9e6cfde6997c585b3aeed6eb963eb1e4",
+   "eq": 153081.126328,
+   "gold_value": 410900.0,
+   "gold_net": 410900.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 2.684197652946341,
+   "gross_lev": 2.684197652946341,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     100.0,
+     410900,
+     10.0
+    ]
+   },
+   "pnl_all": 2864.263018,
+   "roi_month": 0.019926948
+  },
+  {
+   "a": "0x1e25c2827c34616e20aaf67e71a0b47bdbcaffa9",
+   "eq": 518551.231312,
+   "gold_value": 410750.0,
+   "gold_net": 410750.0,
+   "gold_share": 0.2358814270151567,
+   "gold_to_eq": 0.7921107408437749,
+   "gross_lev": 3.358088641683846,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     100.0,
+     410750,
+     20.0
+    ]
+   },
+   "pnl_all": 210704.551312,
+   "roi_month": -0.0401013052
+  },
+  {
+   "a": "0xafd2fedf8615a073f1cd80884e91e1c4ef1ad797",
+   "eq": 1471071.406514,
+   "gold_value": 410580.0,
+   "gold_net": -410580.0,
+   "gold_share": 0.07823683027274515,
+   "gold_to_eq": 0.2791026990137427,
+   "gross_lev": 3.5674080614047043,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     -100.0,
+     410580,
+     20.0
+    ]
+   },
+   "pnl_all": 247710.430002,
+   "roi_month": 0.298343786
+  },
+  {
+   "a": "0x926a8a1bc7fa22e2fdd4459c443158aa38adaf36",
+   "eq": 1547434.704677,
+   "gold_value": 410370.0,
+   "gold_net": 410370.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.2651937421073011,
+   "gross_lev": 0.2651937421073011,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     100.0,
+     410370,
+     20.0
+    ]
+   },
+   "pnl_all": 962114.635225,
+   "roi_month": -0.064527089
+  },
+  {
+   "a": "0x1d192873ace6daaad3a78ae3ea9a5c283fefd4b3",
+   "eq": 782617.510663,
+   "gold_value": 410330.0,
+   "gold_net": 410330.0,
+   "gold_share": 0.1100781919201593,
+   "gold_to_eq": 0.5243046499846215,
+   "gross_lev": 4.763020184460372,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     100.0,
+     410330,
+     20.0
+    ]
+   },
+   "pnl_all": 345192.140663,
+   "roi_month": 0.7546414416
+  },
+  {
+   "a": "0x0faef09b4deaedb0b99d68131f76acbef7cb4c8c",
+   "eq": 287137.243412,
+   "gold_value": 408988.6,
+   "gold_net": 408988.6,
+   "gold_share": 0.12081969913461142,
+   "gold_to_eq": 1.4243662547570015,
+   "gross_lev": 11.789188890216009,
+   "n_pos": 6,
+   "coins": {
+    "PAXG": [
+     100.0,
+     408989,
+     10.0
+    ]
+   },
+   "pnl_all": 414822.883412,
+   "roi_month": -0.458570396
+  },
+  {
+   "a": "0x705f95654ab855abebb5aca678887c3333fb99c4",
+   "eq": 108004.811371,
+   "gold_value": 402106.31019,
+   "gold_net": 402106.31019,
+   "gold_share": 0.5387589007886919,
+   "gold_to_eq": 3.723040715369169,
+   "gross_lev": 6.910402241000549,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     97.8861,
+     402106,
+     15.0
+    ]
+   },
+   "pnl_all": -479588.658629,
+   "roi_month": -0.2017760029
+  },
+  {
+   "a": "0x3ed46593ed1fd21f1ca11dd45541d51076957039",
+   "eq": 704285.668872,
+   "gold_value": 401349.92795,
+   "gold_net": 401349.92795,
+   "gold_share": 0.745161244276778,
+   "gold_to_eq": 0.5698680886021879,
+   "gross_lev": 0.7647580882380399,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     97.8115,
+     401350,
+     5.0
+    ]
+   },
+   "pnl_all": 198671.508872,
+   "roi_month": 0.2377399981
+  },
+  {
+   "a": "0xcedb31f8d10bfb07d8d1ba207d902bb0d3e661ec",
+   "eq": 504927.488612,
+   "gold_value": 396610.62,
+   "gold_net": -396610.62,
+   "gold_share": 0.3149884135315165,
+   "gold_to_eq": 0.7854803490502106,
+   "gross_lev": 2.4936801333221688,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     -96.6,
+     396611,
+     25.0
+    ]
+   },
+   "pnl_all": 105711.788612,
+   "roi_month": 0.4355242165
+  },
+  {
+   "a": "0xfd6a531508649697c6e133adcb82efcd0c737737",
+   "eq": 3609068.545952,
+   "gold_value": 389411.92836,
+   "gold_net": 389411.92836,
+   "gold_share": 0.030996251082470005,
+   "gold_to_eq": 0.10789818020961997,
+   "gross_lev": 3.4810074264317086,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     94.9137,
+     389412,
+     20.0
+    ]
+   },
+   "pnl_all": -716797.754048,
+   "roi_month": -0.3253650052
+  },
+  {
+   "a": "0x55511e688074c90250e3bc470593e31b529d752a",
+   "eq": 277722.493329,
+   "gold_value": 359536.41822,
+   "gold_net": 359536.41822,
+   "gold_share": 0.25093244578401763,
+   "gold_to_eq": 1.294588759845535,
+   "gross_lev": 5.1591126679561095,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     87.5658,
+     359536,
+     20.0
+    ]
+   },
+   "pnl_all": 184206.858258,
+   "roi_month": 0.4974370058
+  },
+  {
+   "a": "0x17c3c8fdbcb7d1b240ce08965e09b1fc91cba868",
+   "eq": 11619503.785468,
+   "gold_value": 357633.57336,
+   "gold_net": -357633.57336,
+   "gold_share": 0.03451540815734398,
+   "gold_to_eq": 0.03077873031095153,
+   "gross_lev": 0.8917388480716145,
+   "n_pos": 40,
+   "coins": {
+    "xyz:GOLD": [
+     -87.1257,
+     357634,
+     3.0
+    ]
+   },
+   "pnl_all": -3930528.8243340002,
+   "roi_month": -0.0431533411
+  },
+  {
+   "a": "0x26e850e94b0b7b672544a5b60ac3463957a817ba",
+   "eq": 495297.525845,
+   "gold_value": 357352.5,
+   "gold_net": 357352.5,
+   "gold_share": 0.22343651963643515,
+   "gold_to_eq": 0.7214905816263476,
+   "gross_lev": 3.2290629248984066,
+   "n_pos": 9,
+   "coins": {
+    "xyz:GOLD": [
+     87.0,
+     357352,
+     20.0
+    ]
+   },
+   "pnl_all": 482792.575845,
+   "roi_month": 0.7526665852
+  },
+  {
+   "a": "0xb07856ebcb6b37967eaf7c4b4e64dcce28c6de15",
+   "eq": 12014759.785299,
+   "gold_value": 355397.27832,
+   "gold_net": -355397.27832,
+   "gold_share": 0.026091252375762885,
+   "gold_to_eq": 0.029580056919228333,
+   "gross_lev": 1.1337154879811873,
+   "n_pos": 49,
+   "coins": {
+    "xyz:GOLD": [
+     -86.5809,
+     355397,
+     8.0
+    ]
+   },
+   "pnl_all": 6516462.105299,
+   "roi_month": 0.5744041052
+  },
+  {
+   "a": "0xdf954bbe619273a56e0cfa90dad8382195dc7d72",
+   "eq": 56734249.69719101,
+   "gold_value": 353924.50632000004,
+   "gold_net": -353924.50632000004,
+   "gold_share": 0.002897968588363812,
+   "gold_to_eq": 0.006238286541357457,
+   "gross_lev": 2.152641186797536,
+   "n_pos": 180,
+   "coins": {
+    "PAXG": [
+     -67.815,
+     277418,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -18.6384,
+     76507,
+     25.0
+    ]
+   },
+   "pnl_all": 10496882.897191,
+   "roi_month": 0.501467815
+  },
+  {
+   "a": "0x023a3d058020fb76cca98f01b3c48c8938a22355",
+   "eq": 15060077.987321999,
+   "gold_value": 350958.708,
+   "gold_net": -350958.708,
+   "gold_share": 0.017416862905889185,
+   "gold_to_eq": 0.023303910397771313,
+   "gross_lev": 1.3380084877335479,
+   "n_pos": 114,
+   "coins": {
+    "PAXG": [
+     -85.788,
+     350959,
+     10.0
+    ]
+   },
+   "pnl_all": 58885858.507322,
+   "roi_month": 0.2823985668
+  },
+  {
+   "a": "0xbbdbd3053f9e47314b71844064e7ef66b1bd70a7",
+   "eq": 775563.890043,
+   "gold_value": 345160.98816,
+   "gold_net": 345160.98816,
+   "gold_share": 0.318831598331031,
+   "gold_to_eq": 0.44504520206692844,
+   "gross_lev": 1.3958629081828162,
+   "n_pos": 22,
+   "coins": {
+    "xyz:GOLD": [
+     84.0544,
+     345161,
+     20.0
+    ]
+   },
+   "pnl_all": 156552.630043,
+   "roi_month": 0.0862561097
+  },
+  {
+   "a": "0xc89da925614db08d7444342c9d8df13094d3c955",
+   "eq": 161431.783732,
+   "gold_value": 326350.24565,
+   "gold_net": 326350.24565,
+   "gold_share": 0.9830438118204066,
+   "gold_to_eq": 2.0215984616250564,
+   "gross_lev": 2.0564683255382565,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     79.4755,
+     326350,
+     3.0
+    ]
+   },
+   "pnl_all": -160868.826268,
+   "roi_month": -0.0534374487
+  },
+  {
+   "a": "0xb4bfb5f79bf6109ef70edb4c8c1b7c809155629b",
+   "eq": 149036.721656,
+   "gold_value": 315891.4146,
+   "gold_net": 315891.4146,
+   "gold_share": 0.32587220594531136,
+   "gold_to_eq": 2.1195542352919348,
+   "gross_lev": 6.504249815179523,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     76.9341,
+     315891,
+     20.0
+    ]
+   },
+   "pnl_all": 134382.233975,
+   "roi_month": 0.1622509903
+  },
+  {
+   "a": "0xdee7297778b8755343e96e0b99eecf549195b856",
+   "eq": 311048.488751,
+   "gold_value": 308077.5,
+   "gold_net": 308077.5,
+   "gold_share": 0.4080937213752213,
+   "gold_to_eq": 0.990448470709728,
+   "gross_lev": 2.4270122739748334,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     75.0,
+     308078,
+     25.0
+    ]
+   },
+   "pnl_all": 509522.878751,
+   "roi_month": -0.5891708263
+  },
+  {
+   "a": "0x9db1b9d343ffd38b7109b6a2c21da04fc273a7d1",
+   "eq": 6512883.873622001,
+   "gold_value": 307843.9584,
+   "gold_net": 307843.9584,
+   "gold_share": 0.06262640301160602,
+   "gold_to_eq": 0.04726691959713987,
+   "gross_lev": 0.7547442823497351,
+   "n_pos": 93,
+   "coins": {
+    "xyz:GOLD": [
+     74.976,
+     307844,
+     3.0
+    ]
+   },
+   "pnl_all": -987212.9263780001,
+   "roi_month": -0.1335076429
+  },
+  {
+   "a": "0xb36af99e7ae67f7d57a38381350b64ef7bd20371",
+   "eq": 125955.560523,
+   "gold_value": 307080.0,
+   "gold_net": -307080.0,
+   "gold_share": 0.3474636893203005,
+   "gold_to_eq": 2.438002726715078,
+   "gross_lev": 7.016568354190437,
+   "n_pos": 5,
+   "coins": {
+    "PAXG": [
+     -75.0,
+     307080,
+     10.0
+    ]
+   },
+   "pnl_all": -18037.039477,
+   "roi_month": 0.3395539202
+  },
+  {
+   "a": "0xd60723d50681568d15373aa7db12020d4c685baf",
+   "eq": 1010670.426007,
+   "gold_value": 302194.58631,
+   "gold_net": 302194.58631,
+   "gold_share": 0.1710951926682755,
+   "gold_to_eq": 0.299004085341572,
+   "gross_lev": 1.7475890507414202,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     73.6539,
+     302195,
+     20.0
+    ]
+   },
+   "pnl_all": 126136.056007,
+   "roi_month": -0.0191225108
+  },
+  {
+   "a": "0x00897e2d7168165b81558c3cd9257efb007f2410",
+   "eq": 1680760.27195,
+   "gold_value": 298190.43606,
+   "gold_net": 298190.43606,
+   "gold_share": 0.44531890917949274,
+   "gold_to_eq": 0.17741401973646287,
+   "gross_lev": 0.39839767878563936,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     72.6638,
+     298190,
+     20.0
+    ]
+   },
+   "pnl_all": 1576576.06195,
+   "roi_month": -0.3451307183
+  },
+  {
+   "a": "0x47f5a6397b79deaaca5c456503e7c1a49357b942",
+   "eq": 3711697.167863,
+   "gold_value": 294853.152,
+   "gold_net": -294853.152,
+   "gold_share": 0.025772216441517278,
+   "gold_to_eq": 0.07943890319310747,
+   "gross_lev": 3.0823465794403626,
+   "n_pos": 68,
+   "coins": {
+    "PAXG": [
+     -72.056,
+     294853,
+     10.0
+    ]
+   },
+   "pnl_all": 6763807.307863,
+   "roi_month": 0.5084356345
+  },
+  {
+   "a": "0x3a7f29e8d0e3f8131670c3849ae37860512b62df",
+   "eq": 419933.918013,
+   "gold_value": 277527.27222,
+   "gold_net": 277527.27222,
+   "gold_share": 0.1612418146214685,
+   "gold_to_eq": 0.660883201655096,
+   "gross_lev": 4.098708534176363,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     67.6269,
+     277527,
+     20.0
+    ]
+   },
+   "pnl_all": -71059.281987,
+   "roi_month": -0.1208302584
+  },
+  {
+   "a": "0x46910af2ead8ae10ad2787cf197909126c3864f6",
+   "eq": 187775.270389,
+   "gold_value": 249521.2896,
+   "gold_net": 249521.2896,
+   "gold_share": 0.27376660369645645,
+   "gold_to_eq": 1.3288293452225384,
+   "gross_lev": 4.853876723020246,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     60.764,
+     249521,
+     20.0
+    ]
+   },
+   "pnl_all": -104952.999611,
+   "roi_month": -0.4144074365
+  },
+  {
+   "a": "0x74c8b2b012b161c3f2b52ebb2b142944c79b86af",
+   "eq": 357750.18792,
+   "gold_value": 249343.4448,
+   "gold_net": 249343.4448,
+   "gold_share": 0.07309198442255144,
+   "gold_to_eq": 0.696976418795783,
+   "gross_lev": 9.535606733106311,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     60.7562,
+     249343,
+     20.0
+    ]
+   },
+   "pnl_all": 436368.86792,
+   "roi_month": 0.5878840728
+  },
+  {
+   "a": "0xaa53412d2249fe47c5d2790ab5728b3c564dd265",
+   "eq": 1269308.09565,
+   "gold_value": 246354.0,
+   "gold_net": 246354.0,
+   "gold_share": 0.10329792330738546,
+   "gold_to_eq": 0.19408526648831037,
+   "gross_lev": 1.8788883674918362,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     60.0,
+     246354,
+     20.0
+    ]
+   },
+   "pnl_all": 694513.249545,
+   "roi_month": -0.6793876337
+  },
+  {
+   "a": "0xc568587857cc2895a3d83d00a05365ea92c62def",
+   "eq": 145781.75933,
+   "gold_value": 242749.85943,
+   "gold_net": 242749.85943,
+   "gold_share": 0.2790447317141064,
+   "gold_to_eq": 1.665159348780374,
+   "gross_lev": 5.96735633943594,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     59.1539,
+     242750,
+     25.0
+    ]
+   },
+   "pnl_all": -39761.736078,
+   "roi_month": -0.0587098862
+  },
+  {
+   "a": "0x693b75eed71dfa1be188fdb53472c8fc51c5a0a0",
+   "eq": 462580.748536,
+   "gold_value": 239435.13264,
+   "gold_net": 239435.13264,
+   "gold_share": 0.2716484250350726,
+   "gold_to_eq": 0.5176072143031826,
+   "gross_lev": 1.9054305734934933,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     58.2936,
+     239435,
+     4.0
+    ]
+   },
+   "pnl_all": 14493.928536,
+   "roi_month": -0.1071860113
+  },
+  {
+   "a": "0x9bf9d46627c21fe2a35df37b1f0c417fa2088b13",
+   "eq": 179843.393954,
+   "gold_value": 238985.96245,
+   "gold_net": 238985.96245,
+   "gold_share": 0.20649387013463674,
+   "gold_to_eq": 1.3288559406920855,
+   "gross_lev": 6.435328757341096,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     58.2055,
+     238986,
+     20.0
+    ]
+   },
+   "pnl_all": -750321.614921,
+   "roi_month": -0.7705880677
+  },
+  {
+   "a": "0x8e334f05f24cd1e0d98b69346106ea9d5f08eeee",
+   "eq": 395753.580138,
+   "gold_value": 235899.80876,
+   "gold_net": 235899.80876,
+   "gold_share": 0.6263247437121491,
+   "gold_to_eq": 0.5960775103480841,
+   "gross_lev": 0.951706788422898,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     57.4189,
+     235900,
+     20.0
+    ]
+   },
+   "pnl_all": 262646.670138,
+   "roi_month": -0.3547993851
+  },
+  {
+   "a": "0x0c684f333a7e120bce61383da670bbb0157e82d0",
+   "eq": 4670337.258566,
+   "gold_value": 216290.02257,
+   "gold_net": 216290.02257,
+   "gold_share": 0.04971992982034975,
+   "gold_to_eq": 0.0463114354693114,
+   "gross_lev": 0.9314461150014879,
+   "n_pos": 16,
+   "coins": {
+    "xyz:GOLD": [
+     52.7061,
+     216290,
+     20.0
+    ]
+   },
+   "pnl_all": -398596.181434,
+   "roi_month": 0.1401572111
+  },
+  {
+   "a": "0xc837b80bb765986cb54a93aafb949c3da6962387",
+   "eq": 124956.277293,
+   "gold_value": 215742.04024,
+   "gold_net": 215742.04024,
+   "gold_share": 0.33175758813856265,
+   "gold_to_eq": 1.726540234022207,
+   "gross_lev": 5.204222286849687,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     52.5022,
+     215742,
+     20.0
+    ]
+   },
+   "pnl_all": 102398.767293,
+   "roi_month": -0.1060273548
+  },
+  {
+   "a": "0x36764af31381057e722a003a69d089d54fe2c61b",
+   "eq": 257882.058781,
+   "gold_value": 205300.0,
+   "gold_net": 205300.0,
+   "gold_share": 0.18440622184616406,
+   "gold_to_eq": 0.7961003606472135,
+   "gross_lev": 4.317101411639672,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     50.0,
+     205300,
+     10.0
+    ]
+   },
+   "pnl_all": 16644.108781,
+   "roi_month": -0.4061094007
+  },
+  {
+   "a": "0x02458e17a59386d7a9f71d4135aebc976f81ba3d",
+   "eq": 263382.107446,
+   "gold_value": 205140.0,
+   "gold_net": 205140.0,
+   "gold_share": 0.26652275052757607,
+   "gold_to_eq": 0.7788683976646322,
+   "gross_lev": 2.9223336323930282,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     50.0,
+     205140,
+     20.0
+    ]
+   },
+   "pnl_all": -132432.302554,
+   "roi_month": 0.0434385839
+  },
+  {
+   "a": "0x777a6a2514be547bb19ba40f3a0828447a1f26b0",
+   "eq": 247553.744258,
+   "gold_value": 204495.0,
+   "gold_net": -204495.0,
+   "gold_share": 0.1485711915159634,
+   "gold_to_eq": 0.8260630458769217,
+   "gross_lev": 5.560048603286353,
+   "n_pos": 15,
+   "coins": {
+    "PAXG": [
+     -50.0,
+     204495,
+     10.0
+    ]
+   },
+   "pnl_all": 47557.744258,
+   "roi_month": 0.1691674115
+  },
+  {
+   "a": "0x27c9fa86c91b84ddfa15de58c482ff662498d65d",
+   "eq": 2394029.997367,
+   "gold_value": 202768.6836,
+   "gold_net": -202768.6836,
+   "gold_share": 0.012041744273538244,
+   "gold_to_eq": 0.08469763696487047,
+   "gross_lev": 7.033668465372886,
+   "n_pos": 68,
+   "coins": {
+    "PAXG": [
+     -49.567,
+     202769,
+     10.0
+    ]
+   },
+   "pnl_all": 6219885.547367,
+   "roi_month": 1.1939729614
+  },
+  {
+   "a": "0xec85bc052ec5b6d6cb2b40f5caa45e39b61a77fe",
+   "eq": 11149765.297938,
+   "gold_value": 202313.2776,
+   "gold_net": -202313.2776,
+   "gold_share": 0.020955619193271394,
+   "gold_to_eq": 0.018145070518875865,
+   "gross_lev": 0.8658809053326393,
+   "n_pos": 67,
+   "coins": {
+    "xyz:GOLD": [
+     -49.287,
+     202313,
+     2.0
+    ]
+   },
+   "pnl_all": 1020745.297938,
+   "roi_month": 0.1092147897
+  },
+  {
+   "a": "0xaf4940df9ab261cf1514fd44e3e93bba4db207f8",
+   "eq": 102920.622799,
+   "gold_value": 200002.609375,
+   "gold_net": 200002.609375,
+   "gold_share": 0.7807104469336306,
+   "gold_to_eq": 1.9432704926941353,
+   "gross_lev": 2.489105276260426,
+   "n_pos": 2,
+   "coins": {
+    "PAXG": [
+     48.875,
+     200003,
+     5.0
+    ]
+   },
+   "pnl_all": 4820.662799,
+   "roi_month": -0.0519927663
+  },
+  {
+   "a": "0x7aea4799452f25d50386e81029794e0ebbb6ec06",
+   "eq": 571750.735375,
+   "gold_value": 198522.2736,
+   "gold_net": 198522.2736,
+   "gold_share": 0.05764880444500463,
+   "gold_to_eq": 0.3472182217129868,
+   "gross_lev": 6.022990850473289,
+   "n_pos": 23,
+   "coins": {
+    "xyz:GOLD": [
+     48.3552,
+     198522,
+     20.0
+    ]
+   },
+   "pnl_all": 281304.655375,
+   "roi_month": 0.5340505509
+  },
+  {
+   "a": "0x8141aa50d26c520fec064024cf5cd05461074aa9",
+   "eq": 295757.775788,
+   "gold_value": 191354.34726,
+   "gold_net": 191354.34726,
+   "gold_share": 0.10802332594294015,
+   "gold_to_eq": 0.6469968431097592,
+   "gross_lev": 5.989417910086518,
+   "n_pos": 29,
+   "coins": {
+    "xyz:GOLD": [
+     46.5741,
+     191354,
+     25.0
+    ]
+   },
+   "pnl_all": -7475.285143,
+   "roi_month": 0.2639572254
+  },
+  {
+   "a": "0x936cf4fb95c30ce83f658b5bbb247e4bb381bb0f",
+   "eq": 26206104.594615,
+   "gold_value": 189200.99835,
+   "gold_net": 189200.99835,
+   "gold_share": 0.004202203280092001,
+   "gold_to_eq": 0.007219729955167707,
+   "gross_lev": 1.718082033149439,
+   "n_pos": 43,
+   "coins": {
+    "xyz:GOLD": [
+     46.0915,
+     189201,
+     3.0
+    ]
+   },
+   "pnl_all": 18724027.684615,
+   "roi_month": 0.2185854924
+  },
+  {
+   "a": "0x972b0f9cde1266e860e546ac92e783741769400f",
+   "eq": 238647.544839,
+   "gold_value": 176037.7,
+   "gold_net": -176037.7,
+   "gold_share": 0.17104249175596117,
+   "gold_to_eq": 0.7376472283373424,
+   "gross_lev": 4.312654830764496,
+   "n_pos": 8,
+   "coins": {
+    "PAXG": [
+     -43.0,
+     176038,
+     10.0
+    ]
+   },
+   "pnl_all": 1385632.484839,
+   "roi_month": 0.9706487
+  },
+  {
+   "a": "0x53b7a620aec3447c629d36bc8673381e6a49df0f",
+   "eq": 276291.214878,
+   "gold_value": 171217.44075,
+   "gold_net": 171217.44075,
+   "gold_share": 0.240307130129967,
+   "gold_to_eq": 0.6196991852441031,
+   "gross_lev": 2.578779851055384,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     41.6841,
+     171217,
+     20.0
+    ]
+   },
+   "pnl_all": -22611.765122,
+   "roi_month": 0.01478807
+  },
+  {
+   "a": "0xab2c7e229404c849752711ccbe97d8b6bbc6a451",
+   "eq": 189278.361028,
+   "gold_value": 163599.7068,
+   "gold_net": 163599.7068,
+   "gold_share": 0.3190536696865705,
+   "gold_to_eq": 0.8643339149359955,
+   "gross_lev": 2.7090549241608577,
+   "n_pos": 9,
+   "coins": {
+    "xyz:GOLD": [
+     39.846,
+     163600,
+     25.0
+    ]
+   },
+   "pnl_all": -47969.066881,
+   "roi_month": 0.167929893
+  },
+  {
+   "a": "0x424b0eead456dbc3ab5783a4947a895decb364c6",
+   "eq": 139402.181586,
+   "gold_value": 163166.57208,
+   "gold_net": 163166.57208,
+   "gold_share": 0.608067100530593,
+   "gold_to_eq": 1.17047359104161,
+   "gross_lev": 1.9249085997585906,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     39.7347,
+     163167,
+     25.0
+    ]
+   },
+   "pnl_all": -8098.608414,
+   "roi_month": -0.5140949379
+  },
+  {
+   "a": "0x7b7f72a28fe109fa703eeed7984f2a8a68fedee2",
+   "eq": 7559346.645512,
+   "gold_value": 151505.70165,
+   "gold_net": 151505.70165,
+   "gold_share": 0.15380328134284033,
+   "gold_to_eq": 0.020042168821554077,
+   "gross_lev": 0.1303104111080596,
+   "n_pos": 9,
+   "coins": {
+    "xyz:GOLD": [
+     36.9085,
+     151506,
+     10.0
+    ]
+   },
+   "pnl_all": -24965506.574488,
+   "roi_month": 0.2314604683
+  },
+  {
+   "a": "0x837686cfda8a79adfb8465d39240c54166bf9a1e",
+   "eq": 2117152.638783,
+   "gold_value": 149954.1692,
+   "gold_net": -149954.1692,
+   "gold_share": 0.023267300643458475,
+   "gold_to_eq": 0.0708282277116297,
+   "gross_lev": 3.044110221335143,
+   "n_pos": 8,
+   "coins": {
+    "PAXG": [
+     -36.626,
+     149954,
+     10.0
+    ]
+   },
+   "pnl_all": 125493.428783,
+   "roi_month": 0.5644723013
+  },
+  {
+   "a": "0x87bee1dde68caeb1de4897b39ef25b67ac0ce561",
+   "eq": 139144.945542,
+   "gold_value": 145091.6544,
+   "gold_net": 145091.6544,
+   "gold_share": 1.0,
+   "gold_to_eq": 1.0427375125617122,
+   "gross_lev": 1.0427375125617122,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     35.3408,
+     145092,
+     1.0
+    ]
+   },
+   "pnl_all": -58014.864458,
+   "roi_month": -0.0257267606
+  },
+  {
+   "a": "0xdbbb9b4e361e1e1b6b4c640914ed4e4a11896df9",
+   "eq": 345883.853371,
+   "gold_value": 143724.0,
+   "gold_net": 143724.0,
+   "gold_share": 0.1751781536738908,
+   "gold_to_eq": 0.41552676888284684,
+   "gross_lev": 2.3720239091935267,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     35.0,
+     143724,
+     10.0
+    ]
+   },
+   "pnl_all": 301377.063371,
+   "roi_month": 0.2356373291
+  },
+  {
+   "a": "0xe030fec019fe9cbab01eab3106eb9ce32851e64d",
+   "eq": 431672.012572,
+   "gold_value": 143653.49272,
+   "gold_net": 143653.49272,
+   "gold_share": 0.41607560781637837,
+   "gold_to_eq": 0.33278389271539716,
+   "gross_lev": 0.7998159143764578,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     34.9658,
+     143653,
+     2.0
+    ]
+   },
+   "pnl_all": 534627.652572,
+   "roi_month": -0.1931041811
+  },
+  {
+   "a": "0x12808ee0d6b9fd4723487b3dc110452b2bf75fba",
+   "eq": 1155589.054649,
+   "gold_value": 141693.79584,
+   "gold_net": 141693.79584,
+   "gold_share": 0.25644807847831386,
+   "gold_to_eq": 0.12261607642436372,
+   "gross_lev": 0.4781321706597718,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     34.5056,
+     141694,
+     25.0
+    ]
+   },
+   "pnl_all": 580002.324649,
+   "roi_month": -0.337634388
+  },
+  {
+   "a": "0x95748e52b4a70542c99035d092adc8d53f5d11f8",
+   "eq": 308726.940356,
+   "gold_value": 136045.329,
+   "gold_net": 136045.329,
+   "gold_share": 0.08326365651235448,
+   "gold_to_eq": 0.4406655565695792,
+   "gross_lev": 5.292411779972624,
+   "n_pos": 21,
+   "coins": {
+    "xyz:GOLD": [
+     33.1212,
+     136045,
+     20.0
+    ]
+   },
+   "pnl_all": 152148.593387,
+   "roi_month": 0.136436424
+  },
+  {
+   "a": "0xa96e8f0b9e6592b77d567c712beac79f956a2d7d",
+   "eq": 1073934.786976,
+   "gold_value": 134786.84219,
+   "gold_net": -134786.84219,
+   "gold_share": 0.08775121058786725,
+   "gold_to_eq": 0.1255074738472106,
+   "gross_lev": 1.430264870494717,
+   "n_pos": 27,
+   "coins": {
+    "PAXG": [
+     -21.693,
+     88718,
+     3.0
+    ],
+    "xyz:GOLD": [
+     -11.2273,
+     46069,
+     3.0
+    ]
+   },
+   "pnl_all": -54290.733024,
+   "roi_month": -0.1179281083
+  },
+  {
+   "a": "0xa68eb8520766ca5eae81e547128d5cc3fa909a1e",
+   "eq": 1249383.5175609998,
+   "gold_value": 127451.874,
+   "gold_net": -127451.874,
+   "gold_share": 0.32799769184653305,
+   "gold_to_eq": 0.10201180999154433,
+   "gross_lev": 0.31101380444858334,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     -31.02,
+     127452,
+     3.0
+    ]
+   },
+   "pnl_all": 219203.577561,
+   "roi_month": 0.3521247821
+  },
+  {
+   "a": "0x5c9b84105d63f0c8ed35fd62f66d9b8c6800ce01",
+   "eq": 11882540.43092,
+   "gold_value": 123384.1308,
+   "gold_net": 123384.1308,
+   "gold_share": 0.021139768288735157,
+   "gold_to_eq": 0.010383649146182375,
+   "gross_lev": 0.4911903008755094,
+   "n_pos": 83,
+   "coins": {
+    "xyz:GOLD": [
+     30.0585,
+     123384,
+     25.0
+    ]
+   },
+   "pnl_all": 221170.017219,
+   "roi_month": 0.0588874027
+  },
+  {
+   "a": "0xc079691cdfd1ee47601d9885aad11ab9e0a6b081",
+   "eq": 243065.832657,
+   "gold_value": 123189.0,
+   "gold_net": -123189.0,
+   "gold_share": 0.3690607446473529,
+   "gold_to_eq": 0.5068133133044534,
+   "gross_lev": 1.373251749623837,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -30.0,
+     123189,
+     20.0
+    ]
+   },
+   "pnl_all": 46144.044178,
+   "roi_month": 0.1062059819
+  },
+  {
+   "a": "0x5ad18f6dafe70b7cee5fcc299a9a12f59cad1725",
+   "eq": 650420.869769,
+   "gold_value": 123177.0,
+   "gold_net": -123177.0,
+   "gold_share": 0.08648913153195813,
+   "gold_to_eq": 0.18938045460279723,
+   "gross_lev": 2.1896445397052036,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     -30.0,
+     123177,
+     20.0
+    ]
+   },
+   "pnl_all": 150421.269769,
+   "roi_month": 0.3008427802
+  },
+  {
+   "a": "0xe9cef9fd872a03cedf9d3e6e90309782b3724ea6",
+   "eq": 621674.11639,
+   "gold_value": 123105.0,
+   "gold_net": 123105.0,
+   "gold_share": 0.31462293343395575,
+   "gold_to_eq": 0.1980217556987229,
+   "gross_lev": 0.6293939018920588,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     30.0,
+     123105,
+     3.0
+    ]
+   },
+   "pnl_all": 221944.37639,
+   "roi_month": -0.0567895226
+  },
+  {
+   "a": "0x34d205fcdcae0415820211ad2c7f18806b679be0",
+   "eq": 128237.304226,
+   "gold_value": 122664.737,
+   "gold_net": 122664.737,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.9565448816969894,
+   "gross_lev": 0.9565448816969894,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     29.8636,
+     122665,
+     6.0
+    ]
+   },
+   "pnl_all": 160066.784226,
+   "roi_month": 0.0456968489
+  },
+  {
+   "a": "0xb2b7e6563c2eba9113979aa04ad1b77313701a8c",
+   "eq": 282762.586167,
+   "gold_value": 117331.84076,
+   "gold_net": 117331.84076,
+   "gold_share": 0.05893970090026778,
+   "gold_to_eq": 0.41494825164282395,
+   "gross_lev": 7.040216446720019,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     28.5764,
+     117332,
+     12.0
+    ]
+   },
+   "pnl_all": 121635.796166,
+   "roi_month": 0.6848024131
+  },
+  {
+   "a": "0x08aba4a72d866c1fc1dda72508e0cd47388304ac",
+   "eq": 221496.317648,
+   "gold_value": 113710.02446,
+   "gold_net": 113710.02446,
+   "gold_share": 0.4636574807646018,
+   "gold_to_eq": 0.5133720761927382,
+   "gross_lev": 1.107222675122493,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     27.6761,
+     113710,
+     20.0
+    ]
+   },
+   "pnl_all": -7200.036317,
+   "roi_month": 0.188756763
+  },
+  {
+   "a": "0x571f8e570efe1fb0ba8ff75f4749b629a471f458",
+   "eq": 469466.628582,
+   "gold_value": 112926.73928,
+   "gold_net": 112926.73928,
+   "gold_share": 0.0900487732012942,
+   "gold_to_eq": 0.24054263371411394,
+   "gross_lev": 2.6712483153591347,
+   "n_pos": 8,
+   "coins": {
+    "xyz:GOLD": [
+     27.4888,
+     112927,
+     10.0
+    ]
+   },
+   "pnl_all": 219470.738582,
+   "roi_month": -0.2974705389
+  },
+  {
+   "a": "0x047f3853f3d89e5a61344749519de7a66fd4f9c4",
+   "eq": 633924.41154,
+   "gold_value": 109530.20756,
+   "gold_net": 109530.20756,
+   "gold_share": 0.20469267675703484,
+   "gold_to_eq": 0.1727811795319839,
+   "gross_lev": 0.8441004449664358,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     26.6932,
+     109530,
+     10.0
+    ]
+   },
+   "pnl_all": 468469.9815400001,
+   "roi_month": -0.1119237969
+  },
+  {
+   "a": "0xb4898ac0d1424d18d804b51560f7fe1aba43a2ba",
+   "eq": 107174.853885,
+   "gold_value": 107924.48305,
+   "gold_net": 107924.48305,
+   "gold_share": 0.25366780979070824,
+   "gold_to_eq": 1.0069944500769215,
+   "gross_lev": 3.969736841689747,
+   "n_pos": 13,
+   "coins": {
+    "xyz:GOLD": [
+     26.2865,
+     107924,
+     20.0
+    ]
+   },
+   "pnl_all": -24850.00597,
+   "roi_month": 0.4078342848
+  },
+  {
+   "a": "0x9a88dd4eacc3aa561c4f50ec66bcede831bec813",
+   "eq": 164302.767683,
+   "gold_value": 106410.2,
+   "gold_net": -106410.2,
+   "gold_share": 0.22760108776047022,
+   "gold_to_eq": 0.6476470329781912,
+   "gross_lev": 2.845535754467842,
+   "n_pos": 15,
+   "coins": {
+    "PAXG": [
+     -26.0,
+     106410,
+     10.0
+    ]
+   },
+   "pnl_all": 112024.557683,
+   "roi_month": 0.4655386379
+  },
+  {
+   "a": "0x954b6de2e9c58b0ca7b21e9a048fd0a6cea6f92c",
+   "eq": 147170.814754,
+   "gold_value": 103137.10512,
+   "gold_net": 103137.10512,
+   "gold_share": 0.12581295662633835,
+   "gold_to_eq": 0.7007986283992276,
+   "gross_lev": 5.570162622285268,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     25.1272,
+     103137,
+     20.0
+    ]
+   },
+   "pnl_all": 271986.174754,
+   "roi_month": 0.9550433579
+  },
+  {
+   "a": "0x91219d5fc4540bce994036217ade77945da5d6f6",
+   "eq": 106470.502954,
+   "gold_value": 102801.76482,
+   "gold_net": 102801.76482,
+   "gold_share": 0.30252226983665875,
+   "gold_to_eq": 0.965542210920286,
+   "gross_lev": 3.1916401111283887,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     25.0266,
+     102802,
+     10.0
+    ]
+   },
+   "pnl_all": 259184.972954,
+   "roi_month": 0.5084515809
+  },
+  {
+   "a": "0xb18983220d3640ad8523eaf379800eb57ea81bff",
+   "eq": 556163.075535,
+   "gold_value": 102687.5,
+   "gold_net": 102687.5,
+   "gold_share": 0.3546245706122471,
+   "gold_to_eq": 0.18463559433754204,
+   "gross_lev": 0.5206508788118518,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     25.0,
+     102688,
+     1.0
+    ]
+   },
+   "pnl_all": 135318.895535,
+   "roi_month": -0.0118528113
+  },
+  {
+   "a": "0xc92f1da3181b999feceb179dccbfe4d0bf5291e1",
+   "eq": 123436.822895,
+   "gold_value": 102532.86642,
+   "gold_net": 102532.86642,
+   "gold_share": 0.30183070872626433,
+   "gold_to_eq": 0.8306505628974128,
+   "gross_lev": 2.75204125651358,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     24.9581,
+     102533,
+     5.0
+    ]
+   },
+   "pnl_all": 73727.303749,
+   "roi_month": -0.0084998696
+  },
+  {
+   "a": "0x6a2cec2bda4749f113676bd9a5f3e64277260efd",
+   "eq": 162956.071919,
+   "gold_value": 102227.5,
+   "gold_net": 102227.5,
+   "gold_share": 0.11269395232470548,
+   "gold_to_eq": 0.6273316409517643,
+   "gross_lev": 5.5666841743577455,
+   "n_pos": 28,
+   "coins": {
+    "PAXG": [
+     25.0,
+     102228,
+     10.0
+    ]
+   },
+   "pnl_all": 355027.276031,
+   "roi_month": 0.1837697444
+  },
+  {
+   "a": "0x0d438ba1817d0958ae3bf70b23faaf1d0117c930",
+   "eq": 2007673.231732,
+   "gold_value": 102192.6743,
+   "gold_net": -102192.6743,
+   "gold_share": 0.01174508165223024,
+   "gold_to_eq": 0.05090104937636659,
+   "gross_lev": 4.3338182639795555,
+   "n_pos": 61,
+   "coins": {
+    "PAXG": [
+     -0.005,
+     20,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -24.8988,
+     102172,
+     20.0
+    ]
+   },
+   "pnl_all": 11834.491732,
+   "roi_month": -0.0606436729
+  },
+  {
+   "a": "0x0fb66804703a2ff1f56233ec542f2c849e6fbaae",
+   "eq": 121950.82002,
+   "gold_value": 101683.20514,
+   "gold_net": 101683.20514,
+   "gold_share": 0.4986235140405134,
+   "gold_to_eq": 0.8338050135564804,
+   "gross_lev": 1.6722135841526586,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     24.7561,
+     101683,
+     3.0
+    ]
+   },
+   "pnl_all": -12566.900179,
+   "roi_month": -0.2323373512
+  },
+  {
+   "a": "0x6dd3146cead144385974e958305d7e4c352846b7",
+   "eq": 1542305.943622,
+   "gold_value": 101449.98913,
+   "gold_net": -101449.98913,
+   "gold_share": 0.013957175767849658,
+   "gold_to_eq": 0.06577812239493264,
+   "gross_lev": 4.712853337166713,
+   "n_pos": 47,
+   "coins": {
+    "PAXG": [
+     -0.005,
+     20,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -24.7148,
+     101430,
+     20.0
+    ]
+   },
+   "pnl_all": -280779.376378,
+   "roi_month": -0.001011433
+  },
+  {
+   "a": "0x683846f47d5d7861cb507ad6790cf562a1402c51",
+   "eq": 687545.495644,
+   "gold_value": 100785.6216,
+   "gold_net": 100785.6216,
+   "gold_share": 0.3698157730953593,
+   "gold_to_eq": 0.14658756727887165,
+   "gross_lev": 0.39637997604032194,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     24.5579,
+     100786,
+     20.0
+    ]
+   },
+   "pnl_all": 187545.495644,
+   "roi_month": 0.3750909913
+  },
+  {
+   "a": "0x9221a960277fe388b899f58117aa9bd298463002",
+   "eq": 306647.995566,
+   "gold_value": 100708.28343,
+   "gold_net": 100708.28343,
+   "gold_share": 0.2181190961288924,
+   "gold_to_eq": 0.3284165717245802,
+   "gross_lev": 1.505675466078908,
+   "n_pos": 25,
+   "coins": {
+    "xyz:GOLD": [
+     24.5277,
+     100708,
+     20.0
+    ]
+   },
+   "pnl_all": 217076.938978,
+   "roi_month": -0.0387043184
+  },
+  {
+   "a": "0x3a5894303a32f362da6c72daa7996180f24c1400",
+   "eq": 243867.590526,
+   "gold_value": 98874.51432,
+   "gold_net": 98874.51432,
+   "gold_share": 0.18892140500600932,
+   "gold_to_eq": 0.40544343800148575,
+   "gross_lev": 2.1460958221678967,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     24.0676,
+     98875,
+     3.0
+    ]
+   },
+   "pnl_all": 6642.340526,
+   "roi_month": 0.0241504904
+  },
+  {
+   "a": "0xcfbbd8ac14fe4c0b9098bc2a9515b004b7429c6d",
+   "eq": 954507.466111,
+   "gold_value": 90393.69241,
+   "gold_net": 90393.69241,
+   "gold_share": 0.01926138597426627,
+   "gold_to_eq": 0.09470192284435006,
+   "gross_lev": 4.9166722981863495,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     22.0027,
+     90394,
+     25.0
+    ]
+   },
+   "pnl_all": -102917.183889,
+   "roi_month": -0.2960217097
+  },
+  {
+   "a": "0xf7772737dd6e90bfbfd6b1f966a0021452cea894",
+   "eq": 6505548.881991,
+   "gold_value": 82732.20705,
+   "gold_net": -82732.20705,
+   "gold_share": 0.011302023151897775,
+   "gold_to_eq": 0.012717175529804043,
+   "gross_lev": 1.1252123056984398,
+   "n_pos": 101,
+   "coins": {
+    "xyz:GOLD": [
+     -20.1545,
+     82732,
+     3.0
+    ]
+   },
+   "pnl_all": -786929.94518,
+   "roi_month": -0.0649549743
+  },
+  {
+   "a": "0xf837eb29e36df33f7ed73c1d4ee3a01a1764cd5f",
+   "eq": 169670.244871,
+   "gold_value": 82182.0,
+   "gold_net": 82182.0,
+   "gold_share": 0.42468245191562365,
+   "gold_to_eq": 0.4843630659134301,
+   "gross_lev": 1.1405299741691795,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     20.0,
+     82182,
+     20.0
+    ]
+   },
+   "pnl_all": -343329.755129,
+   "roi_month": -0.0340557553
+  },
+  {
+   "a": "0xaa14067b55042b46b5d58bef087cf74afc07b574",
+   "eq": 329499.704588,
+   "gold_value": 82180.0,
+   "gold_net": 82180.0,
+   "gold_share": 0.11926815076499998,
+   "gold_to_eq": 0.24940841783987716,
+   "gross_lev": 2.0911569118842053,
+   "n_pos": 26,
+   "coins": {
+    "xyz:GOLD": [
+     20.0,
+     82180,
+     20.0
+    ]
+   },
+   "pnl_all": 513031.794588,
+   "roi_month": 0.2161622623
+  },
+  {
+   "a": "0x274aef826a1078e2621e75e08d816f56b2c8475a",
+   "eq": 195975.400582,
+   "gold_value": 82170.51913,
+   "gold_net": -82170.51913,
+   "gold_share": 0.12746068552721418,
+   "gold_to_eq": 0.4192899664242208,
+   "gross_lev": 3.2895630891197274,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -20.0011,
+     82171,
+     25.0
+    ]
+   },
+   "pnl_all": -16228.254971,
+   "roi_month": 2.4858530647
+  },
+  {
+   "a": "0xf62edeee17968d4c55d1c74936d2110333342f30",
+   "eq": 458353.66402,
+   "gold_value": 82120.0,
+   "gold_net": 82120.0,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.1791629618050064,
+   "gross_lev": 0.1791629618050064,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     20.0,
+     82120,
+     8.0
+    ]
+   },
+   "pnl_all": 5990781.90402,
+   "roi_month": 0.7251087915
+  },
+  {
+   "a": "0xde0e9b1a35322a809165d09f0490cca3fa7562e5",
+   "eq": 130002.893256,
+   "gold_value": 81794.0,
+   "gold_net": 81794.0,
+   "gold_share": 0.09643553446683598,
+   "gold_to_eq": 0.6291706126796142,
+   "gross_lev": 6.524261167401783,
+   "n_pos": 3,
+   "coins": {
+    "PAXG": [
+     20.0,
+     81794,
+     10.0
+    ]
+   },
+   "pnl_all": 180280.483256,
+   "roi_month": 0.0652927381
+  },
+  {
+   "a": "0xf8e6f23f18a04bfd481ce71ac894488568285f1b",
+   "eq": 527631.302295,
+   "gold_value": 80066.05609,
+   "gold_net": 80066.05609,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.1517462207828505,
+   "gross_lev": 0.1517462207828505,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     19.4917,
+     80066,
+     20.0
+    ]
+   },
+   "pnl_all": 437286.9322949999,
+   "roi_month": -0.1022641004
+  },
+  {
+   "a": "0x96d51bfb2eb2c52265e9db1811b3ce65e3351127",
+   "eq": 496414.679803,
+   "gold_value": 78551.50168,
+   "gold_net": 78551.50168,
+   "gold_share": 0.18339074996285026,
+   "gold_to_eq": 0.1582376687796034,
+   "gross_lev": 0.8628443299984205,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     19.1188,
+     78552,
+     20.0
+    ]
+   },
+   "pnl_all": 174926.939803,
+   "roi_month": -0.5253546112
+  },
+  {
+   "a": "0xdec53aa5b5b6ec2518814061b1ec72f6a26bb5b8",
+   "eq": 422875.724788,
+   "gold_value": 78124.099536,
+   "gold_net": 78124.099536,
+   "gold_share": 0.14864999953365338,
+   "gold_to_eq": 0.1847448197107221,
+   "gross_lev": 1.2428174927030329,
+   "n_pos": 4,
+   "coins": {
+    "PAXG": [
+     19.089,
+     78124,
+     4.0
+    ]
+   },
+   "pnl_all": 34322.489628,
+   "roi_month": 0.0548595616
+  },
+  {
+   "a": "0x7717a7a245d9f950e586822b8c9b46863ed7bd7e",
+   "eq": 8392074.900562,
+   "gold_value": 76198.89268,
+   "gold_net": 64670.45468000001,
+   "gold_share": 0.003192468038308155,
+   "gold_to_eq": 0.009079863273729494,
+   "gross_lev": 2.844151660964273,
+   "n_pos": 269,
+   "coins": {
+    "PAXG": [
+     -1.409,
+     5764,
+     10.0
+    ],
+    "xyz:GOLD": [
+     17.1591,
+     70435,
+     25.0
+    ]
+   },
+   "pnl_all": 23181911.000562,
+   "roi_month": 0.0652407148
+  },
+  {
+   "a": "0xecb2d0a2a39957af66d3fa8c1f19e8f39393ded4",
+   "eq": 197314.188872,
+   "gold_value": 74976.475,
+   "gold_net": -74976.475,
+   "gold_share": 0.25401738074863944,
+   "gold_to_eq": 0.3799852176299299,
+   "gross_lev": 1.4959024319912215,
+   "n_pos": 8,
+   "coins": {
+    "xyz:GOLD": [
+     -18.25,
+     74976,
+     20.0
+    ]
+   },
+   "pnl_all": 39385.988872,
+   "roi_month": 0.2493917418
+  },
+  {
+   "a": "0x26f416a8da50d98f34cd96da189fdb6e9d627d7e",
+   "eq": 110503.060286,
+   "gold_value": 74866.60434,
+   "gold_net": 74866.60434,
+   "gold_share": 0.2888540781829833,
+   "gold_to_eq": 0.6775070676434931,
+   "gross_lev": 2.3454994020001543,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     18.2237,
+     74867,
+     20.0
+    ]
+   },
+   "pnl_all": -4992.840803,
+   "roi_month": -0.1730474373
+  },
+  {
+   "a": "0x4829f3bbd5508707339547ebefface2b4c86d3b5",
+   "eq": 202161.320525,
+   "gold_value": 73465.2936,
+   "gold_net": 73465.2936,
+   "gold_share": 0.2346746875861409,
+   "gold_to_eq": 0.3633993555701721,
+   "gross_lev": 1.548523870674296,
+   "n_pos": 8,
+   "coins": {
+    "xyz:GOLD": [
+     17.9009,
+     73465,
+     20.0
+    ]
+   },
+   "pnl_all": 56329.110525,
+   "roi_month": -0.2184094538
+  },
+  {
+   "a": "0x8aa077f5998d234ac8641d73d6bc4976e2a210fc",
+   "eq": 1472306.751252,
+   "gold_value": 71855.0,
+   "gold_net": 71855.0,
+   "gold_share": 0.02851297060490975,
+   "gold_to_eq": 0.04880436766244326,
+   "gross_lev": 1.71165496358487,
+   "n_pos": 32,
+   "coins": {
+    "xyz:GOLD": [
+     17.5,
+     71855,
+     20.0
+    ]
+   },
+   "pnl_all": 1470738.681252,
+   "roi_month": -0.2055556163
+  },
+  {
+   "a": "0x929781596752e22382e604ab7d38e4f159334383",
+   "eq": 1072837.282653,
+   "gold_value": 71848.0,
+   "gold_net": 71848.0,
+   "gold_share": 0.0299354451932341,
+   "gold_to_eq": 0.06697008126183719,
+   "gross_lev": 2.237150001596553,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     17.5,
+     71848,
+     10.0
+    ]
+   },
+   "pnl_all": 5130563.862653,
+   "roi_month": -0.2185169997
+  },
+  {
+   "a": "0xc0e29d686084dcf72331f37f326cf7a8c99b3c87",
+   "eq": 1354705.355014,
+   "gold_value": 71848.0,
+   "gold_net": 71848.0,
+   "gold_share": 0.030420359546318936,
+   "gold_to_eq": 0.05303588690638747,
+   "gross_lev": 1.7434339270590629,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     17.5,
+     71848,
+     10.0
+    ]
+   },
+   "pnl_all": 729914.125014,
+   "roi_month": -0.1846126999
+  },
+  {
+   "a": "0xf324df8f9ffb5d5fbab25b3187caddd6901f237c",
+   "eq": 458679.324976,
+   "gold_value": 70048.19487,
+   "gold_net": 70048.19487,
+   "gold_share": 0.4669066464436342,
+   "gold_to_eq": 0.15271714039795714,
+   "gross_lev": 0.32708281529334243,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     17.0637,
+     70048,
+     3.0
+    ]
+   },
+   "pnl_all": -20972.095024,
+   "roi_month": -0.0745297562
+  },
+  {
+   "a": "0x440888714a6afed60ff44e9975a96e6a36f7fac4",
+   "eq": 556677.500247,
+   "gold_value": 68552.49,
+   "gold_net": -68552.49,
+   "gold_share": 0.3379811738871424,
+   "gold_to_eq": 0.12314578902431478,
+   "gross_lev": 0.36435694807496954,
+   "n_pos": 5,
+   "coins": {
+    "PAXG": [
+     -16.761,
+     68552,
+     10.0
+    ]
+   },
+   "pnl_all": -814568.929753,
+   "roi_month": 0.1566186032
+  },
+  {
+   "a": "0x6ec311b616afed34336c75bb35df20c1639f0d41",
+   "eq": 142842.21171,
+   "gold_value": 64527.50322,
+   "gold_net": 64527.50322,
+   "gold_share": 0.12290296549976144,
+   "gold_to_eq": 0.4517397374874349,
+   "gross_lev": 3.675580452029953,
+   "n_pos": 18,
+   "coins": {
+    "xyz:GOLD": [
+     15.7158,
+     64528,
+     5.0
+    ]
+   },
+   "pnl_all": -210047.44829,
+   "roi_month": -0.135000882
+  },
+  {
+   "a": "0x9503dda3bc06ceb8abb5bb31301a3e72d2766385",
+   "eq": 165224.232301,
+   "gold_value": 63077.01966,
+   "gold_net": 63077.01966,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.3817661536782836,
+   "gross_lev": 0.3817661536782836,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     15.3558,
+     63077,
+     3.0
+    ]
+   },
+   "pnl_all": 37181.182301,
+   "roi_month": 0.1481624081
+  },
+  {
+   "a": "0xa38f19c4ccbcfd64cff676d72c436f7e6239dccf",
+   "eq": 3015691.281939,
+   "gold_value": 62311.15053,
+   "gold_net": -62311.15053,
+   "gold_share": 0.012461798348497923,
+   "gold_to_eq": 0.02066231079526674,
+   "gross_lev": 1.6580520898701,
+   "n_pos": 126,
+   "coins": {
+    "xyz:GOLD": [
+     -15.1797,
+     62311,
+     8.0
+    ]
+   },
+   "pnl_all": 981400.251939,
+   "roi_month": 0.0011721163
+  },
+  {
+   "a": "0xbeccae9ffcb69e9d42a1d4e744abf8056149562d",
+   "eq": 1435435.419331,
+   "gold_value": 61248.13512,
+   "gold_net": 38616.72312,
+   "gold_share": 0.009110536313452655,
+   "gold_to_eq": 0.04266868038448247,
+   "gross_lev": 4.683443314031657,
+   "n_pos": 88,
+   "coins": {
+    "PAXG": [
+     -2.766,
+     11316,
+     10.0
+    ],
+    "xyz:GOLD": [
+     12.1644,
+     49932,
+     25.0
+    ]
+   },
+   "pnl_all": 993809.2993310001,
+   "roi_month": -0.0981848522
+  },
+  {
+   "a": "0x0e3512ce7f71f9c47fc5cbaa68fce2720d98fb1d",
+   "eq": 652609.367194,
+   "gold_value": 60671.061,
+   "gold_net": 60671.061,
+   "gold_share": 0.20796531573314636,
+   "gold_to_eq": 0.0929668865478672,
+   "gross_lev": 0.44703072827374235,
+   "n_pos": 14,
+   "coins": {
+    "xyz:GOLD": [
+     14.7708,
+     60671,
+     1.0
+    ]
+   },
+   "pnl_all": -6818.046915,
+   "roi_month": -0.1845938011
+  },
+  {
+   "a": "0x48b1381d9df262129474c527c525a74c30e4593d",
+   "eq": 115094.452295,
+   "gold_value": 57520.4,
+   "gold_net": 57520.4,
+   "gold_share": 0.5214413146901834,
+   "gold_to_eq": 0.49976692058596156,
+   "gross_lev": 0.9584336846858792,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     14.0,
+     57520,
+     20.0
+    ]
+   },
+   "pnl_all": 25602.719859,
+   "roi_month": 0.0361911905
+  },
+  {
+   "a": "0x27a57d5c039da6b3bc7d6361e1f7ef69c8d2b667",
+   "eq": 100051.355873,
+   "gold_value": 53784.99149,
+   "gold_net": 53784.99149,
+   "gold_share": 0.2716975949994921,
+   "gold_to_eq": 0.5375738391618788,
+   "gross_lev": 1.9785741539702764,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     13.0937,
+     53785,
+     10.0
+    ]
+   },
+   "pnl_all": -18755.194127,
+   "roi_month": 0.8497938692
+  },
+  {
+   "a": "0xf8b5bde5f6aa989c01754931e077e1e5a915e2bb",
+   "eq": 220065.078813,
+   "gold_value": 52255.6104,
+   "gold_net": 52255.6104,
+   "gold_share": 0.026756593032947567,
+   "gold_to_eq": 0.23745525951622762,
+   "gross_lev": 8.874644810863238,
+   "n_pos": 33,
+   "coins": {
+    "xyz:GOLD": [
+     12.7344,
+     52256,
+     10.0
+    ]
+   },
+   "pnl_all": 521994.408813,
+   "roi_month": -0.2340455093
+  },
+  {
+   "a": "0x583c42d26dd4cb1636f3081421393d15ddc448f9",
+   "eq": 176990.67843,
+   "gold_value": 51616.97168,
+   "gold_net": -51616.97168,
+   "gold_share": 0.7489633601107593,
+   "gold_to_eq": 0.291636667749226,
+   "gross_lev": 0.38938709592695925,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -12.5656,
+     51617,
+     1.0
+    ]
+   },
+   "pnl_all": 145195.45843,
+   "roi_month": -0.019162594
+  },
+  {
+   "a": "0x5a5ed3083d79f31f295bcdd71fdfb7a188132538",
+   "eq": 175463.382418,
+   "gold_value": 51089.01315,
+   "gold_net": 51089.01315,
+   "gold_share": 0.03474160253490317,
+   "gold_to_eq": 0.29116623905204625,
+   "gross_lev": 8.38090985467714,
+   "n_pos": 17,
+   "coins": {
+    "xyz:GOLD": [
+     12.4495,
+     51089,
+     25.0
+    ]
+   },
+   "pnl_all": 886558.352418,
+   "roi_month": -0.2076964262
+  },
+  {
+   "a": "0xba2ba76ee03d093320b8dae2e9f5fe6d1764751f",
+   "eq": 215582.673327,
+   "gold_value": 50188.01016,
+   "gold_net": 50188.01016,
+   "gold_share": 0.06986520942666004,
+   "gold_to_eq": 0.23280168756360975,
+   "gross_lev": 3.3321547229882684,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     12.2219,
+     50188,
+     25.0
+    ]
+   },
+   "pnl_all": -104874.006673,
+   "roi_month": 0.011205322
+  },
+  {
+   "a": "0x135867523b67e0499ff3872558d47607ec165f05",
+   "eq": 109855.728646,
+   "gold_value": 49646.94175,
+   "gold_net": -49646.94175,
+   "gold_share": 0.6891547255670336,
+   "gold_to_eq": 0.45192856450829894,
+   "gross_lev": 0.6557722783319145,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -12.0869,
+     49647,
+     3.0
+    ]
+   },
+   "pnl_all": 32762.308646,
+   "roi_month": 0.2215865015
+  },
+  {
+   "a": "0x87a73f5f93a59553dfdf03292e627b9196809fa2",
+   "eq": 579032.718662,
+   "gold_value": 48727.6317,
+   "gold_net": -48727.6317,
+   "gold_share": 0.03688989488595832,
+   "gold_to_eq": 0.08415350312603644,
+   "gross_lev": 2.28120745223561,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -11.8602,
+     48728,
+     20.0
+    ]
+   },
+   "pnl_all": 295337.968662,
+   "roi_month": 0.2233422135
+  },
+  {
+   "a": "0x81dd236893b50383256aee3ccd6ded98fdd155b6",
+   "eq": 1310210.652301,
+   "gold_value": 48316.055,
+   "gold_net": -48316.055,
+   "gold_share": 0.10220555750837632,
+   "gold_to_eq": 0.03687655486172933,
+   "gross_lev": 0.36080772671003813,
+   "n_pos": 9,
+   "coins": {
+    "PAXG": [
+     -11.806,
+     48316,
+     3.0
+    ]
+   },
+   "pnl_all": 654811.742301,
+   "roi_month": 0.3484943304
+  },
+  {
+   "a": "0x9ef808ee81ee20a4168eaa9304ccb33c69309ec7",
+   "eq": 158827.985674,
+   "gold_value": 47595.5928,
+   "gold_net": 47595.5928,
+   "gold_share": 0.08270453871788937,
+   "gold_to_eq": 0.2996675466104042,
+   "gross_lev": 3.623350680094957,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     11.592,
+     47596,
+     20.0
+    ]
+   },
+   "pnl_all": -7957.887995,
+   "roi_month": 0.4360038826
+  },
+  {
+   "a": "0xdaf9ff5428ad5ad9d76d0b06b02db75e193a529a",
+   "eq": 601243.378104,
+   "gold_value": 47328.66875,
+   "gold_net": 47328.66875,
+   "gold_share": 0.0675507508454525,
+   "gold_to_eq": 0.07871798754648958,
+   "gross_lev": 1.1653162483210038,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     11.5225,
+     47329,
+     20.0
+    ]
+   },
+   "pnl_all": 307777.328104,
+   "roi_month": 0.0605027835
+  },
+  {
+   "a": "0x500748c14873bae096846bd297e2e53ff07b15c9",
+   "eq": 779009.440393,
+   "gold_value": 47280.94824,
+   "gold_net": 47280.94824,
+   "gold_share": 0.2003628412256557,
+   "gold_to_eq": 0.060693678135848236,
+   "gross_lev": 0.30291883347517956,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     11.5064,
+     47281,
+     1.0
+    ]
+   },
+   "pnl_all": -324321.243,
+   "roi_month": -0.0125403974
+  },
+  {
+   "a": "0x5c25bd70a8cc776deda1ac40bb5be69fb8f428a2",
+   "eq": 991388.437281,
+   "gold_value": 47101.76359,
+   "gold_net": -47101.76359,
+   "gold_share": 0.1134238039204563,
+   "gold_to_eq": 0.047510906743256115,
+   "gross_lev": 0.4188795041345584,
+   "n_pos": 21,
+   "coins": {
+    "xyz:GOLD": [
+     -11.4667,
+     47102,
+     20.0
+    ]
+   },
+   "pnl_all": 86648.597871,
+   "roi_month": 0.3581282968
+  },
+  {
+   "a": "0x4fe260d11bf48ba3a94459771259c910a398ac59",
+   "eq": 2170875.026091,
+   "gold_value": 46704.0387,
+   "gold_net": -46704.0387,
+   "gold_share": 0.010500893217830215,
+   "gold_to_eq": 0.021513923251536927,
+   "gross_lev": 2.0487707859943667,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -11.3829,
+     46704,
+     20.0
+    ]
+   },
+   "pnl_all": -1728027.193909,
+   "roi_month": 0.2682105751
+  },
+  {
+   "a": "0x7c71204c76dbe0ce267befc1f9cd0dcbf57b7628",
+   "eq": 289398.937493,
+   "gold_value": 45844.7451,
+   "gold_net": -45844.7451,
+   "gold_share": 0.031037191569642054,
+   "gold_to_eq": 0.15841366073124888,
+   "gross_lev": 5.103994682501997,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -11.1615,
+     45845,
+     20.0
+    ]
+   },
+   "pnl_all": 42774.93953,
+   "roi_month": 0.2835882274
+  },
+  {
+   "a": "0xc56c3bc08e372ad3a71017c191ca0148184e672b",
+   "eq": 135123.116524,
+   "gold_value": 44358.2496,
+   "gold_net": 44358.2496,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.3282802435371691,
+   "gross_lev": 0.3282802435371691,
+   "n_pos": 1,
+   "coins": {
+    "PAXG": [
+     10.836,
+     44358,
+     2.0
+    ]
+   },
+   "pnl_all": 83108.036524,
+   "roi_month": 0.190589053
+  },
+  {
+   "a": "0xd2944617c67d7fe84b623c72341187ac89d79bd3",
+   "eq": 542126.184951,
+   "gold_value": 43714.04202,
+   "gold_net": 43714.04202,
+   "gold_share": 0.08751349052439669,
+   "gold_to_eq": 0.08063444126749031,
+   "gross_lev": 0.9213944134134534,
+   "n_pos": 17,
+   "coins": {
+    "xyz:GOLD": [
+     10.6469,
+     43714,
+     25.0
+    ]
+   },
+   "pnl_all": -65838.010451,
+   "roi_month": -0.6036169158
+  },
+  {
+   "a": "0x06b0b7df4cbe61fa5344b07826dae297175c06ae",
+   "eq": 122848.146403,
+   "gold_value": 42357.38667,
+   "gold_net": 42357.38667,
+   "gold_share": 0.7018813328752003,
+   "gold_to_eq": 0.34479467464692337,
+   "gross_lev": 0.4912435457351456,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     10.3107,
+     42357,
+     2.0
+    ]
+   },
+   "pnl_all": 67607.676403,
+   "roi_month": 0.0179332796
+  },
+  {
+   "a": "0xa08a7d1abb19ef84e0756e6b77fab94f28bf9aa6",
+   "eq": 545794.409633,
+   "gold_value": 41311.63413,
+   "gold_net": 41311.63413,
+   "gold_share": 0.05947642956687339,
+   "gold_to_eq": 0.07569083413254184,
+   "gross_lev": 1.2726189968655983,
+   "n_pos": 69,
+   "coins": {
+    "xyz:GOLD": [
+     10.0581,
+     41312,
+     20.0
+    ]
+   },
+   "pnl_all": -407342.480367,
+   "roi_month": 0.1386501151
+  },
+  {
+   "a": "0x54d36c49e4292bb0df1d19ca6690f6dfd8e6d782",
+   "eq": 253721.777342,
+   "gold_value": 41087.0,
+   "gold_net": -41087.0,
+   "gold_share": 0.07981907391651877,
+   "gold_to_eq": 0.16193722285264253,
+   "gross_lev": 2.028803579229816,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -10.0,
+     41087,
+     10.0
+    ]
+   },
+   "pnl_all": 138094.587342,
+   "roi_month": -0.1931839429
+  },
+  {
+   "a": "0x2bd0cbb03af55e337aabb179a7bf092218b8367c",
+   "eq": 311236.573033,
+   "gold_value": 41086.0,
+   "gold_net": 41086.0,
+   "gold_share": 0.12454936172203514,
+   "gold_to_eq": 0.13200890756384118,
+   "gross_lev": 1.0598922847830725,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     10.0,
+     41086,
+     25.0
+    ]
+   },
+   "pnl_all": 153264.383033,
+   "roi_month": -0.0176949379
+  },
+  {
+   "a": "0x83d29f306765ce87787578bc10cf9eb98b9d9d32",
+   "eq": 114406.840725,
+   "gold_value": 41085.0,
+   "gold_net": -41085.0,
+   "gold_share": 0.4656906534134632,
+   "gold_to_eq": 0.359113141658689,
+   "gross_lev": 0.7711409688522364,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     -10.0,
+     41085,
+     25.0
+    ]
+   },
+   "pnl_all": 184.3483,
+   "roi_month": 0.0165765789
+  },
+  {
+   "a": "0xb919448d2f1797e5d9e7b9e88cd909a5089e6d4e",
+   "eq": 871946.537179,
+   "gold_value": 41082.0,
+   "gold_net": -41082.0,
+   "gold_share": 0.09598878270066522,
+   "gold_to_eq": 0.04711527398561865,
+   "gross_lev": 0.49084145730386614,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     -10.0,
+     41082,
+     5.0
+    ]
+   },
+   "pnl_all": 1194669.177179,
+   "roi_month": 0.4094669033
+  },
+  {
+   "a": "0x36fbd89b5aa130b53708a98e729ad726daaf1f86",
+   "eq": 408574.617374,
+   "gold_value": 41079.0,
+   "gold_net": -41079.0,
+   "gold_share": 0.0262323820329863,
+   "gold_to_eq": 0.1005422222849375,
+   "gross_lev": 3.8327522890795502,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     -10.0,
+     41079,
+     20.0
+    ]
+   },
+   "pnl_all": 494982.287374,
+   "roi_month": 0.4644891561
+  },
+  {
+   "a": "0x734531e87f8c1643321355f7143fcc6169c4b404",
+   "eq": 389695.654805,
+   "gold_value": 41048.0,
+   "gold_net": 41048.0,
+   "gold_share": 0.03556790232834829,
+   "gold_to_eq": 0.10533348138187486,
+   "gross_lev": 2.961475782560336,
+   "n_pos": 21,
+   "coins": {
+    "xyz:GOLD": [
+     10.0,
+     41048,
+     25.0
+    ]
+   },
+   "pnl_all": -721584.215195,
+   "roi_month": -0.8195093658
+  },
+  {
+   "a": "0x0e21ecedde58a8e077ef669a163044e70a62a3fb",
+   "eq": 276193.47898,
+   "gold_value": 39796.25,
+   "gold_net": 39796.25,
+   "gold_share": 0.016742734387541657,
+   "gold_to_eq": 0.14408830413726664,
+   "gross_lev": 8.606019829382431,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     9.6875,
+     39796,
+     3.0
+    ]
+   },
+   "pnl_all": 51817.64898,
+   "roi_month": 0.2843724316
+  },
+  {
+   "a": "0x81504b5f7e3cbc25c14369f2f0e5c820eeb026e2",
+   "eq": 180118.593884,
+   "gold_value": 31106.68605,
+   "gold_net": 31106.68605,
+   "gold_share": 0.22489613051439425,
+   "gold_to_eq": 0.17270113750739877,
+   "gross_lev": 0.7679151131341728,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     7.5713,
+     31107,
+     1.0
+    ]
+   },
+   "pnl_all": 8415.973884,
+   "roi_month": -0.0668700205
+  },
+  {
+   "a": "0xa91531e2b92265d071d60bbdc369612999b4dc2a",
+   "eq": 289702.748297,
+   "gold_value": 30071.25426,
+   "gold_net": 30071.25426,
+   "gold_share": 0.6890937754702066,
+   "gold_to_eq": 0.10380037620206242,
+   "gross_lev": 0.15063316474050825,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     7.3191,
+     30071,
+     1.0
+    ]
+   },
+   "pnl_all": 21706.068297,
+   "roi_month": -0.150647799
+  },
+  {
+   "a": "0x3a17bde82706aaf297a0d721d5c31e4eb3c48b65",
+   "eq": 115570.978119,
+   "gold_value": 28689.1017,
+   "gold_net": -28689.1017,
+   "gold_share": 0.05301690505554704,
+   "gold_to_eq": 0.24823794145325725,
+   "gross_lev": 4.682241281213466,
+   "n_pos": 65,
+   "coins": {
+    "xyz:GOLD": [
+     -6.9895,
+     28689,
+     20.0
+    ]
+   },
+   "pnl_all": -1357068.101881,
+   "roi_month": 0.0094069866
+  },
+  {
+   "a": "0xac65e5471ad6fa25a6b176397510eccd87af4fcd",
+   "eq": 452470.500946,
+   "gold_value": 28120.412633,
+   "gold_net": 28120.412633,
+   "gold_share": 0.10158633613215756,
+   "gold_to_eq": 0.0621486098523714,
+   "gross_lev": 0.6117811924186329,
+   "n_pos": 5,
+   "coins": {
+    "PAXG": [
+     6.871,
+     28120,
+     5.0
+    ]
+   },
+   "pnl_all": 131156.460946,
+   "roi_month": -0.4252364243
+  },
+  {
+   "a": "0xdcff930785b24a30bac79bb725991d2406e7dc74",
+   "eq": 199173.190206,
+   "gold_value": 27520.25,
+   "gold_net": 27520.25,
+   "gold_share": 0.03532188529478401,
+   "gold_to_eq": 0.13817246172306863,
+   "gross_lev": 3.9118087998398146,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     6.7,
+     27520,
+     3.0
+    ]
+   },
+   "pnl_all": 12331.380206,
+   "roi_month": -0.3458082276
+  },
+  {
+   "a": "0xcd2123d3f00325fa83b2743ed85844f8d4bb9826",
+   "eq": 739321.682811,
+   "gold_value": 25992.80005,
+   "gold_net": 25992.80005,
+   "gold_share": 0.0050930971365157575,
+   "gold_to_eq": 0.035157632535775085,
+   "gross_lev": 6.902996662621439,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     6.3343,
+     25993,
+     25.0
+    ]
+   },
+   "pnl_all": -634084.167189,
+   "roi_month": 0.16517666
+  },
+  {
+   "a": "0x84e303e09239550c35e21f6ebef34190fcafdfb8",
+   "eq": 294602.432864,
+   "gold_value": 25984.006286,
+   "gold_net": -25984.006286,
+   "gold_share": 0.027832729928813194,
+   "gold_to_eq": 0.08820024340394785,
+   "gross_lev": 3.168939720592789,
+   "n_pos": 2,
+   "coins": {
+    "PAXG": [
+     -6.349,
+     25984,
+     10.0
+    ]
+   },
+   "pnl_all": -19030.147136,
+   "roi_month": 0.7850758468
+  },
+  {
+   "a": "0x4adab952d0e5c11ef5296a040cce5d5f1169e56f",
+   "eq": 550249.82302,
+   "gold_value": 25837.2151,
+   "gold_net": 25837.2151,
+   "gold_share": 0.06612316005365719,
+   "gold_to_eq": 0.046955426461011134,
+   "gross_lev": 0.7101207265791298,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     6.313,
+     25837,
+     10.0
+    ]
+   },
+   "pnl_all": 165265.88302,
+   "roi_month": -0.2853064551
+  },
+  {
+   "a": "0xc5fdf8fd90438860dd109bca9846dff03d8ca079",
+   "eq": 245890.647785,
+   "gold_value": 25421.66655,
+   "gold_net": -25421.66655,
+   "gold_share": 0.05924727319673691,
+   "gold_to_eq": 0.1033860652245221,
+   "gross_lev": 1.744992801292603,
+   "n_pos": 20,
+   "coins": {
+    "xyz:GOLD": [
+     -6.1921,
+     25422,
+     20.0
+    ]
+   },
+   "pnl_all": 45893.047785,
+   "roi_month": 0.1612383203
+  },
+  {
+   "a": "0x03ce7863a2b62f4e227fd98605b79beb32618c76",
+   "eq": 259449.533802,
+   "gold_value": 25284.53775,
+   "gold_net": 25284.53775,
+   "gold_share": 0.14348764491785004,
+   "gold_to_eq": 0.09745455071542353,
+   "gross_lev": 0.679184265455179,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     6.1557,
+     25285,
+     6.0
+    ]
+   },
+   "pnl_all": 838521.043802,
+   "roi_month": -0.3131578046
+  },
+  {
+   "a": "0xcf4686447707267ebf47ebf6d66650124ec77c98",
+   "eq": 188660.201272,
+   "gold_value": 25124.756,
+   "gold_net": 25124.756,
+   "gold_share": 0.2914319679793097,
+   "gold_to_eq": 0.13317464855121455,
+   "gross_lev": 0.45696650739657124,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     6.1168,
+     25125,
+     8.0
+    ]
+   },
+   "pnl_all": 143291.571272,
+   "roi_month": -0.3185805611
+  },
+  {
+   "a": "0x123dbca6a27005a3c4ce10cb66ee8ece8fc13bff",
+   "eq": 4539737.366669,
+   "gold_value": 24267.3624,
+   "gold_net": 24267.3624,
+   "gold_share": 0.0011371122859193741,
+   "gold_to_eq": 0.005345543241812248,
+   "gross_lev": 4.700980991943366,
+   "n_pos": 71,
+   "coins": {
+    "xyz:GOLD": [
+     5.9131,
+     24267,
+     20.0
+    ]
+   },
+   "pnl_all": 15748344.946669,
+   "roi_month": 0.1473525182
+  },
+  {
+   "a": "0x797327122c5ed1b1530e452b7f8723ba834b4c6a",
+   "eq": 157817.665202,
+   "gold_value": 24259.32,
+   "gold_net": 24259.32,
+   "gold_share": 0.16187733843962837,
+   "gold_to_eq": 0.15371739259321246,
+   "gross_lev": 0.9495917963250975,
+   "n_pos": 25,
+   "coins": {
+    "PAXG": [
+     5.925,
+     24259,
+     10.0
+    ]
+   },
+   "pnl_all": -70915.274798,
+   "roi_month": 0.0377786554
+  },
+  {
+   "a": "0xfd5332af070f6ea742d0d72db2a261ebc461c973",
+   "eq": 320555.315716,
+   "gold_value": 24209.17356,
+   "gold_net": 24209.17356,
+   "gold_share": 0.10628028606025235,
+   "gold_to_eq": 0.07552260833961157,
+   "gross_lev": 0.7105984669329583,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     5.8916,
+     24209,
+     6.0
+    ]
+   },
+   "pnl_all": 50751.745716,
+   "roi_month": -0.428737091
+  },
+  {
+   "a": "0x010461c14e146ac35fe42271bdc1134ee31c703a",
+   "eq": 3098760.276117,
+   "gold_value": 23333.9232,
+   "gold_net": 23333.9232,
+   "gold_share": 0.007074842904653173,
+   "gold_to_eq": 0.007530083362640532,
+   "gross_lev": 1.0643463698236952,
+   "n_pos": 177,
+   "coins": {
+    "PAXG": [
+     5.704,
+     23334,
+     20.0
+    ]
+   },
+   "pnl_all": 46081011.916117,
+   "roi_month": -0.0292459273
+  },
+  {
+   "a": "0xe5fafd847bf26f85cbd12446a9d17163637225a9",
+   "eq": 141888.727155,
+   "gold_value": 23303.66648,
+   "gold_net": 23303.66648,
+   "gold_share": 0.10175629765911412,
+   "gold_to_eq": 0.16423902692807266,
+   "gross_lev": 1.61404287210092,
+   "n_pos": 13,
+   "coins": {
+    "xyz:GOLD": [
+     5.6722,
+     23304,
+     10.0
+    ]
+   },
+   "pnl_all": -293589.272845,
+   "roi_month": -0.5436175568
+  },
+  {
+   "a": "0x31ca8395cf837de08b24da3f660e77761dfb974b",
+   "eq": 2993812.619603,
+   "gold_value": 23084.3844,
+   "gold_net": -23084.3844,
+   "gold_share": 0.006815353788749624,
+   "gold_to_eq": 0.007710697806819033,
+   "gross_lev": 1.1313716126589628,
+   "n_pos": 177,
+   "coins": {
+    "PAXG": [
+     -5.643,
+     23084,
+     20.0
+    ]
+   },
+   "pnl_all": 36320364.179603,
+   "roi_month": -0.03073921
+  },
+  {
+   "a": "0xb7789ab9f0d568e0aa5469e3cc8eff8682fc8673",
+   "eq": 188540.411693,
+   "gold_value": 22870.9432,
+   "gold_net": 22870.9432,
+   "gold_share": 0.03279191714715377,
+   "gold_to_eq": 0.1213052575552912,
+   "gross_lev": 3.6992426216172025,
+   "n_pos": 17,
+   "coins": {
+    "PAXG": [
+     5.587,
+     22871,
+     5.0
+    ]
+   },
+   "pnl_all": 296833.991693,
+   "roi_month": -0.0407864715
+  },
+  {
+   "a": "0xfd4224606069dd88fec92093a27591008263fda5",
+   "eq": 5335829.42637,
+   "gold_value": 21346.30098,
+   "gold_net": -21346.30098,
+   "gold_share": 0.0027428061497951853,
+   "gold_to_eq": 0.004000559102302869,
+   "gross_lev": 1.4585642892049098,
+   "n_pos": 101,
+   "coins": {
+    "xyz:GOLD": [
+     -5.2002,
+     21346,
+     2.0
+    ]
+   },
+   "pnl_all": -529466.899642,
+   "roi_month": -0.0821363825
+  },
+  {
+   "a": "0x7bd8db0519b14239896fdc9571a07758c7b846a8",
+   "eq": 229625.566338,
+   "gold_value": 21248.97792,
+   "gold_net": 21248.97792,
+   "gold_share": 0.07762410505169937,
+   "gold_to_eq": 0.09253750903643858,
+   "gross_lev": 1.1921233613554263,
+   "n_pos": 77,
+   "coins": {
+    "xyz:GOLD": [
+     5.1712,
+     21249,
+     25.0
+    ]
+   },
+   "pnl_all": 8687.676338,
+   "roi_month": -0.1839755317
+  },
+  {
+   "a": "0x39db08b75325c922f322f475be63a46e1b880824",
+   "eq": 125241.525217,
+   "gold_value": 20695.37537,
+   "gold_net": 20695.37537,
+   "gold_share": 0.6175271842210447,
+   "gold_to_eq": 0.16524371875974933,
+   "gross_lev": 0.2675893838879166,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     5.0377,
+     20695,
+     25.0
+    ]
+   },
+   "pnl_all": 111263.915217,
+   "roi_month": 0.3907939279
+  },
+  {
+   "a": "0x995a826fc3dd9cf4f26948dd187a08129ecc37e4",
+   "eq": 120459.671239,
+   "gold_value": 20542.5,
+   "gold_net": 20542.5,
+   "gold_share": 0.1065506590636814,
+   "gold_to_eq": 0.17053425257356308,
+   "gross_lev": 1.6004992749189948,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     5.0,
+     20542,
+     20.0
+    ]
+   },
+   "pnl_all": 127991.551239,
+   "roi_month": -0.3437780272
+  },
+  {
+   "a": "0x1a5db900797a672e2e52f8d089adddeb646563a4",
+   "eq": 210551.760438,
+   "gold_value": 20530.0,
+   "gold_net": 20530.0,
+   "gold_share": 0.07048963737891568,
+   "gold_to_eq": 0.09750571525639347,
+   "gross_lev": 1.3832631133034972,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     5.0,
+     20530,
+     20.0
+    ]
+   },
+   "pnl_all": 99585.170438,
+   "roi_month": 1.0840513116
+  },
+  {
+   "a": "0x29b7ddbc6fa8cd273a63cb17826225aeb46ed6a4",
+   "eq": 103512.667514,
+   "gold_value": 20529.0,
+   "gold_net": 20529.0,
+   "gold_share": 0.05151633019234871,
+   "gold_to_eq": 0.1983235529817978,
+   "gross_lev": 3.849722063689489,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     5.0,
+     20529,
+     25.0
+    ]
+   },
+   "pnl_all": 128455.257514,
+   "roi_month": -0.2054153213
+  },
+  {
+   "a": "0xf2c57c681d6104244e8a029e4dd555031ec24503",
+   "eq": 1120501.8753,
+   "gold_value": 19912.4454,
+   "gold_net": 19912.4454,
+   "gold_share": 0.008969666124130048,
+   "gold_to_eq": 0.017771005867052832,
+   "gross_lev": 1.981233818641874,
+   "n_pos": 81,
+   "coins": {
+    "xyz:GOLD": [
+     4.847,
+     19912,
+     5.0
+    ]
+   },
+   "pnl_all": 139619.0753,
+   "roi_month": 0.3540547638
+  },
+  {
+   "a": "0x5c180d12a23e4956f1a4b10f1c4598f619832709",
+   "eq": 783735.464945,
+   "gold_value": 19580.06008,
+   "gold_net": 19580.06008,
+   "gold_share": 0.01789178627481978,
+   "gold_to_eq": 0.024982996120220313,
+   "gross_lev": 1.3963388415487854,
+   "n_pos": 37,
+   "coins": {
+    "xyz:GOLD": [
+     4.7719,
+     19580,
+     20.0
+    ]
+   },
+   "pnl_all": -65258.249379,
+   "roi_month": -0.2987371714
+  },
+  {
+   "a": "0x62ff69d604e63403b8373b382d17d4ef94bca8ce",
+   "eq": 266822.601669,
+   "gold_value": 18897.26,
+   "gold_net": -18897.26,
+   "gold_share": 0.09646802988648716,
+   "gold_to_eq": 0.07082331062584614,
+   "gross_lev": 0.7341635431881747,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     -4.6,
+     18897,
+     20.0
+    ]
+   },
+   "pnl_all": -123593.608331,
+   "roi_month": 0.1811916958
+  },
+  {
+   "a": "0x542325afbfce5ca6bdbcb79da7dba7059149f7c4",
+   "eq": 238652.719735,
+   "gold_value": 18613.60144,
+   "gold_net": 18613.60144,
+   "gold_share": 0.0643379290203768,
+   "gold_to_eq": 0.07799450792209091,
+   "gross_lev": 1.2122632653809677,
+   "n_pos": 16,
+   "coins": {
+    "xyz:GOLD": [
+     4.5304,
+     18614,
+     10.0
+    ]
+   },
+   "pnl_all": -2737.140381,
+   "roi_month": 0.0988781881
+  },
+  {
+   "a": "0x06507b2d9898689519846f1b8f0e936c6c2ffa30",
+   "eq": 253534.941082,
+   "gold_value": 17450.5,
+   "gold_net": 17450.5,
+   "gold_share": 0.2355964443858328,
+   "gold_to_eq": 0.06882877730985426,
+   "gross_lev": 0.29214692729884495,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     4.25,
+     17450,
+     25.0
+    ]
+   },
+   "pnl_all": 5034.601082,
+   "roi_month": -0.2760247345
+  },
+  {
+   "a": "0xd00b847831d886330f8cdaaa7c2ab70329c0c262",
+   "eq": 366989.89152,
+   "gold_value": 17393.8608,
+   "gold_net": 17393.8608,
+   "gold_share": 0.0661043992963712,
+   "gold_to_eq": 0.04739602153061504,
+   "gross_lev": 0.7169874022774283,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     4.248,
+     17394,
+     10.0
+    ]
+   },
+   "pnl_all": 11576.86152,
+   "roi_month": -0.0495113874
+  },
+  {
+   "a": "0xf27ebb91ea420f73b59b205ac7e0b77a90ec8f3c",
+   "eq": 3616018.4408320007,
+   "gold_value": 16458.50348,
+   "gold_net": 16458.50348,
+   "gold_share": 0.03617006836800534,
+   "gold_to_eq": 0.0045515540778639126,
+   "gross_lev": 0.12583758569530498,
+   "n_pos": 60,
+   "coins": {
+    "PAXG": [
+     4.023,
+     16458,
+     5.0
+    ],
+    "xyz:GOLD": [
+     0.0001,
+     0,
+     20.0
+    ]
+   },
+   "pnl_all": 1723746.5557660002,
+   "roi_month": 0.079526938
+  },
+  {
+   "a": "0x4e96af192bb26383aa1304bc43cbd97dd212f624",
+   "eq": 114560.75966,
+   "gold_value": 16434.8,
+   "gold_net": 16434.8,
+   "gold_share": 0.30613625315308113,
+   "gold_to_eq": 0.14345924423664913,
+   "gross_lev": 0.4686123997372941,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     4.0,
+     16435,
+     5.0
+    ]
+   },
+   "pnl_all": -3006.50034,
+   "roi_month": -0.3121560652
+  },
+  {
+   "a": "0x7f34674387b1a9864d6f75963a96bbf4f520499d",
+   "eq": 140349.791434,
+   "gold_value": 16125.8625,
+   "gold_net": 16125.8625,
+   "gold_share": 0.016791597974458967,
+   "gold_to_eq": 0.11489765916455418,
+   "gross_lev": 6.842568488080792,
+   "n_pos": 20,
+   "coins": {
+    "xyz:GOLD": [
+     3.925,
+     16126,
+     20.0
+    ]
+   },
+   "pnl_all": -73148.832824,
+   "roi_month": -0.5871556847
+  },
+  {
+   "a": "0xd2ccf2ebc5be12ef15235ed6dd70d3ec84859541",
+   "eq": 660884.046171,
+   "gold_value": 16011.0766,
+   "gold_net": 16011.0766,
+   "gold_share": 0.020592616864467984,
+   "gold_to_eq": 0.024226756104590887,
+   "gross_lev": 1.1764777766731296,
+   "n_pos": 122,
+   "coins": {
+    "xyz:GOLD": [
+     3.902,
+     16011,
+     3.0
+    ]
+   },
+   "pnl_all": 188405.406171,
+   "roi_month": -0.1211659657
+  },
+  {
+   "a": "0x89b7815978abc23590616e9da57ddd78e53b1a77",
+   "eq": 307334.823112,
+   "gold_value": 15634.013449999999,
+   "gold_net": 15634.013449999999,
+   "gold_share": 0.03543590007388273,
+   "gold_to_eq": 0.050869645332389156,
+   "gross_lev": 1.43553981206425,
+   "n_pos": 77,
+   "coins": {
+    "PAXG": [
+     0.231,
+     945,
+     5.0
+    ],
+    "xyz:GOLD": [
+     3.5761,
+     14689,
+     20.0
+    ]
+   },
+   "pnl_all": 226831.213112,
+   "roi_month": 0.3337224176
+  },
+  {
+   "a": "0x47807d3f6ae34ff6aa1fc8fe4e7b742197c1e125",
+   "eq": 252651.580339,
+   "gold_value": 15199.01832,
+   "gold_net": 15199.01832,
+   "gold_share": 0.014810983066338476,
+   "gold_to_eq": 0.06015801800885801,
+   "gross_lev": 4.061716750293341,
+   "n_pos": 87,
+   "coins": {
+    "xyz:GOLD": [
+     3.7013,
+     15199,
+     15.0
+    ]
+   },
+   "pnl_all": 327901.140339,
+   "roi_month": 0.53576826
+  },
+  {
+   "a": "0xa1bee787616cba2c7000a221570a5239f3c4ba6a",
+   "eq": 308359.924286,
+   "gold_value": 14605.0815,
+   "gold_net": 14605.0815,
+   "gold_share": 0.06602502011058405,
+   "gold_to_eq": 0.047363747198400426,
+   "gross_lev": 0.7173605872299893,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     3.567,
+     14605,
+     10.0
+    ]
+   },
+   "pnl_all": 18204.884286,
+   "roi_month": -0.0457066179
+  },
+  {
+   "a": "0xbbbf30bf6e2eb5e2664561eb69f7a6d8dfc02aea",
+   "eq": 123562.564661,
+   "gold_value": 13914.9284,
+   "gold_net": 13914.9284,
+   "gold_share": 0.12339945975642502,
+   "gold_to_eq": 0.11261443494780393,
+   "gross_lev": 0.9126007129211962,
+   "n_pos": 7,
+   "coins": {
+    "PAXG": [
+     3.4,
+     13915,
+     1.0
+    ]
+   },
+   "pnl_all": -5998.575339,
+   "roi_month": -0.0717150169
+  },
+  {
+   "a": "0xcc6c63131b76025e347757641eafd2b9c8ed8130",
+   "eq": 124898.197269,
+   "gold_value": 13845.15025,
+   "gold_net": 13845.15025,
+   "gold_share": 0.7305766520459119,
+   "gold_to_eq": 0.11085148186871707,
+   "gross_lev": 0.15173148711813855,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     3.3707,
+     13845,
+     2.0
+    ]
+   },
+   "pnl_all": 55255.577269,
+   "roi_month": -0.0049714149
+  },
+  {
+   "a": "0x3690b9ad799f9ee1c7fcf3f9725ccfa68e86c363",
+   "eq": 282898.828204,
+   "gold_value": 13183.8556,
+   "gold_net": -13183.8556,
+   "gold_share": 0.16396442611885628,
+   "gold_to_eq": 0.046602722548193254,
+   "gross_lev": 0.2842245946350056,
+   "n_pos": 27,
+   "coins": {
+    "xyz:GOLD": [
+     -3.209,
+     13184,
+     20.0
+    ]
+   },
+   "pnl_all": 32061.68037,
+   "roi_month": 0.3788502378
+  },
+  {
+   "a": "0x3c0814148693a427c34e5f7a788edd960c00c685",
+   "eq": 156418.849214,
+   "gold_value": 12800.65485,
+   "gold_net": 12800.65485,
+   "gold_share": 0.0415730588683507,
+   "gold_to_eq": 0.08183575645980588,
+   "gross_lev": 1.9684805180911742,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     3.1155,
+     12801,
+     12.0
+    ]
+   },
+   "pnl_all": 68713.850105,
+   "roi_month": -0.1567542474
+  },
+  {
+   "a": "0xb0fe38ba13af99c8c296201665db76aa08df7f69",
+   "eq": 107152.42862,
+   "gold_value": 12717.34392,
+   "gold_net": 12717.34392,
+   "gold_share": 0.046216358101755076,
+   "gold_to_eq": 0.11868460737460416,
+   "gross_lev": 2.568021632368672,
+   "n_pos": 14,
+   "coins": {
+    "xyz:GOLD": [
+     3.0956,
+     12717,
+     5.0
+    ]
+   },
+   "pnl_all": -48187.011806,
+   "roi_month": -0.3325483332
+  },
+  {
+   "a": "0x7a87ac0f820afeb0e1cdb846ef1ab068d21bf740",
+   "eq": 347512.789863,
+   "gold_value": 12652.6036,
+   "gold_net": 12652.6036,
+   "gold_share": 0.013391665460305664,
+   "gold_to_eq": 0.03640903002444324,
+   "gross_lev": 2.718782822970266,
+   "n_pos": 106,
+   "coins": {
+    "PAXG": [
+     3.094,
+     12653,
+     3.0
+    ]
+   },
+   "pnl_all": 13765.799863,
+   "roi_month": 0.0412462143
+  },
+  {
+   "a": "0xad4518b0dd47c6601ef2bd8e2c19dfb4baa5b8e1",
+   "eq": 132668.397243,
+   "gold_value": 12593.3145,
+   "gold_net": 12593.3145,
+   "gold_share": 0.7966945952191572,
+   "gold_to_eq": 0.09492324292524354,
+   "gross_lev": 0.11914633724750168,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     3.0675,
+     12593,
+     3.0
+    ]
+   },
+   "pnl_all": 132934.217243,
+   "roi_month": 0.1572309899
+  },
+  {
+   "a": "0xea4fc1ae43d644b35e6874c32c49516ccb21df32",
+   "eq": 347626.766922,
+   "gold_value": 12551.2893,
+   "gold_net": 12551.2893,
+   "gold_share": 0.007851261902408768,
+   "gold_to_eq": 0.03610564690151217,
+   "gross_lev": 4.59870621440293,
+   "n_pos": 102,
+   "coins": {
+    "PAXG": [
+     3.069,
+     12551,
+     10.0
+    ]
+   },
+   "pnl_all": 106782.076922,
+   "roi_month": -0.0478967409
+  },
+  {
+   "a": "0xab575baf87d09e48a2ff2815dfff146a63dc4b31",
+   "eq": 167104.674165,
+   "gold_value": 12460.58142,
+   "gold_net": -12460.58142,
+   "gold_share": 0.11209356636566396,
+   "gold_to_eq": 0.07456752171813195,
+   "gross_lev": 0.6652257050586015,
+   "n_pos": 8,
+   "coins": {
+    "xyz:GOLD": [
+     -3.0331,
+     12461,
+     20.0
+    ]
+   },
+   "pnl_all": 23197.474165,
+   "roi_month": 0.7864066348
+  },
+  {
+   "a": "0x44c9c226cdfae773002b3f86d3966af3cd8f277c",
+   "eq": 848352.503916,
+   "gold_value": 12419.437,
+   "gold_net": 12419.437,
+   "gold_share": 0.009003835392270489,
+   "gold_to_eq": 0.01463947703657596,
+   "gross_lev": 1.625915668021152,
+   "n_pos": 41,
+   "coins": {
+    "xyz:GOLD": [
+     3.0236,
+     12419,
+     20.0
+    ]
+   },
+   "pnl_all": 1075032.423916,
+   "roi_month": 0.1427972786
+  },
+  {
+   "a": "0xc0b2a1ce425d0cd8bc321c445fa6ae0eaed2e688",
+   "eq": 729458.648458,
+   "gold_value": 12316.5,
+   "gold_net": 12316.5,
+   "gold_share": 0.01773280588753755,
+   "gold_to_eq": 0.01688443892746464,
+   "gross_lev": 0.9521583349271794,
+   "n_pos": 36,
+   "coins": {
+    "xyz:GOLD": [
+     3.0,
+     12316,
+     4.0
+    ]
+   },
+   "pnl_all": 833410.470953,
+   "roi_month": 0.1171920374
+  },
+  {
+   "a": "0x9fb470376f12af151c9ce88bf7b4acaa13bad02b",
+   "eq": 587500.238098,
+   "gold_value": 11616.98637,
+   "gold_net": 11616.98637,
+   "gold_share": 0.012982445684059478,
+   "gold_to_eq": 0.01977358580757237,
+   "gross_lev": 1.5231017551532227,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     2.8281,
+     11617,
+     25.0
+    ]
+   },
+   "pnl_all": 256801.038098,
+   "roi_month": 1.0699617426
+  },
+  {
+   "a": "0x2ff2944a3bbf6e79848facaeddb2d986773dfaed",
+   "eq": 297304.216766,
+   "gold_value": 10848.3888,
+   "gold_net": -4931.4288,
+   "gold_share": 0.02193286545404879,
+   "gold_to_eq": 0.03648918578419784,
+   "gross_lev": 1.6636761785935252,
+   "n_pos": 63,
+   "coins": {
+    "PAXG": [
+     -1.927,
+     7890,
+     5.0
+    ],
+    "xyz:GOLD": [
+     0.72,
+     2958,
+     5.0
+    ]
+   },
+   "pnl_all": 386144.136766,
+   "roi_month": 0.3964695488
+  },
+  {
+   "a": "0xe99d7d7f6a3664e19dfb14872d8c81813e15ab33",
+   "eq": 180683.307025,
+   "gold_value": 10406.41965,
+   "gold_net": 10406.41965,
+   "gold_share": 0.38319655093148025,
+   "gold_to_eq": 0.05759480397688388,
+   "gross_lev": 0.1503009456553863,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     2.5329,
+     10406,
+     1.0
+    ]
+   },
+   "pnl_all": 26319.648249,
+   "roi_month": -0.005302408
+  },
+  {
+   "a": "0xf6fa91ca374f17eb1f8593a8c25598b72a4ec8d9",
+   "eq": 120739.740806,
+   "gold_value": 10095.48677,
+   "gold_net": 10095.48677,
+   "gold_share": 0.1970504715210819,
+   "gold_to_eq": 0.08361361969644313,
+   "gross_lev": 0.42432590519072944,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     2.4571,
+     10095,
+     2.0
+    ]
+   },
+   "pnl_all": -3719.539194,
+   "roi_month": -0.0102948778
+  },
+  {
+   "a": "0x49e96e255ba418d08e66c35b588e2f2f3766e1d0",
+   "eq": 30125871.172103997,
+   "gold_value": 10036.236,
+   "gold_net": 10036.236,
+   "gold_share": 0.0017075178827919925,
+   "gold_to_eq": 0.00033314342820709434,
+   "gross_lev": 0.19510391754279355,
+   "n_pos": 23,
+   "coins": {
+    "xyz:GOLD": [
+     2.445,
+     10036,
+     4.0
+    ]
+   },
+   "pnl_all": 18393472.532104,
+   "roi_month": 0.2770225116
+  },
+  {
+   "a": "0x63fea639f62c51888e41434640f7707d638901f5",
+   "eq": 211550.792369,
+   "gold_value": 10021.1991,
+   "gold_net": 10021.1991,
+   "gold_share": 0.06601681704362507,
+   "gold_to_eq": 0.047370179935419025,
+   "gross_lev": 0.717547165355094,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     2.447,
+     10021,
+     10.0
+    ]
+   },
+   "pnl_all": 8526.792369,
+   "roi_month": -0.0448039651
+  },
+  {
+   "a": "0x962f50ab412045eb92bf304f8127eed12f14fb68",
+   "eq": 637558.934948,
+   "gold_value": 9588.36137,
+   "gold_net": 9588.36137,
+   "gold_share": 0.6773243132035432,
+   "gold_to_eq": 0.0150391765284915,
+   "gross_lev": 0.02220380434501259,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     2.3339,
+     9588,
+     3.0
+    ]
+   },
+   "pnl_all": 475175.314948,
+   "roi_month": -0.1432572123
+  },
+  {
+   "a": "0x69a12356398e977b30610ede40c09fd809351e37",
+   "eq": 584780.840282,
+   "gold_value": 9585.54135,
+   "gold_net": 9585.54135,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.01639168161764251,
+   "gross_lev": 0.01639168161764251,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     2.3331,
+     9586,
+     3.0
+    ]
+   },
+   "pnl_all": 292326.830282,
+   "roi_month": -0.0807004892
+  },
+  {
+   "a": "0x3d8395f731ff781c2c3a3a5f0da352ba5a0d0825",
+   "eq": 179580.495034,
+   "gold_value": 9577.79057,
+   "gold_net": 9577.79057,
+   "gold_share": 0.376823337088431,
+   "gold_to_eq": 0.0533342475093781,
+   "gross_lev": 0.14153647680494344,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     2.3311,
+     9578,
+     3.0
+    ]
+   },
+   "pnl_all": 79594.635034,
+   "roi_month": 0.0861653591
+  },
+  {
+   "a": "0x4af98ae1457c2ab4a01f9ab130e69cf0048abaa1",
+   "eq": 200973.919036,
+   "gold_value": 9529.9958,
+   "gold_net": 9529.9958,
+   "gold_share": 0.0660943847895679,
+   "gold_to_eq": 0.04741906733824956,
+   "gross_lev": 0.717444719233305,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     2.327,
+     9530,
+     10.0
+    ]
+   },
+   "pnl_all": 10372.599036,
+   "roi_month": -0.0451764044
+  },
+  {
+   "a": "0x364fe2d628bec3e5308214571b7ba0c2fbbcfc2b",
+   "eq": 131783.638327,
+   "gold_value": 8872.813168,
+   "gold_net": 8872.813168,
+   "gold_share": 0.02508485166649662,
+   "gold_to_eq": 0.06732864019115586,
+   "gross_lev": 2.684035811185607,
+   "n_pos": 18,
+   "coins": {
+    "PAXG": [
+     2.168,
+     8873,
+     10.0
+    ]
+   },
+   "pnl_all": -46440.552064,
+   "roi_month": -0.2145644127
+  },
+  {
+   "a": "0x8a94c69e0801c800420f427b9015f6e8664c47d8",
+   "eq": 182492.921199,
+   "gold_value": 8650.622,
+   "gold_net": 8650.622,
+   "gold_share": 0.06608157113659686,
+   "gold_to_eq": 0.04740250713925994,
+   "gross_lev": 0.7173332341217262,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     2.113,
+     8651,
+     10.0
+    ]
+   },
+   "pnl_all": 11610.121199,
+   "roi_month": -0.0457157216
+  },
+  {
+   "a": "0x14a181a3365344dc423007709346ea2edc4bbae8",
+   "eq": 177164.643219,
+   "gold_value": 8416.8528,
+   "gold_net": 8416.8528,
+   "gold_share": 0.06610146116793512,
+   "gold_to_eq": 0.04750864871833149,
+   "gross_lev": 0.718723124707223,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     2.056,
+     8417,
+     10.0
+    ]
+   },
+   "pnl_all": 1624.353219,
+   "roi_month": -0.0463408751
+  },
+  {
+   "a": "0x4e00afbf7de27fe8868e17c2b1305030264c4510",
+   "eq": 181780.389722,
+   "gold_value": 8217.2,
+   "gold_net": 8217.2,
+   "gold_share": 0.021295742925114252,
+   "gold_to_eq": 0.04520399594569421,
+   "gross_lev": 2.1226775747928825,
+   "n_pos": 16,
+   "coins": {
+    "xyz:GOLD": [
+     2.0,
+     8217,
+     20.0
+    ]
+   },
+   "pnl_all": 31781.389722,
+   "roi_month": -0.3614212079
+  },
+  {
+   "a": "0xf5a7fcfbfdadc6337b394a1f46bd130d90c207bb",
+   "eq": 148230.424455,
+   "gold_value": 8215.0,
+   "gold_net": -8215.0,
+   "gold_share": 0.07026505879000061,
+   "gold_to_eq": 0.055420471405948926,
+   "gross_lev": 0.7887344344446173,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     -2.0,
+     8215,
+     3.0
+    ]
+   },
+   "pnl_all": -11863.097323,
+   "roi_month": -0.1677680265
+  },
+  {
+   "a": "0x92a731a9f93b0136ba2bba33499d27bec04e3484",
+   "eq": 132952.893556,
+   "gold_value": 8128.0222,
+   "gold_net": -8128.0222,
+   "gold_share": 0.08126694092498658,
+   "gold_to_eq": 0.06113460175709875,
+   "gross_lev": 0.7522690169121663,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     -1.987,
+     8128,
+     10.0
+    ]
+   },
+   "pnl_all": 4419.203556,
+   "roi_month": 0.0949682752
+  },
+  {
+   "a": "0x142e6e98664a94473614ef5e0d68579355639b56",
+   "eq": 260884.027221,
+   "gold_value": 7972.454928,
+   "gold_net": -7972.454928,
+   "gold_share": 0.10118915577014632,
+   "gold_to_eq": 0.030559383082684386,
+   "gross_lev": 0.3020025500766187,
+   "n_pos": 10,
+   "coins": {
+    "PAXG": [
+     -1.948,
+     7972,
+     1.0
+    ]
+   },
+   "pnl_all": 29656.987221,
+   "roi_month": -0.0384355089
+  },
+  {
+   "a": "0xdb6c18087cb71164f9b47981d684e68c697b319e",
+   "eq": 167448.089718,
+   "gold_value": 7824.8287,
+   "gold_net": 7824.8287,
+   "gold_share": 0.02817581805742713,
+   "gold_to_eq": 0.046729877379776776,
+   "gross_lev": 1.658510048742269,
+   "n_pos": 51,
+   "coins": {
+    "xyz:GOLD": [
+     1.9045,
+     7825,
+     20.0
+    ]
+   },
+   "pnl_all": 82272.699718,
+   "roi_month": -0.1323493697
+  },
+  {
+   "a": "0xd0bc2d8b1dd8ea9d44f0a565f23cb989ac8c464a",
+   "eq": 156118.142984,
+   "gold_value": 7398.4001,
+   "gold_net": 7398.4001,
+   "gold_share": 0.0661010955617999,
+   "gold_to_eq": 0.04738975213635634,
+   "gross_lev": 0.7169283917851293,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     1.807,
+     7398,
+     10.0
+    ]
+   },
+   "pnl_all": 8034.912984,
+   "roi_month": -0.0433704799
+  },
+  {
+   "a": "0xe76065321bf27cd32409b40d81736bc3b2c6f78c",
+   "eq": 151355.537269,
+   "gold_value": 7165.2,
+   "gold_net": 7165.2,
+   "gold_share": 0.06607792791119091,
+   "gold_to_eq": 0.047340190714433454,
+   "gross_lev": 0.7164297097520813,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     1.75,
+     7165,
+     10.0
+    ]
+   },
+   "pnl_all": 8962.677269,
+   "roi_month": -0.036837747
+  },
+  {
+   "a": "0xe78c669e99b4dd20291bef01f712f8ca17326b50",
+   "eq": 633031.512444,
+   "gold_value": 6939.64188,
+   "gold_net": -6939.64188,
+   "gold_share": 0.004975855307700162,
+   "gold_to_eq": 0.010962553591064557,
+   "gross_lev": 2.2031495920108344,
+   "n_pos": 93,
+   "coins": {
+    "PAXG": [
+     -1.695,
+     6940,
+     10.0
+    ]
+   },
+   "pnl_all": 734.469058,
+   "roi_month": 0.0011615996
+  },
+  {
+   "a": "0xd82cb57a8d039760a2073a96aa1a8d9eded94068",
+   "eq": 282635.328602,
+   "gold_value": 6703.8426,
+   "gold_net": -6703.8426,
+   "gold_share": 0.008137429936163081,
+   "gold_to_eq": 0.02371905392421831,
+   "gross_lev": 2.9148089888688116,
+   "n_pos": 122,
+   "coins": {
+    "PAXG": [
+     -1.638,
+     6704,
+     5.0
+    ]
+   },
+   "pnl_all": 431186.028602,
+   "roi_month": 0.3258900557
+  },
+  {
+   "a": "0x23e43318cb56c1efca72bc8f2c4ba5ce94d73db1",
+   "eq": 250668.876934,
+   "gold_value": 6119.8368,
+   "gold_net": -6119.8368,
+   "gold_share": 0.08162886899023457,
+   "gold_to_eq": 0.02441402728114239,
+   "gross_lev": 0.2990856982725449,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     -1.496,
+     6120,
+     10.0
+    ]
+   },
+   "pnl_all": 10130.414881,
+   "roi_month": 0.0974562397
+  },
+  {
+   "a": "0xd94f219bfc249eefa86543416c2c3fa6063efb38",
+   "eq": 116373.234931,
+   "gold_value": 6108.6672,
+   "gold_net": 6108.6672,
+   "gold_share": 0.17538383162350882,
+   "gold_to_eq": 0.052492028803890776,
+   "gross_lev": 0.2992979929676404,
+   "n_pos": 48,
+   "coins": {
+    "PAXG": [
+     1.494,
+     6109,
+     10.0
+    ]
+   },
+   "pnl_all": 5463.544931,
+   "roi_month": 0.0293370717
+  },
+  {
+   "a": "0xb517d3ad12f8a0380b2897fb9cf23b89381ee147",
+   "eq": 116873.161188,
+   "gold_value": 6006.7782,
+   "gold_net": 6006.7782,
+   "gold_share": 0.023380322566867003,
+   "gold_to_eq": 0.05139570230617454,
+   "gross_lev": 2.198246074628971,
+   "n_pos": 29,
+   "coins": {
+    "PAXG": [
+     1.467,
+     6007,
+     10.0
+    ]
+   },
+   "pnl_all": 6621.723685,
+   "roi_month": 0.1979585961
+  },
+  {
+   "a": "0x2d256db81f58c3742be1f2961022c306fa078877",
+   "eq": 249691.070107,
+   "gold_value": 5815.7233,
+   "gold_net": 5815.7233,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.02329167517888321,
+   "gross_lev": 0.02329167517888321,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     1.4155,
+     5816,
+     3.0
+    ]
+   },
+   "pnl_all": 105907.560107,
+   "roi_month": -0.0802284825
+  },
+  {
+   "a": "0xb6b109f83ebf8fa1d156fd11d1bc11b6ced5ae3b",
+   "eq": 117018.133766,
+   "gold_value": 5547.2345,
+   "gold_net": 5547.2345,
+   "gold_share": 0.06595258834880627,
+   "gold_to_eq": 0.04740491342216027,
+   "gross_lev": 0.7187726002723029,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     1.355,
+     5547,
+     10.0
+    ]
+   },
+   "pnl_all": -2505.726234,
+   "roi_month": -0.0449362215
+  },
+  {
+   "a": "0x19416faf509a8c2e87678d8bf2257929ffdc963c",
+   "eq": 198049.82158,
+   "gold_value": 5545.50552,
+   "gold_net": 5545.50552,
+   "gold_share": 0.03445038740554797,
+   "gold_to_eq": 0.02800055801999274,
+   "gross_lev": 0.8127791914317766,
+   "n_pos": 94,
+   "coins": {
+    "PAXG": [
+     1.355,
+     5546,
+     10.0
+    ]
+   },
+   "pnl_all": 72199.78158,
+   "roi_month": 0.3195076058
+  },
+  {
+   "a": "0x6de62240b8fec4bc7201b828934efafe9253ef7b",
+   "eq": 116873.717535,
+   "gold_value": 5539.0467,
+   "gold_net": 5539.0467,
+   "gold_share": 0.06592270405212493,
+   "gold_to_eq": 0.047393432987542554,
+   "gross_lev": 0.7189242866929226,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     1.353,
+     5539,
+     10.0
+    ]
+   },
+   "pnl_all": 6917.867535,
+   "roi_month": -0.0492856714
+  },
+  {
+   "a": "0x6c8031a9eb4415284f3f89c0420f697c87168263",
+   "eq": 566051.542246,
+   "gold_value": 5463.38894,
+   "gold_net": -5463.38894,
+   "gold_share": 0.14880036158827978,
+   "gold_to_eq": 0.009651751708549658,
+   "gross_lev": 0.06486376515169621,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     -1.3313,
+     5463,
+     20.0
+    ]
+   },
+   "pnl_all": 632842.702246,
+   "roi_month": -0.8825079397
+  },
+  {
+   "a": "0xacf38fc1301382b2d462bf4855abe80552923a7e",
+   "eq": 199478.486998,
+   "gold_value": 5270.8499,
+   "gold_net": 5270.8499,
+   "gold_share": 0.00785190795574668,
+   "gold_to_eq": 0.026423149580299586,
+   "gross_lev": 3.3651884012421367,
+   "n_pos": 107,
+   "coins": {
+    "PAXG": [
+     1.289,
+     5271,
+     10.0
+    ]
+   },
+   "pnl_all": -14074.653002,
+   "roi_month": -0.0553920229
+  },
+  {
+   "a": "0x8a9683697f7e534d86d9e5e433ed725047991954",
+   "eq": 1192942.17561,
+   "gold_value": 5233.17228,
+   "gold_net": -3124.94812,
+   "gold_share": 0.005933887659265152,
+   "gold_to_eq": 0.004386777822926803,
+   "gross_lev": 0.7392755095518707,
+   "n_pos": 12,
+   "coins": {
+    "PAXG": [
+     -1.022,
+     4179,
+     10.0
+    ],
+    "xyz:GOLD": [
+     0.2569,
+     1054,
+     5.0
+    ]
+   },
+   "pnl_all": -597777.53439,
+   "roi_month": 0.9003399663
+  },
+  {
+   "a": "0x9bda7f3510ff9cd5df02e0e9ec5393a85ee3c55b",
+   "eq": 122972.723978,
+   "gold_value": 5194.53452,
+   "gold_net": 5194.53452,
+   "gold_share": 0.036382351229305034,
+   "gold_to_eq": 0.04224135525313166,
+   "gross_lev": 1.1610397301400177,
+   "n_pos": 18,
+   "coins": {
+    "xyz:GOLD": [
+     1.2644,
+     5195,
+     20.0
+    ]
+   },
+   "pnl_all": -23357.796022,
+   "roi_month": 0.1823363378
+  },
+  {
+   "a": "0xf8ca4bdc7db06ad819fe8aed62bf5fc9a13831f6",
+   "eq": 346112.169223,
+   "gold_value": 5191.12152,
+   "gold_net": 5191.12152,
+   "gold_share": 0.09057554017563056,
+   "gold_to_eq": 0.014998379085178485,
+   "gross_lev": 0.16558972826544416,
+   "n_pos": 16,
+   "coins": {
+    "xyz:GOLD": [
+     1.2636,
+     5191,
+     3.0
+    ]
+   },
+   "pnl_all": 515862.629223,
+   "roi_month": -0.5344665139
+  },
+  {
+   "a": "0x8d75f447919cefc428fee32d1c940bb17854cc90",
+   "eq": 333221.398188,
+   "gold_value": 5112.1945,
+   "gold_net": 5112.1945,
+   "gold_share": 0.10986990282728734,
+   "gold_to_eq": 0.015341735338124213,
+   "gross_lev": 0.13963546834332807,
+   "n_pos": 4,
+   "coins": {
+    "xyz:GOLD": [
+     1.2446,
+     5112,
+     3.0
+    ]
+   },
+   "pnl_all": 37352.158188,
+   "roi_month": -0.2189710251
+  },
+  {
+   "a": "0x31dea2516beee92135b96f464eeec3cf292a13f2",
+   "eq": 14144259.633114,
+   "gold_value": 5108.01312,
+   "gold_net": -5108.01312,
+   "gold_share": 0.0017473170136510267,
+   "gold_to_eq": 0.0003611368323613994,
+   "gross_lev": 0.20668077374626048,
+   "n_pos": 18,
+   "coins": {
+    "xyz:GOLD": [
+     -1.2444,
+     5108,
+     20.0
+    ]
+   },
+   "pnl_all": 17168317.963114,
+   "roi_month": 0.031022434
+  },
+  {
+   "a": "0xf5d81a135f756ca16544e53c20fc20643ec3ad53",
+   "eq": 92866364.05969298,
+   "gold_value": 4430.553,
+   "gold_net": 4430.553,
+   "gold_share": 0.0011775737038501191,
+   "gold_to_eq": 4.770890994668546e-05,
+   "gross_lev": 0.040514585024019716,
+   "n_pos": 29,
+   "coins": {
+    "PAXG": [
+     1.083,
+     4431,
+     3.0
+    ]
+   },
+   "pnl_all": 17161677.639693,
+   "roi_month": 0.3435360314
+  },
+  {
+   "a": "0x3dc908374e11623d8eb9f07dfc7a2e5e803a54b0",
+   "eq": 33028933.548665,
+   "gold_value": 4352.32005,
+   "gold_net": -4352.32005,
+   "gold_share": 7.625117357047638e-05,
+   "gold_to_eq": 0.0001317729512394722,
+   "gross_lev": 1.7281432543156718,
+   "n_pos": 13,
+   "coins": {
+    "xyz:GOLD": [
+     -1.0595,
+     4352,
+     10.0
+    ]
+   },
+   "pnl_all": 11022428.298665,
+   "roi_month": 0.3786780654
+  },
+  {
+   "a": "0x47add9a56df66b524d5e2c1993a43cde53b6ed85",
+   "eq": 171601.881864,
+   "gold_value": 4238.22544,
+   "gold_net": 4238.22544,
+   "gold_share": 0.28706356947538514,
+   "gold_to_eq": 0.024698012597314814,
+   "gross_lev": 0.08603673619209488,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     1.0316,
+     4238,
+     2.0
+    ]
+   },
+   "pnl_all": 167834.061864,
+   "roi_month": 0.2210169125
+  },
+  {
+   "a": "0x4757a213e8a5cf0a1e398c08f73fadc4ea938c71",
+   "eq": 141462.059884,
+   "gold_value": 4211.1825,
+   "gold_net": -4211.1825,
+   "gold_share": 0.0718062173480036,
+   "gold_to_eq": 0.029768988967453204,
+   "gross_lev": 0.41457397516401634,
+   "n_pos": 13,
+   "coins": {
+    "PAXG": [
+     -1.029,
+     4211,
+     1.0
+    ]
+   },
+   "pnl_all": 14355.091703,
+   "roi_month": -0.0192924151
+  },
+  {
+   "a": "0xe46eafafb60af2eea3a59768106a9342aec59ec3",
+   "eq": 319608.677497,
+   "gold_value": 4108.2,
+   "gold_net": 4108.2,
+   "gold_share": 0.260047879902721,
+   "gold_to_eq": 0.01285384374471047,
+   "gross_lev": 0.04942875807916162,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     1.0,
+     4108,
+     1.0
+    ]
+   },
+   "pnl_all": 820308.607497,
+   "roi_month": 0.129078294
+  },
+  {
+   "a": "0x5ff1769487dea379f17be2788635e3bdca8abed7",
+   "eq": 121290.903599,
+   "gold_value": 4108.1,
+   "gold_net": 4108.1,
+   "gold_share": 0.19296779165058836,
+   "gold_to_eq": 0.033869811157329614,
+   "gross_lev": 0.17552054085097543,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     1.0,
+     4108,
+     5.0
+    ]
+   },
+   "pnl_all": 181066.833599,
+   "roi_month": -0.3897578344
+  },
+  {
+   "a": "0x060e347b2c9439a8295a980f05ca442f6d16a00c",
+   "eq": 208630.73302,
+   "gold_value": 4107.9,
+   "gold_net": 4107.9,
+   "gold_share": 0.029704931304951034,
+   "gold_to_eq": 0.019689812428575433,
+   "gross_lev": 0.6628465902324325,
+   "n_pos": 11,
+   "coins": {
+    "xyz:GOLD": [
+     1.0,
+     4108,
+     2.0
+    ]
+   },
+   "pnl_all": 3077.57302,
+   "roi_month": -0.1432215624
+  },
+  {
+   "a": "0x3a1191221d6cf7584fa220378b1d911c5a051f95",
+   "eq": 100694.311958,
+   "gold_value": 4090.8,
+   "gold_net": 4090.8,
+   "gold_share": 0.3858375328581575,
+   "gold_to_eq": 0.04062592931471928,
+   "gross_lev": 0.10529283922633384,
+   "n_pos": 10,
+   "coins": {
+    "PAXG": [
+     1.0,
+     4091,
+     5.0
+    ]
+   },
+   "pnl_all": 89108.851958,
+   "roi_month": 0.4679194379
+  },
+  {
+   "a": "0x04dbde5c9d1e6a3239c8ff8ee3fca386a4a3c605",
+   "eq": 846176.7555400002,
+   "gold_value": 3655.3244,
+   "gold_net": 3655.3244,
+   "gold_share": 0.016221843985576398,
+   "gold_to_eq": 0.004319811878627298,
+   "gross_lev": 0.2662959822858761,
+   "n_pos": 26,
+   "coins": {
+    "xyz:GOLD": [
+     0.8905,
+     3655,
+     20.0
+    ]
+   },
+   "pnl_all": 352134.78554,
+   "roi_month": -0.0359098759
+  },
+  {
+   "a": "0xe7b34f28c54f85533896f8827edc92edac28b17f",
+   "eq": 1655520.419114,
+   "gold_value": 2999.35995,
+   "gold_net": -2999.35995,
+   "gold_share": 0.0009768714805045659,
+   "gold_to_eq": 0.0018117323805677944,
+   "gross_lev": 1.8546271610181646,
+   "n_pos": 32,
+   "coins": {
+    "xyz:GOLD": [
+     -0.7305,
+     2999,
+     8.0
+    ]
+   },
+   "pnl_all": -518600.318118,
+   "roi_month": -0.0173272907
+  },
+  {
+   "a": "0x4705a4aac31c2e7988c6e60152fe26c2c7252f71",
+   "eq": 244465.542052,
+   "gold_value": 2985.42894,
+   "gold_net": 2985.42894,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.012212064387237742,
+   "gross_lev": 0.012212064387237742,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     0.7267,
+     2985,
+     15.0
+    ]
+   },
+   "pnl_all": 535.394465,
+   "roi_month": 0.2496851193
+  },
+  {
+   "a": "0x3c82a928c53f737dab4bff29b930d4924ff7b6bf",
+   "eq": 106061.794697,
+   "gold_value": 2946.024,
+   "gold_net": -2946.024,
+   "gold_share": 0.10081139807612916,
+   "gold_to_eq": 0.027776486419226407,
+   "gross_lev": 0.27552922535853136,
+   "n_pos": 10,
+   "coins": {
+    "PAXG": [
+     -0.72,
+     2946,
+     1.0
+    ]
+   },
+   "pnl_all": 3042.994697,
+   "roi_month": 0.0359044028
+  },
+  {
+   "a": "0x487c7898c8c8362cf709fd468090a457a5b7b808",
+   "eq": 265321.718906,
+   "gold_value": 2942.6513,
+   "gold_net": 2942.6513,
+   "gold_share": 0.005365337043401386,
+   "gold_to_eq": 0.01109087982745409,
+   "gross_lev": 2.067135715377717,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     0.719,
+     2943,
+     10.0
+    ]
+   },
+   "pnl_all": -23516.119608,
+   "roi_month": -0.085151141
+  },
+  {
+   "a": "0xbaf3d9f0f53b6f697d074378febbe2bfd99a2755",
+   "eq": 102601.848708,
+   "gold_value": 2938.415,
+   "gold_net": -2938.415,
+   "gold_share": 0.09450532102059436,
+   "gold_to_eq": 0.02863900638245408,
+   "gross_lev": 0.30304120522709127,
+   "n_pos": 11,
+   "coins": {
+    "PAXG": [
+     -0.718,
+     2938,
+     1.0
+    ]
+   },
+   "pnl_all": 6376.988708,
+   "roi_month": 0.03240618
+  },
+  {
+   "a": "0x6901275f6d3476917f85daa65dc95ad5674eef5d",
+   "eq": 197496.194862,
+   "gold_value": 2632.086,
+   "gold_net": 2632.086,
+   "gold_share": 0.6091406999612587,
+   "gold_to_eq": 0.01332727449173977,
+   "gross_lev": 0.021878811402008407,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     0.6408,
+     2632,
+     3.0
+    ]
+   },
+   "pnl_all": 40081.634862,
+   "roi_month": -0.4092142619
+  },
+  {
+   "a": "0x0369dc82fd66127bc23062c99b76b6cf910f3058",
+   "eq": 245507.129563,
+   "gold_value": 2613.40535,
+   "gold_net": 2613.40535,
+   "gold_share": 0.6071908563981997,
+   "gold_to_eq": 0.010644926502345707,
+   "gross_lev": 0.017531434128455807,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     0.6365,
+     2613,
+     20.0
+    ]
+   },
+   "pnl_all": 47483.629563,
+   "roi_month": -0.4143187437
+  },
+  {
+   "a": "0x1e6db0fdf1a0f6edb78753184eb0fe5485c2eef2",
+   "eq": 5499169.27964,
+   "gold_value": 2477.3424,
+   "gold_net": 2477.3424,
+   "gold_share": 0.0016695058130992604,
+   "gold_to_eq": 0.0004504939335423,
+   "gross_lev": 0.2698366965886784,
+   "n_pos": 2,
+   "coins": {
+    "xyz:GOLD": [
+     0.6032,
+     2477,
+     20.0
+    ]
+   },
+   "pnl_all": 9378828.38964,
+   "roi_month": -0.5784464191
+  },
+  {
+   "a": "0x602cf9367f9f413a9dfd325d6ec1bea1b370e549",
+   "eq": 771190.549655,
+   "gold_value": 2273.06706,
+   "gold_net": 2273.06706,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.002947477845802026,
+   "gross_lev": 0.002947477845802026,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     0.5533,
+     2273,
+     8.0
+    ]
+   },
+   "pnl_all": 582144.559655,
+   "roi_month": -0.2023446991
+  },
+  {
+   "a": "0xb966968d6c58a04cae205cdd18c3800c46caa87a",
+   "eq": 160576.662501,
+   "gold_value": 2258.6736,
+   "gold_net": 2258.6736,
+   "gold_share": 0.9560356854744242,
+   "gold_to_eq": 0.014066014107037091,
+   "gross_lev": 0.014712854677654586,
+   "n_pos": 2,
+   "coins": {
+    "PAXG": [
+     0.552,
+     2259,
+     5.0
+    ]
+   },
+   "pnl_all": 30273.822501,
+   "roi_month": -0.3084836793
+  },
+  {
+   "a": "0x3263c3702ab7c2d6d8a3256f625061bd02a2dd24",
+   "eq": 100404.272794,
+   "gold_value": 1929.57457,
+   "gold_net": 1929.57457,
+   "gold_share": 1.0,
+   "gold_to_eq": 0.019218052342841213,
+   "gross_lev": 0.019218052342841213,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     0.4697,
+     1930,
+     20.0
+    ]
+   },
+   "pnl_all": 204.472794,
+   "roi_month": -0.2551491951
+  },
+  {
+   "a": "0x856c35038594767646266bc7fd68dc26480e910d",
+   "eq": 75491590.559057,
+   "gold_value": 1797.59092,
+   "gold_net": 1797.59092,
+   "gold_share": 0.00027225353080182293,
+   "gold_to_eq": 2.3811803496095985e-05,
+   "gross_lev": 0.08746187212326338,
+   "n_pos": 34,
+   "coins": {
+    "PAXG": [
+     0.439,
+     1796,
+     5.0
+    ],
+    "xyz:GOLD": [
+     0.0004,
+     2,
+     3.0
+    ]
+   },
+   "pnl_all": 47786613.319056995,
+   "roi_month": 0.012234828
+  },
+  {
+   "a": "0x927cfdbafe2f5a1ac03105d17f502299f201dbf4",
+   "eq": 228229.903709,
+   "gold_value": 1760.00304,
+   "gold_net": -1760.00304,
+   "gold_share": 0.0022974526827547236,
+   "gold_to_eq": 0.0077115356550474514,
+   "gross_lev": 3.356559076464225,
+   "n_pos": 26,
+   "coins": {
+    "xyz:GOLD": [
+     -0.4286,
+     1760,
+     20.0
+    ]
+   },
+   "pnl_all": 6178.233709,
+   "roi_month": 0.0417781238
+  },
+  {
+   "a": "0x14ecb3f4932522b8d508fa6e237e2746a4999feb",
+   "eq": 648813.634181,
+   "gold_value": 1756.4118,
+   "gold_net": -1756.4118,
+   "gold_share": 0.006624202425667716,
+   "gold_to_eq": 0.002707112963520142,
+   "gross_lev": 0.40867002388551954,
+   "n_pos": 168,
+   "coins": {
+    "PAXG": [
+     -0.429,
+     1756,
+     10.0
+    ]
+   },
+   "pnl_all": 21321.914181,
+   "roi_month": 0.0035715938
+  },
+  {
+   "a": "0x35f13dc71426d4a429cf8bad69c4b39abbbf9896",
+   "eq": 1293262.989381,
+   "gold_value": 1607.06835,
+   "gold_net": -1607.06835,
+   "gold_share": 0.006957765037736157,
+   "gold_to_eq": 0.0012426462082311643,
+   "gross_lev": 0.1785984725686401,
+   "n_pos": 27,
+   "coins": {
+    "xyz:GOLD": [
+     -0.3915,
+     1607,
+     2.0
+    ]
+   },
+   "pnl_all": 1981445.5893809998,
+   "roi_month": -0.0710054498
+  },
+  {
+   "a": "0x7019197d2b2ae7b44eee12a76015eb1fe94abd36",
+   "eq": 1774514.902597,
+   "gold_value": 1382.758,
+   "gold_net": 1382.758,
+   "gold_share": 0.001871801812706454,
+   "gold_to_eq": 0.0007792315510995911,
+   "gross_lev": 0.4163002438665735,
+   "n_pos": 128,
+   "coins": {
+    "PAXG": [
+     0.338,
+     1383,
+     10.0
+    ]
+   },
+   "pnl_all": 401151.022597,
+   "roi_month": 0.165797703
+  },
+  {
+   "a": "0xac11f0e7b4e21b4871a6d34e0532da67e84a52b7",
+   "eq": 161385.887832,
+   "gold_value": 1232.58,
+   "gold_net": 1232.58,
+   "gold_share": 0.01664645497279653,
+   "gold_to_eq": 0.007637470763757826,
+   "gross_lev": 0.4588046389600011,
+   "n_pos": 10,
+   "coins": {
+    "xyz:GOLD": [
+     0.3,
+     1233,
+     25.0
+    ]
+   },
+   "pnl_all": 4213.817832,
+   "roi_month": -0.5107115869
+  },
+  {
+   "a": "0x5ad96a3986b9d2cfab1d39c68002edd17263f5ef",
+   "eq": 2434610.508134,
+   "gold_value": 1222.911495,
+   "gold_net": -1222.911495,
+   "gold_share": 0.0004060630887906078,
+   "gold_to_eq": 0.000502302726006591,
+   "gross_lev": 1.2370066126980839,
+   "n_pos": 26,
+   "coins": {
+    "PAXG": [
+     -0.299,
+     1223,
+     2.0
+    ]
+   },
+   "pnl_all": -786234.026212,
+   "roi_month": -0.0023854126
+  },
+  {
+   "a": "0xdf52df044f1b150dfa79590909cdac6ad83d59fc",
+   "eq": 815872.606985,
+   "gold_value": 1158.036,
+   "gold_net": -1158.036,
+   "gold_share": 0.0007734733854655219,
+   "gold_to_eq": 0.0014193833572614246,
+   "gross_lev": 1.835077177745626,
+   "n_pos": 50,
+   "coins": {
+    "PAXG": [
+     -0.283,
+     1158,
+     5.0
+    ]
+   },
+   "pnl_all": 705821.746985,
+   "roi_month": 0.8112446754
+  },
+  {
+   "a": "0x1c7b489fca51589198a647997e14d0dc796cf4e9",
+   "eq": 100948.136307,
+   "gold_value": 1142.3376,
+   "gold_net": 1142.3376,
+   "gold_share": 0.020020520029145044,
+   "gold_to_eq": 0.011316084098134931,
+   "gross_lev": 0.5652242839677213,
+   "n_pos": 67,
+   "coins": {
+    "PAXG": [
+     0.279,
+     1142,
+     10.0
+    ]
+   },
+   "pnl_all": 938.536307,
+   "roi_month": 0.0093844622
+  },
+  {
+   "a": "0x37749f66f360d9de7b8b1f7928d839aa52ab2f91",
+   "eq": 175421.600966,
+   "gold_value": 1026.575,
+   "gold_net": -1026.575,
+   "gold_share": 0.047636548498649955,
+   "gold_to_eq": 0.0058520444138402865,
+   "gross_lev": 0.12284778386087598,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -0.25,
+     1027,
+     20.0
+    ]
+   },
+   "pnl_all": 161552.470966,
+   "roi_month": 0.2440505269
+  },
+  {
+   "a": "0xf8bb001a9e55d81fd6a5834f8e64865ef4e231c9",
+   "eq": 840829.3163579999,
+   "gold_value": 845.321,
+   "gold_net": 845.321,
+   "gold_share": 0.0025651462883210505,
+   "gold_to_eq": 0.0010053419684050214,
+   "gross_lev": 0.39192383412294257,
+   "n_pos": 9,
+   "coins": {
+    "xyz:GOLD": [
+     0.206,
+     845,
+     20.0
+    ]
+   },
+   "pnl_all": 547220.7063579999,
+   "roi_month": 0.8396809821
+  },
+  {
+   "a": "0x56a0ebedb2532af102d06b174595000a34bf6c84",
+   "eq": 110092.084212,
+   "gold_value": 839.32772,
+   "gold_net": 839.32772,
+   "gold_share": 0.46174827569314164,
+   "gold_to_eq": 0.007623869835943333,
+   "gross_lev": 0.016510878843021024,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     0.2044,
+     839,
+     20.0
+    ]
+   },
+   "pnl_all": -8.267817,
+   "roi_month": -0.05993732
+  },
+  {
+   "a": "0x34705cb69ac83cd65d4710259151665ab0ce6fa6",
+   "eq": 386080.22988,
+   "gold_value": 708.81261,
+   "gold_net": -708.81261,
+   "gold_share": 0.0004289883176499969,
+   "gold_to_eq": 0.0018359205034153404,
+   "gross_lev": 4.279651514690504,
+   "n_pos": 74,
+   "coins": {
+    "xyz:GOLD": [
+     -0.1727,
+     709,
+     20.0
+    ]
+   },
+   "pnl_all": -56479.88012,
+   "roi_month": -0.0467807847
+  },
+  {
+   "a": "0x3e9b19ba0f26ed8ddedb3a5fb310aab0dd790dab",
+   "eq": 423003.841224,
+   "gold_value": 662.8878,
+   "gold_net": 662.8878,
+   "gold_share": 0.0020934285735455314,
+   "gold_to_eq": 0.0015670964076398787,
+   "gross_lev": 0.7485788755552183,
+   "n_pos": 63,
+   "coins": {
+    "PAXG": [
+     0.162,
+     663,
+     10.0
+    ]
+   },
+   "pnl_all": 57133.841224,
+   "roi_month": -0.1251925622
+  },
+  {
+   "a": "0x1f364b47ca9735ed3cd45c430f5320fdaaf78027",
+   "eq": 138871.166447,
+   "gold_value": 573.37908,
+   "gold_net": -573.37908,
+   "gold_share": 0.005162716304476837,
+   "gold_to_eq": 0.004128856224584456,
+   "gross_lev": 0.7997449367892109,
+   "n_pos": 62,
+   "coins": {
+    "xyz:GOLD": [
+     -0.1396,
+     573,
+     20.0
+    ]
+   },
+   "pnl_all": 59521.066447,
+   "roi_month": 0.3936827068
+  },
+  {
+   "a": "0x60aad6bd1414cabcc310165ac68b457e01332d03",
+   "eq": 207870.925847,
+   "gold_value": 548.85552,
+   "gold_net": 548.85552,
+   "gold_share": 0.008957022963135655,
+   "gold_to_eq": 0.0026403669381064674,
+   "gross_lev": 0.2947817538230508,
+   "n_pos": 79,
+   "coins": {
+    "xyz:GOLD": [
+     0.1336,
+     549,
+     1.0
+    ]
+   },
+   "pnl_all": -2117.625466,
+   "roi_month": -0.0324964955
+  },
+  {
+   "a": "0xffaa3ad18855933eb0c8515432c1ea0f1f97def4",
+   "eq": 201614.877394,
+   "gold_value": 532.025,
+   "gold_net": -532.025,
+   "gold_share": 0.004168331501585149,
+   "gold_to_eq": 0.002638818161024425,
+   "gross_lev": 0.6330634115882877,
+   "n_pos": 29,
+   "coins": {
+    "PAXG": [
+     -0.13,
+     532,
+     3.0
+    ]
+   },
+   "pnl_all": 31429.487594,
+   "roi_month": 0.3971546348
+  },
+  {
+   "a": "0xebe3c4e12791eeed4afcce9ab45aa4c0457560df",
+   "eq": 143163.530393,
+   "gold_value": 410.4,
+   "gold_net": 410.4,
+   "gold_share": 0.004477480363752115,
+   "gold_to_eq": 0.002866651855213446,
+   "gross_lev": 0.6402377279911062,
+   "n_pos": 7,
+   "coins": {
+    "xyz:GOLD": [
+     0.1,
+     410,
+     10.0
+    ]
+   },
+   "pnl_all": 113077.471183,
+   "roi_month": 0.9453333571
+  },
+  {
+   "a": "0x558afca8d68f6a7335837b06ce218a234978225b",
+   "eq": 658102.632513,
+   "gold_value": 408.97,
+   "gold_net": 408.97,
+   "gold_share": 0.000193006210987346,
+   "gold_to_eq": 0.0006214380247019013,
+   "gross_lev": 3.219782521623848,
+   "n_pos": 10,
+   "coins": {
+    "PAXG": [
+     0.1,
+     409,
+     10.0
+    ]
+   },
+   "pnl_all": 75999.734544,
+   "roi_month": -0.0059130296
+  },
+  {
+   "a": "0x65aee08c9235025355ac6c5ad020fb167ecef4fe",
+   "eq": 328357.954147,
+   "gold_value": 372.6359,
+   "gold_net": 372.6359,
+   "gold_share": 0.000862954499246404,
+   "gold_to_eq": 0.0011348465761032776,
+   "gross_lev": 1.3150711620303388,
+   "n_pos": 46,
+   "coins": {
+    "PAXG": [
+     0.091,
+     373,
+     10.0
+    ]
+   },
+   "pnl_all": 249134.854147,
+   "roi_month": 0.0102025295
+  },
+  {
+   "a": "0xc6fb2e547a8aea00d493d46309c9ec6bdd05c55d",
+   "eq": 317423.159861,
+   "gold_value": 372.428966,
+   "gold_net": -372.428966,
+   "gold_share": 0.0008037200149931759,
+   "gold_to_eq": 0.00117328857214794,
+   "gross_lev": 1.459822513139606,
+   "n_pos": 94,
+   "coins": {
+    "PAXG": [
+     -0.091,
+     372,
+     3.0
+    ]
+   },
+   "pnl_all": 80970.995462,
+   "roi_month": 0.4589047393
+  },
+  {
+   "a": "0xbee0000c04ee2efe66234bec57f7eaf38818fbca",
+   "eq": 842541.335347,
+   "gold_value": 359.92,
+   "gold_net": -359.92,
+   "gold_share": 0.0005219099042665372,
+   "gold_to_eq": 0.00042718378897311577,
+   "gross_lev": 0.8185010199671451,
+   "n_pos": 13,
+   "coins": {
+    "PAXG": [
+     -0.088,
+     360,
+     5.0
+    ]
+   },
+   "pnl_all": -379146.644653,
+   "roi_month": 0.6811253507
+  },
+  {
+   "a": "0x5122c3b4de32d93efae914382c08d02fb8348353",
+   "eq": 107822.269019,
+   "gold_value": 340.7897,
+   "gold_net": 340.7897,
+   "gold_share": 0.06063947658589792,
+   "gold_to_eq": 0.003160661550722397,
+   "gross_lev": 0.05212217731208828,
+   "n_pos": 36,
+   "coins": {
+    "xyz:GOLD": [
+     0.083,
+     341,
+     10.0
+    ]
+   },
+   "pnl_all": 32856.799019,
+   "roi_month": -0.0329692383
+  },
+  {
+   "a": "0xf1e79e5cf063073deec9a0d86c178f7cde84d479",
+   "eq": 6790731.860777999,
+   "gold_value": 299.6577,
+   "gold_net": 299.6577,
+   "gold_share": 4.575410482162003e-05,
+   "gold_to_eq": 4.412745284948843e-05,
+   "gross_lev": 0.9644479554681843,
+   "n_pos": 199,
+   "coins": {
+    "xyz:GOLD": [
+     0.073,
+     300,
+     2.0
+    ]
+   },
+   "pnl_all": 2277715.9979009996,
+   "roi_month": -0.1225222846
+  },
+  {
+   "a": "0xd9003796cc1781b1a6dfbccae25a7efc60727a6b",
+   "eq": 215061.686876,
+   "gold_value": 237.3128,
+   "gold_net": 237.3128,
+   "gold_share": 0.0012737300011153249,
+   "gold_to_eq": 0.0011034638640067468,
+   "gross_lev": 0.8663247807938207,
+   "n_pos": 178,
+   "coins": {
+    "PAXG": [
+     0.058,
+     237,
+     10.0
+    ]
+   },
+   "pnl_all": 22690.276876,
+   "roi_month": 0.2501626731
+  },
+  {
+   "a": "0x3e81f06babe9dc953db3901d513df90998b29960",
+   "eq": 123200.703001,
+   "gold_value": 178.30456,
+   "gold_net": 178.30456,
+   "gold_share": 0.7613237933604016,
+   "gold_to_eq": 0.0014472690143541855,
+   "gross_lev": 0.001900990126639935,
+   "n_pos": 3,
+   "coins": {
+    "xyz:GOLD": [
+     0.0434,
+     178,
+     4.0
+    ]
+   },
+   "pnl_all": -672.186999,
+   "roi_month": 0.0018593194
+  },
+  {
+   "a": "0x47472cd62c99b8b5ce7e84e733515133e9aec0bd",
+   "eq": 10792835.84418,
+   "gold_value": 166.97232,
+   "gold_net": 127.56528,
+   "gold_share": 0.00047469927524751497,
+   "gold_to_eq": 1.5470662429285375e-05,
+   "gross_lev": 0.032590448808287625,
+   "n_pos": 108,
+   "coins": {
+    "PAXG": [
+     0.036,
+     147,
+     10.0
+    ],
+    "xyz:GOLD": [
+     -0.0048,
+     20,
+     25.0
+    ]
+   },
+   "pnl_all": 1252151.15418,
+   "roi_month": -0.0325426171
+  },
+  {
+   "a": "0x404ca2035b37bf2e83505134ebcf8d03babb5f03",
+   "eq": 1242737.989868,
+   "gold_value": 147.3984,
+   "gold_net": 147.3984,
+   "gold_share": 1.956953084928111e-05,
+   "gold_to_eq": 0.00011860778474765726,
+   "gross_lev": 6.060839458091268,
+   "n_pos": 19,
+   "coins": {
+    "PAXG": [
+     0.036,
+     147,
+     10.0
+    ]
+   },
+   "pnl_all": 4416137.339868,
+   "roi_month": 1.083117835
+  },
+  {
+   "a": "0x8231fdf9997c003a267374b45fb25c0455aa1dcb",
+   "eq": 1065483.793413,
+   "gold_value": 130.9432,
+   "gold_net": 130.9432,
+   "gold_share": 0.00014597219596856268,
+   "gold_to_eq": 0.0001228955342254034,
+   "gross_lev": 0.8419105666662082,
+   "n_pos": 60,
+   "coins": {
+    "PAXG": [
+     0.032,
+     131,
+     10.0
+    ]
+   },
+   "pnl_all": -152975.536587,
+   "roi_month": -0.0173161086
+  },
+  {
+   "a": "0x43fa26c444767ea3b82ad2f998bc995305823a32",
+   "eq": 188496.978322,
+   "gold_value": 123.255,
+   "gold_net": 123.255,
+   "gold_share": 0.0005863793102218762,
+   "gold_to_eq": 0.0006538831608719457,
+   "gross_lev": 1.115119768848132,
+   "n_pos": 71,
+   "coins": {
+    "xyz:GOLD": [
+     0.03,
+     123,
+     20.0
+    ]
+   },
+   "pnl_all": 195307.478322,
+   "roi_month": 0.250722907
+  },
+  {
+   "a": "0x9114a5161f18739ced233190861ea275c8b3a99b",
+   "eq": 323126.498584,
+   "gold_value": 122.75925,
+   "gold_net": 122.75925,
+   "gold_share": 0.0005764216290201616,
+   "gold_to_eq": 0.00037991081058951745,
+   "gross_lev": 0.6590849327345925,
+   "n_pos": 129,
+   "coins": {
+    "PAXG": [
+     0.03,
+     123,
+     1.0
+    ]
+   },
+   "pnl_all": 11955.468584,
+   "roi_month": -0.0296739735
+  },
+  {
+   "a": "0xa0486eca4f156a5222cbab832af9cbacb2de2ffe",
+   "eq": 133000.912091,
+   "gold_value": 118.64895,
+   "gold_net": -118.64895,
+   "gold_share": 0.0008369274418930693,
+   "gold_to_eq": 0.0008920912506135273,
+   "gross_lev": 1.0659122953307416,
+   "n_pos": 35,
+   "coins": {
+    "xyz:GOLD": [
+     -0.0289,
+     119,
+     20.0
+    ]
+   },
+   "pnl_all": -21263.657909,
+   "roi_month": -0.2925357888
+  },
+  {
+   "a": "0x4b1c09fa8322548360a76a3747e32a60a864bc38",
+   "eq": 1185206.8738570001,
+   "gold_value": 94.069678,
+   "gold_net": 94.069678,
+   "gold_share": 2.095392976783185e-05,
+   "gold_to_eq": 7.93698383589951e-05,
+   "gross_lev": 3.787825922793845,
+   "n_pos": 23,
+   "coins": {
+    "PAXG": [
+     0.023,
+     94,
+     10.0
+    ]
+   },
+   "pnl_all": 1300749.6638570002,
+   "roi_month": 0.4915966368
+  },
+  {
+   "a": "0xefdd53bb178c0720648a863ad7b0f00de60e4fb6",
+   "eq": 341077.876746,
+   "gold_value": 92.76622,
+   "gold_net": 92.76622,
+   "gold_share": 0.002014913785835729,
+   "gold_to_eq": 0.00027197958684691475,
+   "gross_lev": 0.1349832378729323,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     0.0226,
+     93,
+     2.0
+    ]
+   },
+   "pnl_all": -8943.123254,
+   "roi_month": -0.0390610686
+  },
+  {
+   "a": "0x36c0f5a16f941597c6bf7461823807136acd5f77",
+   "eq": 117448.404201,
+   "gold_value": 88.668,
+   "gold_net": 88.668,
+   "gold_share": 0.010198311074665605,
+   "gold_to_eq": 0.000754952786316743,
+   "gross_lev": 0.07402723654823377,
+   "n_pos": 5,
+   "coins": {
+    "xyz:GOLD": [
+     0.0216,
+     89,
+     2.0
+    ]
+   },
+   "pnl_all": -38229.138422,
+   "roi_month": -0.4166318992
+  },
+  {
+   "a": "0x6eda7d8b0b46e85fcc16297c5df51bb59b852791",
+   "eq": 130180.575991,
+   "gold_value": 82.17,
+   "gold_net": -82.17,
+   "gold_share": 0.001976439028371317,
+   "gold_to_eq": 0.0006312001569702749,
+   "gross_lev": 0.3193623217865794,
+   "n_pos": 6,
+   "coins": {
+    "xyz:GOLD": [
+     -0.02,
+     82,
+     1.0
+    ]
+   },
+   "pnl_all": 52509.145991,
+   "roi_month": 0.0267983934
+  },
+  {
+   "a": "0x020cec5a3507478f6386169bdda790f3ede3d549",
+   "eq": 217201.656275,
+   "gold_value": 43.52784,
+   "gold_net": -43.52784,
+   "gold_share": 0.0010266046541025143,
+   "gold_to_eq": 0.00020040289170212037,
+   "gross_lev": 0.19520941279709864,
+   "n_pos": 15,
+   "coins": {
+    "xyz:GOLD": [
+     -0.0106,
+     44,
+     20.0
+    ]
+   },
+   "pnl_all": 7291.656275,
+   "roi_month": -0.0023852112
+  },
+  {
+   "a": "0x2f291db61827241044adc1e181b2d9fe41b1faf9",
+   "eq": 750688.824072,
+   "gold_value": 41.059,
+   "gold_net": -41.059,
+   "gold_share": 1.4995909720171643e-05,
+   "gold_to_eq": 5.4695099598368273e-05,
+   "gross_lev": 3.647334547819766,
+   "n_pos": 20,
+   "coins": {
+    "xyz:GOLD": [
+     -0.01,
+     41,
+     20.0
+    ]
+   },
+   "pnl_all": -189322.025928,
+   "roi_month": 0.9089347803
+  },
+  {
+   "a": "0x30372cab9f2f7e4a3bfab04f41b6ee2e14e8c9e1",
+   "eq": 886878.445856,
+   "gold_value": 41.059,
+   "gold_net": -41.059,
+   "gold_share": 3.357790678002798e-05,
+   "gold_to_eq": 4.6296085096949844e-05,
+   "gross_lev": 1.378766264384491,
+   "n_pos": 37,
+   "coins": {
+    "xyz:GOLD": [
+     -0.01,
+     41,
+     20.0
+    ]
+   },
+   "pnl_all": 876561.135856,
+   "roi_month": -0.1222208965
+  },
+  {
+   "a": "0x7570206ce9891ba4106be650e07ffb94df7ca8ec",
+   "eq": 657951.1187120001,
+   "gold_value": 22.529249999999998,
+   "gold_net": -22.529249999999998,
+   "gold_share": 8.211318158139963e-05,
+   "gold_to_eq": 3.4241525486122856e-05,
+   "gross_lev": 0.4170040038234164,
+   "n_pos": 165,
+   "coins": {
+    "PAXG": [
+     -0.003,
+     12,
+     3.0
+    ],
+    "xyz:GOLD": [
+     -0.0025,
+     10,
+     3.0
+    ]
+   },
+   "pnl_all": 278550.718712,
+   "roi_month": 0.2077157017
+  },
+  {
+   "a": "0x6abc111bd22bb38e649f81be60dfbeb35648aac6",
+   "eq": 159706.57809,
+   "gold_value": 10.67482,
+   "gold_net": 10.67482,
+   "gold_share": 1.295733014704088e-05,
+   "gold_to_eq": 6.68402023740336e-05,
+   "gross_lev": 5.158485707744213,
+   "n_pos": 18,
+   "coins": {
+    "xyz:GOLD": [
+     0.0026,
+     11,
+     25.0
+    ]
+   },
+   "pnl_all": 378689.52809,
+   "roi_month": -0.1950306122
+  },
+  {
+   "a": "0x369daedbefcb30b82154338c8fd613a70c60d251",
+   "eq": 1605045.384085,
+   "gold_value": 8.1832,
+   "gold_net": -8.1832,
+   "gold_share": 1.523220140017108e-05,
+   "gold_to_eq": 5.098422811679594e-06,
+   "gross_lev": 0.3347134585301853,
+   "n_pos": 106,
+   "coins": {
+    "PAXG": [
+     -0.002,
+     8,
+     5.0
+    ]
+   },
+   "pnl_all": 5396972.815594,
+   "roi_month": 0.8889289417
+  },
+  {
+   "a": "0x8cc94dc843e1ea7a19805e0cca43001123512b6a",
+   "eq": 8781769.530018,
+   "gold_value": 4.0897,
+   "gold_net": -4.0897,
+   "gold_share": 1.6392351088978575e-07,
+   "gold_to_eq": 4.657034081822023e-07,
+   "gross_lev": 2.8409799525055246,
+   "n_pos": 125,
+   "coins": {
+    "PAXG": [
+     -0.001,
+     4,
+     5.0
+    ]
+   },
+   "pnl_all": 19981122.360018,
+   "roi_month": 0.6623448676
+  },
+  {
+   "a": "0x503a11224611c29e928cf1f89e190fcc8f3d550f",
+   "eq": 329714.01442,
+   "gold_value": 0.4109,
+   "gold_net": 0.4109,
+   "gold_share": 1.0,
+   "gold_to_eq": 1.2462315280192571e-06,
+   "gross_lev": 1.2462315280192571e-06,
+   "n_pos": 1,
+   "coins": {
+    "xyz:GOLD": [
+     0.0001,
+     0,
+     20.0
+    ]
+   },
+   "pnl_all": 1193085.8344199997,
+   "roi_month": 0.0440397098
+  },
+  {
+   "a": "0x31f28ff1130fdd38d6180fa326c146fe63ecc52b",
+   "eq": 141206.320653,
+   "gold_value": 0.41083,
+   "gold_net": -0.41083,
+   "gold_share": 4.872391092271757e-06,
+   "gold_to_eq": 2.909430669251502e-06,
+   "gross_lev": 0.597125849332217,
+   "n_pos": 14,
+   "coins": {
+    "xyz:GOLD": [
+     -0.0001,
+     0,
+     10.0
+    ]
+   },
+   "pnl_all": 451514.010653,
+   "roi_month": -0.0437630055
+  },
+  {
+   "a": "0x2669f508f456efae73c86d99d373f885c7b32b39",
+   "eq": 956156.342339,
+   "gold_value": 0.4106,
+   "gold_net": 0.4106,
+   "gold_share": 9.490318789623335e-08,
+   "gold_to_eq": 4.2942768020088504e-07,
+   "gross_lev": 4.524902584625703,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     0.0001,
+     0,
+     10.0
+    ]
+   },
+   "pnl_all": -4276135.057661,
+   "roi_month": -0.6307675096
+  },
+  {
+   "a": "0x9c68cd0568eb47bad36ecd8090e6c1d1396a7783",
+   "eq": 1200731.5540749999,
+   "gold_value": 0.41037,
+   "gold_net": 0.41037,
+   "gold_share": 5.335130365028537e-05,
+   "gold_to_eq": 3.4176664934581003e-07,
+   "gross_lev": 0.006405966226918655,
+   "n_pos": 23,
+   "coins": {
+    "xyz:GOLD": [
+     0.0001,
+     0,
+     25.0
+    ]
+   },
+   "pnl_all": 4388496.264075001,
+   "roi_month": 0.3043090364
+  },
+  {
+   "a": "0x3440f23a87f1950e7a88cd248fd270e92d1132c5",
+   "eq": 2295098.374354,
+   "gold_value": 0.41037,
+   "gold_net": -0.41037,
+   "gold_share": 2.7989260686597525e-08,
+   "gold_to_eq": 1.7880279319857328e-07,
+   "gross_lev": 6.388264241798706,
+   "n_pos": 12,
+   "coins": {
+    "xyz:GOLD": [
+     -0.0001,
+     0,
+     20.0
+    ]
+   },
+   "pnl_all": 2501141.514354,
+   "roi_month": 0.6303472674
+  }
+ ]
+}
