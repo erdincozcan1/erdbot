@@ -859,7 +859,9 @@ def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now
     # 5) Hâlâ boş yer varsa yeni aday aramayı başlat
     disc = rot["discovery"]
     if (free_slots(cfg, state) > 0 and disc["enabled"] and not rs["discovery"]
-            and days_since(rs["last_discovery"]) >= (disc["retry_days"] if rs["last_discovery"] else 0)):
+            and days_since(rs["last_discovery"]) >= (0 if not rs["last_discovery"]
+                                                     # önceki arama yerleri dolduramadıysa ertesi gün yeniden ara
+                                                     else 0.9 if rs.get("discovery_left_empty", True) else disc["retry_days"])):
         rs["discovery"] = {"started": iso(), "queue": None, "found": [], "checked": 0}
         notes.append(f"🔎 {free_slots(cfg, state)} boş yer için Hyperliquid'de yeni aday aranıyor "
                      f"(birkaç çalışma sürebilir)")
@@ -910,12 +912,21 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, d
             m = rot_mod.analyze(fetch_portfolio(a), fetch_fills(a), now_ms)
         except Exception as ex:
             print(f"[uyarı] aday {a[:8]} incelenemedi: {ex}", file=sys.stderr)
+            # Bağlantı hatası adayı kaybettirmesin: en fazla 2 kez sıranın sonuna ekle
+            tries = d.setdefault("retries", {})
+            tries[a] = tries.get(a, 0) + 1
+            if tries[a] <= 2:
+                d["queue"].append(a)
+            else:
+                d.setdefault("rejected", []).append([a, "veri alınamadı"])
             continue
         d["checked"] += 1
         ok, score, desc = rot_mod.candidate_check(m, snap, disc)
         if ok:
             d["found"].append({"a": a, "score": round(score, 4), "desc": desc, "g": rot_mod.risk_group(m, disc)})
             state["metrics"][a] = m
+        else:
+            d.setdefault("rejected", []).append([a, desc[:160]])
     if d["queue"] and not enough():
         return []            # sonraki çalışmada devam
 
@@ -923,11 +934,14 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, d
     notes = []
     found = sorted(d["found"], key=lambda x: -x["score"])
     bench_left = max(disc["extra_to_bench"], 4)     # gözleme en fazla bu kadar yeni aday
+    blocked = []                                     # çekirdek dışı sınırı yüzünden ana kopyaya giremeyenler
     for f in found:
         a = f["a"]
         if a in state["roles"]:
             continue
         wide = rot_mod.risk_group(state["metrics"].get(a) or {}, disc) != "çekirdek"
+        if free_slots(cfg, state) > 0 and wide and n_risky() >= disc["max_wide"]:
+            blocked.append(a)
         if free_slots(cfg, state) > 0 and not (wide and n_risky() >= disc["max_wide"]):
             add_role(state, a, f"{a[:6]} (oto)", "active", "auto", cfg, {})
             state["rotation"]["changes"].append([iso(), "new", a, f"{a[:6]} (oto)"])
@@ -938,9 +952,24 @@ def discovery_step(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int, d
             bench_left -= 1
             add_role(state, a, f"{a[:6]} (oto)", "bench", "auto", cfg, {})
             notes.append(f"👁 Yeni aday {link(a, a[:6] + ' (oto)')} <b>gözleme</b> alındı\n   {e(f['desc'])}")
-    if not found:
-        notes.append(f"🔎 Aday taraması bitti: {d['checked']} hesap incelendi, kriterleri karşılayan çıkmadı. "
-                     f"{disc['retry_days']} gün sonra tekrar aranacak.")
+    left = free_slots(cfg, state)
+    rej = d.get("rejected") or []
+    # Teşhis için son aramanın özeti durum dosyasında saklanır (panel/inceleme için)
+    rs["last_discovery_report"] = {"t": iso(), "source": d.get("source"), "checked": d["checked"],
+                                   "found": [[f["a"], f.get("g"), f["score"]] for f in found],
+                                   "rejected": rej[-30:], "blocked_wide": blocked, "left_empty": left}
+    rs["discovery_left_empty"] = left > 0
+    if left > 0:
+        why = []
+        if blocked:
+            why.append(f"{len(blocked)} uygun aday geniş (yüksek risk) grupta; çekirdek dışı sınırı "
+                       f"({disc['max_wide']}) dolu olduğu için ana kopyaya alınmadı")
+        if rej:
+            why.append(f"{len(rej)} aday güncel verilerle kurallardan geçemedi: "
+                       + "; ".join(f"{x[0][:6]} ({x[1][:60]})" for x in rej[:5]))
+        notes.append(f"🔎 Aday araması bitti: {d['checked']} hesap incelendi, <b>{left} yer boş kaldı</b> (nakitte bekliyor).\n"
+                     + ("\n".join("   • " + e(w_) for w_ in why) if why else "   • Uygun aday çıkmadı.")
+                     + "\n   Yarın tekrar aranacak.")
     rs["discovery"] = None
     rs["last_discovery"] = iso()
     return notes
