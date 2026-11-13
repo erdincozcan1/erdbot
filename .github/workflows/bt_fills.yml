@@ -1,0 +1,39 @@
+name: İşlem kaydı testi
+# Tek seferlik test verisi: aday trader'ların son ~100 günlük işlem kayıtlarını ve fiyatları toplar.
+# Botun çalışmasına ve kurallarına dokunmaz. Sonuç "bt-data" dalına bt_fills.json.gz olarak yazılır.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: bt-collect
+  cancel-in-progress: false
+jobs:
+  fills:
+    runs-on: ubuntu-latest
+    timeout-minutes: 175
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: İşlem kayıtlarını topla (en fazla 150 dk)
+        run: python bt_fills.py bt_fills.json.gz 150
+      # Veri ayrı "bt-data" dalına yazılır (önceki dosyalar korunur)
+      - name: Veriyi ayrı dala kaydet
+        if: always()
+        run: |
+          [ -f bt_fills.json.gz ] || exit 0
+          mkdir -p /tmp/old
+          if git fetch -q origin bt-data; then git archive FETCH_HEAD | tar -x -C /tmp/old; fi
+          mv bt_fills.json.gz /tmp/old/
+          git config user.name "hl-watch-bot"
+          git config user.email "hl-watch-bot@users.noreply.github.com"
+          git checkout -q --orphan bt-data-new
+          git rm -rfq --cached .
+          for f in /tmp/old/*; do cp "$f" .; git add "$(basename "$f")"; done
+          git commit -qm "işlem kaydı verisi $(date -u +%F_%H%M)"
+          git push -f origin bt-data-new:bt-data
