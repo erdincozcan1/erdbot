@@ -44,6 +44,7 @@ import hl_scanner as scan_mod
 HERE = Path(__file__).resolve().parent
 CONFIG_PATH = HERE / "hl_traders.json"
 STATE_PATH = HERE / "hl_state.json"
+PATCH_PATH = HERE / "hl_patch.json"      # tek seferlik elle düzeltmeler (her biri kimliğiyle yalnızca bir kez uygulanır)
 DB_PATH = HERE / "hl_db.json"          # aday veritabanı (GitHub Actions önbelleğinde tutulur)
 API = "https://api.hyperliquid.xyz/info"
 IST = dt.timezone(dt.timedelta(hours=3))
@@ -668,6 +669,73 @@ def add_role(state: dict, a: str, label: str, role: str, source: str, cfg: dict,
     state["rotation"]["dropped"].pop(a, None)
 
 
+def apply_patches(state: dict, cfg: dict, mids: dict, patches: list | None = None) -> list[str]:
+    """hl_patch.json'daki tek seferlik düzeltmeleri uygular (uygulananların kimliği state["patches"] içinde tutulur).
+
+    undo_demote: bir trader'ın ana kopyadan çıkarılmasını geri alır; kopya, hiç çıkarılmamış gibi devam eder.
+      - "carry": çıkarıldığı anda açık olan pozisyonların, kapatılmasaydı üreteceği sonuç (botun kendi kayıtları ve
+        işlem kodlarıyla yeniden hesaplanmış kâr/zarar, komisyon, fonlama, işlem sayısı).
+      - Çıkarıldıktan sonra açılan pozisyonlar gözlem listesindeki gölge kopyadan alınır; "scale", o sırada ana
+        kopyanın özkaynağının gölge kopyaya oranıdır (pozisyon büyüklüğü özkaynakla orantılı).
+      - Çıkarma kaydı ("closed") ve portföye yazılan sonucu geri alınır.
+    Ayar dosyasında trader "copy": true olmadıkça uygulanmaz (yoksa bir sonraki adımda yeniden çıkarılırdı)."""
+    if patches is None:
+        patches = (load_json(PATCH_PATH, {}) or {}).get("patches") or []
+    done = state.setdefault("patches", [])
+    notes = []
+    for p in patches:
+        pid = p.get("id")
+        if not pid or pid in done or p.get("type") != "undo_demote":
+            continue
+        a = str(p.get("address", "")).lower()
+        r = state["roles"].get(a)
+        t = next((x for x in cfg["traders"] if x["address"].lower() == a), None)
+        if r is None or t is None or not t.get("copy", True):
+            print(f"[bilgi] düzeltme {pid} bekliyor: ayar dosyasında trader yok ya da copy: false", file=sys.stderr)
+            continue
+        carry = p.get("carry") or {}
+        scale = float(p.get("scale") or 1.0)
+        if r["role"] == "bench" and a in state["shadow"]:
+            sh = state["shadow"].pop(a)
+        elif r["role"] == "active" and not state["subs"].get(a, {}).get("trades") and not state["subs"].get(a, {}).get("positions"):
+            sh = p.get("shadow_fallback") or new_sub(0.0)      # ayar dosyası önce yüklendiyse: boş açılmış kopyanın yerine
+        else:
+            done.append(pid)
+            notes.append(f"ℹ️ Düzeltme uygulanmadı ({e(pid)}): {link(a, r['label'])} beklenen durumda değil")
+            continue
+        sub = {
+            "capital": float(p.get("capital") or sh.get("capital") or per_slot(cfg, state)),
+            "realized": sh.get("realized", 0.0) * scale + float(carry.get("realized") or 0.0),
+            "fees": sh.get("fees", 0.0) * scale + float(carry.get("fees") or 0.0),
+            "trades": int(sh.get("trades", 0)) + int(carry.get("trades") or 0),
+            "skipped": int(sh.get("skipped", 0)) + int(carry.get("skipped") or 0),
+            "positions": {c: {"sz": x["sz"] * scale, "entry": x["entry"]} for c, x in (sh.get("positions") or {}).items()},
+            "followed": list(sh.get("followed") or []),
+            "funding": sh.get("funding", 0.0) * scale + float(carry.get("funding") or 0.0),
+        }
+        if carry.get("delay"):
+            sub["delay"] = dict(carry["delay"])
+        state["subs"][a] = sub
+        r.update(role="active", since=p.get("since") or r["since"], eq0=p.get("eq0") or r.get("eq0"), cfg_copy=True)
+        # çıkarma kaydını ve portföye yazılan sonucunu geri al
+        undone = 0.0
+        for c in list(state.get("closed") or []):
+            if c.get("a") == a and c.get("to") == p.get("demoted_at"):
+                undone += c.get("pnl", 0.0)
+                state["closed"].remove(c)
+        state["closed_pnl"] = round(state.get("closed_pnl", 0.0) - undone, 6)
+        rs = state["rotation"]
+        rs["changes"] = [c for c in rs["changes"] if not (c[0] == p.get("demoted_at") and c[2] == a)]
+        state["watch_events"].pop(a, None)
+        done.append(pid)
+        se = sub_equity(sub, mids)
+        notes.append(f"↩️ {link(a, r['label'])} <b>ana kopyaya geri alındı</b>; {e((p.get('demoted_at') or '')[:10])} tarihli çıkarma "
+                     f"geri alındı, kopya hiç çıkarılmamış gibi devam ediyor\n"
+                     f"   Kopya: {usd(sub['capital'])} → {usd(se)} ({pct(se / sub['capital'] - 1)}); "
+                     f"çıkarmanın portföye yazılan sonucu ({usd(undone, True)}) silindi")
+    return notes
+
+
 def sync_config(state: dict, cfg: dict, mids: dict) -> list[str]:
     """Ayar dosyasındaki elle yapılan değişiklikleri kadroya uygular."""
     notes = []
@@ -1232,7 +1300,8 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
     mids = fetch_mids(dexes)
     if state["last_report"].get("btc") is None and mids.get("BTC"):
         state["last_report"]["btc"] = mids["BTC"]           # BTC karşılaştırmasının başlangıcı
-    notes = sync_config(state, cfg, mids)
+    notes = apply_patches(state, cfg, mids)      # tek seferlik elle düzeltmeler, ayar eşitlemesinden önce
+    notes += sync_config(state, cfg, mids)
 
     # Fonlama: son çalışmadan bu yana açık kalan sanal pozisyonlara işle (en fazla 24 saat)
     if state.get("last_run") and cfg.get("simulate_funding", True):

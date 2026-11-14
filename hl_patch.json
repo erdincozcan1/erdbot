@@ -1,0 +1,44 @@
+{
+ "patches": [
+  {
+   "id": "flood-geri-al-2026-11-15",
+   "type": "undo_demote",
+   "address": "0xda744273f80b22412417f7cfe0503f3d721f987d",
+   "since": "2026-10-31T22:49+03:00",
+   "eq0": 4778318.82238513,
+   "demoted_at": "2026-11-06T23:40+03:00",
+   "capital": 300.0,
+   "scale": 1.1124,
+   "carry": {
+    "realized": 34.471017,
+    "fees": 0.321199,
+    "funding": 0.436984,
+    "trades": 19,
+    "skipped": 0,
+    "delay": {
+     "cost": -0.02584697272226706,
+     "ntl": 65.94762346572809,
+     "n": 4
+    }
+   },
+   "shadow_fallback": {
+    "capital": 300.0,
+    "realized": 0.0,
+    "fees": 0.4897833455568924,
+    "trades": 5,
+    "skipped": 0,
+    "positions": {
+     "HYPE": {
+      "sz": -7.102904736055869,
+      "entry": 72.58458835278697
+     }
+    },
+    "followed": [
+     "HYPE"
+    ],
+    "funding": -0.14147260869950845
+   },
+   "note": "Flood'un 6 Kasım'daki çıkarılması geri alınır. carry: o gün açık olan SOXL kopyasının, kapatılmasaydı üreteceği sonuç (botun kayıtlı durumlarıyla yeniden hesaplandı). Sonrası gözlem listesindeki gölge kopyadan, scale oranında alınır."
+  }
+ ]
+}

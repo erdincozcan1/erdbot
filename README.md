@@ -238,3 +238,15 @@ net pozisyonu ve zıt yönde açılıp birbirini götüren pozisyonları göster
 - Hyperdash'in kendi büyüklük hesabı farklı olabilir (bot her trader için ayrı alt portföy tutar).
 - Trader ölçümleri Hyperliquid'in herkese açık verisinden hesaplanır; Hyperdash'in
   "copy score" değeri dışarıdan alınamadığı için kullanılmaz.
+
+## Tek seferlik düzeltmeler (`hl_patch.json`)
+
+Elle verilen bir kararı geriye dönük düzeltmek için kullanılır; bot her düzeltmeyi kimliğiyle yalnızca bir kez uygular
+(`hl_state.json` → `patches`). Dosya depoda kalabilir, yeniden uygulanmaz.
+
+- `undo_demote`: bir trader'ın ana kopyadan çıkarılmasını geri alır; kopya hiç çıkarılmamış gibi devam eder.
+  `carry` çıkarıldığı gün açık olan pozisyonların kapatılmasaydı üreteceği sonuçtur (botun kayıtlı durumları ve kendi
+  işlem kodlarıyla yeniden hesaplanır); sonrasında açılan pozisyonlar gözlem listesindeki gölge kopyadan alınır.
+  Ayar dosyasında trader `copy: true` olmadıkça uygulanmaz.
+- 15 Kasım 2026: Flood'un 6 Kasım'daki çıkarılması bu yolla geri alındı; kadro 21 yere, sanal sermaye 6.300 $'a çıktı.
+  Bu, sonucu görüldükten sonra verilmiş bir karardır; değerlendirmelerde ayrı tutulur.
