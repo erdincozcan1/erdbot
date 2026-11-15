@@ -750,10 +750,12 @@ def sync_config(state: dict, cfg: dict, mids: dict) -> list[str]:
             role = "active" if copy and len(state["subs"]) < n_slots(cfg, state) else "bench"
             add_role(state, a, t.get("label") or a[:8], role, "config", cfg, state["snapshots"],
                      pin=bool(t.get("pin")), cfg_copy=copy)
+            state["roles"][a]["watch_only"] = bool(t.get("watch"))
             continue
         r["label"] = t.get("label") or r["label"]
         r["pin"] = bool(t.get("pin"))
         r["source"] = "config"
+        r["watch_only"] = bool(t.get("watch"))       # "watch": true -> yalnızca izlenir, bot kendiliğinden aktife almaz
         if r.get("cfg_copy", True) != copy:
             r["cfg_copy"] = copy
             if not copy and r["role"] == "active":
@@ -811,6 +813,8 @@ def fresh_metrics(state: dict, a: str, now_ms: int, max_h: float = 48):
 def bench_status(state: dict, a: str, mids: dict, snaps: dict, now_ms: int, rot: dict) -> tuple[bool, str]:
     m = fresh_metrics(state, a, now_ms)
     r = state["roles"][a]
+    if r.get("watch_only"):
+        return False, "yalnızca izleme (ayar dosyasında watch: true)"
     snap = snaps.get(a) or {"equity": 0, "positions": {}}
     risk = rot_mod.risk_reasons(m, snap, r.get("eq0"), now_ms, rot) + rot_mod.position_risks(snap, rot["discovery"])
     sh = state["shadow"].get(a)
