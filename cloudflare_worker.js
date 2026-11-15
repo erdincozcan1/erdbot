@@ -302,6 +302,20 @@ function totalCapital(state) {
   return Object.values(state.subs).reduce((s, x) => s + x.capital, 0) + state._free * state._per;
 }
 
+// Haftalık karşılaştırmanın başlangıç değeri. Ayar dosyasında sermaye/yer sayısı değişmiş ama bot henüz
+// çalışmamışsa eklenen sermaye kazanç gibi görünmesin: fark tabana eklenir; eski durum dosyasında (önceki
+// sermaye kayıtlı değilse) rakam hiç gösterilmez.
+function weekBase(state, cfg) {
+  const last = (state.last_report || {}).equity;
+  if (!last) return null;
+  const rs = state.rotation || {};
+  const cap = totalCapital(state);
+  if (rs.cap_total != null) return last + (cap - rs.cap_total);
+  const sig = rs.cap_sig;
+  if (Array.isArray(sig) && (sig[0] !== (cfg.paper_capital_usd || 0) || sig[1] !== state._slots)) return null;
+  return last;
+}
+
 function maxDrawdown(history, current) {
   let peak = 0, mdd = 0;
   for (const v of [...(history || []).map(h => h[1]), current]) {
@@ -377,7 +391,7 @@ function candidatesText(state, limit = 15) {
 
 function weeklyText(state, cfg, mids) {
   const eq = totalEquity(state, mids);
-  const last = (state.last_report || {}).equity || eq;
+  const last = weekBase(state, cfg) || eq;
   let text = summaryText(state, cfg, mids, "Rapor");
   const btcLast = (state.last_report || {}).btc, btcNow = mids.BTC;
   const bench = btcLast && btcNow ? ` · BTC ${pct(btcNow / btcLast - 1)}` : "";
@@ -454,7 +468,7 @@ function panelData(state, cfg, mids, candles) {
     const t = Date.parse(h[0]);
     return [h[0], h[1], h[2] ?? null, h[3] ?? null, h[4] ?? priceAt(candles.ndx, t), h[5] ?? priceAt(candles.gold, t)];
   });
-  const last = (state.last_report || {}).equity || null;
+  const last = weekBase(state, cfg);
   return {
     meta: { started: state.started, last_run: state.last_run || (hist.length ? hist[hist.length - 1][0] : null),
             slots: state._slots, per_slot: state._per, free: state._free, max_leverage: cfg.max_leverage ?? 5,
