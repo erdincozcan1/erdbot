@@ -1,5 +1,5 @@
 {
-  "paper_capital_usd": 6300,
+  "paper_capital_usd": 7500,
   "max_leverage": 10,
   "fee_pct": 0.095,
   "slippage_pct": 0.05,
@@ -13,8 +13,8 @@
   "size_lev_cap": 5,
   "copy_existing": false,
   "rotation": {
-    "slots": 21,
-    "bench_max": 24
+    "slots": 25,
+    "bench_max": 30
   },
   "traders": [
     {
@@ -140,6 +140,52 @@
     {
       "address": "0x15a4f009bb324a3fb9e36137136b201e3fe0dfdb",
       "label": "0x15a4 (balina, yalnızca izleme)",
+      "copy": false,
+      "watch": true
+    },
+    {
+      "address": "0x3f94463f2921e15350550c5664028711d40d5846",
+      "label": "0x3f94 (Flood tarzı)"
+    },
+    {
+      "address": "0x24555b39d91e53c4c7811219ece75b15fd9eabc3",
+      "label": "0x2455 (Flood tarzı)"
+    },
+    {
+      "address": "0x9d6ec56cb5080d7fcbad952ec2291f923bc7b379",
+      "label": "0x9d6e (Flood tarzı, sakin)"
+    },
+    {
+      "address": "0x5cbdb794b3b36df58a7ce6c1a552f117f061103b",
+      "label": "0x5cbd (Flood tarzı, nokta atışı)"
+    },
+    {
+      "address": "0xee11995548560853b96283a5cad964e4f4282b0a",
+      "label": "0xee11 (izleme)",
+      "copy": false,
+      "watch": true
+    },
+    {
+      "address": "0xadcd5c5880c030364ba88b31b08af06157ff073f",
+      "label": "0xadcd (izleme, HYPE)",
+      "copy": false,
+      "watch": true
+    },
+    {
+      "address": "0x05524403df1a47515113200210a2a7f8d84144b0",
+      "label": "0x0552 (izleme)",
+      "copy": false,
+      "watch": true
+    },
+    {
+      "address": "0x5be9286d3c06d92625310e7e8e5f685fdf28a157",
+      "label": "0x5be9 (izleme)",
+      "copy": false,
+      "watch": true
+    },
+    {
+      "address": "0x870f718a84843abc3e22412a9b4dc2924466d448",
+      "label": "0x870f (izleme)",
       "copy": false,
       "watch": true
     }
