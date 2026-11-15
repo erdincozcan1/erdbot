@@ -1163,6 +1163,23 @@ def delay_summary(state: dict) -> dict | None:
     return {"n": sum(d["n"] for _, d in rows), "cost": cost, "bps": cost / ntl * 1e4 if ntl else 0.0, "worst": per[:3]}
 
 
+def adjust_week_base(state: dict, cfg: dict, mids: dict, first_run: bool = False) -> None:
+    """Sermaye eklendi ya da çıkarıldıysa (yer sayısı / sanal sermaye değişti) haftalık karşılaştırma tabanını yalnızca
+    o fark kadar kaydırır: eklenen sermaye kazanç sayılmaz, haftanın o ana kadarki kazancı da silinmez."""
+    rs = state["rotation"]
+    sig = [cfg["paper_capital_usd"], n_slots(cfg, state)]
+    cap_now = round(total_capital(state, cfg), 2)
+    cap_prev = rs.get("cap_total")
+    if not first_run:
+        if cap_prev is None:
+            if rs["cap_sig"] != sig:        # eski durum dosyası: önceki sermaye bilinmiyor, tabanı yenile
+                state["last_report"]["equity"] = round(total_equity(state, mids, cfg), 2)
+        elif abs(cap_now - cap_prev) > 0.005 and state["last_report"].get("equity") is not None:
+            state["last_report"]["equity"] = round(state["last_report"]["equity"] + cap_now - cap_prev, 2)
+    rs["cap_sig"] = sig
+    rs["cap_total"] = cap_now
+
+
 def weekly_report(state: dict, cfg: dict, rot: dict, mids: dict, now_ms: int) -> str:
     eq = total_equity(state, mids, cfg)
     last = state["last_report"].get("equity") or total_capital(state, cfg)
@@ -1318,12 +1335,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
             except Exception as ex:
                 print(f"[uyarı] fonlama oranları alınamadı: {ex}", file=sys.stderr)
 
-    # Sermaye ayarı değiştiyse haftalık karşılaştırma tabanını yenile
-    sig = [cfg["paper_capital_usd"], n_slots(cfg, state)]
-    if rs["cap_sig"] != sig:
-        if not first_run:
-            state["last_report"]["equity"] = round(total_equity(state, mids, cfg), 2)
-        rs["cap_sig"] = sig
+    adjust_week_base(state, cfg, mids, first_run)
 
     addrs = list(state["roles"])
     snaps = fetch_accounts(addrs, dexes)
