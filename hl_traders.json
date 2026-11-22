@@ -14,7 +14,7 @@
   "copy_existing": false,
   "rotation": {
     "slots": 25,
-    "bench_max": 30
+    "bench_max": 36
   },
   "traders": [
     {
@@ -53,7 +53,8 @@
     },
     {
       "address": "0xa3bd669bbb7fc764ea941587466ac710bb9e3609",
-      "label": "0xa3bd"
+      "label": "0xa3bd",
+      "copy": false
     },
     {
       "address": "0xb362c372e0c58bccc5fb47d8f59a1cc00895e63d",
@@ -157,7 +158,8 @@
     },
     {
       "address": "0x5cbdb794b3b36df58a7ce6c1a552f117f061103b",
-      "label": "0x5cbd (Flood tarzı, nokta atışı)"
+      "label": "0x5cbd (Flood tarzı, nokta atışı)",
+      "copy": false
     },
     {
       "address": "0xee11995548560853b96283a5cad964e4f4282b0a",
@@ -188,6 +190,16 @@
       "label": "0x870f (izleme)",
       "copy": false,
       "watch": true
+    },
+    {
+      "address": "0x885989fd94d30c150e6eaf897090509bce4f6aa8",
+      "label": "0x8859 (gözlem)",
+      "copy": false
+    },
+    {
+      "address": "0x767f6dcea7e1d520a3b7ac251b30178a79eb2ab0",
+      "label": "0x767f (gözlem)",
+      "copy": false
     }
   ]
 }
