@@ -46,6 +46,8 @@ DEFAULTS = {
     "risk_max_leverage": 10,
     "risk_dd30": 0.25,
     "risk_withdraw": 0.5,          # hesap değeri girişteki değerin yarısının altına inerse
+    "risk_withdraw_loss": -0.25,   # ...ve trader'ın girişten bu yana kendi kâr/zararı bunun altındaysa (büyük zarar);
+                                   # üstündeyse para çekme sayılır: trader çıkarılmaz, başlangıç değeri güncellenir
     "risk_inactive_days": 30,
     "risk_min_hold_h": 1,
     "bench_max": 20,

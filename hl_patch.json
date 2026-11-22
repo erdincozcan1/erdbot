@@ -39,6 +39,18 @@
     "funding": -0.14147260869950845
    },
    "note": "Flood'un 6 Kasım'daki çıkarılması geri alınır. carry: o gün açık olan SOXL kopyasının, kapatılmasaydı üreteceği sonuç (botun kayıtlı durumlarıyla yeniden hesaplandı). Sonrası gözlem listesindeki gölge kopyadan, scale oranında alınır."
+  },
+  {
+   "id": "flood-yeniden-aktif-2026-11-22",
+   "type": "activate",
+   "address": "0xda744273f80b22412417f7cfe0503f3d721f987d",
+   "reason": "21 Kasım'daki çıkarma para çekmeden kaynaklanıyordu, zarar değil (trader girişten bu yana +%8)"
+  },
+  {
+   "id": "ee11-golge-sifirla-2026-11-22",
+   "type": "reset_shadow",
+   "address": "0xee11995548560853b96283a5cad964e4f4282b0a",
+   "reason": "trader hesabı neredeyse boşken açılan PYTH kopyası orantısız büyüktü; +%77 sonucu gerçek değildi"
   }
  ]
 }

@@ -426,14 +426,23 @@ def size_mult(m: dict | None, trader_snap: dict, cfg: dict) -> float:
     return k
 
 
+def equity_floor(state: dict, a: str, cfg: dict) -> float:
+    """Pozisyon büyüklüğünde kullanılacak en düşük trader hesap değeri: listeye girdiği andaki değerin bir oranı.
+    Trader hesabını geçici olarak boşaltınca (para çekme/aktarma) kopyanın orantısız büyümesini önler."""
+    eq0 = (state["roles"].get(a) or {}).get("eq0") or 0.0
+    return float(cfg.get("size_equity_floor", 0.5)) * eq0
+
+
 def plan_target(sub: dict, coin: str, trader_snap: dict, mid: float, cfg: dict, mids: dict,
-                mult: float = 1.0) -> tuple[float, str | None]:
-    """Trader'ın pozisyon/hesap oranını (büyüklük çarpanıyla) alt portföye uygular, kaldıraç sınırını uygular."""
+                mult: float = 1.0, eq_floor: float = 0.0) -> tuple[float, str | None]:
+    """Trader'ın pozisyon/hesap oranını (büyüklük çarpanıyla) alt portföye uygular, kaldıraç sınırını uygular.
+    Trader'ın hesap değeri eq_floor'un altındaysa oran eq_floor'a göre hesaplanır (kopya küçük kalır)."""
     eq_sub = sub_equity(sub, mids)
     p = trader_snap["positions"].get(coin)
-    if not p or trader_snap["equity"] <= 0 or eq_sub <= 0:
+    teq = max(trader_snap.get("equity") or 0.0, eq_floor or 0.0)
+    if not p or teq <= 0 or eq_sub <= 0:
         return 0.0, None
-    target_usd = (p["szi"] * mid / trader_snap["equity"]) * eq_sub * mult
+    target_usd = (p["szi"] * mid / teq) * eq_sub * mult
     note = None
     room = max(0.0, cfg["max_leverage"] * eq_sub - sub_gross(sub, mids, exclude=coin))
     if abs(target_usd) > room:
@@ -669,6 +678,31 @@ def add_role(state: dict, a: str, label: str, role: str, source: str, cfg: dict,
     state["rotation"]["dropped"].pop(a, None)
 
 
+def _apply_simple_patch(state: dict, cfg: dict, p: dict) -> str | None:
+    """activate: gözlemdeki trader'ı sıfırdan ana kopyaya alır (boş yer ve ayarda copy: true gerekir).
+    reset_shadow: gölge kopyayı sıfırlar (hatalı büyüklükle açılmış pozisyonlar silinir; sonuç hiçbir yere yazılmaz).
+    Koşul sağlanmazsa None döner (bekler)."""
+    a = str(p.get("address", "")).lower()
+    r = state["roles"].get(a)
+    t = next((x for x in cfg["traders"] if x["address"].lower() == a), None)
+    if r is None:
+        return ""
+    if p["type"] == "activate":
+        if r["role"] == "active":
+            return ""
+        if t is None or not t.get("copy", True) or free_slots(cfg, state) <= 0:
+            print(f"[bilgi] düzeltme {p['id']} bekliyor: boş yer yok ya da ayarda copy: false", file=sys.stderr)
+            return None
+        return promote(state, a, p.get("reason") or "elle ana kopyaya alındı", "manual_up", cfg, state["snapshots"])
+    if r["role"] == "bench" and a in state["shadow"]:
+        state["shadow"][a] = new_sub(state["shadow"][a].get("capital") or per_slot(cfg, state))
+        r["since"] = iso()
+        r["eq0"] = (state["snapshots"].get(a) or {}).get("equity") or r.get("eq0")
+        return (f"🔄 {link(a, r['label'])} gölge kopyası sıfırlandı"
+                + (f" ({e(p['reason'])})" if p.get("reason") else ""))
+    return ""
+
+
 def apply_patches(state: dict, cfg: dict, mids: dict, patches: list | None = None) -> list[str]:
     """hl_patch.json'daki tek seferlik düzeltmeleri uygular (uygulananların kimliği state["patches"] içinde tutulur).
 
@@ -685,7 +719,16 @@ def apply_patches(state: dict, cfg: dict, mids: dict, patches: list | None = Non
     notes = []
     for p in patches:
         pid = p.get("id")
-        if not pid or pid in done or p.get("type") != "undo_demote":
+        if not pid or pid in done:
+            continue
+        if p.get("type") in ("activate", "reset_shadow"):
+            n = _apply_simple_patch(state, cfg, p)
+            if n is None:
+                continue                      # koşul henüz sağlanmadı, sonraki çalışmada yeniden denenir
+            done.append(pid)
+            notes += [n] if n else []
+            continue
+        if p.get("type") != "undo_demote":
             continue
         a = str(p.get("address", "")).lower()
         r = state["roles"].get(a)
@@ -821,6 +864,27 @@ def bench_status(state: dict, a: str, mids: dict, snaps: dict, now_ms: int, rot:
     return rot_mod.promotion_check(m, sub_return(sh, mids) if sh else None, days_since(r["since"]), risk, rot)
 
 
+def withdrawal_check(state: dict, rot: dict, snaps: dict, now_ms: int) -> list[str]:
+    """Hesap değeri listeye girdiği andakinin risk_withdraw oranının altına inen trader'larda, trader'ın girişten bu
+    yana kendi kâr/zararına bakar. Büyük zarar yoksa (risk_withdraw_loss üstü) bu para çekmedir: trader çıkarılmaz,
+    başlangıç değeri (eq0) güncel hesap değerine çekilir. Ölçüm yoksa ya da eskiyse hiçbir şey yapılmaz."""
+    notes = []
+    for a, r in state["roles"].items():
+        eq0, eq = r.get("eq0"), (snaps.get(a) or {}).get("equity")
+        if not eq0 or eq is None or eq >= rot["risk_withdraw"] * eq0:
+            continue
+        m = fresh_metrics(state, a, now_ms)
+        ts = m.get("trader_ret_since") if m and m.get("since") == r.get("since") else None
+        if ts is None or ts <= rot["risk_withdraw_loss"]:
+            continue
+        r["eq0"] = eq
+        if r["role"] == "active":
+            notes.append(f"ℹ️ {link(a, r['label'])} hesabından para çekti: hesap değeri girişteki {usd(eq0)} → {usd(eq)}; "
+                         f"kendi kâr/zararı girişten bu yana {pct(ts)}. Zarar değil, kopya devam ediyor "
+                         f"(başlangıç değeri güncellendi)")
+    return notes
+
+
 def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now_ms: int) -> list[str]:
     n = now_ist()
     today = n.date().isoformat()
@@ -833,6 +897,10 @@ def daily_review(state: dict, cfg: dict, rot: dict, snaps: dict, mids: dict, now
         return []
     rs["last_daily"] = today
     notes = []
+
+    # 0) Para çekme: hesap değeri yarıya indi ama trader'ın kendi kâr/zararı büyük kayıp göstermiyor → çıkarma,
+    #    başlangıç değerini güncelle (aksi halde aşağıdaki risk kuralı trader'ı yanlışlıkla çıkarır)
+    notes += withdrawal_check(state, rot, snaps, now_ms)
 
     # 1) Risk kontrolü: anında gözleme
     for a in actives(state):
@@ -1243,7 +1311,8 @@ def process_events(state: dict, cfg: dict, a: str, old: dict, new: dict, mids: d
         elif not mid:
             lines.append("   📒 Sanal: fiyat alınamadı, atlandı")
         else:
-            target, note = plan_target(sub, coin, new, mid, cfg, mids, size_mult((state.get("metrics") or {}).get(a), new, cfg))
+            target, note = plan_target(sub, coin, new, mid, cfg, mids, size_mult((state.get("metrics") or {}).get(a), new, cfg),
+                                       equity_floor(state, a, cfg))
             status, info = paper_trade(sub, coin, target, mid, cfg)
             if note:
                 lines.append(f"   ⚠ {e(note)}")
@@ -1298,7 +1367,7 @@ def join_existing(state: dict, cfg: dict, a: str, snap: dict, mids: dict) -> lis
         mid = mids.get(coin)
         if not mid:
             continue
-        target, _ = plan_target(sub, coin, snap, mid, cfg, mids, k)
+        target, _ = plan_target(sub, coin, snap, mid, cfg, mids, k, equity_floor(state, a, cfg))
         # çok küçük pozisyonlara (alt portföyün %1'inden az) katılma; trader büyütürse olay olarak kopyalanır
         if abs(target) * mid < max(cfg.get("min_order_usd") or 0, 0.01 * sub_equity(sub, mids)):
             continue

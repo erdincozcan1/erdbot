@@ -250,3 +250,15 @@ Elle verilen bir kararı geriye dönük düzeltmek için kullanılır; bot her d
   Ayar dosyasında trader `copy: true` olmadıkça uygulanmaz.
 - 15 Kasım 2026: Flood'un 6 Kasım'daki çıkarılması bu yolla geri alındı; kadro 21 yere, sanal sermaye 6.300 $'a çıktı.
   Bu, sonucu görüldükten sonra verilmiş bir karardır; değerlendirmelerde ayrı tutulur.
+
+## Para çekme ve pozisyon büyüklüğü (22 Kasım 2026)
+
+- **Para çekme:** trader'ın hesap değeri listeye girdiği andakinin yarısının altına inerse bot önce trader'ın kendi
+  kâr/zararına bakar (`risk_withdraw_loss`, varsayılan −%25). Büyük zarar yoksa bu para çekmedir: trader çıkarılmaz,
+  başlangıç değeri güncellenir ve Telegram'a bildirilir. Büyük zarar varsa eskisi gibi gözleme alınır.
+- **Büyüklük tabanı:** kopya büyüklüğü hesaplanırken trader'ın hesap değeri, listeye girdiği andakinin en az yarısı
+  (`size_equity_floor`, varsayılan 0,5) kabul edilir. Trader hesabını geçici olarak boşaltıp pozisyon açtığında kopya
+  orantısız büyümez.
+- `hl_patch.json` türleri: `undo_demote` (çıkarmayı geri al), `activate` (gözlemdekini sıfırdan ana kopyaya al; boş yer
+  gerekir), `reset_shadow` (gölge kopyayı sıfırla). 22 Kasım'da Flood bu yolla yeniden aktife alındı; 0xee11'in hatalı
+  büyüklükle açılmış gölge kopyası sıfırlandı.
