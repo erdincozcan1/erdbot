@@ -448,7 +448,21 @@ def plan_target(sub: dict, coin: str, trader_snap: dict, mid: float, cfg: dict, 
     if abs(target_usd) > room:
         note = f"{cfg['max_leverage']:g}x toplam kaldıraç sınırı: {usd(abs(target_usd))} → {usd(room)}"
         target_usd = room if target_usd > 0 else -room
+    if abs(target_usd) < float(cfg.get("dust_usd", 1.0)):
+        return 0.0, note                  # kuruşluk pozisyon açılmaz; varsa tamamen kapatılır
     return target_usd / mid, note
+
+
+def sweep_dust(state: dict, cfg: dict, mids: dict) -> int:
+    """Değeri dust_usd'nin (varsayılan 1 $) altına düşmüş kopya pozisyonlarını sessizce kapatır (ana ve gölge)."""
+    lim, n = float(cfg.get("dust_usd", 1.0)), 0
+    for sub in list(state["subs"].values()) + list(state["shadow"].values()):
+        for coin, p in list(sub["positions"].items()):
+            mid = mids.get(coin)
+            if mid and abs(p["sz"]) * mid < lim:
+                if paper_trade(sub, coin, 0.0, mid, cfg)[0] == "ok":
+                    n += 1
+    return n
 
 
 # --------------------------------------------------------------------------- #
@@ -1448,6 +1462,7 @@ def run(cfg: dict, state: dict, tg: Telegram, db: dict | None = None, deadline: 
                 join_lines.append(f"• {e(label_of(state, a))}: " + ", ".join(joined))
         state["snapshots"][a] = new
     state["snap_ms"] = now_ms
+    sweep_dust(state, cfg, mids)              # 1 $ altına düşmüş kalıntı pozisyonları kapat
     if join_lines:
         tg.send("🔗 <b>Açık pozisyonlara katılım</b> (takipten önce açılmış pozisyonlar, o anki fiyattan)\n"
                 + "\n".join(join_lines[:30]) + ("\n…" if len(join_lines) > 30 else ""))
