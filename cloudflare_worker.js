@@ -996,8 +996,8 @@ footer { color: var(--muted); font-size: 12.5px; padding-block: 0 30px; }
     return '<div class="note" style="margin:0 0 10px">Gölge portföy: bu trader\'lar kopyalansaydı ne olurdu. Ana portföye katılmaz. Geri dönüş için en az 42 gün gözlem, gölge portföy +%5 üstü ve risk işareti olmaması gerekir; son kararı bot her sabah verir.</div>' + traderRows(data.bench, true);
   }
   function positions() {
-    var all = [];
-    data.traders.forEach(function (t) { t.positions.forEach(function (p) { all.push([t, p]); }); });
+    var all = [], hidden = 0;
+    data.traders.forEach(function (t) { t.positions.forEach(function (p) { if (Math.abs(p.value) < 1) hidden++; else all.push([t, p]); }); });
     if (!all.length) return '<div class="empty">Ana portföyde açık sanal pozisyon yok.</div>';
     var sorts = { size: ["Büyüklük (büyükten küçüğe)", function (a, b) { return b[1].value - a[1].value; }],
                   pnl_asc: ["Kâr/zarar $ (küçükten büyüğe)", function (a, b) { return a[1].pnl - b[1].pnl; }],
@@ -1007,7 +1007,8 @@ footer { color: var(--muted); font-size: 12.5px; padding-block: 0 30px; }
     if (!sorts[psort]) psort = "size";
     all.sort(sorts[psort][1]);
     var gross = all.reduce(function (s, x) { return s + x[1].value; }, 0), net = all.reduce(function (s, x) { return s + x[1].pnl; }, 0);
-    return exposure(all) + '<div class="psort"><div class="note" style="margin:0">Toplam ' + all.length + ' pozisyon · büyüklük <span class="num">' + usd(gross) + '</span> · açık kâr/zarar <span class="num ' + cls(net) + '">' + usd(net, true) + '</span></div>' +
+    return exposure(all) + '<div class="psort"><div class="note" style="margin:0">Toplam ' + all.length + ' pozisyon' +
+      (hidden ? ' (' + hidden + ' küçük pozisyon, 1 $ altı, gösterilmiyor)' : '') + ' · büyüklük <span class="num">' + usd(gross) + '</span> · açık kâr/zarar <span class="num ' + cls(net) + '">' + usd(net, true) + '</span></div>' +
       '<label class="muted">Sırala <select id="psort">' + Object.keys(sorts).map(function (k) {
         return '<option value="' + k + '"' + (k === psort ? ' selected' : '') + '>' + sorts[k][0] + '</option>'; }).join("") + '</select></label></div>' +
       '<div class="tbl-wrap"><table><thead><tr><th>Trader</th><th>Varlık</th><th>Yön</th><th class="r">Büyüklük</th><th class="r">Giriş</th><th class="r">Şimdi</th><th class="r">Kâr/zarar</th></tr></thead><tbody>' +
